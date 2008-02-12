@@ -42,10 +42,10 @@ def removeWhiteSpace(infile):
          chars in the buffer
    '''
    value = infile.read(1)
-   while (not not value) & (value.isspace()):
+   while value and value.isspace():
       value = infile.read(1)
 
-   if (not value):
+   if not value:
       return (None, value)
    else:
       return (True, value)
@@ -56,7 +56,7 @@ def isKeyword(infile, value):
       value: string to identify
       return: keyword or identifier
    '''
-   if (value in keywords): #string is a keyword
+   if value in keywords: #string is a keyword
       return (True, value)
    else: #string is an identifier
       return (True, value)
@@ -68,9 +68,9 @@ def tokenizeTrit(infile, value):
       return: string containing a trit/trit vector
    '''
    next = infile.read(1)
-   if (not next):
+   if not next:
       return (True, value)
-   elif (next in trit_char):
+   elif next in trit_char:
       value = value + next
       return tokenizeTrit(infile, value)
    else:
@@ -84,9 +84,9 @@ def tokenizeString(infile, value):
       return: string containing the keyword/identifier
    '''
    next = infile.read(1)
-   if (not next):
+   if not next:
       return isKeyword(infile, value)
-   elif (next.isalnum()):
+   elif next.isalnum():
       value = value + next
       return tokenizeString(infile, value)
    else:
@@ -98,17 +98,23 @@ def nextToken(infile):
       infile: reference to file 
       return: next token in the file: False if no more tokens, else True.
    '''
-   (result, value) = removeWhiteSpace(infile)
+   result, value = removeWhiteSpace(infile)
    
-   if (result == None):   #EOF if no more tokens
+   if result is None:   #EOF if no more tokens
       return (None, value)
-   elif (value in trit_char):
+   elif value in trit_char:
       return tokenizeTrit(infile, value)
-   elif (value.isalnum()):
+   elif value.isalnum():
       return tokenizeString(infile, value)
-   elif (value in symbols):
+   elif value in symbols:
       return (True, value)
    else: #invalid symbol detected
       return (False, value) 
       
-      
+if __name__ == "__main__":
+    f = file("tokenizerTest", "r")
+    while True:
+        token = nextToken(f)
+        print token
+        if token[0] is None and token[1] == "":
+            break
