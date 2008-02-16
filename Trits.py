@@ -1,4 +1,5 @@
 #!env python
+# vim: set fileencoding=utf8
 from tokenizer import parseTritVector
 
 class Trits(object):

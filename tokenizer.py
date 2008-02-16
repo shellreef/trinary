@@ -1,4 +1,4 @@
-#
+# vim: set fileencoding=utf8
 #  tokenizer.py
 #  
 #

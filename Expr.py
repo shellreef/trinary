@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# vim: set fileencoding=utf8
 # Created:20080216
 # By Jeff Connelly
 #
