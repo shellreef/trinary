@@ -9,11 +9,11 @@ from Symbols import *
 from Trits import Trits
 
 unary_functions = {
-        NTI: Trits("1ii"),
-        STI: Trits("10i"),
-        PTI: Trits("11i"),
-        FD: Trits("001"),
-        RD: Trits("i00")
+        u"∇": Trits("1ii"),
+        u"/": Trits("10i"),
+        u"∆": Trits("11i"),
+        u"¬": Trits("001"),
+        u"⌐": Trits("i00")
         }
 
 def evaluate_unary(function, inputs):
@@ -61,7 +61,7 @@ class Expr(object):
         return evaluate_unary(self.total_unary, inputs)
 
 if __name__ == "__main__":
-    s = RD + NTI + "a"
+    s = u"⌐∇a"
     print "Expression:", s.encode('utf8')
     e = Expr(s)
     print "Total unary function is:", e.total_unary

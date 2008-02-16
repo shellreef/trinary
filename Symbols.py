@@ -6,6 +6,11 @@
 # Trinary-related symbols
 # See http://jeff.tk/wiki/Trinary/Symbols
 # Note: to print, .encode('utf8') first
+#
+# MORE IMPORTANT NOTE: This isn't needed most of the time.
+# Instead, just use the Unicode symbols directly. You can
+# do this if the second line of the file is:
+#   # vim: set fileencoding=utf8
 
 # Trinary.cc-based unary
 ROTATE_UP = u"\u2229"
