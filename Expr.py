@@ -9,11 +9,23 @@ from Symbols import *
 from Trits import Trits
 
 unary_functions = {
-        u"∇": Trits("1ii"),
+        # Everyone agrees on
         u"/": Trits("10i"),
-        u"∆": Trits("11i"),
+
+        # Mouftah-based 
+        u"∇": Trits("1ii"), u"└": Trits("1ii"),
+        u"∆": Trits("11i"), u"┘": Trits("11i"),
         u"¬": Trits("001"),
-        u"⌐": Trits("i00")
+        u"⌐": Trits("i00"),
+
+        # Grubb-based
+        u"↘": Trits("ii0"),
+        u"↗": Trits("011"),
+        u"∩": Trits("01i"),
+        u"∪": Trits("10i"),
+
+        # Ternary-logic-minimization-literature-based
+        u"♨": Trits("01i")
         }
 
 def evaluate_unary(function, inputs):
@@ -61,7 +73,7 @@ class Expr(object):
         return evaluate_unary(self.total_unary, inputs)
 
 if __name__ == "__main__":
-    s = u"⌐∇a"
+    s = u"⌐⌐∇⌐∇∇a"
     print "Expression:", s.encode('utf8')
     e = Expr(s)
     print "Total unary function is:", e.total_unary
@@ -69,6 +81,6 @@ if __name__ == "__main__":
 
     ins = Trits("iiiiiiiii00000001111111")
     print "Passing in trit vector as 'a':"
-    print "a:\t", ins
+    print "a:\t\t", ins
     print s.encode('utf8') + ":\t", e.evaluate(ins)
 
