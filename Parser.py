@@ -4,7 +4,7 @@
 #
 #  Created by Antonio on 2/17/08.
 #  Trinary Research Project: Digital logic simulator
-#  Upon testing the first phase of this program, correct output means no output.
+#  Upon testing the first phase of this program, correct input means no output.
 #
 
 from tokenizer import nextToken
