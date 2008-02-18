@@ -3,7 +3,8 @@
 #  
 #
 #  Created by Antonio on 2/10/08.
-#  Copyright (c) 2008 __MyCompanyName__. All rights reserved.
+#  Trinary Research Project: Digital logic simulator
+#  Update (02.17.2008) : Tokenizer will now identify integers.
 #
 
 
@@ -12,8 +13,9 @@ trit_bool = {"i":False, "0":None, "1":True}
 trit_value = (None, True, False)
 
 trit_char = ("i", "1", "0")
-symbols = ("(", ")", ",", ";", ":")
-keywords = ("entity", "is", "port", "in", "out", "trit", "end")
+symbols = ("(", ")", ",", ";", ":", "'", "{", "}", "^")
+keywords = ("entity", "is", "port", "in", "out", "trit", "end", "inout", 
+            "downto" )
 
 def parseTrit(trit):
    '''This function returns the boolean value of a trit.
@@ -56,6 +58,7 @@ def isKeyword(infile, value):
       value: string to identify
       return: keyword or identifier
    '''
+   infile.seek(infile.tell() - 1)
    if value in keywords: #string is a keyword
       return (True, value)
    else: #string is an identifier
@@ -84,14 +87,22 @@ def tokenizeString(infile, value):
       return: string containing the keyword/identifier
    '''
    next = infile.read(1)
-   if not next:
-      return isKeyword(infile, value)
-   elif next.isalnum():
+   if next.isalnum():
       value = value + next
       return tokenizeString(infile, value)
    else:
-      infile.seek(infile.tell() - 1)
       return isKeyword(infile, value)
+      
+def tokenizeNumber(infile, value):
+   '''tokenizeNumber: identify the next integer in the file
+   '''
+   next = infile.read(1)
+   if next.isdigit():
+      value = value + next
+      return tokenizeNumber(infile, value)
+   else:
+      infile.seek(infile.tell() - 1)
+      return (True, str(value))
 
 def nextToken(infile):
    '''nextToken: read the next token from the given file
@@ -101,20 +112,22 @@ def nextToken(infile):
    result, value = removeWhiteSpace(infile)
    
    if result is None:   #EOF if no more tokens
-      return (None, value)
-   elif value in trit_char:
+      return (None, "EOF")
+   elif value == "'":
       return tokenizeTrit(infile, value)
-   elif value.isalnum():
+   elif value.isalpha():
       return tokenizeString(infile, value)
+   elif value.isdigit():
+      return tokenizeNumber(infile, value)
    elif value in symbols:
       return (True, value)
    else: #invalid symbol detected
-      return (False, value) 
+      return (None, value) 
       
 if __name__ == "__main__":
-    f = file("tokenizerTest", "r")
+    f = file("ParserTest", "r")
     while True:
         token = nextToken(f)
         print token
-        if token[0] is None and token[1] == "":
+        if token[0] is None or token[1] == "":
             break

@@ -4,6 +4,7 @@
 #
 #  Created by Antonio on 2/17/08.
 #  Trinary Research Project: Digital logic simulator
+#  Upon testing the first phase of this program, correct output means no output.
 #
 
 from tokenizer import nextToken
@@ -27,19 +28,12 @@ def printError(current, expected):
    print "'\n"
    # raise exception   
    
-def parse_entitytype(current, infile):
-   '''parse the type of the entity
-   '''
-   if current[1] == "port": 
-      return (nextToken(infile), "port")
-   else:
-      printError(current[1], "port")
-   
 def parse_datatype(current, infile):
    '''parse the datatype and return Trit object that identifies the datatype
    '''
    if current[1] == "trit": 
-      return (nextToken(infile), "trit")
+      temp = nextToken(infile)
+      return (temp[0], temp[1], "trit")
    elif current[1] != "trit_vector": 
       printError(current[1], "trit|trit_vector")
    else:
@@ -59,36 +53,55 @@ def parse_datatype(current, infile):
       
    # construct datatype object for trit_vector and return it
    # along with the next token
-   return (valueFive, "trit_vector")
+   return (valueFive[0], valueFive[1], "trit_vector")
 
 def parse_flow(current, infile):
    '''identify the direction of the flow
    '''
+   temp = nextToken(infile)
    if current[1] == "in": 
-      return (nextToken(infile), "in")
+      return (temp[0], temp[1], "in")
    elif current[1] == "out": 
-      return (nextToken(infile), "out")
+      return (temp[0], temp[1], "out")
    elif current[1] == "inout": 
-      return (nextToken(infile), "inout")
+      return (temp[0], temp[1], "inout")
    else: 
       printError(current[1], "in|out|inout")      
 
-def parse_port(current, infile):
+def parse_port(next, infile):
    '''parse the port and return a 'port' object
    '''
-   while True:
-      # put identifier (current[1]) in 'port' object
-      current = nextToken(f)
-      if current[0] is None or not isinstance(current[1], str):
+   while 1:
+      if not isinstance(next[1], str):
+         printError(next[1], "identifier")
+      cont = nextToken(infile)
+      if cont[1] != ",":
          break
+      else:
+         next = nextToken(infile)
          
-   valueOne = compareTokens(current, ":", infile)
-   valueTwo = parse_flow((valueOne[0], valueOne[1]), infile)
-   valueThree = parse_datatype((valueTwo[0], valueTwo[1]), infile)
+   valueOne = compareTokens(cont, ":", infile)
+   valueTwo = parse_flow(valueOne, infile)
+   valueThree = parse_datatype(valueTwo, infile)
 
    if valueThree[1] == ";":
-      parse_port(nextToken(infile), infile)
+      return parse_port(nextToken(infile), infile)
+   
+   return (valueThree[0], valueThree[1], "port",)
       
+def parse_entitytype(current, infile):
+   '''parse the type of the entity
+   '''
+   if current[1] == "port": 
+      value1 = nextToken(infile)
+      value2 = compareTokens(value1, "(", infile)
+      value3 = parse_port(value2, infile)
+      value4 = compareTokens(value3, ")", infile)
+   else:
+      printError(current[1], "entity type")      
+      
+   return (value4[0], value4[1], "port");
+
 def parse_entity(current, infile):
    value1 = compareTokens(current, "entity", infile)
    
@@ -98,23 +111,21 @@ def parse_entity(current, infile):
    
    value3 = compareTokens(value2, "is", infile)
    value4 = parse_entitytype(value3, infile)
-   value5 = compareTokens(value4, "(", infile)
-   value6 = parse_port(value5, infile)
-   value7 = compareTokens(value6, ")", infile)
-   value8 = compareTokens(value7, "end", infile)
+   value5 = compareTokens(value4, ";", infile)
+   value6 = compareTokens(value5, "end", infile)
    
-   if not isinstance(value8[1], str):
-      printError(value8[1], "identifier")
-   value9 = nextToken(infile)
+   if not isinstance(value6[1], str):
+      printError(value6[1], "identifier")
+   value7 = nextToken(infile)
    
-   value9 = compareTokens(value8, ";", infile)
+   value8 = compareTokens(value7, ";", infile)
    
    # create entity object and return it
-   return (value9, "entity")
+   return (value8[0], value8[1], "entity")
    
 def parse_program(current, infile):
    while current[1] == "entity":
-      parse_entity(current, infile)
+      current = parse_entity(current, infile)
       
 def Parser(filename):
    infile = file(filename, "r")
