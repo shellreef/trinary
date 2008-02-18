@@ -1,0 +1,5 @@
+
+entity add is
+   port ( a, b : in trit;
+          c    : out trit );
+end add ;
