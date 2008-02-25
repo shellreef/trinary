@@ -6,9 +6,6 @@ trit_bool = {"i":False, "0":None, "1":True}
 trit_value = (None, True, False)
 
 trit_char = ("i", "1", "0")
-symbols = ("(", ")", ",", ";", ":", "'", "{", "}", "^")
-keywords = ("entity", "is", "port", "in", "out", "trit", "end", "inout", 
-            "downto" )
 
 def parseTrit(trit):
    '''This function returns the boolean value of a trit.

@@ -73,7 +73,7 @@ class Expr(object):
         return evaluate_unary(self.total_unary, inputs)
 
 if __name__ == "__main__":
-    s = u"⌐⌐∇⌐∇∇a"
+    s = u"⌐∇a"
     print "Expression:", s.encode('utf8')
     e = Expr(s)
     print "Total unary function is:", e.total_unary
@@ -81,6 +81,6 @@ if __name__ == "__main__":
 
     ins = Trits("iiiiiiiii00000001111111")
     print "Passing in trit vector as 'a':"
-    print "a:\t\t", ins
+    print "a:\t", ins
     print s.encode('utf8') + ":\t", e.evaluate(ins)
 
