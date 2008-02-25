@@ -12,6 +12,8 @@
 # do this if the second line of the file is:
 #   # vim: set fileencoding=utf8
 
+# TODO: Use literal values, actual characters, not escape
+
 # Trinary.cc-based unary
 ROTATE_UP = u"\u2229"
 ROTATE_DN = u"\u222a"
