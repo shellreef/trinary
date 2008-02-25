@@ -1,6 +1,32 @@
 #!env python
 # vim: set fileencoding=utf8
-from tokenizer import parseTritVector
+
+trit_interger = {"i":-1, "0":0, "1":1}
+trit_bool = {"i":False, "0":None, "1":True}
+trit_value = (None, True, False)
+
+trit_char = ("i", "1", "0")
+symbols = ("(", ")", ",", ";", ":", "'", "{", "}", "^")
+keywords = ("entity", "is", "port", "in", "out", "trit", "end", "inout", 
+            "downto" )
+
+def parseTrit(trit):
+   '''This function returns the boolean value of a trit.
+      trit: trit represented by a characater
+      return: boolean value
+   '''
+   return trit_bool[trit]
+   
+def parseTritVector(trit_string):
+   '''parseTritVector: take a string of trits and return a trit vector
+      trit_string: string to parse into a trit vector
+      return: trit vector
+   '''
+   result = []
+   for i in range(len(trit_string)):
+      result.append(parseTrit(trit_string[i]))
+   return tuple(result)
+
 
 class Trits(object):
     def __init__(self, s):
