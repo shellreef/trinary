@@ -9,12 +9,22 @@ class Entity(object):
 
     def __init__(self, name, ports):
         self.name = name
-        self.ports = ports
+        self.IN = []
+        self.OUT = []
+        self.INOUT = []
+
+        for p in ports:
+           if p.direction == "in":
+              self.IN.append(p)
+           elif p.direction == "out":
+              self.OUT.append(p)
+           else:
+              self.INOUT.append(p)
 
     def __str__(self):
-        s = "<Entity: %s, %d ports" % (self.name, len(self.ports))
+        s = "<Entity: %s, %d ports" % (self.name, len(self.IN))
         i = 0
-        for p in self.ports:
+        for p in self.IN:
             i += 1
             s += "\n%d. %s" % (i, p)
         s += ">"
