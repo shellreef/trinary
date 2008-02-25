@@ -10,9 +10,10 @@ from Trits import Trits
 
 class Identifier(object):
    def __init__(self, name, value = ""):
-   '''Initialize Identifier object.
+      '''Initialize Identifier object.
       length field will be used to index vector from n to 0
-   '''
+      '''
+
       self.name = name
       self.value = Trits(value)
       self.length = len(self.value)
@@ -20,7 +21,7 @@ class Identifier(object):
       else: self.type = "trit"
       
    def __str__(self):
-      return "<Identifier:%s>" % (self.name,) '''print value here'''
+      return "<Identifier:%s>" % (self.name,)
       
    def setValue(self, value):
       self.value = Trits(value)
