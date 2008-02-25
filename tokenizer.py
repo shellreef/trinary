@@ -7,9 +7,12 @@
 #  Update (02.17.2008) : Tokenizer will now identify integers.
 #
 
+import sys
+
 from Keyword import *
 from Identifier import *
 from Token import *
+from Trits import *
 
 # tokenizer
 
@@ -48,8 +51,8 @@ def tokenizeTrit(infile, value):
       return: string containing a trit/trit vector
    '''
    next = infile.read(1)
-   if not next:
-      return value
+   if not next or next == "'":
+      return Trits(value)
    elif next in trit_char:
       value = value + next
       return tokenizeTrit(infile, value)
@@ -91,7 +94,7 @@ def nextToken(infile):
    if value is None or len(value) == 0:   # None if no more tokens
       return None
    elif value == "'":
-      return tokenizeTrit(infile, value)    # returns a Trits
+      return tokenizeTrit(infile, "")       # returns a Trits
    elif value.isalpha():
       return tokenizeString(infile, value)  # returns an Identifier
    elif value.isdigit():
@@ -102,7 +105,7 @@ def nextToken(infile):
       raise "Invalid symbol detected: |%s|" % (value, )
       
 if __name__ == "__main__":
-    f = file("ParserTest", "r")
+    f = file("ParserTest", "r")#sys.stdin
     while True:
         token = nextToken(f)
         print token

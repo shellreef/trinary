@@ -42,7 +42,7 @@ class Trits(object):
                     None: "0",
                     True: "1"
                     }[t]
-        return s
+        return "<Trits:%s>" % (s,)
 
     def __repr__(self):
         return self.__str__()

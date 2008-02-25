@@ -3,3 +3,6 @@ entity add is
    port ( a, b : in trit;
           c    : out trit );
 end add ;
+
+'i1i01i0i10i10i1i01i10iiiii'
+
