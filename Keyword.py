@@ -5,22 +5,22 @@
 # 
 
 keywords = ("entity", "is", "port", "in", "out", "trit", "end", "inout", 
-            "downto" )
+                "downto" )
 
 class Keyword(object):
-   def __init__(self, name):
-      '''Initialize Keyword object.  '''
+    def __init__(self, name):
+        '''Initialize Keyword object.  '''
 
-      # TODO: validate that 'name' is a valid keyword
-      self.name = name
-      
-   def __str__(self):
-      return "<Keyword:%s>" % (self.name,)
-      
+        # TODO: validate that 'name' is a valid keyword
+        self.name = name
+        
+    def __str__(self):
+        return "<Keyword:%s>" % (self.name,)
+        
 if __name__ == "__main__":
-   a = Keyword("entity")
-   b = Keyword("port")
-   c = Keyword("architecture")
-   d = Keyword("inout")
-   
-   print a, b, c, d
+    a = Keyword("entity")
+    b = Keyword("port")
+    c = Keyword("architecture")
+    d = Keyword("inout")
+    
+    print a, b, c, d

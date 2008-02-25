@@ -8,6 +8,10 @@ import Port
 class Entity(object):
 
     def __init__(self, name, ports):
+        """Create a new black box entity.
+        name: name of entity
+        ports: a sequence of Port objects
+        """
         self.name = name
         self.ports = ports
 
