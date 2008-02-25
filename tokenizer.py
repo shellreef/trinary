@@ -105,7 +105,7 @@ def nextToken(infile):
         raise "Invalid symbol detected: |%s|" % (value, )
         
 if __name__ == "__main__":
-     f = file("ParserTest", "r")#sys.stdin
+     f = file("testParser", "r")#sys.stdin
      while True:
           token = nextToken(f)
           print token
