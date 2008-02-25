@@ -31,6 +31,12 @@ class Entity(object):
         for p in self.IN:
             i += 1
             s += "\n%d. %s" % (i, p)
+        for p in self.OUT:
+            i += 1
+            s += "\n%d. %s" % (i, p)
+        for p in self.INOUT:
+            i += 1
+            s += "\n%d. %s" % (i, p)
         s += ">"
         return s
 
