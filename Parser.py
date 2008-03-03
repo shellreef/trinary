@@ -8,6 +8,9 @@
 #
 
 from tokenizer import nextToken
+from Keyword import *
+from Token import *
+from Trits import *
 
 def compareTokens(current, expected, infile):
     '''compare current with expected.  If they are equal then return the next
@@ -120,7 +123,7 @@ def parse_entity(current, infile):
     return (value8[0], value8[1], "entity")
     
 def parse_program(current, infile):
-    while current[1] == "entity":
+    while isinstance(current, Keyword) && current.name == "entity":
         current = parse_entity(current, infile)
         
 def Parser(filename):
