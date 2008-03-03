@@ -30,29 +30,30 @@ def printError(current, expected):
 def parse_datatype(current, infile):
     '''parse the datatype and return Trit object that identifies the datatype
     '''
-    if current[1] == "trit": 
-        temp = nextToken(infile)
-        return (temp[0], temp[1], "trit")
-    elif current[1] != "trit_vector": 
-        printError(current[1], "trit|trit_vector")
-    else:
-        next = nextToken(infile)
+    if isinstance (current, Identifier):
+        if compareTokens(current, Identifier("trit")):
+            temp = nextToken(infile)
+            return (temp[0], temp[1], "trit")
+        elif not isinstance (current, Identifier("trit_vector")):
+            printError(current[1], Identifier("trit|tritvector"))
+        else:
+            next = nextToken(infile)
         
-        valueOne = compareTokens(next, "(", infile)
-        if not isinstance(valueOne[1], int): 
-            printError(valueOne[1], "integer")
+        valueOne = compareTokens(next, Token("("), infile)
+        if not isinstance(valueOne, Literal):
+            printError(valueOne, Literal("integer"))
         valueTwo = nextToken(infile)
         
-        valueThree = compareTokens(valueTwo, "downto", infile)
-        if not isinstance(valueThree[1], int): 
-            printError(valueThree[1], "integer")
+        valueThree = compareTokens(valueTwo, Keyword("downto"), infile)
+        if not isinstance(valueThree, Literal):
+            printError(valueThree, Literal("integer"))
         valueFour = nextToken(infile)
         
-        valueFive = compareTokens(valueFour, ")", infile)
+        valueFive = compareTokens(valueFour, Token(")"), infile)
         
     # construct datatype object for trit_vector and return it
     # along with the next token
-    return (valueFive[0], valueFive[1], "trit_vector")
+    return (valueFive, "trit_vector")
 
 def parse_flow(current, infile):
     '''identify the direction of the flow
@@ -123,8 +124,9 @@ def parse_entity(current, infile):
     return (value8[0], value8[1], "entity")
     
 def parse_program(current, infile):
-    while isinstance(current, Keyword) && current.name == "entity":
-        current = parse_entity(current, infile)
+    while isinstance(current, Keyword):
+        if current.name == "entity":
+            current = parse_entity(current, infile)
         
 def Parser(filename):
     infile = file(filename, "r")
