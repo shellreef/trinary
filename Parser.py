@@ -14,6 +14,8 @@ from Token import *
 from Trits import *
 from Literal import *
 from Identifier import *
+from Port import *
+from Entity import *
 
 def compareIdentifiers(current, expected, infile):
     '''compare current identifier with expected identifier. If they are equal then return
@@ -22,6 +24,7 @@ def compareIdentifiers(current, expected, infile):
     if not isinstance(current, Identifier):
         raise "Expected '%s', found '%s'" % (expected, current)
     else:
+        #print "parsed: %s" % current #for debugging
         return nextToken(infile)
 
 def compareTokens(current, expected, infile):
@@ -31,6 +34,7 @@ def compareTokens(current, expected, infile):
     if not isinstance(current, Token) or  current.name != expected.name:
         raise "Expected '%s', found '%s'" % (expected, current)
     else:
+        #print "parsed: %s" % current #for debugging
         return nextToken(infile)
 
 def compareKeywords(current, expected, infile):
@@ -40,6 +44,7 @@ def compareKeywords(current, expected, infile):
     if not isinstance(current, Keyword) or  current.name != expected.name:
         raise "Expected '%s', found '%s'" % (expected, current)
     else:
+        #print "parsed: %s" % current #for debugging
         return nextToken(infile)
 
 def printError(current, expected):
@@ -51,15 +56,12 @@ def parse_datatype(current, infile):
     '''parse the datatype and return Trit object that identifies the datatype
     '''
     if isinstance (current, Keyword):
-        if compareTokens(current, Keyword("trit")):
-            temp = nextToken(infile)
-            return (temp, "trit")
-        elif not isinstance (current, Keyword("trit_vector")):
-            printError(current, Keyword("trit|tritvector"))
-        else:
-            next = nextToken(infile)
-        
+        if current.name == "trit":
+            return (nextToken(infile), "trit")
+        next =  compareKeywords(current, Keyword("trit_vector"), infile)
+
         valueOne = compareTokens(next, Token("("), infile)
+
         if not isinstance(valueOne, Literal):
             printError(valueOne, Literal("integer"))
         valueTwo = nextToken(infile)
@@ -117,23 +119,23 @@ def parse_entitytype(current, infile):
     '''
     value1 = compareKeywords(current, Keyword("port"), infile)
     value2 = compareTokens(value1, Token("("), infile)
-    value3 = parse_port(value2, infile)
+    (value3, rtn) = parse_port(value2, infile)
     value4 = compareTokens(value3, Token(")"), infile)
         
-    return (value4, Port("port"));
+    return (value4, "port");
 
 def parse_entity(current, infile):
     value1 = compareKeywords(current, Keyword("entity"), infile)
     value2 = compareIdentifiers(value1, Identifier(" "), infile)
     value3 = compareKeywords(value2, Keyword("is"), infile)
-    value4 = parse_entitytype(value3, infile)
+    (value4, rtn) = parse_entitytype(value3, infile)
     value5 = compareTokens(value4, Token(";"), infile)
     value6 = compareKeywords(value5, Keyword("end"), infile)
     value7 = compareIdentifiers(value6, Identifier(" "), infile)
     value8 = compareTokens(value7, Token(";"), infile)
     
     # create entity object and return it
-    return (value8, Entity("entity"))
+    return (value8, "entity")
     
 def parse_program(current, infile):
     while isinstance(current, Keyword):
