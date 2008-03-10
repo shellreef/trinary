@@ -13,6 +13,7 @@ from Keyword import *
 from Identifier import *
 from Token import *
 from Trits import *
+from Literal import *
 
 # tokenizer
 
