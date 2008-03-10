@@ -13,6 +13,7 @@ from Keyword import *
 from Token import *
 from Trits import *
 from Literal import *
+from Identifier import *
 
 def compareIdentifiers(current, expected, infile):
     '''compare current identifier with expected identifier. If they are equal then return
@@ -49,12 +50,12 @@ def printError(current, expected):
 def parse_datatype(current, infile):
     '''parse the datatype and return Trit object that identifies the datatype
     '''
-    if isinstance (current, Identifier):
-        if compareTokens(current, Identifier("trit")):
+    if isinstance (current, Keyword):
+        if compareTokens(current, Keyword("trit")):
             temp = nextToken(infile)
-            return (temp[0], temp[1], "trit")
-        elif not isinstance (current, Identifier("trit_vector")):
-            printError(current[1], Identifier("trit|tritvector"))
+            return (temp, "trit")
+        elif not isinstance (current, Keyword("trit_vector")):
+            printError(current, Keyword("trit|tritvector"))
         else:
             next = nextToken(infile)
         
@@ -70,9 +71,11 @@ def parse_datatype(current, infile):
         
         valueFive = compareTokens(valueFour, Token(")"), infile)
         
-    # construct datatype object for trit_vector and return it
-    # along with the next token
-    return (valueFive, "trit_vector")
+        # construct datatype object for trit_vector and return it
+        # along with the next token
+        return (valueFive, "trit_vector")
+
+    printError(current, Keyword("trit|trit_vector"))
 
 def parse_flow(current, infile):
     '''identify the direction of the flow of the port
@@ -139,11 +142,11 @@ def parse_program(current, infile):
         
 def Parser(filename):
     '''Parse a file into components.
-       Arguments: filename of file
+       Arguments (1): filename of the file to parse.
     '''
     infile = file(filename, "r")
     parse_program(nextToken(infile), infile)
     
 if __name__ == "__main__":
-    Parser("ParserTest");
+    Parser("testParser");
 
