@@ -24,7 +24,7 @@ def compareIdentifiers(current, expected, infile):
     if not isinstance(current, Identifier):
         raise "Expected '%s', found '%s'" % (expected, current)
     else:
-        #print "parsed: %s" % current #for debugging
+        print "parsed: %s" % current #for debugging
         return nextToken(infile)
 
 def compareTokens(current, expected, infile):
@@ -34,7 +34,7 @@ def compareTokens(current, expected, infile):
     if not isinstance(current, Token) or  current.name != expected.name:
         raise "Expected '%s', found '%s'" % (expected, current)
     else:
-        #print "parsed: %s" % current #for debugging
+        print "parsed: %s" % current #for debugging
         return nextToken(infile)
 
 def compareKeywords(current, expected, infile):
@@ -44,7 +44,7 @@ def compareKeywords(current, expected, infile):
     if not isinstance(current, Keyword) or  current.name != expected.name:
         raise "Expected '%s', found '%s'" % (expected, current)
     else:
-        #print "parsed: %s" % current #for debugging
+        print "parsed: %s" % current #for debugging
         return nextToken(infile)
 
 def printError(current, expected):
