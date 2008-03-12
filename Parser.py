@@ -4,38 +4,58 @@
 #
 #  Created by Antonio on 2/17/08.
 #  Trinary Research Project: Digital logic simulator
-#  Upon testing the first phase of this program, correct input means no output.
+#  Upon testing the first phase of this program, correctly defined programs generate
+#    no output.
 #
 
 from tokenizer import nextToken
 from Keyword import *
 from Token import *
 from Trits import *
+from Literal import *
+from Identifier import *
 
-def compareTokens(current, expected, infile):
-    '''compare current with expected.  If they are equal then return the next
-    token, if they are not then raise exeption and exit program.
+def compareIdentifiers(current, expected, infile):
+    '''compare current identifier with expected identifier. If they are equal then return
+       the next token. If they are not then an raise and exeption and exit the program.
     '''
-    if current[0] is None or current[1] != expected:
-        printError(current, expected)
+    if not isinstance(current, Identifier):
+        raise "Expected '%s', found '%s'" % (expected, current)
     else:
         return nextToken(infile)
-        
+
+def compareTokens(current, expected, infile):
+    '''compare token current with expected token.  If they are equal then return the next
+    token, if they are not then an raise exeption and exit program.
+    '''
+    if not isinstance(current, Token) or  current.name != expected.name:
+        raise "Expected '%s', found '%s'" % (expected, current)
+    else:
+        return nextToken(infile)
+
+def compareKeywords(current, expected, infile):
+    '''compare current keyword with expected keyword. If they are equal then return
+       the next token. If they are not then an raise and exeption and exit the program.
+    '''
+    if not isinstance(current, Keyword) or  current.name != expected.name:
+        raise "Expected '%s', found '%s'" % (expected, current)
+    else:
+        return nextToken(infile)
+
 def printError(current, expected):
     '''Function prints an error message and raises an exeption
     '''
-    print "Expected '%s', found '%s'\n" % (expected, current[1])
-    # raise exception    
-    
+    raise "Expected '%s', found '%s'\n" % (expected, current)
+
 def parse_datatype(current, infile):
     '''parse the datatype and return Trit object that identifies the datatype
     '''
-    if isinstance (current, Identifier):
-        if compareTokens(current, Identifier("trit")):
+    if isinstance (current, Keyword):
+        if compareTokens(current, Keyword("trit")):
             temp = nextToken(infile)
-            return (temp[0], temp[1], "trit")
-        elif not isinstance (current, Identifier("trit_vector")):
-            printError(current[1], Identifier("trit|tritvector"))
+            return (temp, "trit")
+        elif not isinstance (current, Keyword("trit_vector")):
+            printError(current, Keyword("trit|tritvector"))
         else:
             next = nextToken(infile)
         
@@ -51,77 +71,69 @@ def parse_datatype(current, infile):
         
         valueFive = compareTokens(valueFour, Token(")"), infile)
         
-    # construct datatype object for trit_vector and return it
-    # along with the next token
-    return (valueFive, "trit_vector")
+        # construct datatype object for trit_vector and return it
+        # along with the next token
+        return (valueFive, "trit_vector")
+
+    printError(current, Keyword("trit|trit_vector"))
 
 def parse_flow(current, infile):
-    '''identify the direction of the flow
+    '''identify the direction of the flow of the port
     '''
-    temp = nextToken(infile)
-    if current[1] == "in": 
-        return (temp[0], temp[1], "in")
-    elif current[1] == "out": 
-        return (temp[0], temp[1], "out")
-    elif current[1] == "inout": 
-        return (temp[0], temp[1], "inout")
-    else: 
-        printError(current[1], "in|out|inout")        
+    if isinstance(current, Keyword):
+        if current.name == "in":
+            return (nextToken(infile), "in")
+        elif current.name == "out":
+            return (nextToken(infile), "out")
+        elif current.name == "inout":
+            return (nextToken(infile), "inout")
+
+    printError(current, Keyword("in|out|inout"))
 
 def parse_port(next, infile):
     '''parse the port and return a 'port' object
     '''
+    names = []
+
     while 1:
-        if not isinstance(next[1], str):
-            printError(next[1], "identifier")
-        cont = nextToken(infile)
-        if cont[1] != ",":
+        cont = compareIdentifiers(next, Identifier(" "), infile)
+        names.append(next.name)
+        if not isinstance(cont, Token) or cont.name != ",":
             break
         else:
             next = nextToken(infile)
             
-    valueOne = compareTokens(cont, ":", infile)
-    valueTwo = parse_flow(valueOne, infile)
+    valueOne = compareTokens(cont, Token(":"), infile)
+    (valueTwo, type) = parse_flow(valueOne, infile)
     valueThree = parse_datatype(valueTwo, infile)
 
-    if valueThree[1] == ";":
+    if isinstance (valueThree[0], Token) and valueThree[0].name == ";":
         return parse_port(nextToken(infile), infile)
-    
-    return (valueThree[0], valueThree[1], "port",)
+    else:
+        return (valueThree[0], "port")
         
 def parse_entitytype(current, infile):
     '''parse the type of the entity
     '''
-    if current[1] == "port": 
-        value1 = nextToken(infile)
-        value2 = compareTokens(value1, "(", infile)
-        value3 = parse_port(value2, infile)
-        value4 = compareTokens(value3, ")", infile)
-    else:
-        printError(current[1], "entity type")        
+    value1 = compareKeywords(current, Keyword("port"), infile)
+    value2 = compareTokens(value1, Token("("), infile)
+    value3 = parse_port(value2, infile)
+    value4 = compareTokens(value3, Token(")"), infile)
         
-    return (value4[0], value4[1], "port");
+    return (value4, Port("port"));
 
 def parse_entity(current, infile):
-    value1 = compareTokens(current, "entity", infile)
-    
-    if not isinstance(value1[1], str):
-        printError(value1[1], "identifier")
-    value2 = nextToken(infile)
-    
-    value3 = compareTokens(value2, "is", infile)
+    value1 = compareKeywords(current, Keyword("entity"), infile)
+    value2 = compareIdentifiers(value1, Identifier(" "), infile)
+    value3 = compareKeywords(value2, Keyword("is"), infile)
     value4 = parse_entitytype(value3, infile)
-    value5 = compareTokens(value4, ";", infile)
-    value6 = compareTokens(value5, "end", infile)
-    
-    if not isinstance(value6[1], str):
-        printError(value6[1], "identifier")
-    value7 = nextToken(infile)
-    
-    value8 = compareTokens(value7, ";", infile)
+    value5 = compareTokens(value4, Token(";"), infile)
+    value6 = compareKeywords(value5, Keyword("end"), infile)
+    value7 = compareIdentifiers(value6, Identifier(" "), infile)
+    value8 = compareTokens(value7, Token(";"), infile)
     
     # create entity object and return it
-    return (value8[0], value8[1], "entity")
+    return (value8, Entity("entity"))
     
 def parse_program(current, infile):
     while isinstance(current, Keyword):
@@ -129,10 +141,12 @@ def parse_program(current, infile):
             current = parse_entity(current, infile)
         
 def Parser(filename):
+    '''Parse a file into components.
+       Arguments (1): filename of the file to parse.
+    '''
     infile = file(filename, "r")
     parse_program(nextToken(infile), infile)
     
 if __name__ == "__main__":
-    Parser("ParserTest");
-        
+    Parser("testParser");
 
