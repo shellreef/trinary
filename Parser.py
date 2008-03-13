@@ -158,6 +158,7 @@ def parse_entity(current, infile):
     return (value8, entity)
     
 def parse_program(current, infile):
+    '''parse the individual components of the program'''
     while isinstance(current, Keyword):
         if current.name == "entity":
             (current, entity) = parse_entity(current, infile)
