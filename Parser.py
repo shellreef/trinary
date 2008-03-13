@@ -156,6 +156,23 @@ def parse_entity(current, infile):
     
     # return Entity object
     return (value8, entity)
+
+def parse_architecture(current, infile):
+    '''Parse the archtecture component.'''
+    value1 = compareKeywords(current, Keyword("architecture"), infile)
+    value2 = compareKeywords(value1, Keyword("dataflow"), infile)
+    value3 = compareKeywords(value2, Keyword("of"), infile)
+    value4 = compareIdentifiers(value3, Identifier(" "), infile)
+
+    archi = Architecture(value3.name)
+
+    value5 = compareKeywords(value4, Keyword("is"), infile)
+    value6 = compareKeywords(value5, Keyword("begin"), infile)
+    value7 = compareKeywords(value6, Keyword("end"), infile)
+    value8 = compareKeywords(value7, Keyword("dataflow"), infile)
+    value9 = compareTokens(value8, Token(";"), infile)
+
+    return (value9, archi)
     
 def parse_program(current, infile):
     '''parse the individual components of the program'''
@@ -163,6 +180,9 @@ def parse_program(current, infile):
         if current.name == "entity":
             (current, entity) = parse_entity(current, infile)
             print "Parsed Entity: %s" % entity
+        elif current.name == "architecture":
+            (current, architecture) = parse_architecture(current, infile)
+            print "Parsed Architecture: %s" % architecture
         
 def Parser(filename):
     '''Parse a file into components.
