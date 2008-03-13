@@ -5,7 +5,8 @@
 # 
 
 keywords = ("entity", "is", "port", "in", "out", "trit", "end", "inout", 
-                "downto" )
+                "downto", "architecture", "dataflow", "of", "is", "begin",
+                 "end", "dataflow" )
 
 class Keyword(object):
     def __init__(self, name):
