@@ -21,12 +21,12 @@ class Identifier(object):
         else: self.type = "trit"
         
     def __str__(self):
-        return "<Identifier:%s>" % (self.name,)
+        return "<Identifier:%s, value:%s>" % (self.name, self.value)
         
     def setValue(self, value):
         self.value = Trits(value)
         self.length = len(self.value)
-        if self.length < 1 : self.type = "vector"
+        if self.length > 1 : self.type = "vector"
         else: self.type = "trit"
         
     def getValue(self):

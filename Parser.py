@@ -92,7 +92,7 @@ def parse_flow(current, infile):
 
     printError(current, Keyword("in|out|inout"))
 
-def parse_port(next, infile):
+def parse_port(next, infile, entity):
     '''parse the port and return a 'port' object
     '''
     names = []
@@ -106,41 +106,62 @@ def parse_port(next, infile):
             next = nextToken(infile)
             
     valueOne = compareTokens(cont, Token(":"), infile)
-    (valueTwo, type) = parse_flow(valueOne, infile)
-    valueThree = parse_datatype(valueTwo, infile)
+    (valueTwo, flow) = parse_flow(valueOne, infile)
+    (valueThree, type) = parse_datatype(valueTwo, infile)
 
-    if isinstance (valueThree[0], Token) and valueThree[0].name == ";":
-        return parse_port(nextToken(infile), infile)
+    # store derived port information into Entity
+    for i in names:
+        if flow == "in":
+            entity.IN.append(Port.Port(i, Port.IN, type))
+        elif flow == "out":
+            entity.OUT.append(Port.Port(i, Port.OUT, type))
+        else:
+            entity.INOUT.append(Port.Port(i, Port.INOUT, type))
+
+    # recurse if there are more ports defined
+    if isinstance (valueThree, Token) and valueThree.name == ";":
+        return parse_port(nextToken(infile), infile, entity)
     else:
-        return (valueThree[0], "port")
+        return (valueThree, entity)
         
-def parse_entitytype(current, infile):
+def parse_entitytype(current, infile, entity):
     '''parse the type of the entity
     '''
     value1 = compareKeywords(current, Keyword("port"), infile)
     value2 = compareTokens(value1, Token("("), infile)
-    (value3, rtn) = parse_port(value2, infile)
+    (value3, rtn) = parse_port(value2, infile, entity)
     value4 = compareTokens(value3, Token(")"), infile)
         
-    return (value4, "port");
+    return (value4, entity);
 
 def parse_entity(current, infile):
+    '''Parse the entity'''
     value1 = compareKeywords(current, Keyword("entity"), infile)
     value2 = compareIdentifiers(value1, Identifier(" "), infile)
+
+    # create entity object
+    entity = Entity(value1.name, [])
+
     value3 = compareKeywords(value2, Keyword("is"), infile)
-    (value4, rtn) = parse_entitytype(value3, infile)
+    (value4, rtn) = parse_entitytype(value3, infile, entity)
     value5 = compareTokens(value4, Token(";"), infile)
     value6 = compareKeywords(value5, Keyword("end"), infile)
     value7 = compareIdentifiers(value6, Identifier(" "), infile)
+
+    # identifier names must match
+    if value6.name != value1.name:
+        printError(value6, value1)
+
     value8 = compareTokens(value7, Token(";"), infile)
     
-    # create entity object and return it
-    return (value8, "entity")
+    # return Entity object
+    return (value8, entity)
     
 def parse_program(current, infile):
     while isinstance(current, Keyword):
         if current.name == "entity":
-            current = parse_entity(current, infile)
+            (current, entity) = parse_entity(current, infile)
+            print "Parsed Entity: %s" % entity
         
 def Parser(filename):
     '''Parse a file into components.
