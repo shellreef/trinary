@@ -16,6 +16,8 @@ class Port(object):
 
         self.direction = direction
         self.type = type
+        self.value = []
+        self.length = 0
 
     def __str__(self):
         return "<Port: %s, %s, %s>" % (self.name, self.direction, self.type)
