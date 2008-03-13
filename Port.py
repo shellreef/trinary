@@ -9,7 +9,7 @@ INOUT = "inout"
 
 
 class Port(object):
-    def __init__(self, name, direction, type):
+    def __init__(self, name, direction, type, length = 0):
         self.name = name
         assert direction in [IN, OUT, INOUT], \
                 "Port direction %s is invalid" % (direction,)
@@ -17,10 +17,10 @@ class Port(object):
         self.direction = direction
         self.type = type
         self.value = []
-        self.length = 0
+        self.length = length
 
     def __str__(self):
-        return "<Port: %s, %s, %s>" % (self.name, self.direction, self.type)
+        return "<Port: %s, %s, %s, %s>" % (self.name, self.direction, self.type, self.length)
 
 if __name__ == "__main__":
     a = Port("a", IN, None)

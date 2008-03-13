@@ -110,7 +110,7 @@ def nextToken(infile):
     if value is None or len(value) == 0:      # None if no more tokens
         return None
     elif value == "'":
-        return tokenizeTrit(infile)       # returns a Trit
+        return tokenizeTrit(infile)           # returns a Trit
     elif value == "\"":
         return tokenizeVector(infile, "")     # returns a Trit vector
     elif value.isalpha():

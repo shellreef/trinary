@@ -57,25 +57,31 @@ def parse_datatype(current, infile):
     '''
     if isinstance (current, Keyword):
         if current.name == "trit":
-            return (nextToken(infile), "trit")
+            return (nextToken(infile), "trit", 0)
         next =  compareKeywords(current, Keyword("trit_vector"), infile)
 
         valueOne = compareTokens(next, Token("("), infile)
 
         if not isinstance(valueOne, Literal):
             printError(valueOne, Literal("integer"))
+        elif valueOne.value <= 0:
+            printError(valueOne, Literal("greater than zero"))
         valueTwo = nextToken(infile)
-        
+
+        length = valueOne.value + 1
+
         valueThree = compareTokens(valueTwo, Keyword("downto"), infile)
         if not isinstance(valueThree, Literal):
             printError(valueThree, Literal("integer"))
+        elif valueThree.value != 0:
+            printError(valueThree, Literal(0))
         valueFour = nextToken(infile)
         
         valueFive = compareTokens(valueFour, Token(")"), infile)
         
         # construct datatype object for trit_vector and return it
         # along with the next token
-        return (valueFive, "trit_vector")
+        return (valueFive, "trit_vector", length)
 
     printError(current, Keyword("trit|trit_vector"))
 
@@ -107,16 +113,16 @@ def parse_port(next, infile, entity):
             
     valueOne = compareTokens(cont, Token(":"), infile)
     (valueTwo, flow) = parse_flow(valueOne, infile)
-    (valueThree, type) = parse_datatype(valueTwo, infile)
+    (valueThree, type, length) = parse_datatype(valueTwo, infile)
 
     # store derived port information into Entity
     for i in names:
         if flow == "in":
-            entity.IN.append(Port.Port(i, Port.IN, type))
+            entity.IN.append(Port.Port(i, Port.IN, type, length))
         elif flow == "out":
-            entity.OUT.append(Port.Port(i, Port.OUT, type))
+            entity.OUT.append(Port.Port(i, Port.OUT, type, length))
         else:
-            entity.INOUT.append(Port.Port(i, Port.INOUT, type))
+            entity.INOUT.append(Port.Port(i, Port.INOUT, type, length))
 
     # recurse if there are more ports defined
     if isinstance (valueThree, Token) and valueThree.name == ";":
