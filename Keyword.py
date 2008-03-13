@@ -12,7 +12,7 @@ class Keyword(object):
     def __init__(self, name):
         '''Initialize Keyword object.  '''
 
-        # TODO: validate that 'name' is a valid keyword
+        assert name in keywords
         self.name = name
         
     def __str__(self):
