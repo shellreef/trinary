@@ -3,7 +3,6 @@
 # By Jeff Connelly
 #
 # 3-trit computer assembler
-#
 # Example usage: 
 #
 #   python asm.py < guess.py
@@ -13,8 +12,8 @@ import sys, os
 def main():
     pc = -1
     labels = {}
-    opcode_map = { "stc": [0], "cmp": [-1], "be": [1] }
-    register_map = { "a": [-1], "b": [0], "c": [1] }
+    opcode_map = { "lwi": [0], "cmp": [-1], "be": [1] }
+    register_map = { "in": [-1], "out": [0], "a": [1] }
     # TODO: balanced trinary conversion routines
     literal_map = { 
             "4": [1, 1],
