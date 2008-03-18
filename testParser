@@ -4,5 +4,5 @@ entity add is
              c     : out trit );
 end add ;
 
-'i1i01i0i10i10i1i01i10iiiii'
+"i1i01i0i10i10i1i01i10iiiii"
 

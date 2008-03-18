@@ -5,13 +5,14 @@
 # 
 
 keywords = ("entity", "is", "port", "in", "out", "trit", "end", "inout", 
-                "downto" )
+                "downto", "architecture", "dataflow", "of", "is", "begin",
+                 "end", "dataflow" )
 
 class Keyword(object):
     def __init__(self, name):
         '''Initialize Keyword object.  '''
 
-        # TODO: validate that 'name' is a valid keyword
+        assert name in keywords
         self.name = name
         
     def __str__(self):

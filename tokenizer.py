@@ -44,23 +44,38 @@ def isKeyword(infile, value):
         return Keyword(value)
     else: #string is an identifier
         return Identifier(value)
-    
-def tokenizeTrit(infile, value):
-    '''tokenizeTrit: find the next trit or trit vector in the file
-        infile: object file
-        value: current value of trit/trit vector
-        return: string containing a trit/trit vector
+
+def tokenizeVector(infile, value):
+    '''tokenizeVector: find the next trit vector in the file
+       infile: object file
+       value: current value of trit vector
+       return: Trit object containing the vector
     '''
     next = infile.read(1)
-    if not next or next == "'":
-        return Trits(value)
-    elif next in trit_char:
+
+    if not next:
+        raise "EOF file before end of vector."
+    if next in trit_char:
         value = value + next
-        return tokenizeTrit(infile, value)
-    else:
-        infile.seek(infile.tell() - 1)
+        return tokenizeVector(infile, value)
+    elif next == "\"":
         return Trits(value)
-        
+    else:
+        raise "Invalid symbol detected: |%s|" % (next, )
+
+def tokenizeTrit(infile):
+    '''tokenizeTrit: find the next trit or trit vector in the file
+        infile: object file
+        return: Trit object containing the trit
+    '''
+    next = infile.read(1)
+    assert next in trit_char
+    trit = Trits(next)
+
+    next = infile.read(1)
+    assert next == "'"
+    return trit
+
 def tokenizeString(infile, value):
     '''tokenizeString: find the next keyword or identifier in the file
         infile: object file
@@ -95,7 +110,9 @@ def nextToken(infile):
     if value is None or len(value) == 0:      # None if no more tokens
         return None
     elif value == "'":
-        return tokenizeTrit(infile, "")       # returns a Trits
+        return tokenizeTrit(infile)           # returns a Trit
+    elif value == "\"":
+        return tokenizeVector(infile, "")     # returns a Trit vector
     elif value.isalpha():
         return tokenizeString(infile, value)  # returns an Identifier
     elif value.isdigit():
