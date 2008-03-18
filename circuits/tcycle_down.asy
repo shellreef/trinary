@@ -7,6 +7,7 @@ LINE Normal 17 49 -17 16
 LINE Normal -17 49 17 49
 LINE Normal -17 43 -17 49
 ARC Normal -46 64 47 -29 -31 49 41 58
+WINDOW 0 -61 -18 Left 0
 PIN -32 32 NONE 8
 PINATTR PinName IN
 PINATTR SpiceOrder 1

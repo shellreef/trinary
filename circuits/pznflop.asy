@@ -3,8 +3,7 @@ SymbolType BLOCK
 RECTANGLE Normal 64 161 -47 18
 CIRCLE Normal 80 120 64 104
 TEXT -44 142 Left 0 N
-WINDOW 0 -40 0 Left 0
-WINDOW 3 -39 183 Left 0
+WINDOW 0 -51 0 Left 0
 SYMATTR Value pznflop
 SYMATTR Description Trinary PZN tri-flop
 PIN -48 48 LEFT 4
