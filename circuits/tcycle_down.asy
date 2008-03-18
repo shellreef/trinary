@@ -1,16 +1,20 @@
 Version 4
 SymbolType BLOCK
-LINE Normal 32 1 -31 1
-LINE Normal 32 50 32 1
-LINE Normal -31 49 -31 1
-LINE Normal 17 49 -17 16
-LINE Normal -17 49 17 49
-LINE Normal -17 43 -17 49
-ARC Normal -46 64 47 -29 -31 49 41 58
-WINDOW 0 -61 -18 Left 0
-PIN -32 32 NONE 8
+LINE Normal -16 18 -16 -16
+LINE Normal -16 18 16 0
+LINE Normal 16 0 -16 -16
+LINE Normal 4 1 -12 -8
+LINE Normal -12 10 4 1
+LINE Normal -12 3 -12 10
+LINE Normal -3 -3 -8 -3
+LINE Normal -3 -8 -3 -3
+LINE Normal -7 7 -5 2
+LINE Normal -2 7 -7 7
+WINDOW 0 -69 -35 Left 0
+SYMATTR Description Unary trinary gate: negative, simple, and positive inverter
+PIN -16 0 NONE 8
 PINATTR PinName IN
 PINATTR SpiceOrder 1
-PIN 32 32 NONE 8
+PIN 16 0 NONE 8
 PINATTR PinName OUT
 PINATTR SpiceOrder 2
