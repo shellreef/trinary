@@ -16,7 +16,7 @@ ARC Normal -34 -26 27 27 4 31 1 -21
 ARC Normal -28 -29 -11 31 -17 30 -14 -27
 ARC Normal -27 -28 -6 28 -13 26 -5 -22
 WINDOW 0 -57 -44 Left 0
-SYMATTR Description TNOR dyadic trinary 2-input gate, inverted OR (MAX) function
+SYMATTR Description TNOR dyadic trinary 3-input gate, inverted OR (MAX) function
 PIN -32 -16 NONE 8
 PINATTR PinName A
 PINATTR SpiceOrder 1

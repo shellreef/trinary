@@ -7,7 +7,7 @@ LINE Normal 80 144 80 0
 CIRCLE Normal 96 104 80 88
 WINDOW 0 -58 -16 Left 0
 WINDOW 3 -38 161 Left 0
-SYMATTR Description Trinary D-type flip-flop
+SYMATTR Description Trinary D-type flip-flop, experimental. UNTESTED.
 PIN -80 48 LEFT 8
 PINATTR PinName D
 PINATTR SpiceOrder 1
