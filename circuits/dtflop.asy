@@ -5,7 +5,7 @@ LINE Normal -80 0 -80 144
 LINE Normal -80 144 80 144
 LINE Normal 80 144 80 0
 CIRCLE Normal 96 104 80 88
-WINDOW 0 -58 -16 Left 0
+WINDOW 0 3 -15 Center 0
 WINDOW 3 -38 161 Left 0
 SYMATTR Description Trinary D-type flip-flop
 PIN -80 48 LEFT 8

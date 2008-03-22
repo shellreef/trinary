@@ -5,7 +5,7 @@ LINE Normal -80 0 -80 144
 LINE Normal -80 144 80 144
 LINE Normal 80 144 80 0
 CIRCLE Normal 96 104 80 88
-WINDOW 0 -59 -15 Left 0
+WINDOW 0 -1 -17 Center 0
 WINDOW 3 -38 161 Left 0
 SYMATTR Description Trinary D-type transparent latch
 PIN -80 64 LEFT 8

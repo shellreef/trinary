@@ -7,7 +7,7 @@ LINE Normal 80 274 80 0
 CIRCLE Normal 96 233 80 217
 CIRCLE Normal 96 201 80 185
 CIRCLE Normal 96 169 80 153
-WINDOW 0 -58 -16 Left 0
+WINDOW 0 0 -17 Center 0
 WINDOW 3 -43 258 Left 0
 SYMATTR Description 3-trit register
 PIN -80 80 LEFT 8

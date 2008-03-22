@@ -11,7 +11,7 @@ LINE Normal -1 1 -11 1
 LINE Normal -1 1 -2 1
 LINE Normal 32 0 24 0
 CIRCLE Normal 24 4 16 -4
-WINDOW 0 -69 -35 Left 0
+WINDOW 0 1 -32 Center 0
 SYMATTR Description Unary trinary gate: positive ternary inverter
 PIN -16 0 NONE 8
 PINATTR PinName IN

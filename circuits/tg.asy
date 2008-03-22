@@ -7,7 +7,7 @@ LINE Normal 16 18 16 -16
 LINE Normal 16 18 -16 0
 LINE Normal -16 0 16 -16
 LINE Normal 0 9 0 16
-WINDOW 0 5 -34 Center 0
+WINDOW 0 1 -34 Center 0
 SYMATTR Description Bidirectional transmission gate with integrated inverters
 PIN -16 0 NONE 8
 PINATTR PinName IN_OUT

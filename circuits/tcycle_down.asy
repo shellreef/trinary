@@ -10,7 +10,7 @@ LINE Normal -3 -3 -8 -3
 LINE Normal -3 -8 -3 -3
 LINE Normal -7 7 -5 2
 LINE Normal -2 7 -7 7
-WINDOW 0 -69 -35 Left 0
+WINDOW 0 1 -34 Center 0
 SYMATTR Description Unary trinary gate: cycle down
 PIN -16 0 NONE 8
 PINATTR PinName IN
