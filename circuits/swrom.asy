@@ -2,6 +2,7 @@ Version 4
 SymbolType BLOCK
 RECTANGLE Normal 208 144 -48 -33
 TEXT 6 39 Left 0 3x3 SWROM
+SYMATTR Description 3x3 trinary SWROM loaded with guess.t
 PIN -48 96 LEFT 8
 PINATTR PinName ADDRESS
 PINATTR SpiceOrder 1
