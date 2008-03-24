@@ -5,7 +5,7 @@ CIRCLE Normal 80 120 64 104
 TEXT -44 142 Left 0 N
 WINDOW 0 10 -1 Center 0
 SYMATTR Value pznflop
-SYMATTR Description Trinary PZN tri-flop
+SYMATTR Description Trinary PZN tri-latch, with inputs to pulse to set the latch to positive, negative, or zero
 PIN -48 48 LEFT 4
 PINATTR PinName P
 PINATTR SpiceOrder 1
