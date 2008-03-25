@@ -2,7 +2,6 @@ Version 4
 SymbolType BLOCK
 RECTANGLE Normal 64 161 -47 18
 CIRCLE Normal 80 120 64 104
-TEXT -44 142 Left 0 N
 WINDOW 0 10 -1 Center 0
 SYMATTR Value pznflop
 SYMATTR Description Trinary PZN tri-latch, with inputs to pulse to set the latch to positive, negative, or zero
@@ -12,7 +11,7 @@ PINATTR SpiceOrder 1
 PIN -48 96 LEFT 4
 PINATTR PinName Z
 PINATTR SpiceOrder 2
-PIN -48 144 NONE 8
+PIN -48 144 LEFT 4
 PINATTR PinName N
 PINATTR SpiceOrder 3
 PIN 64 64 RIGHT 4
