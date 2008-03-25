@@ -111,6 +111,9 @@ def assemble(asmfile):
             continue
 
         label, opcode, operands = parse_line(line)
+        if opcode == None:
+            continue
+
         #print [label, opcode, operands]
         machine_code = []
 
@@ -147,6 +150,8 @@ def assemble(asmfile):
 def parse_line(line):
     # Strip comments
     without_comment = line.split(";", 1)[0]
+    if len(without_comment) == 0:
+        return (None, None, None)
 
     # Separate label from instruction
     label_and_instruction = without_comment.split(":", 1)
