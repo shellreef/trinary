@@ -44,7 +44,7 @@ def tospice(tritstream):
         code[1][i] = tritstream[i*3 + 1]
         code[2][i] = tritstream[i*3 + 2]
 
-    s = "; swrom-fast include file, generated to by asm/asm.py, for program:\n"
+    s = "; swrom-fast include file, generated to by asm/asm.py, for tritstream:\n"
     for instr in all_instr:
         s += "; " + instr + "\n"
     s += "\n" 
@@ -60,7 +60,7 @@ def tospice(tritstream):
 
     i = 0
     for row in code:
-        s += ".func program_D%d(A) {choose(A," % (i,)
+        s += ".func program_%s(A) {choose(A," % ({0:"i", 1:0, 2:1}[i],)
         i += 1
         voltages = []
         for col in row:
@@ -79,7 +79,7 @@ def tospice(tritstream):
 
 def assemble(asmfile):
     """Return a serialized tritstream of asmfile assembled."""
-    pc = -1
+    pc = 0   # PC goes 0, 1, -1 _NOT_ -1, 0, 1 (0 on power-up)
     labels = {}
     opcode_map = { "lwi": [0], "cmp": [-1], "be": [1] }
     register_map = { "in": [-1], "out": [0], "a": [1] }
@@ -95,8 +95,6 @@ def assemble(asmfile):
             "-3": [-1, 0],
             "-4": [-1, -1]
             }
-
-
 
     tritstream = []
     while True:
@@ -134,12 +132,26 @@ def assemble(asmfile):
         #print machine_code
         tritstream.extend(machine_code)
         pc += 1
+        if pc == 2:
+            pc = -1
 
     #print labels
 
+    # Execution goes 0, 1, i
+    # but we ordered i, 0, 1.
+    # Arrange the instructions so that the first
+    # instruction written is placed at 0, next at
+    # 1, then the last instruction at i--since
+    # execution begins at 0, this will perserve the order.
+    tritstream_ordered = (
+            tritstream[3*2:3*2+3] +     # last instruction executed
+            tritstream[3*0:3*0+3] +     # <-- PC starts here (0)
+            tritstream[3*1:3*1+3]       # second instruction executed
+            )
+
     # Serialize tritstream
     s = ""
-    for t in tritstream:
+    for t in tritstream_ordered:
         if t == -1:
             s += "i"
         else:
