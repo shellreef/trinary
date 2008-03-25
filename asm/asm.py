@@ -3,13 +3,30 @@
 # By Jeff Connelly
 #
 # 3-trit computer assembler
-# Example usage: 
-#
-#   python asm.py < guess.py
 
 import sys, os
 
 def main():
+    if len(sys.argv) < 2:
+        print """usage: %s program.t 
+input file: program.t - assembly code
+outputs: 
+\tprogram.3 - assembled tritstream
+\tprogram.sp - SPICE file suitable for use with swrom-fast
+""" % (sys.argv[0])
+
+        raise SystemExit
+
+    asmfile = file(sys.argv[1], "rt")
+    tritstream_filename = sys.argv[1].replace(".t", ".3")
+    tritstream_file = file(tritstream_filename, "wt")
+    spice_filename = sys.argv[1].replace(".t", ".sp")
+    spice_file = file(spice_filename, "wt")
+
+    tritstream = assemble(asmfile)
+    tritstream_file.write(tritstream)
+
+def assemble(asmfile):
     pc = -1
     labels = {}
     opcode_map = { "lwi": [0], "cmp": [-1], "be": [1] }
@@ -27,9 +44,11 @@ def main():
             "-4": [-1, -1]
             }
 
+
+
     tritstream = []
     while True:
-        line = sys.stdin.readline()
+        line = asmfile.readline()
         # End on EOF
         if len(line) == 0:
             break
@@ -63,13 +82,15 @@ def main():
 
     #print labels
 
+    # Serialize tritstream
     s = ""
     for t in tritstream:
         if t == -1:
             s += "i"
         else:
             s += str(t)
-    print s
+
+    return s
 
 def parse_line(line):
     # Strip comments
