@@ -25,8 +25,60 @@ outputs:
 
     tritstream = assemble(asmfile)
     tritstream_file.write(tritstream)
+    spice_file.write(tospice(tritstream))
+
+def tospice(tritstream):
+    """Convert tritstream to SPICE source for 3x3 swrom-fast."""
+
+    # Read down, then across (one instruction per _column_, not row)
+    code = [
+            [None,None,None],
+            [None,None,None],
+            [None,None,None]
+           ]
+
+    all_instr = []
+    for i in range(0,3):
+        all_instr.append(tritstream[i*3:i*3+3])
+        code[0][i] = tritstream[i*3 + 0]
+        code[1][i] = tritstream[i*3 + 1]
+        code[2][i] = tritstream[i*3 + 2]
+
+    s = "; swrom-fast include file, generated to by asm/asm.py, for program:\n"
+    for instr in all_instr:
+        s += "; " + instr + "\n"
+    s += "\n" 
+
+    s += """; Select a voltage value based on the logic input at A
+.func choose(A,for_n,for_z,for_p) {if(A<={V_N_max},for_n,if(A>={V_P_min},for_p,for_z))}
+
+; Threshold voltages
+.param V_N_max=-2
+.param V_P_min=2
+
+"""
+
+    i = 0
+    for row in code:
+        s += ".func program_D%d(A) {choose(A," % (i,)
+        i += 1
+        voltages = []
+        for col in row:
+            v = "V("
+            if col == "i":
+                v += "_1"
+            elif col == "1":
+                v += "1"
+            else:
+                v += "0"
+            v += ")"
+            voltages.append(v)
+        s += ",".join(voltages)
+        s += ")}\n"
+    return s 
 
 def assemble(asmfile):
+    """Return a serialized tritstream of asmfile assembled."""
     pc = -1
     labels = {}
     opcode_map = { "lwi": [0], "cmp": [-1], "be": [1] }

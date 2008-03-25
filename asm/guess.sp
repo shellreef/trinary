@@ -1,4 +1,4 @@
-; swrom-fast include file, generated to by asm/tospice.py, for program:
+; swrom-fast include file, generated to by asm/asm.py, for program:
 ; 0i0
 ; ii1
 ; 1i0
