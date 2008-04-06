@@ -15,10 +15,45 @@ dyatic_functions = {
     "*" : {False:"iii", None:"i00", True:"i01"}
 }    
 
+def expr_dyatic(expression, variables):
+    first = variables[expression[0]]
+    f_value = Trits.trit_bool(first)
+    
+    f_next = expression[1]
+    if f_next in dyatic_functions:
+        f_apply = dyatic_functions[f_next]
+        result, next_expr = expr_recurse(expression[2:], variables)
+
+        t_func = Trits.Trits(f_apply[f_value])
+        t_sec = Trits.Trits(Trits.trit_string[result])
+        return (Expr.evaluate_unary(t_func, t_sec))[0], next_expr
+
+    elif f_next == "(":
+        f_apply = dyatic_functions["*"]
+        result, next_expr = expr_recurse(expression[2:], variables)
+
+        if next_expr[0] != ")":
+            raise "Expected \")\", found \"%s\"" % (next_expr[0])
+ 
+        t_func = Trits.Trits(f_apply[f_value])
+        t_sec = Trits.Trits(Trits.trit_string[result])
+        return (Expr.evaluate_unary(t_func, t_sec))[0], next_expr[1:]
+
+    elif isalpha(f_next):
+        f_apply = dyatic_functions["*"]
+        second = variables[f_next]
+
+        t_func = Trits.Trits(f_apply[f_values])
+        t_sec = Trist.Trits(second)
+        return (Expr.evaluate_unary(t_func, t_sec))[0], expression[2:]
+
+    else:
+        return (f_value, expression[1:])
+
 def expr_unary(expression, variables):
     count = 0
     while expression[count] in Expr.unary_functions:
-        count++
+        count = count + 1
 
     func = expression[:count]
     func = func + "a"
