@@ -11,7 +11,7 @@ from Trits import *
 from Expr import *
 
 def expr_recurse(expression, variables):
-    if expression[0] in unary_functions:
+    if expression[0] in Expr.unary_functions:
         return expr_unary(expression, variables)
     elif isalpha(expression[0]):
         return expr_dyatic(expression, variables)
