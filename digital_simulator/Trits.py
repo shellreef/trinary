@@ -4,7 +4,7 @@
 trit_integer = {"i":-1, "0":0, "1":1}
 trit_bool = {"i":False, "0":None, "1":True}
 trit_value = (None, True, False)
-
+trit_string = {False:"i", None:"0", True:"1"}
 trit_char = ("i", "1", "0")
 
 def parseTrit(trit):
