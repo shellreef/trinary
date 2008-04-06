@@ -10,6 +10,23 @@
 from Trits import *
 from Expr import *
 
+dyatic_functions = {
+    "+" : {False:"i01", None:"001", True:"111"},
+    "*" : {False:"iii", None:"i00", True:"i01"}
+}    
+
+def expr_unary(expression, variables):
+    count = 0
+    while expression[count] in Expr.unary_functions:
+        count++
+
+    func = expression[:count]
+    func = func + "a"
+
+    result, next = expr_recurse(expression[count:], variables)
+    e = Expr.Expr(func)
+    return (e.evaluate(result), next)
+
 def expr_recurse(expression, variables):
     if expression[0] in Expr.unary_functions:
         return expr_unary(expression, variables)
@@ -27,7 +44,7 @@ def expr_recurse(expression, variables):
 def trinary_eval(expression, variables):
     '''Evaluates trinary expression.  Unary and Dyatic functions supported:
         Unary: /, ∇, ∆, ¬, ⌐, ↘, ↗, ∩, ∪, ♨
-        Dyatic: + (max), - (min)
+        Dyatic: + (max), * (min)
        expression: String containing expression to evalutate (ie "♨(A+/B*C)").
        variables: dictionary of variables and their values 
          (ie {"A" = "i", "B" = "1", "C" = "0"}).
