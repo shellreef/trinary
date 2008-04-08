@@ -63,7 +63,7 @@ def expr_unary(expression, variables):
     return (e.evaluate(result), next)
 
 def expr_recurse(expression, variables):
-    if expression[0] in Expr.unary_functions:
+    if expression[0] in unary_functions:
         return expr_unary(expression, variables)
     elif isalpha(expression[0]):
         return expr_dyatic(expression, variables)
@@ -82,9 +82,12 @@ def trinary_eval(expression, variables):
         Dyatic: + (max), * (min)
        expression: String containing expression to evalutate (ie "♨(A+/B*C)").
        variables: dictionary of variables and their values 
-         (ie {"A" = "i", "B" = "1", "C" = "0"}).
+         (ie {"A" : "i", "B" : "1", "C" : "0"}).
        returns: The result of evaluating the expression.
     '''
     (result, lo) = expr_recurse(expression, variables)
     return result
-    
+
+if __name__ == "__main__":
+    print trinary_eval("A+B", {"A" : "1", "B" : "1"})
+
