@@ -65,14 +65,14 @@ def expr_unary(expression, variables):
 
     result, next = expr_recurse(expression[count:], variables)
     e = Expr(func)
-    return (e.evaluate(Trits(trit_string[result])), next)
+    return ((e.evaluate(Trits(trit_string[result])))[0], next)
 
 def expr_recurse(expression, variables):
     if expression[0] in unary_functions:
         return expr_unary(expression, variables)
     elif expression[0].isalpha():
         return expr_dyatic(expression, variables)
-    elif expression == "(":
+    elif expression[0] == "(":
         expression = expression[1:]
         result, next = expr_recurse(expression, variables)
         if next[0] != ")":
@@ -89,32 +89,36 @@ def trinary_eval(expression, variables):
        variables: dictionary of variables and their values 
        returns: The result of evaluating the expression.
 
->>> print trinary_eval("//A+B", {"A" : "1", "B" : "1"})[0]
+>>> print trinary_eval("//A+B", {"A" : "1", "B" : "1"})
 Variable: a
 Gate: /
 Gate: /
 True
->>> print trinary_eval("//A+B", {"A" : "1", "B" : "0"})[0]
+>>> print trinary_eval("//A+B", {"A" : "1", "B" : "0"})
 Variable: a
 Gate: /
 Gate: /
 True
->>> print trinary_eval("//A+B", {"A" : "i", "B" : "0"})[0]
+>>> print trinary_eval("//A+B", {"A" : "i", "B" : "0"})
 Variable: a
 Gate: /
 Gate: /
 None
->>> print trinary_eval("//A+B", {"A" : "0", "B" : "0"})[0]
+>>> print trinary_eval("//A+B", {"A" : "0", "B" : "0"})
 Variable: a
 Gate: /
 Gate: /
 None
->>> print trinary_eval("//A+B", {"A" : "0", "B" : "1"})[0]
+>>> print trinary_eval("//A+B", {"A" : "0", "B" : "1"})
 Variable: a
 Gate: /
 Gate: /
 True
 >>> print trinary_eval("/(A+/B*C)",{"A":"0","B":"0","C":"1"})
+Variable: a
+Gate: /
+Variable: a
+Gate: /
 None
     '''
     result, lo = expr_recurse(expression, variables)

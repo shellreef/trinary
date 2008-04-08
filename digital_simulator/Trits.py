@@ -9,7 +9,7 @@ trit_char = ("i", "1", "0")
 
 def parseTrit(trit):
     '''This function returns the boolean value of a trit.
-        trit: trit represented by a characater
+        trit: trit represented by a character
         return: boolean value
     '''
     return trit_bool[trit]
