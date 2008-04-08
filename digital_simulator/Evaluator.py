@@ -90,35 +90,16 @@ def trinary_eval(expression, variables):
        returns: The result of evaluating the expression.
 
 >>> print trinary_eval("//A+B", {"A" : "1", "B" : "1"})
-Variable: a
-Gate: /
-Gate: /
 True
 >>> print trinary_eval("//A+B", {"A" : "1", "B" : "0"})
-Variable: a
-Gate: /
-Gate: /
 True
 >>> print trinary_eval("//A+B", {"A" : "i", "B" : "0"})
-Variable: a
-Gate: /
-Gate: /
 None
 >>> print trinary_eval("//A+B", {"A" : "0", "B" : "0"})
-Variable: a
-Gate: /
-Gate: /
 None
 >>> print trinary_eval("//A+B", {"A" : "0", "B" : "1"})
-Variable: a
-Gate: /
-Gate: /
 True
 >>> print trinary_eval("/(A+/B*C)",{"A":"0","B":"0","C":"1"})
-Variable: a
-Gate: /
-Variable: a
-Gate: /
 None
     '''
     result, lo = expr_recurse(expression, variables)

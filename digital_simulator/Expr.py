@@ -8,6 +8,8 @@
 from Symbols import *
 from Trits import Trits
 
+DEBUG = False
+
 unary_functions = {
         # Everyone agrees on
         u"/": Trits("10i"),
@@ -53,7 +55,7 @@ class Expr(object):
 
         variable = s[-1]
         assert variable.isalpha(), "Only accept expressions of form xxxxA, where x=unary operators, A=variable"
-        print "Variable:", variable
+        if DEBUG: print "Variable:", variable
 
         # Evaluate gates from right-to-left
         unary_gates = reversed(s[:-1])
@@ -63,7 +65,7 @@ class Expr(object):
 
         # Evaluate with unary function on the identity
         for gate in unary_gates:
-            print "Gate:", gate.encode('utf8')
+            if DEBUG: print "Gate:", gate.encode('utf8')
             total_unary = evaluate_unary(unary_functions[gate], total_unary)
 
         # Now total_unary is the function# of all the unary gates
