@@ -4,7 +4,7 @@
 # By: Antonio Chavez
 #
 # Extended Trinary Evaluator: Evaluates trinary expression containing unary
-#   and dyatic gates
+#   and dyadic gates
 #
 
 from Expr import *
@@ -12,12 +12,12 @@ from Trits import *
 
 import doctest
 
-dyatic_functions = {
+dyadic_functions = {
     "+" : {False:"i01", None:"001", True:"111"},
     "*" : {False:"iii", None:"i00", True:"i01"}
 }    
 
-def expr_dyatic(expression, variables):
+def expr_dyadic(expression, variables):
     first = variables[expression[0]]
     f_value = trit_bool[first]
  
@@ -25,8 +25,8 @@ def expr_dyatic(expression, variables):
         return (f_value, "")
 
     f_next = expression[1]
-    if f_next in dyatic_functions:
-        f_apply = dyatic_functions[f_next]
+    if f_next in dyadic_functions:
+        f_apply = dyadic_functions[f_next]
         result, next_expr = expr_recurse(expression[2:], variables)
 
         t_func = Trits(f_apply[f_value])
@@ -34,7 +34,7 @@ def expr_dyatic(expression, variables):
         return (evaluate_unary(t_func, t_sec))[0], next_expr
 
     elif f_next == "(":
-        f_apply = dyatic_functions["*"]
+        f_apply = dyadic_functions["*"]
         result, next_expr = expr_recurse(expression[2:], variables)
 
         if next_expr[0] != ")":
@@ -45,7 +45,7 @@ def expr_dyatic(expression, variables):
         return (Expr.evaluate_unary(t_func, t_sec))[0], next_expr[1:]
 
     elif f_next.isalpha():
-        f_apply = dyatic_functions["*"]
+        f_apply = dyadic_functions["*"]
         second = variables[f_next]
 
         t_func = Trits.Trits(f_apply[f_values])
@@ -71,7 +71,7 @@ def expr_recurse(expression, variables):
     if expression[0] in unary_functions:
         return expr_unary(expression, variables)
     elif expression[0].isalpha():
-        return expr_dyatic(expression, variables)
+        return expr_dyadic(expression, variables)
     elif expression[0] == "(":
         expression = expression[1:]
         result, next = expr_recurse(expression, variables)
