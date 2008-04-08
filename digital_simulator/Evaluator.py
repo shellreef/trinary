@@ -17,16 +17,19 @@ dyatic_functions = {
 
 def expr_dyatic(expression, variables):
     first = variables[expression[0]]
-    f_value = Trits.trit_bool(first)
-    
+    f_value = trit_bool[first]
+ 
+    if len(expression) == 1:
+        return (f_value, "")
+
     f_next = expression[1]
     if f_next in dyatic_functions:
         f_apply = dyatic_functions[f_next]
         result, next_expr = expr_recurse(expression[2:], variables)
 
-        t_func = Trits.Trits(f_apply[f_value])
-        t_sec = Trits.Trits(Trits.trit_string[result])
-        return (Expr.evaluate_unary(t_func, t_sec))[0], next_expr
+        t_func = Trits(f_apply[f_value])
+        t_sec = Trits(trit_string[result])
+        return (evaluate_unary(t_func, t_sec))[0], next_expr
 
     elif f_next == "(":
         f_apply = dyatic_functions["*"]
@@ -35,11 +38,11 @@ def expr_dyatic(expression, variables):
         if next_expr[0] != ")":
             raise "Expected \")\", found \"%s\"" % (next_expr[0])
  
-        t_func = Trits.Trits(f_apply[f_value])
-        t_sec = Trits.Trits(Trits.trit_string[result])
+        t_func = Trits(f_apply[f_value])
+        t_sec = Trits(trit_string[result])
         return (Expr.evaluate_unary(t_func, t_sec))[0], next_expr[1:]
 
-    elif f.next.isalpha():
+    elif f_next.isalpha():
         f_apply = dyatic_functions["*"]
         second = variables[f_next]
 
@@ -52,15 +55,15 @@ def expr_dyatic(expression, variables):
 
 def expr_unary(expression, variables):
     count = 0
-    while expression[count] in Expr.unary_functions:
+    while expression[count] in unary_functions:
         count = count + 1
 
     func = expression[:count]
     func = func + "a"
 
     result, next = expr_recurse(expression[count:], variables)
-    e = Expr.Expr(func)
-    return (e.evaluate(result), next)
+    e = Expr(func)
+    return (e.evaluate(Trits(trit_string[result])), next)
 
 def expr_recurse(expression, variables):
     if expression[0] in unary_functions:
@@ -89,5 +92,5 @@ def trinary_eval(expression, variables):
     return result
 
 if __name__ == "__main__":
-    print trinary_eval("A+B", {"A" : "1", "B" : "1"})
+    print trinary_eval("//A+B", {"A" : "1", "B" : "1"})
 
