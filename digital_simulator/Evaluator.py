@@ -10,6 +10,8 @@
 from Expr import *
 from Trits import *
 
+import doctest
+
 dyatic_functions = {
     "+" : {False:"i01", None:"001", True:"111"},
     "*" : {False:"iii", None:"i00", True:"i01"}
@@ -83,18 +85,40 @@ def trinary_eval(expression, variables):
     '''Evaluates trinary expression.  Unary and Dyatic functions supported:
         Unary: /, ∇, ∆, ¬, ⌐, ↘, ↗, ∩, ∪, ♨
         Dyatic: + (max), * (min)
-       expression: String containing expression to evalutate (ie "♨(A+/B*C)").
+       expression: String containing expression to evalutate
        variables: dictionary of variables and their values 
-         (ie {"A" : "i", "B" : "1", "C" : "0"}).
        returns: The result of evaluating the expression.
+
+>>> print trinary_eval("//A+B", {"A" : "1", "B" : "1"})[0]
+Variable: a
+Gate: /
+Gate: /
+True
+>>> print trinary_eval("//A+B", {"A" : "1", "B" : "0"})[0]
+Variable: a
+Gate: /
+Gate: /
+True
+>>> print trinary_eval("//A+B", {"A" : "i", "B" : "0"})[0]
+Variable: a
+Gate: /
+Gate: /
+None
+>>> print trinary_eval("//A+B", {"A" : "0", "B" : "0"})[0]
+Variable: a
+Gate: /
+Gate: /
+None
+>>> print trinary_eval("//A+B", {"A" : "0", "B" : "1"})[0]
+Variable: a
+Gate: /
+Gate: /
+True
+>>> print trinary_eval("/(A+/B*C)",{"A":"0","B":"0","C":"1"})
+None
     '''
     result, lo = expr_recurse(expression, variables)
     return result
 
 if __name__ == "__main__":
-    assert trinary_eval("//A+B", {"A" : "1", "B" : "1"})[0] == True
-    assert trinary_eval("//A+B", {"A" : "1", "B" : "0"})[0] == True
-    assert trinary_eval("//A+B", {"A" : "i", "B" : "0"})[0] == None
-    assert trinary_eval("//A+B", {"A" : "0", "B" : "0"})[0] == None
-    assert trinary_eval("//A+B", {"A" : "0", "B" : "1"})[0] == True
-
+    doctest.testmod()
