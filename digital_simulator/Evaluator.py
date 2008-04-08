@@ -7,8 +7,8 @@
 #   and dyatic gates
 #
 
-from Trits import *
 from Expr import *
+import Trits 
 
 dyatic_functions = {
     "+" : {False:"i01", None:"001", True:"111"},
