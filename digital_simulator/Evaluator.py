@@ -13,8 +13,21 @@ from Trits import *
 import doctest
 
 dyadic_functions = {
-    "+" : {False:"i01", None:"001", True:"111"},
-    "*" : {False:"iii", None:"i00", True:"i01"}
+    u"∨" : {False:"i01", None:"001", True:"111"},    # TOR
+    u"∧" : {False:"iii", None:"i00", True:"i01"},    # TAND
+    u"⊼" : {False:"111", None:"100", True:"10i"},    # TNAND
+    u"⊽" : {False:"10i", None:"00i", True:"111"},    # TNOR
+
+    # Alternate notation, sometimes easier to type
+    u"+" : {False:"i01", None:"001", True:"111"},
+    u"*" : {False:"iii", None:"i00", True:"i01"},
+
+
+    # Grubb's notation
+    u"↑" : {False:"i01", None:"001", True:"111"},    # max
+    u"↓" : {False:"iii", None:"i00", True:"i01"},    # min
+    u"⇑" : {False:"i01", None:"0i1", True:"11i"},    # exclusive max
+
 }    
 
 def expr_dyadic(expression, variables):
@@ -82,7 +95,7 @@ def expr_recurse(expression, variables):
         raise "Unexpected character found \"%s\"" % (expression[0]) 
 
 def trinary_eval(expression, variables):
-    '''Evaluates trinary expression.  Unary and Dyatic functions supported:
+    u'''Evaluates trinary expression.  Unary and Dyatic functions supported:
         Unary: /, ∇, ∆, ¬, ⌐, ↘, ↗, ∩, ∪, ♨
         Dyatic: + (max), * (min)
        expression: String containing expression to evalutate
@@ -100,6 +113,10 @@ None
 >>> print trinary_eval("//A+B", {"A" : "0", "B" : "1"})
 True
 >>> print trinary_eval("/(A+/B*C)",{"A":"0","B":"0","C":"1"})
+None
+>>> print trinary_eval("A⊽(/B*C)",{"A":"0","B":"0","C":"1"})
+None
+>>> print trinary_eval("A⊽(/B∧C)",{"A":"0","B":"0","C":"1"})
 None
     '''
     result, lo = expr_recurse(expression, variables)
