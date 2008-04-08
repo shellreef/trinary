@@ -8,7 +8,7 @@
 #
 
 from Expr import *
-import Trits 
+from Trits import *
 
 dyatic_functions = {
     "+" : {False:"i01", None:"001", True:"111"},
@@ -92,5 +92,9 @@ def trinary_eval(expression, variables):
     return result
 
 if __name__ == "__main__":
-    print trinary_eval("//A+B", {"A" : "1", "B" : "1"})
+    assert trinary_eval("//A+B", {"A" : "1", "B" : "1"})[0] == True
+    assert trinary_eval("//A+B", {"A" : "1", "B" : "0"})[0] == True
+    assert trinary_eval("//A+B", {"A" : "i", "B" : "0"})[0] == None
+    assert trinary_eval("//A+B", {"A" : "0", "B" : "0"})[0] == None
+    assert trinary_eval("//A+B", {"A" : "0", "B" : "1"})[0] == True
 
