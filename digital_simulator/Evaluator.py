@@ -39,7 +39,7 @@ def expr_dyatic(expression, variables):
         t_sec = Trits.Trits(Trits.trit_string[result])
         return (Expr.evaluate_unary(t_func, t_sec))[0], next_expr[1:]
 
-    elif isalpha(f_next):
+    elif f.next.isalpha():
         f_apply = dyatic_functions["*"]
         second = variables[f_next]
 
@@ -65,7 +65,7 @@ def expr_unary(expression, variables):
 def expr_recurse(expression, variables):
     if expression[0] in unary_functions:
         return expr_unary(expression, variables)
-    elif isalpha(expression[0]):
+    elif expression[0].isalpha():
         return expr_dyatic(expression, variables)
     elif expression == "(":
         expression = expression[1:]
