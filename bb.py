@@ -124,7 +124,8 @@ def find_chip(chips, model_needed, pins_needed_options):
                 print "Found model %s with pins %s free: chip #%s" % (model_needed, option, i)
                 return i, option_num
 
-    raise "No chips found with model %s and with pins %s free. Maybe you need more chips." % (model_needed, pins_needed)
+    raise "No chips found with model %s and with pins %s free. Maybe you need more chips." % (model_needed, 
+            pins_needed_options)
 
 def find_pins_needed(pins):
     """From a mod.pins[x] dict, return the pins needed for each model, for find_chip()"""
@@ -196,7 +197,7 @@ def dump_chips(chips):
     """Show the current chips and their pin connections."""
     for i, c in enumerate(chips):
         m, p = c
-        print "---%s #%s---" % (m, i)
+        print "---#%s - %s---" % (i, m)
         for k, v in p.iteritems():
             print "\t%s: %s" % (k, v)
 
@@ -211,7 +212,7 @@ def dump_chips(chips):
 # Available chips
 chips = [
         ("CD4007", get_floating(14) ),
-        ("CD4007", get_floating(14) ),
+        ("CD4016", get_floating(14) ),
         #("CD4007", get_floating(14) )
         ]
 
@@ -229,7 +230,24 @@ chips = assign_part(chips, "tinv",
             "NTI_Out": "NTI_Out_2",
             "STI_Out": "STI_Out_2",
         })
-
+chips = assign_part(chips, "tg",
+        {
+            "IN_OUT": "IN_1",
+            "OUT_IN": "OUT_1",
+            "CONTROL": "CTRL_1",
+        })
+chips = assign_part(chips, "tg",
+        {
+            "IN_OUT": "IN_2",
+            "OUT_IN": "OUT_2",
+            "CONTROL": "CTRL_2",
+        })
+chips = assign_part(chips, "tg",
+        {
+            "IN_OUT": "IN_3",
+            "OUT_IN": "OUT_3",
+            "CONTROL": "CTRL_3",
+        })
 
 dump_chips(chips)
 
