@@ -12,24 +12,31 @@ parts_kept = ["RP", "RN"]
 # Based on pinout from http://www.cedmagic.com/tech-info/data/cd4016.pdf
 pins = [ 
         { 
+            # First MOSFET pair has sources already connected to Vdd/Vss
             "Vin": ("CD4007", 6), 
             "PTI_Out": ("CD4007", 13),
             "NTI_Out": ("CD4007", 8), 
             "STI_Out": "STI_Out",
         },
         { 
+            # Second MOSFET pair, need to connect sources
             "Vin": ("CD4007", 1), 
             "PTI_Out": ("CD4007", 3),
             "NTI_Out": ("CD4007", 5), 
             "STI_Out": "STI_Out",
+            "$G_Vdd": ("CD4007", 2),
+            "$G_Vss": ("CD4007", 4),
         },
        ]
 
 # Always connected once if use once or more
 global_pins = { 
         # Power connections
-        "$G_Vdd": ("CD4007", 14), "$G_Vss": ("CD4007", 7) 
+        "$G_Vdd": ("CD4007", 14), 
+        "$G_Vss": ("CD4007", 7),
+
         # TODO: always connect binary inverter, since we'll never be using it,
         # but to prevent MOSFETs from switching on and off, wasting power?
+        # May need a change in this data structure to support multiple connections to $G_Vdd/Vss
         }
 
