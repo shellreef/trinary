@@ -248,6 +248,13 @@ chips = assign_part(chips, "tg",
             "OUT_IN": "OUT_3",
             "CONTROL": "CTRL_3",
         })
+chips = assign_part(chips, "tg",
+        {
+            "IN_OUT": "IN_4",
+            "OUT_IN": "OUT_4",
+            "CONTROL": "CTRL_4",
+        })
+
 
 dump_chips(chips)
 
