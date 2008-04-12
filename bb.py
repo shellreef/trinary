@@ -115,18 +115,21 @@ def chip_has_pins_available(pins_needed, pins):
             return False
     return True
 
-def find_chip(chips, model_needed, pins_needed):
-    """Return an index into the chips array, with the given model and the pins free."""
+def find_chip(chips, model_needed, pins_needed_options):
+    """Return an index into the chips array, and what pins, with the given model and the pins free.
+    
+    pins_needed_options is a list of lists, of any acceptable set of pins to use."""
     for i, chip in enumerate(chips):
         model, pins = chip
         if model != model_needed:
             continue
 
-        if chip_has_pins_available(pins_needed, pins):
-            print "Found model %s with pins %s free: chip #%s" % (model_needed, pins_needed, i)
-            return i
+        for option_num, option in enumerate(pins_needed_options):
+            if chip_has_pins_available(option, pins):
+                print "Found model %s with pins %s free: chip #%s" % (model_needed, option, i)
+                return i, option_num
 
-    print "! No chips found with model %s and with pins %s free" % (model_needed, pins_needed)
+    raise "No chips found with model %s and with pins %s free. Maybe you need more chips." % (model_needed, pins_needed)
 
 def find_pins_needed(pins):
     """From a mod.pins[x] dict, return the pins needed for each model, for find_chip()"""
@@ -147,15 +150,26 @@ def assign_part(chips, mod):
     for p in mod.parts_generated:
         assignments[p] = {}
 
-    # TODO: find mod.pins[1] too!!!!! Other complementary pair.
-    need = find_pins_needed(mod.pins[0])
-    if len(need) > 1:
-        raise "Sorry, more than one model is needed: %s, but only one is supported right now." % (need,)
+    need_options = []
+    the_model = None
+    for p in mod.pins:
+        need = find_pins_needed(p)
+        if len(need) > 1:
+            raise "Sorry, more than one model is needed: %s, but only one is supported right now." % (need,)
+        if the_model is None:
+            the_model = need.keys()[0]
+        else:
+            if the_model != need.keys()[0]:
+                raise "Sorry, different models are needed: %s, but already decided on %s earlier. This is not yet supported." % (the_model, need[0])
 
-    chip_num = find_chip(chips, need.keys()[0], need.values()[0])
+        need_options.append(need.values()[0])
+
+    print "Searching for model %s with one of pins: %s" % (the_model, need_options)
+    chip_num, option_num  = find_chip(chips, the_model, need_options)
     print "FOUND CHIP:",chip_num
+    print "WITH PINS (option #%s):" % (option_num,), mod.pins[option_num]
 
-    for node, pin in combine_dicts(mod.global_pins, mod.pins[0]).iteritems():
+    for node, pin in combine_dicts(mod.global_pins, mod.pins[option_num]).iteritems():
         if type(pin) == types.TupleType:
             part, pin = pin
         else:
@@ -164,25 +178,19 @@ def assign_part(chips, mod):
         print "* %s -> %s:%s" % (node, part, pin)
 
         if part is not None:
-            assignments[part][pin] = node
-
-    for part in assignments:
-        #print "* --%s--" % (part,)
-        for pin in range(1, max(assignments[part].keys()) + 1):
-            node = assignments[part].get(pin, get_floating())
-            #print "* ", (pin,node)
-
-            # Assign nodes to this pin on this chip. TODO: assign _external_ nodes!!!
             chips[chip_num][1][pin] = node
+
     return chips
 
 mod, subckt_defns, pos2node = rewrite_subckt(subckt_defns, "tinv")
 chips = [
         ("CD4007", get_floating(14) ),
         ("CD4007", get_floating(14) ),
-        ("CD4007", get_floating(14) )
+        #("CD4007", get_floating(14) )
         ]
 
+chips = assign_part(chips, mod)
+chips = assign_part(chips, mod)
 chips = assign_part(chips, mod)
 chips = assign_part(chips, mod)
 for i, c in enumerate(chips):
