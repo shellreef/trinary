@@ -52,6 +52,12 @@ print subckt_nodes
 print subckt_defns
 
 def rewrite_subckt(subckt_defns, s):
+    """Partially rewrite subcircuit 's', using rules from a module of the same name.
+
+    Removes parts in mod.parts_consumed, keeps parts in mod.parts_kept. 
+
+    Does not generate any new parts."""
+
     mod = globals()[s]
     lines = []
     for line in subckt_defns[s]:
@@ -77,32 +83,35 @@ def rewrite_subckt(subckt_defns, s):
 
     return mod, subckt_defns, pos2node
 
+def assign_part(chips, mod):
+    # Store new pin assignments
+    assignments = {}
+    for p in mod.parts_generated:
+        assignments[p] = {}
+
+    # TODO: choose next available component in part, instead of always 0
+    for node, pin in combine_dicts(mod.global_pins, mod.pins[0]).iteritems():
+        if type(pin) == types.TupleType:
+            part, pin = pin
+        else:
+            part = None
+
+        print "* %s -> %s:%s" % (node, part, pin)
+
+        if part is not None:
+            assignments[part][pin] = node
+
+    for part in assignments:
+        print "* --%s--" % (part,)
+        for pin in range(1, max(assignments[part].keys()) + 1):
+            node = assignments[part].get(pin, "NC__%s_%s_%s_%s" % (mod.__name__, part, len(chips), pin))
+
+            print "* ", (pin,node)
+
 mod, subckt_defns, pos2node = rewrite_subckt(subckt_defns, "tinv")
+chips = {}
+chips = assign_part(chips, mod)
 
-# Store new pin assignments
-assignments = {}
-for p in mod.parts_generated:
-    assignments[p] = {}
-
-# TODO: choose next available component in part, instead of always 0
-for node, pin in combine_dicts(mod.global_pins, mod.pins[0]).iteritems():
-    if type(pin) == types.TupleType:
-        part, pin = pin
-    else:
-        part = None
-
-    print "* %s -> %s:%s" % (node, part, pin)
-
-    if part is not None:
-        assignments[part][pin] = node
-
-for part in assignments:
-    print "* --%s--" % (part,)
-    for pin in range(1, max(assignments[part].keys()) + 1):
-        node = assignments[part].get(pin, "NC")
-        print "* ", (pin,node)
-
-rewrite_subckt(subckt_defns, "tinv")
 
 # sti
 line = "XX1 IN NC_01 OUT NC_02 tinv"
