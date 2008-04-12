@@ -26,5 +26,10 @@ pins = [
        ]
 
 # Always connected once if use once or more
-global_pins = { "$G_Vdd": ("CD4007", 14), "$G_Vss": ("CD4007", 7) }
+global_pins = { 
+        # Power connections
+        "$G_Vdd": ("CD4007", 14), "$G_Vss": ("CD4007", 7) 
+        # TODO: always connect binary inverter, since we'll never be using it,
+        # but to prevent MOSFETs from switching on and off, wasting power?
+        }
 

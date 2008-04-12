@@ -144,7 +144,7 @@ def find_pins_needed(pins):
 
     return need
 
-def assign_part(chips, mod):
+def assign_part(chips, mod, external_nodes):
     # Store new pin assignments
     assignments = {}
     for p in mod.parts_generated:
@@ -178,7 +178,12 @@ def assign_part(chips, mod):
         print "* %s -> %s:%s" % (node, part, pin)
 
         if part is not None:
-            chips[chip_num][1][pin] = node
+            if node.startswith("$G_") or node == "0":
+                external_node = node                    # global node (LTspice)
+            else:
+                external_node = external_nodes[node]    # map internal to external node
+
+            chips[chip_num][1][pin] = external_node
 
     return chips
 
@@ -189,10 +194,20 @@ chips = [
         #("CD4007", get_floating(14) )
         ]
 
-chips = assign_part(chips, mod)
-chips = assign_part(chips, mod)
-chips = assign_part(chips, mod)
-chips = assign_part(chips, mod)
+chips = assign_part(chips, mod, 
+        {
+            "Vin": "IN_1", 
+            "PTI_Out": "PTI_Out_1",
+            "NTI_Out": "NTI_Out_1",
+            "STI_Out": "STI_Out_1",
+        })
+chips = assign_part(chips, mod, 
+        {
+            "Vin": "IN_2", 
+            "PTI_Out": "PTI_Out_2",
+            "NTI_Out": "NTI_Out_2",
+            "STI_Out": "STI_Out_2",
+        })
 for i, c in enumerate(chips):
     m, p = c
     print "---%s #%s---" % (m, i)
