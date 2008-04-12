@@ -46,11 +46,6 @@ def read_netlist(filename):
 
     return subckt_nodes, subckt_defns
 
-subckt_nodes, subckt_defns = read_netlist("../code/circuits/mux3-1_test.net")
-
-print subckt_nodes
-print subckt_defns
-
 def rewrite_subckt(subckt_defns, s):
     """Partially rewrite subcircuit 's', using rules from a module of the same name.
 
@@ -145,6 +140,16 @@ def find_pins_needed(pins):
     return need
 
 def assign_part(chips, mod, external_nodes):
+    """Assign a given model to a physical chip, using the names of the external nodes.
+    
+    chips: array of existing physical chips that can be assigned from
+    mod: logical model to map to, like 'tinv'
+    external_nodes: dict mapping internal nodes in the model, to external nodes in the world
+    """
+
+    if type(mod) != types.ModuleType:
+        mod = globals()[mod]
+
     # Store new pin assignments
     assignments = {}
     for p in mod.parts_generated:
@@ -187,33 +192,46 @@ def assign_part(chips, mod, external_nodes):
 
     return chips
 
-mod, subckt_defns, pos2node = rewrite_subckt(subckt_defns, "tinv")
+def dump_chips(chips):
+    """Show the current chips and their pin connections."""
+    for i, c in enumerate(chips):
+        m, p = c
+        print "---%s #%s---" % (m, i)
+        for k, v in p.iteritems():
+            print "\t%s: %s" % (k, v)
+
+
+# TODO: do something with this
+#subckt_nodes, subckt_defns = read_netlist("../code/circuits/mux3-1_test.net")
+#
+#print subckt_nodes
+#print subckt_defns
+#mod, subckt_defns, pos2node = rewrite_subckt(subckt_defns, "tinv")
+
+# Available chips
 chips = [
         ("CD4007", get_floating(14) ),
         ("CD4007", get_floating(14) ),
         #("CD4007", get_floating(14) )
         ]
 
-chips = assign_part(chips, mod, 
+chips = assign_part(chips, "tinv", 
         {
             "Vin": "IN_1", 
             "PTI_Out": "PTI_Out_1",
             "NTI_Out": "NTI_Out_1",
             "STI_Out": "STI_Out_1",
         })
-chips = assign_part(chips, mod, 
+chips = assign_part(chips, "tinv", 
         {
             "Vin": "IN_2", 
             "PTI_Out": "PTI_Out_2",
             "NTI_Out": "NTI_Out_2",
             "STI_Out": "STI_Out_2",
         })
-for i, c in enumerate(chips):
-    m, p = c
-    print "---%s #%s---" % (m, i)
-    for k, v in p.iteritems():
-        print "\t%s: %s" % (k, v)
 
+
+dump_chips(chips)
 
 # sti
 line = "XX1 IN NC_01 OUT NC_02 tinv"
