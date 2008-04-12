@@ -78,18 +78,22 @@ def rewrite_subckt(subckt_defns, s):
 
     return mod, subckt_defns, pos2node
 
-next_floating = -1
+next_serial = -1
+def get_serial():
+    """Get a unique, increasing number."""
+    global next_serial
+
+    next_serial += 1
+    return next_serial
+
 def get_floating(n=None):
     """Return a unique disconnected (floating) node name.
     
     If n is given, return a dict of n floating node names. Otherwise returns one in a string."""
-    global next_floating
-
     if n is not None:
         return get_floating_n(n)
 
-    next_floating += 1
-    return "NC_%s_" % (next_floating, )
+    return "NC_%s_" % (get_serial(), )
 
 def get_floating_n(n):
     """Get n floating nodes, see get_floating()."""
@@ -140,7 +144,7 @@ def find_pins_needed(pins):
 
     return need
 
-def assign_part(chips, mod, external_nodes):
+def assign_part(chips, subckt_defns, extra, model_name, external_nodes):
     """Assign a given model to a physical chip, using the names of the external nodes.
     
     chips: array of existing physical chips that can be assigned from
@@ -148,8 +152,9 @@ def assign_part(chips, mod, external_nodes):
     external_nodes: dict mapping internal nodes in the model, to external nodes in the world
     """
 
-    if type(mod) != types.ModuleType:
-        mod = globals()[mod]
+    mod = globals()[model_name]
+    subckt_lines = subckt_defns[model_name]
+
 
     # Store new pin assignments
     assignments = {}
@@ -191,7 +196,26 @@ def assign_part(chips, mod, external_nodes):
 
             chips[chip_num][1][pin] = external_node
 
-    return chips
+    # Now place any additional parts (resistors, etc.) within the subcircuit model
+    # that connect to the chip, but are not part of the chip.
+    for line in subckt_lines:
+        words = line.split()
+        new_words = []
+
+        name = "%s_%s_%s_%s" % (words[0], model_name, chip_num, get_serial())
+
+        new_words.append(name)
+
+        # Replace internal nodes with external nodes.
+        for w in words[1:]:
+            if w in external_nodes.keys():
+                new_words.append(external_nodes[w])
+            else:
+                new_words.append(w)
+        extra.append(" ".join(new_words))
+        # TODO: get new part names!!!!!!!!
+
+    return chips, extra
 
 def dump_chips(chips):
     """Show the current chips and their pin connections."""
@@ -201,13 +225,17 @@ def dump_chips(chips):
         for k, v in p.iteritems():
             print "\t%s: %s" % (k, v)
 
+def dump_extra(extra):
+    """Shows the extra, supporting subcircuit parts that support the IC and are part of the subcircuit."""
+    print "++ Additional parts:"
+    for e in extra:
+        print e
+
 
 # TODO: do something with this
-#subckt_nodes, subckt_defns = read_netlist("../code/circuits/mux3-1_test.net")
-#
-#print subckt_nodes
-#print subckt_defns
-#mod, subckt_defns, pos2node = rewrite_subckt(subckt_defns, "tinv")
+subckt_nodes, subckt_defns = read_netlist("../code/circuits/mux3-1_test.net")
+mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
+tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
 
 # Available chips
 chips = [
@@ -216,39 +244,43 @@ chips = [
         #("CD4007", get_floating(14) )
         ]
 
-chips = assign_part(chips, "tinv", 
+# TODO: parse from SPICE files, assigning nodes based on pos2node_*
+extra = []
+chips, extra = assign_part(chips, subckt_defns, extra, "tinv", 
         {
             "Vin": "IN_1", 
             "PTI_Out": "PTI_Out_1",
             "NTI_Out": "NTI_Out_1",
             "STI_Out": "STI_Out_1",
         })
-chips = assign_part(chips, "tinv", 
+
+chips, extra = assign_part(chips, subckt_defns, extra, "tinv", 
         {
             "Vin": "IN_2", 
             "PTI_Out": "PTI_Out_2",
             "NTI_Out": "NTI_Out_2",
             "STI_Out": "STI_Out_2",
         })
-chips = assign_part(chips, "tg",
+
+chips, extra = assign_part(chips, subckt_defns, extra, "tg",
         {
             "IN_OUT": "IN_1",
             "OUT_IN": "OUT_1",
             "CONTROL": "CTRL_1",
         })
-chips = assign_part(chips, "tg",
+chips, extra = assign_part(chips, subckt_defns, extra, "tg",
         {
             "IN_OUT": "IN_2",
             "OUT_IN": "OUT_2",
             "CONTROL": "CTRL_2",
         })
-chips = assign_part(chips, "tg",
+chips, extra = assign_part(chips, subckt_defns, extra, "tg",
         {
             "IN_OUT": "IN_3",
             "OUT_IN": "OUT_3",
             "CONTROL": "CTRL_3",
         })
-chips = assign_part(chips, "tg",
+chips, extra = assign_part(chips, subckt_defns, extra, "tg",
         {
             "IN_OUT": "IN_4",
             "OUT_IN": "OUT_4",
@@ -257,6 +289,7 @@ chips = assign_part(chips, "tg",
 
 
 dump_chips(chips)
+dump_extra(extra)
 
 # sti
 line = "XX1 IN NC_01 OUT NC_02 tinv"
