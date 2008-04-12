@@ -232,66 +232,68 @@ def dump_extra(extra):
         print e
 
 
-# TODO: do something with this
-subckt_nodes, subckt_defns = read_netlist("../code/circuits/mux3-1_test.net")
-mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
-tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
+def main():
+    # TODO: do something with this
+    subckt_nodes, subckt_defns = read_netlist("../code/circuits/mux3-1_test.net")
+    mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
+    tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
 
-# Available chips
-chips = [
-        ("CD4007", get_floating(14) ),
-        ("CD4016", get_floating(14) ),
-        #("CD4007", get_floating(14) )
-        ]
+    # Available chips
+    chips = [
+            ("CD4007", get_floating(14) ),
+            ("CD4016", get_floating(14) ),
+            #("CD4007", get_floating(14) )
+            ]
 
-# TODO: parse from SPICE files, assigning nodes based on pos2node_*
-extra = []
-chips, extra = assign_part(chips, subckt_defns, extra, "tinv", 
-        {
-            "Vin": "IN_1", 
-            "PTI_Out": "PTI_Out_1",
-            "NTI_Out": "NTI_Out_1",
-            "STI_Out": "STI_Out_1",
-        })
+    # TODO: parse from SPICE files, assigning nodes based on pos2node_*
+    # TODO: sti
+    # line = "XX1 IN NC_01 OUT NC_02 tinv"
 
-chips, extra = assign_part(chips, subckt_defns, extra, "tinv", 
-        {
-            "Vin": "IN_2", 
-            "PTI_Out": "PTI_Out_2",
-            "NTI_Out": "NTI_Out_2",
-            "STI_Out": "STI_Out_2",
-        })
+    extra = []
+    chips, extra = assign_part(chips, subckt_defns, extra, "tinv", 
+            {
+                "Vin": "IN_1", 
+                "PTI_Out": "PTI_Out_1",
+                "NTI_Out": "NTI_Out_1",
+                "STI_Out": "STI_Out_1",
+            })
 
-chips, extra = assign_part(chips, subckt_defns, extra, "tg",
-        {
-            "IN_OUT": "IN_1",
-            "OUT_IN": "OUT_1",
-            "CONTROL": "CTRL_1",
-        })
-chips, extra = assign_part(chips, subckt_defns, extra, "tg",
-        {
-            "IN_OUT": "IN_2",
-            "OUT_IN": "OUT_2",
-            "CONTROL": "CTRL_2",
-        })
-chips, extra = assign_part(chips, subckt_defns, extra, "tg",
-        {
-            "IN_OUT": "IN_3",
-            "OUT_IN": "OUT_3",
-            "CONTROL": "CTRL_3",
-        })
-chips, extra = assign_part(chips, subckt_defns, extra, "tg",
-        {
-            "IN_OUT": "IN_4",
-            "OUT_IN": "OUT_4",
-            "CONTROL": "CTRL_4",
-        })
+    chips, extra = assign_part(chips, subckt_defns, extra, "tinv", 
+            {
+                "Vin": "IN_2", 
+                "PTI_Out": "PTI_Out_2",
+                "NTI_Out": "NTI_Out_2",
+                "STI_Out": "STI_Out_2",
+            })
 
+    chips, extra = assign_part(chips, subckt_defns, extra, "tg",
+            {
+                "IN_OUT": "IN_1",
+                "OUT_IN": "OUT_1",
+                "CONTROL": "CTRL_1",
+            })
+    chips, extra = assign_part(chips, subckt_defns, extra, "tg",
+            {
+                "IN_OUT": "IN_2",
+                "OUT_IN": "OUT_2",
+                "CONTROL": "CTRL_2",
+            })
+    chips, extra = assign_part(chips, subckt_defns, extra, "tg",
+            {
+                "IN_OUT": "IN_3",
+                "OUT_IN": "OUT_3",
+                "CONTROL": "CTRL_3",
+            })
+    chips, extra = assign_part(chips, subckt_defns, extra, "tg",
+            {
+                "IN_OUT": "IN_4",
+                "OUT_IN": "OUT_4",
+                "CONTROL": "CTRL_4",
+            })
 
-dump_chips(chips)
-dump_extra(extra)
+    dump_chips(chips)
+    dump_extra(extra)
 
-# sti
-line = "XX1 IN NC_01 OUT NC_02 tinv"
-
+if __name__ == "__main__":
+    main()
 
