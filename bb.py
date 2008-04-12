@@ -122,17 +122,9 @@ def find_chip(chips, model_needed, pins_needed):
         if model != model_needed:
             continue
 
-        for p in pins_needed:
-            continue_outer = False
-            if not is_floating(pins[p]):
-                print "Chip #%s is already in use, pin %s is node %s, finding another chip..." % (i, p, pins[p])
-                continue_outer = True
-                break
-        if continue_outer:
-            continue     # workaround Python's lack of loop labels
-
-        print "Found model %s with pins %s free: chip #%s" % (model_needed, pins_needed, i)
-        return i
+        if chip_has_pins_available(pins_needed, pins):
+            print "Found model %s with pins %s free: chip #%s" % (model_needed, pins_needed, i)
+            return i
 
     print "! No chips found with model %s and with pins %s free" % (model_needed, pins_needed)
 
