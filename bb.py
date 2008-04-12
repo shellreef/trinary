@@ -83,13 +83,86 @@ def rewrite_subckt(subckt_defns, s):
 
     return mod, subckt_defns, pos2node
 
+next_floating = -1
+def get_floating(n=None):
+    """Return a unique disconnected (floating) node name.
+    
+    If n is given, return a dict of n floating node names. Otherwise returns one in a string."""
+    global next_floating
+
+    if n is not None:
+        return get_floating_n(n)
+
+    next_floating += 1
+    return "NC_%s_" % (next_floating, )
+
+def get_floating_n(n):
+    """Get n floating nodes, see get_floating()."""
+    fs = {}
+    for x in range(1, n + 1):
+        fs[x] = get_floating()
+    return fs
+
+def is_floating(node_name):
+    """Return whether the given node name is probably not connected;
+    generated from get_floating()."""
+    return node_name.startswith("NC_") 
+
+def chip_has_pins_available(pins_needed, pins):
+    """Return whether 'pins' has not-connected pins, all those required in pins_needed."""
+    for p in pins_needed:
+        if not is_floating(pins[p]):
+            return False
+    return True
+
+def find_chip(chips, model_needed, pins_needed):
+    """Return an index into the chips array, with the given model and the pins free."""
+    for i, chip in enumerate(chips):
+        model, pins = chip
+        if model != model_needed:
+            continue
+
+        for p in pins_needed:
+            continue_outer = False
+            if not is_floating(pins[p]):
+                print "Chip #%s is already in use, pin %s is node %s, finding another chip..." % (i, p, pins[p])
+                continue_outer = True
+                break
+        if continue_outer:
+            continue     # workaround Python's lack of loop labels
+
+        print "Found model %s with pins %s free: chip #%s" % (model_needed, pins_needed, i)
+        return i
+
+    print "! No chips found with model %s and with pins %s free" % (model_needed, pins_needed)
+
+def find_pins_needed(pins):
+    """From a mod.pins[x] dict, return the pins needed for each model, for find_chip()"""
+    need = {}
+    for x in pins.values():
+        if type(x) == types.TupleType:
+            model, pin = x
+            if not need.has_key(model):
+                need[model] = []
+
+            need[model].append(pin)
+
+    return need
+
 def assign_part(chips, mod):
     # Store new pin assignments
     assignments = {}
     for p in mod.parts_generated:
         assignments[p] = {}
 
-    # TODO: choose next available component in part, instead of always 0
+    # TODO: find mod.pins[1] too!!!!! Other complementary pair.
+    need = find_pins_needed(mod.pins[0])
+    if len(need) > 1:
+        raise "Sorry, more than one model is needed: %s, but only one is supported right now." % (need,)
+
+    chip_num = find_chip(chips, need.keys()[0], need.values()[0])
+    print "FOUND CHIP:",chip_num
+
     for node, pin in combine_dicts(mod.global_pins, mod.pins[0]).iteritems():
         if type(pin) == types.TupleType:
             part, pin = pin
@@ -102,15 +175,29 @@ def assign_part(chips, mod):
             assignments[part][pin] = node
 
     for part in assignments:
-        print "* --%s--" % (part,)
+        #print "* --%s--" % (part,)
         for pin in range(1, max(assignments[part].keys()) + 1):
-            node = assignments[part].get(pin, "NC__%s_%s_%s_%s" % (mod.__name__, part, len(chips), pin))
+            node = assignments[part].get(pin, get_floating())
+            #print "* ", (pin,node)
 
-            print "* ", (pin,node)
+            # Assign nodes to this pin on this chip. TODO: assign _external_ nodes!!!
+            chips[chip_num][1][pin] = node
+    return chips
 
 mod, subckt_defns, pos2node = rewrite_subckt(subckt_defns, "tinv")
-chips = {}
+chips = [
+        ("CD4007", get_floating(14) ),
+        ("CD4007", get_floating(14) ),
+        ("CD4007", get_floating(14) )
+        ]
+
 chips = assign_part(chips, mod)
+chips = assign_part(chips, mod)
+for i, c in enumerate(chips):
+    m, p = c
+    print "---%s #%s---" % (m, i)
+    for k, v in p.iteritems():
+        print "\t%s: %s" % (k, v)
 
 
 # sti
