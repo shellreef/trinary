@@ -1,0 +1,78 @@
+* Z:\trinary\code\circuits\mux3-1_test.asc
+V1 A 0 SINE(0 5 200Meg)
+V2 B 0 SINE(0 5 1000Meg)
+V3 C 0 PULSE(-5 5 0n 1p 1p 3n 6n)
+V4 S 0 PWL(0 -5 14n -5 15n 0 29n 0 30n 5)
+XX11 $G_Vdd $G_Vss tpower
+XX1 A B C S Q mux3-1
+
+* block symbol definitions
+.subckt tpower Vdd Vss
+Vdd Vdd 0 5V
+Vss 0 Vss 5V
+.ends tpower
+
+.subckt mux3-1 A B C S Q
+XX1 A Q N001 tg
+XX3 C Q N002 tg
+XX2 B Q N003 tg
+XX4 S N001 N003 N002 decoder3-1
+.ends mux3-1
+
+.subckt tg IN_OUT OUT_IN CONTROL
+M1 OUT_IN _C IN_OUT $G_Vdd CD4007P
+M2 IN_OUT N003 OUT_IN $G_Vss CD4007N
+M3 $G_Vdd CONTROL _C $G_Vdd CD4007P
+M4 _C CONTROL $G_Vss $G_Vss CD4007N
+M5 $G_Vdd _C N003 $G_Vdd CD4007P
+M6 N003 _C $G_Vss $G_Vss CD4007N
+.ends tg
+
+.subckt decoder3-1 IN OUT_i OUT_0 OUT_1
+XX5 IN N003 pti
+XX6 N003 OUT_1 pti
+XX1 IN OUT_i nti
+XX4 N001 OUT_0 pti
+XX2 IN N002 sti
+XX3 IN N002 N001 max
+.ends decoder3-1
+
+.subckt pti IN OUT
+XX1 IN OUT NC_01 NC_02 tinv
+.ends pti
+
+.subckt nti IN OUT
+XX1 IN NC_01 NC_02 OUT tinv
+.ends nti
+
+.subckt sti IN OUT
+XX1 IN NC_01 OUT NC_02 tinv
+.ends sti
+
+.subckt max A B MAX_OUT
+XX1 A B P001 tnor
+XX2 P001 MAX_OUT sti
+.ends max
+
+.subckt tinv Vin PTI_Out STI_Out NTI_Out
+RP PTI_Out STI_Out 12k
+RN STI_Out NTI_Out 12k
+MN NTI_Out Vin $G_Vss $G_Vss CD4007N
+MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
+.ends tinv
+
+.subckt tnor A B TNOR_Out
+RP N002 TNOR_Out 12k
+RN TNOR_Out N003 12k
+MN1 N003 A $G_Vss $G_Vss CD4007N
+MP2 N001 A $G_Vdd $G_Vdd CD4007P
+MN2 N003 B $G_Vss $G_Vss CD4007N
+MP1 N001 B N002 $G_Vdd CD4007P
+.ends tnor
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\PROGRA~1\LTC\SwCADIII\lib\cmp\standard.mos
+.tran 50n
+.backanno
+.end

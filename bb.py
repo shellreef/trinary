@@ -234,7 +234,7 @@ def dump_extra(extra):
 
 def main():
     # TODO: do something with this
-    subckt_nodes, subckt_defns = read_netlist("../code/circuits/mux3-1_test.net")
+    subckt_nodes, subckt_defns = read_netlist("mux3-1_test.net")
     mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
     tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
 
