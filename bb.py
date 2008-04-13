@@ -315,10 +315,10 @@ def test_flatten():
         print "\n".join(expand(subckt_defns, line, ""))
 
 def main():
-    subckt_nodes, subckt_defns, toplevel = read_netlist("dtflop-ms_test.net")
+    subckt_nodes, subckt_defns, toplevel = read_netlist("tinv_test.net")
 
     mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
-    tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
+    #tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
 
     # First semi-flatten the circuit 
     flat_toplevel = []
