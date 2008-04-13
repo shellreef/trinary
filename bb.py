@@ -133,8 +133,10 @@ def find_chip(chips, model_needed, pins_needed_options):
             continue
 
         for option_num, option in enumerate(pins_needed_options):
+            # Note: I do not yet check if the chip has pins that are used, but are assigned to 
+            # the same node that is required. The pins must be unused.
             if chip_has_pins_available(option, pins):
-                print "* Found model %s with pins %s free: chip #%s" % (model_needed, option, i)
+                #print "* Found model %s with pins %s free: chip #%s" % (model_needed, option, i)
                 return i, option_num
 
     raise "* No chips found with model %s and with pins %s free. Maybe you need more chips." % (model_needed, 
@@ -266,6 +268,10 @@ def make_node_mapping(internal, external):
     d.update(zip(internal, external))
     return d
 
+def rewrite_refdesg(original, prefix):
+    """Prefix a reference designator, preserving the first character."""
+    return "%s%s$%s" % (original[0], prefix, original)
+
 def expand(subckt_defns, line, prefix):
     """Expand a subcircuit instantiation if needed."""
     words = line.split()
@@ -280,11 +286,12 @@ def expand(subckt_defns, line, prefix):
         for sline in subckt_defns[model]:
             words = sline.split()
             if words[0][0] == 'X' and words[-1] not in ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3'):
-                new_lines.extend(expand(subckt_defns, sline, "%s$" % (words[0],)))
+                new_lines.extend(expand(subckt_defns, sline, "%s$" % (words[0]),))
             else:
                 new_words = []
                 # Nest reference designator
                 new_words.append("%s%s$%s" % (prefix, refdesg, words[0]))
+                #new_words.append(rewrite_refdesg(rewrite_refdesg(words[0], refdesg), prefix)) # XXX TODO
                 # Map internal to external nodes
                 for word in words[1:]:
                     if word in nodes.keys():
@@ -299,16 +306,25 @@ def expand(subckt_defns, line, prefix):
     return new_lines
 
 def test_flatten():
+    """Demonstrate flattening of a hierarchical subcircuit."""
     subckt_nodes, subckt_defns, toplevel = read_netlist("mux3-1_test.net")
 
     for line in toplevel:
         print "\n".join(expand(subckt_defns, line, ""))
 
 def main():
-    subckt_nodes, subckt_defns, toplevel = read_netlist("tg_test.net")
+    subckt_nodes, subckt_defns, toplevel = read_netlist("mux3-1_test.net")
 
-    #mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
+    mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
     tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
+
+    # First semi-flatten the circuit 
+    flat_toplevel = []
+    for line in toplevel:
+        flat_toplevel.extend((expand(subckt_defns, line, "")))
+
+    #print "\n".join(flat_toplevel)
+    #raise SystemExit
 
     # Available chips
     chips = [
@@ -317,7 +333,7 @@ def main():
             ]
 
     extra = []
-    for line in toplevel:
+    for line in flat_toplevel:
         words = line.split()
         if words[0][0] == 'X':
             model = words[-1]
@@ -328,10 +344,11 @@ def main():
             #print subckt_defns[model]
             #print subckt_nodes[model]
 
-            if model == "tg":
+            if model in ('tg', 'tinv'):
                 nodes = make_node_mapping(subckt_nodes[model], args)
-                chips, extra = assign_part(chips, subckt_defns, extra, "tg",
-                        nodes)
+                chips, extra = assign_part(chips, subckt_defns, extra, model, nodes)
+            else:
+                raise "Cannot synthesis model: %s, line: %s" % (model, line)
         else:
             print line
 
@@ -403,6 +420,6 @@ def test_assignment():
     dump_extra(extra)
 
 if __name__ == "__main__":
+    #test_flatten()
     #test_assignment()
-    #main()
-    test_flatten()
+    main()
