@@ -20,8 +20,8 @@ pins = [
         },
         { 
             # Second MOSFET pair, need to connect sources
-            "Vin": ("CD4007", 1), 
-            "PTI_Out": ("CD4007", 3),
+            "Vin": ("CD4007", 3), 
+            "PTI_Out": ("CD4007", 1),
             "NTI_Out": ("CD4007", 5), 
             "STI_Out": "STI_Out",
             "$G_Vdd": ("CD4007", 2),
