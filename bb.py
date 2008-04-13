@@ -290,7 +290,7 @@ def expand(subckt_defns, line, prefix):
             else:
                 new_words = []
                 # Nest reference designator
-                new_words.append("%s%s$%s" % (prefix, refdesg, words[0]))
+                new_words.append("%s%s%s$%s" % (words[0][0], prefix, refdesg, words[0]))
                 #new_words.append(rewrite_refdesg(rewrite_refdesg(words[0], refdesg), prefix)) # XXX TODO
                 # Map internal to external nodes
                 for word in words[1:]:
@@ -329,6 +329,10 @@ def main():
     # Available chips
     chips = [
             ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
             ("CD4016", get_floating(14) ),
             ]
 
@@ -348,7 +352,7 @@ def main():
                 nodes = make_node_mapping(subckt_nodes[model], args)
                 chips, extra = assign_part(chips, subckt_defns, extra, model, nodes)
             else:
-                raise "Cannot synthesis model: %s, line: %s" % (model, line)
+                raise "Cannot synthesize model: %s, line: %s" % (model, line)
         else:
             print line
 
