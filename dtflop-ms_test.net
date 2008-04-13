@@ -1,4 +1,16 @@
-* Z:\trinary\code\circuits\dtflop-ms.asc
+* Z:\trinary\code\circuits\dtflop-ms_test.asc
+V1 CLK 0 PULSE(-5 5 0 1p 1p 10n 20n)
+V2 D 0 PWL(0 0 1n 0 5n -5 8n -5 9n 0 10n 0 11n 5 21n 5 22n 0 24n 0 25n -5 34n -5 35n -5 40n -5 41n -5 42n 0 43n 5 44n 5 45n -5 46n 0 47n -5 48n 0)
+XX1 $G_Vdd $G_Vss tpower
+XX2 D CLK Q dtflop-ms
+
+* block symbol definitions
+.subckt tpower Vdd Vss
+Vdd Vdd 0 5V
+Vss 0 Vss 5V
+.ends tpower
+
+.subckt dtflop-ms D C Q
 XX2 N004 N002 sti
 XX4 N003 N004 sti
 XX3 N006 Q sti
@@ -8,8 +20,8 @@ XXC N006 N004 C tg
 XXA D N003 N001 tg
 XXD N005 N006 N001 tg
 XX5 C N001 sti
+.ends dtflop-ms
 
-* block symbol definitions
 .subckt sti IN OUT
 XX1 IN NC_01 OUT NC_02 tinv
 .ends sti
@@ -33,18 +45,6 @@ MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
 .model NMOS NMOS
 .model PMOS PMOS
 .lib C:\PROGRA~1\LTC\SwCADIII\lib\cmp\standard.mos
-* 1
-* 2
-* 13
-* 3
-* 4
-* 5
-* 6
-* 9
-* 8
-* 12
-* 11
-* 10
-* Pin numbers \nof CD4016
+.tran 50n
 .backanno
 .end
