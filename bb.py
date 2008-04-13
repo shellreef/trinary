@@ -278,7 +278,7 @@ def rewrite_refdesg(original, prefix):
     """Prefix a reference designator, preserving the first character."""
     return "%s%s$%s" % (original[0], prefix, original)
 
-def expand(subckt_defns, line, prefix):
+def expand(subckt_defns, subckt_nodes, line, prefix):
     """Recursively expand a subcircuit instantiation if needed."""
     words = line.split()
     refdesg = words[0]
@@ -286,20 +286,21 @@ def expand(subckt_defns, line, prefix):
         model = words[-1]
         args = words[1:-1]
 
-        nodes = make_node_mapping(subckt_defns[model], args)
+        nodes = make_node_mapping(subckt_nodes[model], args)
         new_lines = []
         new_lines.append(("* Instance of subcircuit %s: %s" % (model, " ".join(args))))
         for sline in subckt_defns[model]:
             words = sline.split()
             if words[0][0] == 'X' and words[-1] not in ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3'):
-                new_lines.extend(expand(subckt_defns, sline, "%s$" % (words[0]),))
+                new_lines.extend(expand(subckt_defns, subckt_nodes, sline, "%s$" % (words[0]),))
             else:
                 new_words = []
                 # Nest reference designator
                 new_words.append("%s%s%s$%s" % (words[0][0], prefix, refdesg, words[0]))
                 #new_words.append(rewrite_refdesg(rewrite_refdesg(words[0], refdesg), prefix)) # XXX TODO
                 # Map internal to external nodes
-                for word in words[1:]:
+                these_args = words[1:-1]
+                for word in these_args:
                     #print "****", word
                     if word in nodes.keys():
                         new_words.append(nodes[word])
@@ -307,8 +308,14 @@ def expand(subckt_defns, line, prefix):
                         # this is a port, but that is not connected on the outside, but
                         # still may be internally-connected so it needs a node name
                         new_words.append("N__%s" % (get_serial(),))
-                    else:
+                    elif word[0].isdigit():
                         new_words.append(word)
+                    else:
+                        raise "Expanding subcircuit line %s, couldn't map word %s, nodes=%s" % (sline, word, nodes)
+
+                # subcircuit model name
+                new_words.append(words[-1])
+
                 new_lines.append(" ".join(new_words))
             #new_lines.append("")
     else:
@@ -321,7 +328,7 @@ def test_flatten():
     subckt_nodes, subckt_defns, toplevel = read_netlist("mux3-1_test.net")
 
     for line in toplevel:
-        print "\n".join(expand(subckt_defns, line, ""))
+        print "\n".join(expand(subckt_defns, subckt_nodes, line, ""))
 
 def main():
     subckt_nodes, subckt_defns, toplevel = read_netlist("sti_test.net")
@@ -332,7 +339,7 @@ def main():
     # First semi-flatten the circuit 
     flat_toplevel = []
     for line in toplevel:
-        flat_toplevel.extend((expand(subckt_defns, line, "")))
+        flat_toplevel.extend((expand(subckt_defns, subckt_nodes, line, "")))
 
     print "* Flattened top-level, before part assignment:"
     for f in flat_toplevel:
@@ -363,6 +370,7 @@ def main():
 
             if model in ('tg', 'tinv'):
                 nodes = make_node_mapping(subckt_nodes[model], args)
+                print nodes
                 chips, extra = assign_part(chips, subckt_defns, extra, model, nodes, refdesg)
             else:
                 raise "Cannot synthesize model: %s, line: %s" % (model, line)
