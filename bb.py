@@ -52,7 +52,7 @@ def read_netlist(filename):
                 if len(line.strip()) != 0 and line[0] not in ('.', '*'):
                     toplevel.append(line)
 
-    print "* Converted from netlist %s by %s on %s" % (filename, PROGRAM_NAME, time.asctime())
+    print "* Chip-level netlist, converted from %s by %s on %s" % (filename, PROGRAM_NAME, time.asctime())
     return subckt_nodes, subckt_defns, toplevel
 
 def rewrite_subckt(subckt_defns, s):
