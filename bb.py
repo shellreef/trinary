@@ -278,11 +278,16 @@ def rewrite_refdesg(original, prefix):
     """Prefix a reference designator, preserving the first character."""
     return "%s%s$%s" % (original[0], prefix, original)
 
+def is_expandable_subcircuit(words):
+    """Return whether the SPICE words 'words' is a subcircuit, and it can be hierarchically
+    expanded further."""
+    return words[0][0] == 'X' and words[-1] not in ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3')
+
 def expand(subckt_defns, subckt_nodes, line, prefix):
     """Recursively expand a subcircuit instantiation if needed."""
     words = line.split()
     refdesg = words[0]
-    if words[0][0] == 'X':
+    if is_expandable_subcircuit(words):
         model = words[-1]
         args = words[1:-1]
 
@@ -291,7 +296,8 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
         new_lines.append(("* Instance of subcircuit %s: %s" % (model, " ".join(args))))
         for sline in subckt_defns[model]:
             words = sline.split()
-            if words[0][0] == 'X' and words[-1] not in ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3'):
+            if is_expandable_subcircuit(words):
+                # Recursively expand subcircuits, to a limit
                 new_lines.extend(expand(subckt_defns, subckt_nodes, sline, "%s$" % (words[0]),))
             else:
                 new_words = []
