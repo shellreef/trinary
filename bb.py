@@ -221,6 +221,8 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes):
         for w in words[1:]:
             if w in external_nodes.keys():
                 new_words.append(external_nodes[w])
+            elif is_floating(w):
+                new_words.append(get_floating())
             else:
                 new_words.append(w)
         extra.append(" ".join(new_words))
@@ -282,7 +284,7 @@ def expand(subckt_defns, line, prefix):
 
         nodes = make_node_mapping(subckt_defns[model], args)
         new_lines = []
-        #new_lines.append(("* Instance of subcircuit %s" % (model,)))
+        new_lines.append(("* Instance of subcircuit %s: %s" % (model, " ".join(args))))
         for sline in subckt_defns[model]:
             words = sline.split()
             if words[0][0] == 'X' and words[-1] not in ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3'):
@@ -313,7 +315,7 @@ def test_flatten():
         print "\n".join(expand(subckt_defns, line, ""))
 
 def main():
-    subckt_nodes, subckt_defns, toplevel = read_netlist("mux3-1_test.net")
+    subckt_nodes, subckt_defns, toplevel = read_netlist("dtflop-ms_test.net")
 
     mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
     tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
@@ -323,13 +325,14 @@ def main():
     for line in toplevel:
         flat_toplevel.extend((expand(subckt_defns, line, "")))
 
-    #print "\n".join(flat_toplevel)
-    #raise SystemExit
+    print "* Flattened top-level, before part assignment:"
+    for f in flat_toplevel:
+        print "** %s" % (f,)
+    print "* Begin converted circuit"
+    print
 
     # Available chips
     chips = [
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
             ("CD4007", get_floating(14) ),
             ("CD4007", get_floating(14) ),
             ("CD4007", get_floating(14) ),
