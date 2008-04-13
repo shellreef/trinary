@@ -52,7 +52,7 @@ def read_netlist(filename):
                 if len(line.strip()) != 0 and line[0] not in ('.', '*'):
                     toplevel.append(line)
 
-    print "* Converted by %s on %s from netlist %s" % (PROGRAM_NAME, time.asctime(), filename)
+    print "* Converted from netlist %s by %s on %s" % (filename, PROGRAM_NAME, time.asctime())
     return subckt_nodes, subckt_defns, toplevel
 
 def rewrite_subckt(subckt_defns, s):
@@ -266,6 +266,44 @@ def make_node_mapping(internal, external):
     d.update(zip(internal, external))
     return d
 
+def expand(subckt_defns, line, prefix):
+    """Expand a subcircuit instantiation if needed."""
+    words = line.split()
+    refdesg = words[0]
+    if words[0][0] == 'X':
+        model = words[-1]
+        args = words[1:-1]
+
+        nodes = make_node_mapping(subckt_defns[model], args)
+        new_lines = []
+        #new_lines.append(("* Instance of subcircuit %s" % (model,)))
+        for sline in subckt_defns[model]:
+            words = sline.split()
+            if words[0][0] == 'X' and words[-1] not in ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3'):
+                new_lines.extend(expand(subckt_defns, sline, "%s$" % (words[0],)))
+            else:
+                new_words = []
+                # Nest reference designator
+                new_words.append("%s%s$%s" % (prefix, refdesg, words[0]))
+                # Map internal to external nodes
+                for word in words[1:]:
+                    if word in nodes.keys():
+                        new_words.append(nodes[word])
+                    else:
+                        new_words.append(word)
+                new_lines.append(" ".join(new_words))
+            #new_lines.append("")
+    else:
+        new_lines = [line]
+
+    return new_lines
+
+def test_flatten():
+    subckt_nodes, subckt_defns, toplevel = read_netlist("mux3-1_test.net")
+
+    for line in toplevel:
+        print "\n".join(expand(subckt_defns, line, ""))
+
 def main():
     subckt_nodes, subckt_defns, toplevel = read_netlist("tg_test.net")
 
@@ -366,5 +404,5 @@ def test_assignment():
 
 if __name__ == "__main__":
     #test_assignment()
-    main()
-
+    #main()
+    test_flatten()
