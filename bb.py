@@ -155,7 +155,7 @@ def find_pins_needed(pins):
 
     return need
 
-def assign_part(chips, subckt_defns, extra, model_name, external_nodes):
+def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg):
     """Assign a given model to a physical chip, using the names of the external nodes.
     
     chips: array of existing physical chips that can be assigned from
@@ -213,7 +213,8 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes):
         words = line.split()
         new_words = []
 
-        name = "%s_%s_%s_%s" % (words[0], model_name, chip_num, get_serial())
+        #name = "%s_%s_%s_%s" % (words[0], model_name, chip_num, refdesg)
+        name = "%s%s$%s" % (words[0][0], refdesg, words[0])
 
         new_words.append(name)
 
@@ -222,9 +223,12 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes):
             if w in external_nodes.keys():
                 new_words.append(external_nodes[w])
             elif is_floating(w):
+                # TODO ???
                 new_words.append(get_floating())
-            else:
+            elif w[0].isdigit():   # value
                 new_words.append(w)
+            else:
+                raise "Could not map argument '%s' in subcircuit line %s" % (w, line)
         extra.append(" ".join(new_words))
         # TODO: get new part names!!!!!!!!
 
@@ -275,7 +279,7 @@ def rewrite_refdesg(original, prefix):
     return "%s%s$%s" % (original[0], prefix, original)
 
 def expand(subckt_defns, line, prefix):
-    """Expand a subcircuit instantiation if needed."""
+    """Recursively expand a subcircuit instantiation if needed."""
     words = line.split()
     refdesg = words[0]
     if words[0][0] == 'X':
@@ -296,8 +300,11 @@ def expand(subckt_defns, line, prefix):
                 #new_words.append(rewrite_refdesg(rewrite_refdesg(words[0], refdesg), prefix)) # XXX TODO
                 # Map internal to external nodes
                 for word in words[1:]:
+                    print word
                     if word in nodes.keys():
                         new_words.append(nodes[word])
+                    elif is_floating(word):
+                        new_words.append(get_floating())
                     else:
                         new_words.append(word)
                 new_lines.append(" ".join(new_words))
@@ -343,6 +350,7 @@ def main():
     for line in flat_toplevel:
         words = line.split()
         if words[0][0] == 'X':
+            refdesg = words[0]
             model = words[-1]
             args = words[1:-1]
 
@@ -353,7 +361,7 @@ def main():
 
             if model in ('tg', 'tinv'):
                 nodes = make_node_mapping(subckt_nodes[model], args)
-                chips, extra = assign_part(chips, subckt_defns, extra, model, nodes)
+                chips, extra = assign_part(chips, subckt_defns, extra, model, nodes, refdesg)
             else:
                 raise "Cannot synthesize model: %s, line: %s" % (model, line)
         else:
