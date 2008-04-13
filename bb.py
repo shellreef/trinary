@@ -102,7 +102,7 @@ def get_floating(n=None):
     if n is not None:
         return get_floating_n(n)
 
-    return "NC_%s_" % (get_serial(), )
+    return "NC__%s" % (get_serial(), )
 
 def get_floating_n(n):
     """Get n floating nodes, see get_floating()."""
@@ -300,11 +300,13 @@ def expand(subckt_defns, line, prefix):
                 #new_words.append(rewrite_refdesg(rewrite_refdesg(words[0], refdesg), prefix)) # XXX TODO
                 # Map internal to external nodes
                 for word in words[1:]:
-                    print word
+                    #print "****", word
                     if word in nodes.keys():
                         new_words.append(nodes[word])
                     elif is_floating(word):
-                        new_words.append(get_floating())
+                        # this is a port, but that is not connected on the outside, but
+                        # still may be internally-connected so it needs a node name
+                        new_words.append("N__%s" % (get_serial(),))
                     else:
                         new_words.append(word)
                 new_lines.append(" ".join(new_words))
@@ -322,7 +324,7 @@ def test_flatten():
         print "\n".join(expand(subckt_defns, line, ""))
 
 def main():
-    subckt_nodes, subckt_defns, toplevel = read_netlist("tinv_test.net")
+    subckt_nodes, subckt_defns, toplevel = read_netlist("sti_test.net")
 
     mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
     #tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
