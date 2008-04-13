@@ -6,9 +6,12 @@
 
 import copy
 import types
+import time
 
 import tg
 import tinv
+
+PROGRAM_NAME = "bb.py"
 
 def combine_dicts(dict1, dict2):
     """Combine two dictionaries; dict2 takes priority over dict1."""
@@ -22,6 +25,7 @@ def read_netlist(filename):
     f = file(filename, "rt")
     subckt_nodes = {}
     subckt_defns = {}
+    toplevel = []
     name = None
     while True:
         line = f.readline()
@@ -43,8 +47,13 @@ def read_netlist(filename):
                 if not subckt_defns.has_key(name):
                     subckt_defns[name] = []
                 subckt_defns[name].append(line)
+            else:
+                # Top-level elements, skip blank lines, commands and comments
+                if len(line.strip()) != 0 and line[0] not in ('.', '*'):
+                    toplevel.append(line)
 
-    return subckt_nodes, subckt_defns
+    print "* Converted by %s on %s from netlist %s" % (PROGRAM_NAME, time.asctime(), filename)
+    return subckt_nodes, subckt_defns, toplevel
 
 def rewrite_subckt(subckt_defns, s):
     """Partially rewrite subcircuit 's', using rules from a module of the same name.
@@ -125,10 +134,10 @@ def find_chip(chips, model_needed, pins_needed_options):
 
         for option_num, option in enumerate(pins_needed_options):
             if chip_has_pins_available(option, pins):
-                print "Found model %s with pins %s free: chip #%s" % (model_needed, option, i)
+                print "* Found model %s with pins %s free: chip #%s" % (model_needed, option, i)
                 return i, option_num
 
-    raise "No chips found with model %s and with pins %s free. Maybe you need more chips." % (model_needed, 
+    raise "* No chips found with model %s and with pins %s free. Maybe you need more chips." % (model_needed, 
             pins_needed_options)
 
 def find_pins_needed(pins):
@@ -175,10 +184,10 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes):
 
         need_options.append(need.values()[0])
 
-    print "Searching for model %s with one of pins: %s" % (the_model, need_options)
+    #print "* Searching for model %s with one of pins: %s" % (the_model, need_options)
     chip_num, option_num  = find_chip(chips, the_model, need_options)
-    print "FOUND CHIP:",chip_num
-    print "WITH PINS (option #%s):" % (option_num,), mod.pins[option_num]
+    #print "* FOUND CHIP:",chip_num
+    #print "* WITH PINS (option #%s):" % (option_num,), mod.pins[option_num]
 
     for node, pin in combine_dicts(mod.global_pins, mod.pins[option_num]).iteritems():
         if type(pin) == types.TupleType:
@@ -186,7 +195,7 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes):
         else:
             part = None
 
-        print "* %s -> %s:%s" % (node, part, pin)
+        #print "* %s -> %s:%s" % (node, part, pin)
 
         if part is not None:
             if node.startswith("$G_") or node == "0":
@@ -217,26 +226,87 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes):
 
     return chips, extra
 
+def any_pins_used(pins):
+    """Return whether any of the pins on a chip are used. If False, chip isn't used."""
+    for p in pins.values():
+        if not is_floating(p):
+            return True
+    return False
+
 def dump_chips(chips):
     """Show the current chips and their pin connections."""
     for i, c in enumerate(chips):
         m, p = c
-        print "---#%s - %s---" % (i, m)
+
+        if not any_pins_used(p):
+            print "* Chip #%s - %s no pins used, skipping" % (i, m)
+            continue
+
+        print "* Chip #%s - %s pinout:" % (i, m)
         for k, v in p.iteritems():
-            print "\t%s: %s" % (k, v)
+            print "* \t%s: %s" % (k, v)
+
+        print "X_IC_%s " % (i, ),
+        # Assumes all chips are 14-pin, arguments from 1 to 14 positional
+        for k in range(1, 14+1):
+            print p[k],
+        print m
+        print
 
 def dump_extra(extra):
     """Shows the extra, supporting subcircuit parts that support the IC and are part of the subcircuit."""
-    print "++ Additional parts:"
+    print "* Parts to support subcircuits:"
     for e in extra:
         print e
 
+def make_node_mapping(internal, external):
+    """Make a node mapping dictionary from internal to external nodes.
+    Keys of the returned dictionary are internal nodes (of subcircuit), values are external."""
+    d = {}
+    d.update(zip(internal, external))
+    return d
 
 def main():
-    # TODO: do something with this
-    subckt_nodes, subckt_defns = read_netlist("mux3-1_test.net")
+    subckt_nodes, subckt_defns, toplevel = read_netlist("tg_test.net")
+
+    #mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
+    tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
+
+    # Available chips
+    chips = [
+            ("CD4007", get_floating(14) ),
+            ("CD4016", get_floating(14) ),
+            ]
+
+    extra = []
+    for line in toplevel:
+        words = line.split()
+        if words[0][0] == 'X':
+            model = words[-1]
+            args = words[1:-1]
+
+            #print "MODEL=%s, args=%s" % (model, args)
+
+            #print subckt_defns[model]
+            #print subckt_nodes[model]
+
+            if model == "tg":
+                nodes = make_node_mapping(subckt_nodes[model], args)
+                chips, extra = assign_part(chips, subckt_defns, extra, "tg",
+                        nodes)
+        else:
+            print line
+
+    dump_chips(chips)
+    dump_extra(extra)
+
+def test_assignment():
+    """Demonstrate subcircuit assignment."""
+    subckt_nodes, subckt_defns, toplevel = read_netlist("mux3-1_test.net")
+
     mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
     tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
+
 
     # Available chips
     chips = [
@@ -295,5 +365,6 @@ def main():
     dump_extra(extra)
 
 if __name__ == "__main__":
+    #test_assignment()
     main()
 
