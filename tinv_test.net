@@ -1,11 +1,11 @@
 * Z:\trinary\code\circuits\tinv_test.asc
-V1 N001 0 -5V
-XU1 N001 PTI_Out STI_Out NTI_Out tinv
-XU2 N001 EPTI_Out 0 ENTI_Out tinv
+V1 input 0 -5V
+Xpti_sti_nti input PTI_Out STI_Out NTI_Out tinv
+Xeartheds input EPTI_Out 0 ENTI_Out tinv
 XU3 $G_Vdd $G_Vss tpower
-XX2 N001 STI_Out1 sti
-XX3 N001 NTI_Out1 nti
-XX1 N001 PTI_Out1 pti
+Xsti1 input STI_Out1 sti
+Xnti1 input NTI_Out1 nti
+Xpti1 input PTI_Out1 pti
 
 * block symbol definitions
 .subckt tinv Vin PTI_Out STI_Out NTI_Out

@@ -331,7 +331,7 @@ def test_flatten():
         print "\n".join(expand(subckt_defns, subckt_nodes, line, ""))
 
 def main():
-    subckt_nodes, subckt_defns, toplevel = read_netlist("sti_test.net")
+    subckt_nodes, subckt_defns, toplevel = read_netlist("tinv_test.net")
 
     mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
     #tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
@@ -370,7 +370,7 @@ def main():
 
             if model in ('tg', 'tinv'):
                 nodes = make_node_mapping(subckt_nodes[model], args)
-                print nodes
+                #print nodes
                 chips, extra = assign_part(chips, subckt_defns, extra, model, nodes, refdesg)
             else:
                 raise "Cannot synthesize model: %s, line: %s" % (model, line)
