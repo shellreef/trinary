@@ -215,6 +215,13 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
         words = line.split()
         new_words = []
 
+        if words[0][0] == "M":
+            raise ("This line:\t%s\nIn the subcircuit '%s', has a MOSFET left " + 
+                    "over that wasn't converted. Probably it was meant to be converted to an IC? " + 
+                    "Comment out this line in %s if you are sure you want this, otherwise " + 
+                    "double-check the model definition for '%s', specifically, " +
+                    "parts_consumed and parts_kept.\nAlso, check if the model was rewritten!") % (line, model_name, PROGRAM_NAME, model_name)
+
         #name = "%s_%s_%s_%s" % (words[0], model_name, chip_num, refdesg)
         name = "%s%s$%s" % (words[0][0], refdesg, words[0])
 
@@ -358,8 +365,15 @@ def test_flatten():
 def main():
     subckt_nodes, subckt_defns, toplevel = read_netlist("dtflop-ms_test.net")
 
-    mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
-    #tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
+    # Circuits to rewrite need to be loaded first. Any transistor-level circuits
+    # you want to replace with ICs, must be loaded here. TODO: automatic, better,
+    # all modules in some directory.
+    if subckt_defns.has_key("tinv"):
+        mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
+
+    if subckt_defns.has_key("tg"):
+        tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
+
 
     # First semi-flatten the circuit 
     flat_toplevel = []
