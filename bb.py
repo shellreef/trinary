@@ -228,7 +228,7 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
             elif w[0].isdigit():   # value
                 new_words.append(w)
             else:
-                raise "Could not map argument '%s' in subcircuit line %s" % (w, line)
+                raise "Could not map argument '%s' in subcircuit line %s, not found in %s" % (w, line, external_nodes)
         extra.append(" ".join(new_words))
         # TODO: get new part names!!!!!!!!
 
@@ -294,6 +294,10 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
         nodes = make_node_mapping(subckt_nodes[model], args)
         new_lines = []
         new_lines.append(("* Instance of subcircuit %s: %s" % (model, " ".join(args))))
+
+        # Notes that are internal to the subcircuit, not exposed in any ports
+        internal_only_nodes = {}  
+
         for sline in subckt_defns[model]:
             words = sline.split()
             if is_expandable_subcircuit(words):
@@ -317,7 +321,16 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
                     elif word[0].isdigit():
                         new_words.append(word)
                     else:
-                        raise "Expanding subcircuit line %s, couldn't map word %s, nodes=%s" % (sline, word, nodes)
+                        # A signal only connected within this subcircuit, but not a port.
+                        # Make a new node name for it and replace it.
+                        if not internal_only_nodes.has_key(word):
+                            # Note: word[0] is not strictly necessary here, since this is a node name..
+                            # but keep it so that the first character is alphabetic.
+                            internal_only_nodes[word] = "%s%s$%s$%s" % (word[0], prefix, refdesg, word)
+                            #print "* sline: %s, Subcircuit %s, mapping internal-only node %s -> %s" % (sline, model, word, internal_only_nodes[word])
+
+                        new_words.append(internal_only_nodes[word])
+                        #raise "Expanding subcircuit line '%s' (for line '%s'), couldn't map word %s, nodes=%s" % (sline, line, word, nodes)
 
                 # subcircuit model name
                 new_words.append(words[-1])
@@ -337,7 +350,7 @@ def test_flatten():
         print "\n".join(expand(subckt_defns, subckt_nodes, line, ""))
 
 def main():
-    subckt_nodes, subckt_defns, toplevel = read_netlist("tinv_test.net")
+    subckt_nodes, subckt_defns, toplevel = read_netlist("dtflop-ms_test.net")
 
     mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
     #tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
