@@ -8,9 +8,12 @@ def Decoder(tritstream):
     """
     inst = {"op":trit_integer[tritstream[0]]}
 
+    # cmp and be
     if inst["op"] == -1 or inst["op"] == 1:
         inst["src1"] = trit_integer[tritstream[1]]
         inst["src2"] = trit_integer[tritstream[2]]
+
+    # lwi
     elif inst["op"] == 0:
         print "hi"
         inst["src1"] = trit_integer[tritstream[1]]
@@ -36,10 +39,10 @@ def Execute(memory, registers, pc):
             registers["S"] = 0
         else:
             registers["S"] = 1
-    #lwi
+    # lwi
     elif op == 0:
         registers[1] = (memory[pc])["immed"]
-    #be
+    # be
     elif op == 1:
         if registers["S"] == 0:
             op = (memory[pc])["src1"]
