@@ -52,7 +52,7 @@ def expr_dyadic(expression, variables):
         result, next_expr = expr_recurse(expression[2:], variables)
 
         if next_expr[0] != ")":
-            raise "Expected \")\", found \"%s\"" % (next_expr[0])
+            raise ("Expected \")\", found \"%s\"" % (next_expr[0])).encode("utf8")
  
         t_func = Trits(f_apply[f_value])
         t_sec = Trits(trit_string[result])
@@ -90,10 +90,10 @@ def expr_recurse(expression, variables):
         expression = expression[1:]
         result, next = expr_recurse(expression, variables)
         if next[0] != ")":
-            raise "Expected \")\", found \"%s\"" % (next[0])
+            raise ("Expected \")\", found \"%s\"" % (next[0])).encode("utf8")
         return result, next[1:]
     else:
-        raise "Unexpected character found \"%s\"" % (expression[0]) 
+        raise ("Unexpected character found \"%s\"" % (expression[0])).encode("utf8")
 
 def trinary_eval(expression, variables):
     u'''Evaluates trinary expression.  Unary and Dyadic functions supported:
@@ -131,7 +131,7 @@ if __name__ == "__main__":
 
     while True:
         print ">> ",
-        line = sys.stdin.readline()
+        line = unicode(sys.stdin.readline(), "utf8")
         if len(line) == 0:
             break
         line = line.strip()
@@ -140,11 +140,11 @@ if __name__ == "__main__":
             assignments = line.split(",")
             for a in assignments:
                 name, value = a.split("=")
-                print "Assigning %s to %s" % (name, value)
+                print u"Assigning %s to %s" % (name, value)
                 variables[name] = value
         elif line == "":
             for k, v in variables.iteritems():
-                print "%s: %s" % (k, v)
+                print u"%s: %s" % (k, v)
         else:
             try:
                 print trinary_eval(line, variables)
