@@ -24,7 +24,6 @@ dyadic_functions = {
     u"+" : {False:"i01", None:"001", True:"111"},
     u"*" : {False:"iii", None:"i00", True:"i01"},
 
-
     # Grubb's notation
     u"↑" : {False:"i01", None:"001", True:"111"},    # max
     u"↓" : {False:"iii", None:"i00", True:"i01"},    # min
@@ -97,9 +96,9 @@ def expr_recurse(expression, variables):
         raise "Unexpected character found \"%s\"" % (expression[0]) 
 
 def trinary_eval(expression, variables):
-    u'''Evaluates trinary expression.  Unary and Dyatic functions supported:
+    u'''Evaluates trinary expression.  Unary and Dyadic functions supported:
         Unary: /, ∇, ∆, ¬, ⌐, ↘, ↗, ∩, ∪, ♨
-        Dyatic: + (max), * (min)
+        Dyadic: see 'dyadic_functions' module global
        expression: String containing expression to evalutate
        variables: dictionary of variables and their values 
        returns: The result of evaluating the expression.
