@@ -207,6 +207,8 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
 
             chips[chip_num][1][pin] = external_node
 
+    internal_only_nodes = {}
+
     # Now place any additional parts (resistors, etc.) within the subcircuit model
     # that connect to the chip, but are not part of the chip.
     for line in subckt_lines:
@@ -228,7 +230,11 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
             elif w[0].isdigit():   # value
                 new_words.append(w)
             else:
-                raise "Could not map argument '%s' in subcircuit line %s, not found in %s" % (w, line, external_nodes)
+                if not internal_only_nodes.has_key(w):
+                    internal_only_nodes[w] = "%s$%s$%s" % (w[0], refdesg, w)
+                new_words.append(internal_only_nodes[w])
+ 
+                #raise "Could not map argument '%s' in subcircuit line %s, not found in %s" % (w, line, external_nodes)
         extra.append(" ".join(new_words))
         # TODO: get new part names!!!!!!!!
 
