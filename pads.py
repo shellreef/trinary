@@ -9,12 +9,12 @@ import time
 
 footprint_map = {
         "CD4007": "14DIP300",
-        "CD4007": "14DIP300",
+        "CD4016": "14DIP300",
         "R": "RC07",            # 1/4 resistor
         "V": "HOLE_100_SQR_200",
         }
 
-filename = "tinv_test.net2"
+filename = "dtflop-ms_test.net2"
 print "*PADS-PCB*"
 print "*%s %s*" % (filename, time.asctime())
 
