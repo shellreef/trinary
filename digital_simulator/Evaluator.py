@@ -10,7 +10,9 @@
 from Expr import *
 from Trits import *
 
+import sys
 import doctest
+import traceback
 
 dyadic_functions = {
     u"∨" : {False:"i01", None:"001", True:"111"},    # TOR
@@ -123,4 +125,31 @@ None
     return result
 
 if __name__ == "__main__":
+    # self-test
     doctest.testmod()
+
+    variables = {}
+
+    while True:
+        print ">> ",
+        line = sys.stdin.readline()
+        if len(line) == 0:
+            break
+        line = line.strip()
+        print
+        if "=" in line:
+            assignments = line.split(",")
+            for a in assignments:
+                name, value = a.split("=")
+                print "Assigning %s to %s" % (name, value)
+                variables[name] = value
+        elif line == "":
+            for k, v in variables.iteritems():
+                print "%s: %s" % (k, v)
+        else:
+            try:
+                print trinary_eval(line, variables)
+            except:
+                print "An error occured:"
+                traceback.print_exc()
+            
