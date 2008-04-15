@@ -267,7 +267,7 @@ def dump_chips(chips):
         for k, v in p.iteritems():
             print "* \t%s: %s" % (k, v)
 
-        print "X_IC_%s_%s " % (i, m)
+        print "X_IC_%s_%s" % (i, m),
         # Assumes all chips are 14-pin, arguments from 1 to 14 positional
         for k in range(1, 14+1):
             print p[k],
@@ -343,6 +343,7 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
                             #print "* sline: %s, Subcircuit %s, mapping internal-only node %s -> %s" % (sline, model, word, internal_only_nodes[word])
 
                         new_words.append(internal_only_nodes[word])
+                        #new_words.append(word)
                         #raise "Expanding subcircuit line '%s' (for line '%s'), couldn't map word %s, nodes=%s" % (sline, line, word, nodes)
 
                 # subcircuit model name
