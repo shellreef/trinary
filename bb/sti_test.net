@@ -1,0 +1,37 @@
+* Based on Z:\trinary\code\circuits\tinv_test.asc
+V1 N001 0 -5V
+Xsti N001 STI_Out1 sti
+*Xnti N001 NTI_Out1 nti
+*Xpti N001 PTI_Out1 pti
+
+* block symbol definitions
+.subckt tinv Vin PTI_Out STI_Out NTI_Out
+RP PTI_Out STI_Out 12k
+RN STI_Out NTI_Out 12k
+MN NTI_Out Vin $G_Vss $G_Vss CD4007N
+MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
+.ends tinv
+
+.subckt tpower Vdd Vss
+Vdd Vdd 0 5V
+Vss 0 Vss 5V
+.ends tpower
+
+.subckt sti IN OUT
+XX1 IN NC_01 OUT NC_02 tinv
+.ends sti
+
+.subckt nti IN OUT
+XX1 IN NC_01 NC_02 OUT tinv
+.ends nti
+
+.subckt pti IN OUT
+XX1 IN OUT NC_01 NC_02 tinv
+.ends pti
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\PROGRA~1\LTC\SwCADIII\lib\cmp\standard.mos
+.dc V1 -5 5 0.1
+.backanno
+.end
