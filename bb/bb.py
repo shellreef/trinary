@@ -326,7 +326,9 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
                 for word in these_args:
                     #print "****", word
                     if word in nodes.keys():
-                        new_words.append(nodes[word])
+                        #new_words.append(nodes[word])
+                        #new_words.append("%s%s$%s$%s" % (nodes[word][0], prefix, refdesg, nodes[word]))
+                        raise "TODO: Nest nodes correctly."
                     elif is_floating(word):
                         # this is a port, but that is not connected on the outside, but
                         # still may be internally-connected so it needs a node name
