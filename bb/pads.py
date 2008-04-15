@@ -31,6 +31,11 @@ for line in file(filename, "rt").readlines():
     words = line.split()
     refdesg = words[0]
     args = words[1:-1]
+    if refdesg[0] == 'V':
+        # Voltage sources only have two pins, other arguments
+        # may be PWL or other values (really one argument, but
+        # separated by spaces, so we'll see it at more than one).
+        args = [args[0], args[1]]
 
     # Make nets list
     for i, arg in enumerate(args):
