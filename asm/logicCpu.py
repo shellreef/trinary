@@ -13,11 +13,15 @@ in_reg = 0;
 def main():
 
     # check arguments
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 2 or len(sys.argv) > 2:
         print """usage: %s program.3
 input file: program.3 - machine code
 """ % (sys.argv[0])
         raise SystemExit
+
+    if (sys.argv[1])[len(sys.argv[1]):] != '3':
+         print """\'%s\' is an invalid filetype""" % sys.argv[1]
+         raise SystemExit
 
     # retrive file
     codefile = file(sys.argv[1], "rt")
@@ -26,10 +30,12 @@ input file: program.3 - machine code
     # check for errors in file
     for i in tritstream:
         if not i in trit_integer:
-           print """invalid char \'%s\' in file \'%s\'""" % (i, sys.argv[1])
+            print """invalid char \'%s\' in file \'%s\'""" % (i, sys.argv[1])
+            raise SystemExit
 
     if len(tritstream) != 9:
         print """3 instructions must be provided in \'%s\'""" % (sys.argv[1])
+        raise SystemExit
 
     # memory, registers, and program counter
     memory = {}
@@ -97,6 +103,8 @@ def Execute(memory, registers, pc):
 
     return pc
 
+if __name__ == "__main__":
+    main()
 
 class CPUInput (threading.Thread):
 
