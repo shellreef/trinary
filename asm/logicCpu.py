@@ -11,21 +11,39 @@ trit_integer = {"i": -1, "0":0, "1":1}
 in_reg = 0;
 
 def main():
+
+    # check arguments
     if len(sys.argv) < 2:
         print """usage: %s program.3
 input file: program.3 - machine code
 """ % (sys.argv[0])
         raise SystemExit
 
+    # retrive file
     codefile = file(sys.argv[1], "rt")
     tritstream = codefile.read()
 
+    # check for errors in file
     for i in tritstream:
         if not i in trit_integer:
            print """invalid char \'%s\' in file \'%s\'""" % (i, sys.argv[1])
 
     if len(tritstream) != 9:
         print """3 instructions must be provided in \'%s\'""" % (sys.argv[1])
+
+    # memory, registers, and program counter
+    memory = {}
+    registers = {}
+    pc = 0
+
+    # decode instructions from file
+    for i in range(0, 3):
+        memory[i] = Decoder(tritstream)
+        tritstream = tritstream[3:]
+
+    # execute instructions
+    while pc in (-1, 0, 1):
+        pc = Execute(memory, registers, pc)
 
 def Decoder(tritstream):
     """ Decode a single instruction.
@@ -65,15 +83,19 @@ def Execute(memory, registers, pc):
             registers["S"] = 0
         else:
             registers["S"] = 1
+        pc = pc + 1
     # lwi
     elif op == 0:
         registers[1] = (memory[pc])["immed"]
+        pc = pc + 1
     # be
     elif op == 1:
         if registers["S"] == 0:
-            op = (memory[pc])["src1"]
+            pc = (memory[pc])["src1"]
         else:
-            op = (memory[pc])["src2"]
+            pc = (memory[pc])["src2"]
+
+    return pc
 
 
 class CPUInput (threading.Thread):
