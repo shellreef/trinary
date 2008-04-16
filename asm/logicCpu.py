@@ -110,10 +110,12 @@ def Execute(memory, pc):
     if op == -1:
         src1 = (memory[pc])["src1"]
         src2 = (memory[pc])["src2"]
-        if (registers[src1] - registers[src2]) == 0:
-            registers["S"] = 0
-        else:
+        if registers[src1] < registers[src2]:
+            registers["S"] = -1
+        elif registers[src1] > registers[src2]:
             registers["S"] = 1
+        else:
+            registers["S"] = 0
         pc = pc + 1
     # lwi
     elif op == 0:
