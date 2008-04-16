@@ -20,6 +20,12 @@ input file: program.3 - machine code
     codefile = file(sys.argv[1], "rt")
     tritstream = codefile.read()
 
+    for i in tritstream:
+        if not i in trit_integer:
+           print """invalid char \'%s\' in file \'%s\'""" % (i, sys.argv[1])
+
+    if len(tritstream) != 9:
+        print """3 instructions must be provided in \'%s\'""" % (sys.argv[1])
 
 def Decoder(tritstream):
     """ Decode a single instruction.
@@ -68,6 +74,7 @@ def Execute(memory, registers, pc):
             op = (memory[pc])["src1"]
         else:
             op = (memory[pc])["src2"]
+
 
 class CPUInput (threading.Thread):
 
