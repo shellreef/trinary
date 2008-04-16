@@ -19,7 +19,7 @@ input file: program.3 - machine code
 """ % (sys.argv[0])
         raise SystemExit
 
-    if (sys.argv[1])[len(sys.argv[1]):] != '3':
+    if (sys.argv[1])[len(sys.argv[1])-1:] != "3":
          print """\'%s\' is an invalid filetype""" % sys.argv[1]
          raise SystemExit
 
@@ -39,11 +39,11 @@ input file: program.3 - machine code
 
     # memory, registers, and program counter
     memory = {}
-    registers = {}
+    registers = {-1:0, 0:0, 1:-3}
     pc = 0
 
     # decode instructions from file
-    for i in range(0, 3):
+    for i in range(-1, 2):
         memory[i] = Decoder(tritstream)
         tritstream = tritstream[3:]
 
@@ -65,7 +65,6 @@ def Decoder(tritstream):
 
     # lwi
     elif inst["op"] == 0:
-        print "hi"
         inst["src1"] = trit_integer[tritstream[1]]
         inst["src2"] = trit_integer[tritstream[2]]
         inst["immed"] = 3*inst["src1"] + inst["src2"]
@@ -101,6 +100,8 @@ def Execute(memory, registers, pc):
         else:
             pc = (memory[pc])["src2"]
 
+    if pc > 1:
+       pc = -1
     return pc
 
 if __name__ == "__main__":
