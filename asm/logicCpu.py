@@ -4,11 +4,11 @@
 #
 # 3-trit computer disassembler
 
-import sys, os, threading
+import sys, os, threading, time
 
 trit_integer = {"i": -1, "0":0, "1":1}
 
-registers = {-1:0, 0:0, 1:0}
+registers = {-1:0, 0:0, 1:0, 'S':1}
 
 # Thread that gets input from user
 class CPUInput (threading.Thread):
@@ -16,12 +16,13 @@ class CPUInput (threading.Thread):
     def run (self):
         while True:
             print "Register Status: %s :" % registers,
-            input = int(raw_input('Input value for IN:'))
+            user_input = input('Input value for IN:')
 
-            if input >= -4 and input <= 4:
-                registers[-1] = input
+            if user_input >= -4 and user_input <= 4:
+                registers[-1] = user_input
+                time.sleep(0.25)
             else:
-                print """invalid input: %s""" % input
+                print """invalid input: %s""" % user_input
 
 def main():
 
@@ -64,7 +65,7 @@ input file: program.3 - machine code
 
     # execute instructions
     while pc in (-1, 0, 1):
-        pc = Execute(memory, registers, pc)
+        pc = Execute(memory, pc)
 
 def Decoder(tritstream):
     """ Decode a single instruction.
@@ -96,7 +97,7 @@ def Decoder(tritstream):
 
     return inst
 
-def Execute(memory, registers, pc):
+def Execute(memory, pc):
     """ Execute one instruction.
         memory: were decoded instructions are stored
         registers: contains registers and their values
@@ -108,7 +109,7 @@ def Execute(memory, registers, pc):
     # cmp
     if op == -1:
         src1 = (memory[pc])["src1"]
-        src2 = (memory[pc])["src1"]
+        src2 = (memory[pc])["src2"]
         if (registers[src1] - registers[src2]) == 0:
             registers["S"] = 0
         else:
