@@ -2,30 +2,40 @@
 # Created:20080415
 # By Antonio Chavez
 #
-# 3-trit computer disassembler
+# 3-trit computer simulator
 
 import sys, os, threading, time
 
 trit_integer = {"i": -1, "0":0, "1":1}
 
-registers = {-1:0, 0:0, 1:0, 'S':1}
+# Lookup a register's name by address
+register_name = { 
+        -1: "IN",
+        0: "OUT",
+        1: "A" 
+        }
+
+# Register contents
+registers = { 
+        "IN": 0, 
+        "OUT": 0, 
+        "A": 0, 
+        "S": 1 }
 
 # Thread that gets input from user
 class CPUInput (threading.Thread):
-
     def run (self):
         while True:
             print "Register Status: %s :" % registers,
             user_input = input('Input value for IN:')
 
             if user_input >= -4 and user_input <= 4:
-                registers[-1] = user_input
+                registers["IN"] = user_input
                 time.sleep(0.25)
             else:
                 print """invalid input: %s""" % user_input
 
 def main():
-
     # check arguments
     if len(sys.argv) < 2 or len(sys.argv) > 2:
         print """usage: %s program.3
@@ -37,7 +47,7 @@ input file: program.3 - machine code
          print """\'%s\' is an invalid filetype""" % sys.argv[1]
          raise SystemExit
 
-    # retrive file
+    # retrieve file
     codefile = file(sys.argv[1], "rt")
     tritstream = codefile.read()
 
@@ -110,16 +120,16 @@ def Execute(memory, pc):
     if op == -1:
         src1 = (memory[pc])["src1"]
         src2 = (memory[pc])["src2"]
-        if registers[src1] < registers[src2]:
+        if registers[register_name[src1]] < registers[register_name[src2]]:
             registers["S"] = -1
-        elif registers[src1] > registers[src2]:
+        elif registers[register_name[src1]] > registers[register_name[src2]]:
             registers["S"] = 1
         else:
             registers["S"] = 0
         pc = pc + 1
     # lwi
     elif op == 0:
-        registers[1] = (memory[pc])["immed"]
+        registers["A"] = (memory[pc])["immed"]
         pc = pc + 1
     # be
     elif op == 1:
