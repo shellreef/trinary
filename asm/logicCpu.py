@@ -44,6 +44,7 @@ input file: program.3 - machine code
 
     # decode instructions from file
     for i in range(-1, 2):
+        print "%2s: " % (i),
         memory[i] = Decoder(tritstream)
         tritstream = tritstream[3:]
 
@@ -60,14 +61,24 @@ def Decoder(tritstream):
 
     # cmp and be
     if inst["op"] == -1 or inst["op"] == 1:
+
+        if inst["op"] == -1:
+            print "cmp ",
+        else:
+            print "be  ",
+
         inst["src1"] = trit_integer[tritstream[1]]
+        print "%2d," % inst["src1"],
         inst["src2"] = trit_integer[tritstream[2]]
+        print "%2d" % inst["src2"]
 
     # lwi
     elif inst["op"] == 0:
+        print "lwi ",
         inst["src1"] = trit_integer[tritstream[1]]
         inst["src2"] = trit_integer[tritstream[2]]
         inst["immed"] = 3*inst["src1"] + inst["src2"]
+        print "%2d" % inst["immed"]
 
     return inst
 
