@@ -8,7 +8,20 @@ import sys, os, threading
 
 trit_integer = {"i": -1, "0":0, "1":1}
 
-in_reg = 0;
+registers = {-1:0, 0:0, 1:0}
+
+# Thread that gets input from user
+class CPUInput (threading.Thread):
+
+    def run (self):
+        while True:
+            print "Register Status: %s :" % registers,
+            input = int(raw_input('Input value for IN:'))
+
+            if input >= -4 and input <= 4:
+                registers[-1] = input
+            else:
+                print """invalid input: %s""" % input
 
 def main():
 
@@ -39,14 +52,15 @@ input file: program.3 - machine code
 
     # memory, registers, and program counter
     memory = {}
-    registers = {-1:0, 0:0, 1:-3}
     pc = 0
 
     # decode instructions from file
     for i in range(-1, 2):
-        print "%2s: " % (i),
+        print "%2d: " % (i),
         memory[i] = Decoder(tritstream)
         tritstream = tritstream[3:]
+
+    CPUInput().start()
 
     # execute instructions
     while pc in (-1, 0, 1):
@@ -117,12 +131,3 @@ def Execute(memory, registers, pc):
 
 if __name__ == "__main__":
     main()
-
-class CPUInput (threading.Thread):
-
-    def run (self):
-        input = raw_input('Input value for IN:')
-        if input in trit_integer:
-            in_reg = trit_integer[input]
-        else:
-            print """invalid input: %s""" % input
