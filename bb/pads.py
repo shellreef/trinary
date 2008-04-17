@@ -27,7 +27,7 @@ input-filename      A chip-level SPICE netlist (.net2)
 output-filename     PADS-PCB layout netlist (.pads)
 
 If output-filename is omitted, input-filename is used but
-with a .pads extension instead of .net2.
+with a .pads extension instead of .net2, or .pads appended.
 
 Either filenames can be "-" for stdin or stdout, respectively.
 """ % (PROGRAM_NAME, )
@@ -42,11 +42,11 @@ if len(sys.argv) > 2:
     output_filename = sys.argv[2]
 else:
     output_filename = filename.replace(".net2", ".pads")
+    if output_filename == filename:
+        output_filename = filename + ".pads"
 if output_filename != "-":
     sys.stdout = file(output_filename, "wt")
 
- 
-filename = "dtflop-ms_test.net2"
 print "*PADS-PCB*"
 print "*%s %s*" % (filename, time.asctime())
 

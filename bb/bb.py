@@ -56,7 +56,6 @@ def read_netlist(filename):
                 if len(line.strip()) != 0 and line[0] not in ('.', '*'):
                     toplevel.append(line)
 
-    print "* Chip-level netlist, converted from %s by %s on %s" % (filename, PROGRAM_NAME, time.asctime())
     return subckt_nodes, subckt_defns, toplevel
 
 def rewrite_subckt(subckt_defns, s):
@@ -458,15 +457,18 @@ def test_assignment():
     dump_extra(extra)
 
 def usage():
-    print """usage: %s input-filename [output-filename]
+    print """usage: %s input-filename [output-filename | -p]
 
 input-filename      A transistor-level SPICE netlist (.net) 
 output-filename     Chip-level SPICE netlist (.net2)
 
-If output-filename is omitted, input-filename is used but
-with a .net2 extension instead of .net.
+If output-filename is omitted, input-filename is used but 
+with '2' appended, so .net becomes .net2 by convention.
 
 Either filenames can be "-" for stdin or stdout, respectively.
+
+The -p flag, instead of an output filename will also run pads.py
+so that both .net2 and .pads files will be generated.
 """ % (PROGRAM_NAME, )
     raise SystemExit
 
@@ -475,16 +477,20 @@ def main():
         usage()
     input_filename = sys.argv[1]
 
+    generate_pads = len(sys.argv) > 2 and sys.argv[2] == "-p"
+
+    subckt_nodes, subckt_defns, toplevel = read_netlist(input_filename)
+
     # Redirect stdout to output file
-    if len(sys.argv) > 2:
+    if len(sys.argv) > 2 and sys.argv[2] != "-p":
         output_filename = sys.argv[2]
     else:
-        output_filename = input_filename.replace(".net", ".net2")
+        output_filename = input_filename + "2"
 
     if output_filename != "-":
         sys.stdout = file(output_filename, "wt")
 
-    subckt_nodes, subckt_defns, toplevel = read_netlist(input_filename)
+    print "* Chip-level netlist, converted from %s by %s on %s" % (input_filename, PROGRAM_NAME, time.asctime())
 
     # Circuits to rewrite need to be loaded first. Any transistor-level circuits
     # you want to replace with ICs, must be loaded here. TODO: automatic, better,
@@ -540,6 +546,11 @@ def main():
     dump_chips(chips)
     dump_extra(extra)
 
+    sys.stdout = sys.stderr
+
+    if generate_pads:
+        import os
+        os.system("python pads.py %s" % (output_filename,))
 
 if __name__ == "__main__":
     #test_flatten()
