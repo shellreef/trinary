@@ -300,7 +300,12 @@ def rewrite_node(prefix, circuit_inside, original_node_name):
     if original_node_name.startswith("$G_") or original_node_name == "0":
         return original_node_name
 
-    return "%s$%s$%s" % (prefix, circuit_inside, original_node_name)
+    new_name = "%s$%s" % (circuit_inside, original_node_name)
+
+    if prefix:
+        new_name = "%s$%s" % (prefix, new_name)
+
+    return new_name
 
 def is_expandable_subcircuit(refdesg, model):
     """Return whether the SPICE reference designator and model is 
@@ -329,7 +334,7 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
 
             if is_expandable_subcircuit(inner_refdesg, inner_model):
                 # Recursively expand subcircuits, to a limit
-                new_lines.extend(expand(subckt_defns, subckt_nodes, sline, inner_refdesg))
+                new_lines.extend(expand(subckt_defns, subckt_nodes, sline, outer_refdesg))
             else:
                 new_words = []
                 # Nest reference designator
