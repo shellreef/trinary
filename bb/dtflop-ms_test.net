@@ -23,7 +23,7 @@ XX5 C N001 sti
 .ends dtflop-ms
 
 .subckt sti IN OUT
-XX1 IN NC_01 OUT NC_02 tinv
+XXinv IN NC_01 OUT NC_02 tinv
 .ends sti
 
 .subckt tg IN_OUT OUT_IN CONTROL
