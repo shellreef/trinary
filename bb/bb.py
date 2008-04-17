@@ -295,6 +295,11 @@ def rewrite_refdesg(original, prefix):
 def rewrite_node(prefix, circuit_inside, original_node_name):
     """Rewrite a node name inside a subcircuit, prefixing it with
     prefix and the name of the circuit that it is inside."""
+
+    # Globals never rewritten
+    if original_node_name.startswith("$G_") or original_node_name == "0":
+        return original_node_name
+
     return "%s$%s$%s" % (prefix, circuit_inside, original_node_name)
 
 def is_expandable_subcircuit(words):
