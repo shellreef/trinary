@@ -316,11 +316,11 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
             words = sline.split()
             if is_expandable_subcircuit(words):
                 # Recursively expand subcircuits, to a limit
-                new_lines.extend(expand(subckt_defns, subckt_nodes, sline, "%s$" % (words[0]),))
+                new_lines.extend(expand(subckt_defns, subckt_nodes, sline, "%s" % (words[0],)))
             else:
                 new_words = []
                 # Nest reference designator
-                new_words.append(rewrite_refdesg(words[0], prefix + refdesg))
+                new_words.append(rewrite_refdesg(words[0], prefix + "$" + refdesg))
 
                 # Map internal to external nodes
                 these_args = words[1:-1]
