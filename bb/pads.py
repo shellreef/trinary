@@ -42,9 +42,8 @@ for line in file(filename, "rt").readlines():
         if arg.startswith("NC_"):
             continue
 
-        # Some programs don't accept "0" as a valid net name.
-        if arg == "0":
-            arg = "GND"
+        #if arg == "0":
+        #    arg = "GND"
 
         if arg not in nets.keys():
             nets[arg] = []
@@ -72,4 +71,5 @@ for signal, pins in nets.iteritems():
     print "*SIGNAL* %s" % (signal,)
     print " ".join(pins)
 
-
+# Print a newline at the end for picky layout programs (ExpressPCB)
+print
