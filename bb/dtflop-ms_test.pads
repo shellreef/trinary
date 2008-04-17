@@ -1,5 +1,5 @@
 *PADS-PCB*
-*dtflop-ms_test.net2 Thu Apr 17 00:24:28 2008*
+*dtflop-ms_test.net2 Thu Apr 17 00:29:29 2008*
 *PART*
 Vclk HOLE_100_SQR_200
 Vd HOLE_100_SQR_200
@@ -20,50 +20,30 @@ RXXflipflop$XX1$Xinv$RN RC07
 RXXflipflop$XX5$Xinv$RP RC07
 RXXflipflop$XX5$Xinv$RN RC07
 *NET*
-*SIGNAL* Xflipflop$tg_master
-X_IC_0_CD4007.6 X_IC_3_CD4016.3 RXXflipflop$XX4$Xinv$RP.2 RXXflipflop$XX4$Xinv$RN.1
-*SIGNAL* Xflipflop$C
-X_IC_2_CD4007.6
-*SIGNAL* Xflipflop$tg_D
-X_IC_0_CD4007.3 X_IC_3_CD4016.2 X_IC_3_CD4016.9
-*SIGNAL* Xflipflop$XX1$NC_01
-X_IC_1_CD4007.1 RXXflipflop$XX1$Xinv$RP.1
-*SIGNAL* Xflipflop$XX1$NC_02
-X_IC_1_CD4007.5 RXXflipflop$XX1$Xinv$RN.2
-*SIGNAL* Xflipflop$Q
-X_IC_1_CD4007.3 RXXflipflop$XX3$Xinv$RP.2 RXXflipflop$XX3$Xinv$RN.1
 *SIGNAL* $G_Vdd
 V$XX1$Vdd.1 X_IC_0_CD4007.2 X_IC_0_CD4007.14 X_IC_1_CD4007.2 X_IC_1_CD4007.14 X_IC_2_CD4007.14 X_IC_3_CD4016.14
-*SIGNAL* Xflipflop$XX5$NC_01
-X_IC_2_CD4007.13 RXXflipflop$XX5$Xinv$RP.1
-*SIGNAL* Xflipflop$XX5$NC_02
-X_IC_2_CD4007.8 RXXflipflop$XX5$Xinv$RN.2
-*SIGNAL* $G_Vss
-V$XX1$Vss.2 X_IC_0_CD4007.4 X_IC_0_CD4007.7 X_IC_1_CD4007.4 X_IC_1_CD4007.7 X_IC_2_CD4007.7 X_IC_3_CD4016.7
-*SIGNAL* 0
-Vclk.2 Vd.2 V$XX1$Vdd.2 V$XX1$Vss.1
-*SIGNAL* Xflipflop$XX3$NC_02
-X_IC_1_CD4007.8 RXXflipflop$XX3$Xinv$RN.2
-*SIGNAL* Xflipflop$XX3$NC_01
-X_IC_1_CD4007.13 RXXflipflop$XX3$Xinv$RP.1
 *SIGNAL* Xflipflop$_C
 X_IC_3_CD4016.6 X_IC_3_CD4016.12 RXXflipflop$XX5$Xinv$RP.2 RXXflipflop$XX5$Xinv$RN.1
 *SIGNAL* D
 Vd.1 X_IC_3_CD4016.8
 *SIGNAL* CLK
 Vclk.1 X_IC_3_CD4016.5 X_IC_3_CD4016.13
-*SIGNAL* Xflipflop$XX2$NC_02
-X_IC_0_CD4007.8 RXXflipflop$XX2$Xinv$RN.2
-*SIGNAL* Xflipflop$XX2$NC_01
-X_IC_0_CD4007.13 RXXflipflop$XX2$Xinv$RP.1
-*SIGNAL* Xflipflop$tg_slave
-X_IC_1_CD4007.6 X_IC_3_CD4016.4 X_IC_3_CD4016.10
 *SIGNAL* Xflipflop$_Q_slave
 X_IC_3_CD4016.11 RXXflipflop$XX1$Xinv$RP.2 RXXflipflop$XX1$Xinv$RN.1
+*SIGNAL* Xflipflop$tg_D
+X_IC_0_CD4007.3 X_IC_3_CD4016.2 X_IC_3_CD4016.9
+*SIGNAL* $G_Vss
+V$XX1$Vss.2 X_IC_0_CD4007.4 X_IC_0_CD4007.7 X_IC_1_CD4007.4 X_IC_1_CD4007.7 X_IC_2_CD4007.7 X_IC_3_CD4016.7
+*SIGNAL* 0
+Vclk.2 Vd.2 V$XX1$Vdd.2 V$XX1$Vss.1
+*SIGNAL* Xflipflop$C
+X_IC_2_CD4007.6
 *SIGNAL* Xflipflop$_Q_master
 X_IC_3_CD4016.1 RXXflipflop$XX2$Xinv$RP.2 RXXflipflop$XX2$Xinv$RN.1
-*SIGNAL* Xflipflop$XX4$NC_01
-X_IC_0_CD4007.1 RXXflipflop$XX4$Xinv$RP.1
-*SIGNAL* Xflipflop$XX4$NC_02
-X_IC_0_CD4007.5 RXXflipflop$XX4$Xinv$RN.2
+*SIGNAL* Xflipflop$tg_slave
+X_IC_1_CD4007.6 X_IC_3_CD4016.4 X_IC_3_CD4016.10
+*SIGNAL* Xflipflop$Q
+X_IC_1_CD4007.3 RXXflipflop$XX3$Xinv$RP.2 RXXflipflop$XX3$Xinv$RN.1
+*SIGNAL* Xflipflop$tg_master
+X_IC_0_CD4007.6 X_IC_3_CD4016.3 RXXflipflop$XX4$Xinv$RP.2 RXXflipflop$XX4$Xinv$RN.1
 

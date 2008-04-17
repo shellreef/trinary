@@ -301,6 +301,9 @@ def rewrite_node(prefix, circuit_inside, original_node_name):
     if original_node_name.startswith("$G_") or original_node_name == "0":
         return original_node_name
 
+    if is_floating(original_node_name):
+        return get_floating()
+
     new_name = original_node_name
     if circuit_inside:
         new_name = "%s$%s" % (circuit_inside, new_name)
