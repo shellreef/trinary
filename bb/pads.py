@@ -6,6 +6,9 @@
 # or any other PCB layout program that supports the PADS-PCB format.
 
 import time
+import sys
+
+PROGRAM_NAME = "pads.py"
 
 footprint_map = {
         "CD4007": "14DIP300",
@@ -17,13 +20,43 @@ footprint_map = {
 #naked_node_footprint = "HOLE_100_RND_200"
 naked_node_footprint = None
 
+def usage():
+    print """usage: %s input-filename [output-filename]
+
+input-filename      A chip-level SPICE netlist (.net2) 
+output-filename     PADS-PCB layout netlist (.pads)
+
+If output-filename is omitted, input-filename is used but
+with a .pads extension instead of .net2.
+
+Either filenames can be "-" for stdin or stdout, respectively.
+""" % (PROGRAM_NAME, )
+    raise SystemExit 
+
+if len(sys.argv) < 2:
+    usage()
+filename = sys.argv[1]
+
+# Redirect stdout to output file
+if len(sys.argv) > 2:
+    output_filename = sys.argv[2]
+else:
+    output_filename = filename.replace(".net2", ".pads")
+if output_filename != "-":
+    sys.stdout = file(output_filename, "wt")
+
+ 
 filename = "dtflop-ms_test.net2"
 print "*PADS-PCB*"
 print "*%s %s*" % (filename, time.asctime())
 
 parts = []
 nets = {}
-for line in file(filename, "rt").readlines():
+if filename == "-":
+    infile = sys.stdin
+else:
+    infile = file(filename, "rt")
+for line in infile.readlines():
     if line[0] == '*':
         continue
 
