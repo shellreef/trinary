@@ -14,7 +14,7 @@ footprint_map = {
         "CD4007": "14DIP300",
         "CD4016": "14DIP300",
         "R": "RC07",            # 1/4 resistor
-        "V": "HOLE_100_SQR_200",
+        "V": "1X2HDR-100",
         }
 
 #naked_node_footprint = "HOLE_100_RND_200"

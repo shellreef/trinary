@@ -200,17 +200,6 @@ n_copper_layers: 2
 
 [footprints]
 
-name: "HOLE_100_SQR_200"
-  units: MIL
-  sel_rect: -126 -126 126 126
-  ref_text: 50 0 0 0 5
-  centroid: 0 0 0
-  n_pins: 1
-    pin: "1" 100 0 0 270
-      top_pad: 2 200 0 0 0
-      inner_pad: 1 200 0 0 0
-      bottom_pad: 2 200 0 0 0
-
 name: "14DIP300"
 author: "Ivex"
 source: "DIGIKEY CATALOG NO. 941, PAGE 64"
@@ -286,6 +275,23 @@ source: "DIGIKEY CATALOG NO. 941, PAGE 64"
       inner_pad: 1 55 27 27 0
       bottom_pad: 1 55 27 27 0
 
+name: "1X2HDR-100"
+author: "Ivex"
+source: "PRINTED CIRCUIT DESIGN METHODS PAGE 411"
+  units: MIL
+  sel_rect: -33 -33 33 133
+  ref_text: 50 0 160 0 7
+  centroid: 0 0 50
+  n_pins: 2
+    pin: "1" 28 0 0 0
+      top_pad: 2 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 2 50 25 25 0
+    pin: "2" 28 0 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+
 name: "RC07"
 author: "Ivex"
 source: "DIGITAL PRINTED CIRCUIT DESIGN & DRAFTING, PAGE 408"
@@ -323,26 +329,26 @@ outline: 4 0
 
 part: Vclk
   ref_text: 2540000 254000 0 2540000 0
-  package: "HOLE_100_SQR_200"
-  shape: "HOLE_100_SQR_200"
-  pos: -124460000 109220000 0 0 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: -124460000 111760000 0 0 0
 
 part: Vd
   ref_text: 2540000 254000 0 2540000 0
-  package: "HOLE_100_SQR_200"
-  shape: "HOLE_100_SQR_200"
-  pos: -124460000 116840000 0 0 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: -124460000 119380000 0 0 0
 
 part: V$XX1$Vdd
   ref_text: 2540000 254000 0 2540000 0
-  package: "HOLE_100_SQR_200"
-  shape: "HOLE_100_SQR_200"
-  pos: -124460000 99060000 0 0 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: -124460000 96520000 0 0 0
 
 part: V$XX1$Vss
   ref_text: 2540000 254000 0 2540000 0
-  package: "HOLE_100_SQR_200"
-  shape: "HOLE_100_SQR_200"
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
   pos: -124460000 91440000 0 0 0
 
 part: X_IC_0_CD4007
@@ -445,7 +451,7 @@ net: "D" 2 1 0 0 0 0 1
   connect: 1 1 0 1 0
     vtx: 1 -63500000 116840000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -124460000 116840000 11 0 0 0 0
+    vtx: 2 -124460000 119380000 11 0 0 0 0
 
 net: "Xflipflop$tg_D" 3 2 0 0 0 0 1
   pin: 1 X_IC_0_CD4007.3
@@ -531,7 +537,7 @@ net: "Xflipflop$XX3$NTI_Out" 2 1 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 -7620000 76200000 11 0 0 0 0
 
-net: "$G_Vss" 7 5 0 0 0 0 1
+net: "$G_Vss" 7 6 0 0 0 0 1
   pin: 1 V$XX1$Vss.2
   pin: 2 X_IC_0_CD4007.4
   pin: 3 X_IC_0_CD4007.7
@@ -539,14 +545,14 @@ net: "$G_Vss" 7 5 0 0 0 0 1
   pin: 5 X_IC_1_CD4007.7
   pin: 6 X_IC_2_CD4007.7
   pin: 7 X_IC_3_CD4016.7
-  connect: 1 2 1 1 0
-    vtx: 1 -71120000 76200000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -71120000 83820000 11 0 0 0 0
-  connect: 2 4 3 1 0
+  connect: 1 4 3 1 0
     vtx: 1 -15240000 76200000 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 -15240000 83820000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 -71120000 76200000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -71120000 83820000 11 0 0 0 0
   connect: 3 6 1 1 0
     vtx: 1 -71120000 116840000 11 0 0 0 0
     seg: 1 6 0 0 0
@@ -555,10 +561,14 @@ net: "$G_Vss" 7 5 0 0 0 0 1
     vtx: 1 -15240000 116840000 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 -15240000 83820000 11 0 0 0 0
-  connect: 5 4 2 1 0
-    vtx: 1 -15240000 76200000 11 0 0 0 0
+  connect: 5 1 0 1 0
+    vtx: 1 -71120000 83820000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -71120000 76200000 11 0 0 0 0
+    vtx: 2 -124460000 93980000 11 0 0 0 0
+  connect: 6 6 5 1 0
+    vtx: 1 -71120000 116840000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -15240000 116840000 11 0 0 0 0
 
 net: "$G_Vdd" 7 6 0 0 0 0 1
   pin: 1 V$XX1$Vdd.1
@@ -591,7 +601,7 @@ net: "$G_Vdd" 7 6 0 0 0 0 1
   connect: 6 1 0 1 0
     vtx: 1 -71120000 88900000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -124460000 99060000 11 0 0 0 0
+    vtx: 2 -124460000 96520000 11 0 0 0 0
 
 net: "Xflipflop$Q" 3 2 0 0 0 0 1
   pin: 1 X_IC_1_CD4007.3
@@ -656,11 +666,23 @@ net: "Xflipflop$XX2$NTI_Out" 2 1 0 0 0 0 1
 net: "Xflipflop$C" 1 0 0 0 0 0 1
   pin: 1 X_IC_2_CD4007.6
 
-net: "0" 4 0 0 0 0 0 1
+net: "0" 4 3 0 0 0 0 1
   pin: 1 Vclk.2
   pin: 2 Vd.2
   pin: 3 V$XX1$Vdd.2
   pin: 4 V$XX1$Vss.1
+  connect: 1 1 0 1 0
+    vtx: 1 -124460000 121920000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -124460000 114300000 11 0 0 0 0
+  connect: 2 3 2 1 0
+    vtx: 1 -124460000 91440000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -124460000 99060000 11 0 0 0 0
+  connect: 3 2 0 1 0
+    vtx: 1 -124460000 99060000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -124460000 114300000 11 0 0 0 0
 
 net: "Xflipflop$XX2$PTI_Out" 2 1 0 0 0 0 1
   pin: 1 X_IC_0_CD4007.13
@@ -681,7 +703,7 @@ net: "CLK" 3 2 0 0 0 0 1
   connect: 2 1 0 1 0
     vtx: 1 -71120000 121920000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -124460000 109220000 11 0 0 0 0
+    vtx: 2 -124460000 111760000 11 0 0 0 0
 
 net: "Xflipflop$_Q_master" 3 2 0 0 0 0 1
   pin: 1 X_IC_3_CD4016.1
