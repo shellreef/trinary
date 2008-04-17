@@ -364,63 +364,6 @@ def test_flatten():
     for line in toplevel:
         print "\n".join(expand(subckt_defns, subckt_nodes, line, ""))
 
-def main():
-    subckt_nodes, subckt_defns, toplevel = read_netlist("dtflop-ms_test.net")
-
-    # Circuits to rewrite need to be loaded first. Any transistor-level circuits
-    # you want to replace with ICs, must be loaded here. TODO: automatic, better,
-    # all modules in some directory.
-    if subckt_defns.has_key("tinv"):
-        mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
-
-    if subckt_defns.has_key("tg"):
-        tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
-
-
-    # First semi-flatten the circuit 
-    flat_toplevel = []
-    for line in toplevel:
-        flat_toplevel.extend((expand(subckt_defns, subckt_nodes, line, "")))
-
-    print "* Flattened top-level, before part assignment:"
-    for f in flat_toplevel:
-        print "** %s" % (f,)
-    print "* Begin converted circuit"
-    print
-
-    # Available chips
-    chips = [
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4016", get_floating(14) ),
-            ]
-
-    extra = []
-    for line in flat_toplevel:
-        words = line.split()
-        if words[0][0] == 'X':
-            refdesg = words[0]
-            model = words[-1]
-            args = words[1:-1]
-
-            #print "MODEL=%s, args=%s" % (model, args)
-
-            #print subckt_defns[model]
-            #print subckt_nodes[model]
-
-            if model in ('tg', 'tinv'):
-                nodes = make_node_mapping(subckt_nodes[model], args)
-                #print nodes
-                chips, extra = assign_part(chips, subckt_defns, extra, model, nodes, refdesg)
-            else:
-                raise "Cannot synthesize model: %s, line: %s" % (model, line)
-        else:
-            print line
-
-    dump_chips(chips)
-    dump_extra(extra)
-
 def test_assignment():
     """Demonstrate subcircuit assignment."""
     subckt_nodes, subckt_defns, toplevel = read_netlist("mux3-1_test.net")
@@ -484,6 +427,64 @@ def test_assignment():
 
     dump_chips(chips)
     dump_extra(extra)
+
+def main():
+    subckt_nodes, subckt_defns, toplevel = read_netlist("dtflop-ms_test.net")
+
+    # Circuits to rewrite need to be loaded first. Any transistor-level circuits
+    # you want to replace with ICs, must be loaded here. TODO: automatic, better,
+    # all modules in some directory.
+    if subckt_defns.has_key("tinv"):
+        mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
+
+    if subckt_defns.has_key("tg"):
+        tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
+
+
+    # First semi-flatten the circuit 
+    flat_toplevel = []
+    for line in toplevel:
+        flat_toplevel.extend((expand(subckt_defns, subckt_nodes, line, "")))
+
+    print "* Flattened top-level, before part assignment:"
+    for f in flat_toplevel:
+        print "** %s" % (f,)
+    print "* Begin converted circuit"
+    print
+
+    # Available chips
+    chips = [
+            ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
+            ("CD4016", get_floating(14) ),
+            ]
+
+    extra = []
+    for line in flat_toplevel:
+        words = line.split()
+        if words[0][0] == 'X':
+            refdesg = words[0]
+            model = words[-1]
+            args = words[1:-1]
+
+            #print "MODEL=%s, args=%s" % (model, args)
+
+            #print subckt_defns[model]
+            #print subckt_nodes[model]
+
+            if model in ('tg', 'tinv'):
+                nodes = make_node_mapping(subckt_nodes[model], args)
+                #print nodes
+                chips, extra = assign_part(chips, subckt_defns, extra, model, nodes, refdesg)
+            else:
+                raise "Cannot synthesize model: %s, line: %s" % (model, line)
+        else:
+            print line
+
+    dump_chips(chips)
+    dump_extra(extra)
+
 
 if __name__ == "__main__":
     #test_flatten()
