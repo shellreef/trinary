@@ -319,7 +319,7 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
             else:
                 new_words = []
                 # Nest reference designator
-                new_words.append("%s%s%s$%s" % (words[0][0], prefix, refdesg, words[0]))
+                new_words.append("%s%s$%s" % (prefix, refdesg, words[0]))
                 #new_words.append(rewrite_refdesg(rewrite_refdesg(words[0], refdesg), prefix)) # XXX TODO
                 # Map internal to external nodes
                 these_args = words[1:-1]
@@ -327,22 +327,20 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
                     #print "****", word
                     if word in nodes.keys():
                         #new_words.append(nodes[word])
-                        new_words.append("%s%s$%s$%s" % (nodes[word][0], prefix, refdesg, nodes[word]))
+                        new_words.append("%s$%s$%s" % (prefix, refdesg, nodes[word]))
                         #XXX NEST NODES CORRECTLY!
                     elif is_floating(word):
                         # this is a port, but that is not connected on the outside, but
                         # still may be internally-connected so it needs a node name
                         #new_words.append("N__%s" % (get_serial(),))
-                        new_words.append("%s%s$%s$%s" % (word[0], prefix, refdesg, word))
+                        new_words.append("%s$%s$%s" % (prefix, refdesg, word))
                     elif word[0].isdigit():
                         new_words.append(word)
                     else:
                         # A signal only connected within this subcircuit, but not a port.
                         # Make a new node name for it and replace it.
                         if not internal_only_nodes.has_key(word):
-                            # Note: word[0] is not strictly necessary here, since this is a node name..
-                            # but keep it so that the first character is alphabetic.
-                            internal_only_nodes[word] = "%s%s$%s$%s" % (word[0], prefix, refdesg, word)
+                            internal_only_nodes[word] = "%s$%s$%s" % (prefix, refdesg, word)
                             #print "* sline: %s, Subcircuit %s, mapping internal-only node %s -> %s" % (sline, model, word, internal_only_nodes[word])
 
                         new_words.append(internal_only_nodes[word])
