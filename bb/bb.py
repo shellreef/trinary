@@ -319,7 +319,7 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
             else:
                 new_words = []
                 # Nest reference designator
-                new_words.append("%s%s$%s" % (prefix, refdesg, words[0]))
+                new_words.append("%s%s%s$%s" % (words[0][0], prefix, refdesg, words[0]))
                 #new_words.append(rewrite_refdesg(rewrite_refdesg(words[0], refdesg), prefix)) # XXX TODO
                 # Map internal to external nodes
                 these_args = words[1:-1]
