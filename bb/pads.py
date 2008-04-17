@@ -34,13 +34,17 @@ for line in file(filename, "rt").readlines():
     if refdesg[0] == 'V':
         # Voltage sources only have two pins, other arguments
         # may be PWL or other values (really one argument, but
-        # separated by spaces, so we'll see it at more than one).
+        # separated by spaces, so we'll see it as more than one).
         args = [args[0], args[1]]
 
     # Make nets list
     for i, arg in enumerate(args):
         if arg.startswith("NC_"):
             continue
+
+        # Some programs don't accept "0" as a valid net name.
+        if arg == "0":
+            arg = "GND"
 
         if arg not in nets.keys():
             nets[arg] = []
