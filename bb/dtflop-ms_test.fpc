@@ -305,206 +305,246 @@ outline: 0
 [parts]
 
 part: Vclk
-  ref_text: 2540000 254000 0 2540000 0
+  ref_text: 1270000 127000 0 0 0
   package: "HOLE_100_SQR_200"
   shape: "HOLE_100_SQR_200"
-  pos: -73660000 119380000 0 0 0
+  pos: -30480000 86360000 0 0 0
 
 part: Vd
-  ref_text: 2540000 254000 0 -2540000 2540000
+  ref_text: 1270000 127000 0 0 0
   package: "HOLE_100_SQR_200"
   shape: "HOLE_100_SQR_200"
-  pos: -55880000 116840000 0 0 0
+  pos: -5080000 114300000 0 0 0
 
 part: V$XX1$Vdd
-  ref_text: 2540000 254000 0 0 0
+  ref_text: 1270000 127000 0 0 0
   package: "HOLE_100_SQR_200"
   shape: "HOLE_100_SQR_200"
-  pos: -71120000 38100000 0 0 0
+  pos: 33020000 33020000 0 0 0
 
 part: V$XX1$Vss
-  ref_text: 2540000 254000 0 2540000 -2540000
+  ref_text: 1270000 127000 0 0 0
   package: "HOLE_100_SQR_200"
   shape: "HOLE_100_SQR_200"
-  pos: -40640000 38100000 0 0 0
+  pos: 50800000 20320000 0 0 0
 
 part: X_IC_0_CD4007
   ref_text: 1270000 177800 270 -2540000 3810000
   package: "14DIP300"
   shape: "14DIP300"
-  pos: -17780000 91440000 0 0 0
+  pos: 60960000 48260000 0 0 0
 
 part: X_IC_1_CD4007
   ref_text: 1270000 177800 270 -2540000 3810000
   package: "14DIP300"
   shape: "14DIP300"
-  pos: -17780000 53340000 0 0 0
+  pos: -22860000 45720000 0 0 0
 
 part: X_IC_2_CD4007
   ref_text: 1270000 177800 270 -2540000 3810000
   package: "14DIP300"
   shape: "14DIP300"
-  pos: -73660000 58420000 0 0 0
+  pos: 63500000 93980000 0 0 0
 
 part: X_IC_3_CD4016
   ref_text: 1270000 177800 270 -2540000 3810000
   package: "14DIP300"
   shape: "14DIP300"
-  pos: -71120000 93980000 0 0 0
+  pos: -20320000 93980000 0 0 0
 
-part: RXXX2$XX2$Xinv$RP
+part: RXXflipflop$XX2$Xinv$RP
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -17780000 104140000 0 0 0
+  pos: 48260000 68580000 0 0 0
 
-part: RXXX2$XX2$Xinv$RN
+part: RXXflipflop$XX2$Xinv$RN
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: 7620000 101600000 0 0 0
+  pos: 68580000 63500000 0 0 0
 
-part: RXXX4$XX4$Xinv$RP
+part: RXXflipflop$XX4$Xinv$RP
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -27940000 86360000 0 0 0
+  pos: 60960000 27940000 0 0 0
 
-part: RXXX4$XX4$Xinv$RN
+part: RXXflipflop$XX4$Xinv$RN
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -5080000 83820000 0 0 0
+  pos: 73660000 25400000 0 0 0
 
-part: RXXX3$XX3$Xinv$RP
+part: RXXflipflop$XX3$Xinv$RP
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -27940000 71120000 0 0 0
+  pos: -27940000 73660000 0 0 0
 
-part: RXXX3$XX3$Xinv$RN
+part: RXXflipflop$XX3$Xinv$RN
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -2540000 71120000 0 0 0
+  pos: -15240000 63500000 0 0 0
 
-part: RXXX1$XX1$Xinv$RP
+part: RXXflipflop$XX1$Xinv$RP
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -20320000 45720000 0 0 0
+  pos: -33020000 35560000 0 0 0
 
-part: RXXX1$XX1$Xinv$RN
+part: RXXflipflop$XX1$Xinv$RN
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -5080000 43180000 0 0 0
+  pos: -17780000 38100000 0 0 0
 
-part: RXXX5$XX5$Xinv$RP
+part: RXXflipflop$XX5$Xinv$RP
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -81280000 73660000 0 0 0
+  pos: 45720000 114300000 0 0 0
 
-part: RXXX5$XX5$Xinv$RN
+part: RXXflipflop$XX5$Xinv$RN
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -63500000 76200000 0 0 0
+  pos: 71120000 114300000 0 0 0
 
 [nets]
-
-net: "XX1$XX1$Q" 1 0 0 0 0 0
-  pin: 1 X_IC_1_CD4007.3
 
 net: "D" 2 1 0 0 0 0
   pin: 1 Vd.1
   pin: 2 X_IC_3_CD4016.8
   connect: 1 1 0 1 0
-    vtx: 1 -55880000 101600000 11 0 0 0
+    vtx: 1 -5080000 101600000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -55880000 116840000 11 0 0 0
+    vtx: 2 -5080000 114300000 11 0 0 0
 
-net: "XX4$XX4$tg_D" 1 0 0 0 0 0
+net: "Xflipflop$tg_D" 3 2 0 0 0 0
   pin: 1 X_IC_0_CD4007.3
-
-net: "XX4$XX4$tg_master" 2 1 0 0 0 0
-  pin: 1 RXXX4$XX4$Xinv$RP.2
-  pin: 2 RXXX4$XX4$Xinv$RN.1
-  connect: 1 1 0 1 0
-    vtx: 1 -5080000 83820000 11 0 0 0
+  pin: 2 X_IC_3_CD4016.2
+  pin: 3 X_IC_3_CD4016.9
+  connect: 1 2 1 1 0
+    vtx: 1 -7620000 101600000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -15240000 86360000 11 0 0 0
-
-net: "XX2$XX2$_Q_master" 2 1 0 0 0 0
-  pin: 1 RXXX2$XX2$Xinv$RP.2
-  pin: 2 RXXX2$XX2$Xinv$RN.1
-  connect: 1 1 0 1 0
-    vtx: 1 7620000 101600000 11 0 0 0
+    vtx: 2 -17780000 93980000 11 0 0 0
+  connect: 2 2 0 1 0
+    vtx: 1 -7620000 101600000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -5080000 104140000 11 0 0 0
+    vtx: 2 66040000 48260000 11 0 0 0
 
-net: "$Xflipflop$tg_slave" 2 1 0 0 0 0
-  pin: 1 X_IC_3_CD4016.4
-  pin: 2 X_IC_3_CD4016.10
+net: "Xflipflop$XX1$NC_01" 2 1 0 0 0 0
+  pin: 1 X_IC_1_CD4007.1
+  pin: 2 RXXflipflop$XX1$Xinv$RP.1
   connect: 1 1 0 1 0
-    vtx: 1 -60960000 101600000 11 0 0 0
+    vtx: 1 -33020000 35560000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -63500000 93980000 11 0 0 0
+    vtx: 2 -22860000 45720000 11 0 0 0
 
-net: "XX3$XX3$NC_01" 2 1 0 0 0 0
+net: "Xflipflop$XX2$NC_01" 2 1 0 0 0 0
+  pin: 1 X_IC_0_CD4007.13
+  pin: 2 RXXflipflop$XX2$Xinv$RP.1
+  connect: 1 1 0 1 0
+    vtx: 1 48260000 68580000 11 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 63500000 55880000 11 0 0 0
+
+net: "Xflipflop$XX3$NC_01" 2 1 0 0 0 0
   pin: 1 X_IC_1_CD4007.13
-  pin: 2 RXXX3$XX3$Xinv$RP.1
+  pin: 2 RXXflipflop$XX3$Xinv$RP.1
   connect: 1 1 0 1 0
-    vtx: 1 -27940000 71120000 11 0 0 0
+    vtx: 1 -27940000 73660000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -15240000 60960000 11 0 0 0
+    vtx: 2 -20320000 53340000 11 0 0 0
 
-net: "XX1$XX1$_Q_slave" 2 1 0 0 0 0
-  pin: 1 RXXX1$XX1$Xinv$RP.2
-  pin: 2 RXXX1$XX1$Xinv$RN.1
+net: "Xflipflop$XX1$NC_02" 2 1 0 0 0 0
+  pin: 1 X_IC_1_CD4007.5
+  pin: 2 RXXflipflop$XX1$Xinv$RN.2
   connect: 1 1 0 1 0
-    vtx: 1 -5080000 43180000 11 0 0 0
+    vtx: 1 -5080000 38100000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -7620000 45720000 11 0 0 0
+    vtx: 2 -12700000 45720000 11 0 0 0
 
-net: "$Xflipflop$tg_master" 1 0 0 0 0 0
-  pin: 1 X_IC_3_CD4016.3
-
-net: "XX3$XX3$Q" 2 1 0 0 0 0
-  pin: 1 RXXX3$XX3$Xinv$RP.2
-  pin: 2 RXXX3$XX3$Xinv$RN.1
+net: "Xflipflop$XX4$NC_01" 2 1 0 0 0 0
+  pin: 1 X_IC_0_CD4007.1
+  pin: 2 RXXflipflop$XX4$Xinv$RP.1
   connect: 1 1 0 1 0
-    vtx: 1 -2540000 71120000 11 0 0 0
+    vtx: 1 60960000 27940000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -15240000 71120000 11 0 0 0
+    vtx: 2 60960000 48260000 11 0 0 0
 
-net: "XX3$XX3$NC_02" 2 1 0 0 0 0
+net: "Xflipflop$XX2$NC_02" 2 1 0 0 0 0
+  pin: 1 X_IC_0_CD4007.8
+  pin: 2 RXXflipflop$XX2$Xinv$RN.2
+  connect: 1 1 0 1 0
+    vtx: 1 81280000 63500000 11 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 76200000 55880000 11 0 0 0
+
+net: "Xflipflop$XX3$NC_02" 2 1 0 0 0 0
   pin: 1 X_IC_1_CD4007.8
-  pin: 2 RXXX3$XX3$Xinv$RN.2
+  pin: 2 RXXflipflop$XX3$Xinv$RN.2
   connect: 1 1 0 1 0
-    vtx: 1 10160000 71120000 11 0 0 0
+    vtx: 1 -2540000 63500000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -2540000 60960000 11 0 0 0
+    vtx: 2 -7620000 53340000 11 0 0 0
 
-net: "XX3$XX3$tg_slave" 1 0 0 0 0 0
-  pin: 1 X_IC_1_CD4007.6
+net: "Xflipflop$XX4$NC_02" 2 1 0 0 0 0
+  pin: 1 X_IC_0_CD4007.5
+  pin: 2 RXXflipflop$XX4$Xinv$RN.2
+  connect: 1 1 0 1 0
+    vtx: 1 86360000 25400000 11 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 71120000 48260000 11 0 0 0
 
-net: "$Xflipflop$_C" 2 1 0 0 0 0
+net: "Xflipflop$_Q_slave" 3 2 0 0 0 0
+  pin: 1 X_IC_3_CD4016.11
+  pin: 2 RXXflipflop$XX1$Xinv$RP.2
+  pin: 3 RXXflipflop$XX1$Xinv$RN.1
+  connect: 1 2 1 1 0
+    vtx: 1 -17780000 38100000 11 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -20320000 35560000 11 0 0 0
+  connect: 2 2 0 1 0
+    vtx: 1 -17780000 38100000 11 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -12700000 101600000 11 0 0 0
+
+net: "Xflipflop$XX5$NC_01" 2 1 0 0 0 0
+  pin: 1 X_IC_2_CD4007.13
+  pin: 2 RXXflipflop$XX5$Xinv$RP.1
+  connect: 1 1 0 1 0
+    vtx: 1 45720000 114300000 11 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 66040000 101600000 11 0 0 0
+
+net: "Xflipflop$XX5$NC_02" 2 1 0 0 0 0
+  pin: 1 X_IC_2_CD4007.8
+  pin: 2 RXXflipflop$XX5$Xinv$RN.2
+  connect: 1 1 0 1 0
+    vtx: 1 83820000 114300000 11 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 78740000 101600000 11 0 0 0
+
+net: "Xflipflop$_C" 4 3 0 0 0 0
   pin: 1 X_IC_3_CD4016.6
   pin: 2 X_IC_3_CD4016.12
+  pin: 3 RXXflipflop$XX5$Xinv$RP.2
+  pin: 4 RXXflipflop$XX5$Xinv$RN.1
   connect: 1 1 0 1 0
-    vtx: 1 -66040000 101600000 11 0 0 0
+    vtx: 1 -15240000 101600000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -58420000 93980000 11 0 0 0
-
-net: "XX2$XX2$NC_01" 2 1 0 0 0 0
-  pin: 1 X_IC_0_CD4007.13
-  pin: 2 RXXX2$XX2$Xinv$RP.1
-  connect: 1 1 0 1 0
-    vtx: 1 -17780000 104140000 11 0 0 0
+    vtx: 2 -7620000 93980000 11 0 0 0
+  connect: 2 3 2 1 0
+    vtx: 1 71120000 114300000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -15240000 99060000 11 0 0 0
+    vtx: 2 58420000 114300000 11 0 0 0
+  connect: 3 2 0 1 0
+    vtx: 1 58420000 114300000 11 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -7620000 93980000 11 0 0 0
 
 net: "$G_Vss" 7 5 0 0 0 0
   pin: 1 V$XX1$Vss.2
@@ -515,33 +555,25 @@ net: "$G_Vss" 7 5 0 0 0 0
   pin: 6 X_IC_2_CD4007.7
   pin: 7 X_IC_3_CD4016.7
   connect: 1 2 1 1 0
-    vtx: 1 -2540000 91440000 11 0 0 0
+    vtx: 1 76200000 48260000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -10160000 91440000 11 0 0 0
+    vtx: 2 68580000 48260000 11 0 0 0
   connect: 2 4 3 1 0
-    vtx: 1 -2540000 53340000 11 0 0 0
+    vtx: 1 -7620000 45720000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -10160000 53340000 11 0 0 0
-  connect: 3 6 5 1 0
-    vtx: 1 -55880000 93980000 11 0 0 0
+    vtx: 2 -15240000 45720000 11 0 0 0
+  connect: 3 5 2 1 0
+    vtx: 1 78740000 93980000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -58420000 58420000 11 0 0 0
-  connect: 4 3 1 1 0
-    vtx: 1 -10160000 53340000 11 0 0 0
+    vtx: 2 76200000 48260000 11 0 0 0
+  connect: 4 6 4 1 0
+    vtx: 1 -5080000 93980000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -10160000 91440000 11 0 0 0
-  connect: 5 6 1 1 0
-    vtx: 1 -55880000 93980000 11 0 0 0
+    vtx: 2 -7620000 45720000 11 0 0 0
+  connect: 5 4 1 1 0
+    vtx: 1 -7620000 45720000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -10160000 91440000 11 0 0 0
-
-net: "XX2$XX2$NC_02" 2 1 0 0 0 0
-  pin: 1 X_IC_0_CD4007.8
-  pin: 2 RXXX2$XX2$Xinv$RN.2
-  connect: 1 1 0 1 0
-    vtx: 1 20320000 101600000 11 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -2540000 99060000 11 0 0 0
+    vtx: 2 68580000 48260000 11 0 0 0
 
 net: "$G_Vdd" 7 6 0 0 0 0
   pin: 1 V$XX1$Vdd.1
@@ -552,81 +584,76 @@ net: "$G_Vdd" 7 6 0 0 0 0
   pin: 6 X_IC_2_CD4007.14
   pin: 7 X_IC_3_CD4016.14
   connect: 1 2 1 1 0
-    vtx: 1 -17780000 99060000 11 0 0 0
+    vtx: 1 60960000 55880000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -15240000 91440000 11 0 0 0
+    vtx: 2 63500000 48260000 11 0 0 0
   connect: 2 4 3 1 0
-    vtx: 1 -17780000 60960000 11 0 0 0
+    vtx: 1 -22860000 53340000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -15240000 53340000 11 0 0 0
-  connect: 3 5 0 1 0
-    vtx: 1 -73660000 66040000 11 0 0 0
+    vtx: 2 -20320000 45720000 11 0 0 0
+  connect: 3 1 0 1 0
+    vtx: 1 63500000 48260000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -71120000 38100000 11 0 0 0
-  connect: 4 4 1 1 0
-    vtx: 1 -17780000 60960000 11 0 0 0
+    vtx: 2 33020000 33020000 11 0 0 0
+  connect: 4 5 2 1 0
+    vtx: 1 63500000 101600000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -15240000 91440000 11 0 0 0
-  connect: 5 6 5 1 0
-    vtx: 1 -71120000 101600000 11 0 0 0
+    vtx: 2 60960000 55880000 11 0 0 0
+  connect: 5 6 4 1 0
+    vtx: 1 -20320000 101600000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -73660000 66040000 11 0 0 0
-  connect: 6 6 2 1 0
-    vtx: 1 -71120000 101600000 11 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -17780000 99060000 11 0 0 0
-
-net: "XX5$XX5$C" 1 0 0 0 0 0
-  pin: 1 X_IC_2_CD4007.6
-
-net: "XX5$XX5$NC_01" 2 1 0 0 0 0
-  pin: 1 X_IC_2_CD4007.13
-  pin: 2 RXXX5$XX5$Xinv$RP.1
-  connect: 1 1 0 1 0
-    vtx: 1 -81280000 73660000 11 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -71120000 66040000 11 0 0 0
-
-net: "$Xflipflop$_Q_master" 1 0 0 0 0 0
-  pin: 1 X_IC_3_CD4016.1
-
-net: "XX5$XX5$_C" 2 1 0 0 0 0
-  pin: 1 RXXX5$XX5$Xinv$RP.2
-  pin: 2 RXXX5$XX5$Xinv$RN.1
-  connect: 1 1 0 1 0
-    vtx: 1 -63500000 76200000 11 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -68580000 73660000 11 0 0 0
-
-net: "XX5$XX5$NC_02" 2 1 0 0 0 0
-  pin: 1 X_IC_2_CD4007.8
-  pin: 2 RXXX5$XX5$Xinv$RN.2
-  connect: 1 1 0 1 0
-    vtx: 1 -50800000 76200000 11 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -58420000 66040000 11 0 0 0
-
-net: "$Xflipflop$tg_D" 2 1 0 0 0 0
-  pin: 1 X_IC_3_CD4016.2
-  pin: 2 X_IC_3_CD4016.9
-  connect: 1 1 0 1 0
-    vtx: 1 -58420000 101600000 11 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -68580000 93980000 11 0 0 0
-
-net: "XX2$XX2$tg_master" 1 0 0 0 0 0
-  pin: 1 X_IC_0_CD4007.6
-
-net: "$Xflipflop$_Q_slave" 1 0 0 0 0 0
-  pin: 1 X_IC_3_CD4016.11
-
-net: "XX1$XX1$NC_01" 2 1 0 0 0 0
-  pin: 1 X_IC_1_CD4007.1
-  pin: 2 RXXX1$XX1$Xinv$RP.1
-  connect: 1 1 0 1 0
+    vtx: 2 -22860000 53340000 11 0 0 0
+  connect: 6 3 0 1 0
     vtx: 1 -20320000 45720000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -17780000 53340000 11 0 0 0
+    vtx: 2 33020000 33020000 11 0 0 0
+
+net: "Xflipflop$Q" 3 2 0 0 0 0
+  pin: 1 X_IC_1_CD4007.3
+  pin: 2 RXXflipflop$XX3$Xinv$RP.2
+  pin: 3 RXXflipflop$XX3$Xinv$RN.1
+  connect: 1 2 1 1 0
+    vtx: 1 -15240000 63500000 11 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -15240000 73660000 11 0 0 0
+  connect: 2 2 0 1 0
+    vtx: 1 -15240000 63500000 11 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -17780000 45720000 11 0 0 0
+
+net: "Xflipflop$tg_master" 4 3 0 0 0 0
+  pin: 1 X_IC_0_CD4007.6
+  pin: 2 X_IC_3_CD4016.3
+  pin: 3 RXXflipflop$XX4$Xinv$RP.2
+  pin: 4 RXXflipflop$XX4$Xinv$RN.1
+  connect: 1 3 2 1 0
+    vtx: 1 73660000 25400000 11 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 73660000 27940000 11 0 0 0
+  connect: 2 2 0 1 0
+    vtx: 1 73660000 27940000 11 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 73660000 48260000 11 0 0 0
+  connect: 3 1 0 1 0
+    vtx: 1 -15240000 93980000 11 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 73660000 48260000 11 0 0 0
+
+net: "Xflipflop$tg_slave" 3 2 0 0 0 0
+  pin: 1 X_IC_1_CD4007.6
+  pin: 2 X_IC_3_CD4016.4
+  pin: 3 X_IC_3_CD4016.10
+  connect: 1 2 1 1 0
+    vtx: 1 -10160000 101600000 11 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -12700000 93980000 11 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 -12700000 93980000 11 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -10160000 45720000 11 0 0 0
+
+net: "Xflipflop$C" 1 0 0 0 0 0
+  pin: 1 X_IC_2_CD4007.6
 
 net: "0" 4 0 0 0 0 0
   pin: 1 Vclk.2
@@ -634,42 +661,31 @@ net: "0" 4 0 0 0 0 0
   pin: 3 V$XX1$Vdd.2
   pin: 4 V$XX1$Vss.1
 
-net: "XX1$XX1$NC_02" 2 1 0 0 0 0
-  pin: 1 X_IC_1_CD4007.5
-  pin: 2 RXXX1$XX1$Xinv$RN.2
-  connect: 1 1 0 1 0
-    vtx: 1 7620000 43180000 11 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -7620000 53340000 11 0 0 0
-
 net: "CLK" 3 2 0 0 0 0
   pin: 1 Vclk.1
   pin: 2 X_IC_3_CD4016.5
   pin: 3 X_IC_3_CD4016.13
   connect: 1 2 1 1 0
-    vtx: 1 -68580000 101600000 11 0 0 0
+    vtx: 1 -17780000 101600000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -60960000 93980000 11 0 0 0
+    vtx: 2 -10160000 93980000 11 0 0 0
   connect: 2 2 0 1 0
-    vtx: 1 -68580000 101600000 11 0 0 0
+    vtx: 1 -17780000 101600000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -73660000 119380000 11 0 0 0
+    vtx: 2 -30480000 86360000 11 0 0 0
 
-net: "XX4$XX4$NC_01" 2 1 0 0 0 0
-  pin: 1 X_IC_0_CD4007.1
-  pin: 2 RXXX4$XX4$Xinv$RP.1
-  connect: 1 1 0 1 0
-    vtx: 1 -27940000 86360000 11 0 0 0
+net: "Xflipflop$_Q_master" 3 2 0 0 0 0
+  pin: 1 X_IC_3_CD4016.1
+  pin: 2 RXXflipflop$XX2$Xinv$RP.2
+  pin: 3 RXXflipflop$XX2$Xinv$RN.1
+  connect: 1 2 1 1 0
+    vtx: 1 68580000 63500000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -17780000 91440000 11 0 0 0
-
-net: "XX4$XX4$NC_02" 2 1 0 0 0 0
-  pin: 1 X_IC_0_CD4007.5
-  pin: 2 RXXX4$XX4$Xinv$RN.2
-  connect: 1 1 0 1 0
-    vtx: 1 7620000 83820000 11 0 0 0
+    vtx: 2 60960000 68580000 11 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 60960000 68580000 11 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -7620000 91440000 11 0 0 0
+    vtx: 2 -20320000 93980000 11 0 0 0
 
 [texts]
 

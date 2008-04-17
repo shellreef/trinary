@@ -294,13 +294,16 @@ def rewrite_refdesg(original, prefix):
 
 def rewrite_node(prefix, circuit_inside, original_node_name):
     """Rewrite a node name inside a subcircuit, prefixing it with
-    prefix and the name of the circuit that it is inside."""
+    prefix and the name of the circuit that it is inside (both
+    are optional)."""
 
     # Globals never rewritten
     if original_node_name.startswith("$G_") or original_node_name == "0":
         return original_node_name
 
-    new_name = "%s$%s" % (circuit_inside, original_node_name)
+    new_name = original_node_name
+    if circuit_inside:
+        new_name = "%s$%s" % (circuit_inside, new_name)
 
     if prefix:
         new_name = "%s$%s" % (prefix, new_name)
@@ -344,18 +347,7 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
                 for w in inner_args:
                     #print "****", word
                     if w in nodes.keys():
-                        if prefix == "":
-                            # top-level node, no mangling. XXX: still kinda unsure about this.
-                            new_words.append(nodes[w])
-                        else:
-                            # XXX: This is wrong.  dtflop-ms_test.net2:
-                            #
-                            # ** * Instance of subcircuit sti: tg_slave Q
-                            # ** XXX3$XX3$Xinv XX3$XX3$tg_slave XX3$XX3$NC_01 XX3$XX3$Q XX3$XX3$NC_02 tinv
-                            #
-                            # This sti (which _should_ be $Xflipflop$XX3) has a tinv, granted, but it
-                            # shouldn't connect to "XX3$XX3$tg_slave", rather, "$Xflipflop$tg_slave"!
-                            new_words.append(rewrite_node(prefix, outer_refdesg, nodes[w]))
+                        new_words.append(rewrite_node(prefix, "", nodes[w]))
                     elif is_floating(w):
                         # this is a port, but that is not connected on the outside, but
                         # still may be internally-connected so it needs a node name
