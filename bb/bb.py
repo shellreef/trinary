@@ -209,7 +209,7 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
 
     internal_only_nodes = {}
 
-    # Now place any additional parts (resistors, etc.) within the subcircuit model
+    # Now place any ++additional parts++ (resistors, etc.) within the subcircuit model
     # that connect to the chip, but are not part of the chip.
     for line in subckt_lines:
         words = line.split()
@@ -240,10 +240,11 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
                 if not internal_only_nodes.has_key(w):
                     internal_only_nodes[w] = "%s$%s$%s" % (w[0], refdesg, w)
                 new_words.append(internal_only_nodes[w])
- 
-                #raise "Could not map argument '%s' in subcircuit line %s, not found in %s" % (w, line, external_nodes)
+
+                # TODO: comment this out, if the above works
+                raise "Could not map argument '%s' in subcircuit line %s, not found in %s" % (w, line, external_nodes)
+
         extra.append(" ".join(new_words))
-        # TODO: get new part names!!!!!!!!
 
     return chips, extra
 
@@ -319,8 +320,8 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
             else:
                 new_words = []
                 # Nest reference designator
-                new_words.append("%s%s%s$%s" % (words[0][0], prefix, refdesg, words[0]))
-                #new_words.append(rewrite_refdesg(rewrite_refdesg(words[0], refdesg), prefix)) # XXX TODO
+                new_words.append(rewrite_refdesg(words[0], prefix + refdesg))
+
                 # Map internal to external nodes
                 these_args = words[1:-1]
                 for word in these_args:
