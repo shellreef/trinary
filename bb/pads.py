@@ -14,6 +14,9 @@ footprint_map = {
         "V": "HOLE_100_SQR_200",
         }
 
+#naked_node_footprint = "HOLE_100_RND_200"
+naked_node_footprint = None
+
 filename = "dtflop-ms_test.net2"
 print "*PADS-PCB*"
 print "*%s %s*" % (filename, time.asctime())
@@ -55,6 +58,7 @@ for line in file(filename, "rt").readlines():
     # Make parts list
     parts.append((refdesg, model))
 
+# Map models to footprints
 print "*PART*"
 for part in parts:
     refdesg, model = part
@@ -65,6 +69,15 @@ for part in parts:
     else:
         raise "Part name %s, model %s unknown, couldn't find in map: %s" % (refdesg, model, footprint_map)
     print "%s %s" % (refdesg, package)
+
+# Nets with only one node get testpoints for free (also appends to parts list)
+if naked_node_footprint:
+    for signal_name, nodes in nets.iteritems():
+        if len(nodes) == 1:
+            testpoint = "%s_tp" % (signal_name,)
+            print "%s %s" % (testpoint, naked_node_footprint)
+            nets[signal_name].append(testpoint)
+
 
 print "*NET*"
 for signal, pins in nets.iteritems():
