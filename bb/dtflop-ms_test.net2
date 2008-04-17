@@ -1,10 +1,4 @@
-* Chip-level netlist, converted from dtflop-ms_test.net by bb.py on Thu Apr 17 00:54:26 2008
-* sline: XXB _Q_master tg_D C tg, Subcircuit dtflop-ms, mapping internal-only node _Q_master -> Xflipflop$_Q_master
-* sline: XXB _Q_master tg_D C tg, Subcircuit dtflop-ms, mapping internal-only node tg_D -> Xflipflop$tg_D
-* sline: XXC tg_slave tg_master C tg, Subcircuit dtflop-ms, mapping internal-only node tg_slave -> Xflipflop$tg_slave
-* sline: XXC tg_slave tg_master C tg, Subcircuit dtflop-ms, mapping internal-only node tg_master -> Xflipflop$tg_master
-* sline: XXA D tg_D _C tg, Subcircuit dtflop-ms, mapping internal-only node _C -> Xflipflop$_C
-* sline: XXD _Q_slave tg_slave _C tg, Subcircuit dtflop-ms, mapping internal-only node _Q_slave -> Xflipflop$_Q_slave
+* Chip-level netlist, converted from dtflop-ms_test.net by bb.py on Thu Apr 17 13:14:35 2008
 * Flattened top-level, before part assignment:
 ** Vclk CLK 0 PULSE(-5 5 0 1p 1p 10n 20n)
 ** Vd D 0 PWL(0 0 1n 0 5n -5 8n -5 9n 0 10n 0 11n 5 21n 5 22n 0 24n 0 25n -5 34n -5 35n -5 40n -5 41n -5 42n 0 43n 5 44n 5 45n -5 46n 0 47n -5 48n 0)

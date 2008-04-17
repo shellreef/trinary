@@ -7,6 +7,7 @@
 import copy
 import types
 import time
+import sys
 
 import tg
 import tinv
@@ -22,7 +23,10 @@ def combine_dicts(dict1, dict2):
 def read_netlist(filename):
     """Read a SPICE input deck, returning subcircuit nodes and definitions."""
 
-    f = file(filename, "rt")
+    if filename == "-":
+        f = sys.stdin
+    else:
+        f = file(filename, "rt")
     subckt_nodes = {}
     subckt_defns = {}
     toplevel = []
@@ -367,7 +371,7 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
                         # Make a new node name for it and replace it.
                         if not internal_only_nodes.has_key(w):
                             internal_only_nodes[w] = rewrite_node(prefix, outer_refdesg, w)
-                            print "* sline: %s, Subcircuit %s, mapping internal-only node %s -> %s" % (sline, outer_model, w, internal_only_nodes[w])
+                            #print "* sline: %s, Subcircuit %s, mapping internal-only node %s -> %s" % (sline, outer_model, w, internal_only_nodes[w])
 
                         new_words.append(internal_only_nodes[w])
                         #new_words.append(w)
@@ -453,8 +457,34 @@ def test_assignment():
     dump_chips(chips)
     dump_extra(extra)
 
+def usage():
+    print """usage: %s input-filename [output-filename]
+
+input-filename      A transistor-level SPICE netlist (.net) 
+output-filename     Chip-level SPICE netlist (.net2)
+
+If output-filename is omitted, input-filename is used but
+with a .net2 extension instead of .net.
+
+Either filenames can be "-" for stdin or stdout, respectively.
+""" % (PROGRAM_NAME, )
+    raise SystemExit
+
 def main():
-    subckt_nodes, subckt_defns, toplevel = read_netlist("dtflop-ms_test.net")
+    if len(sys.argv) < 2:
+        usage()
+    input_filename = sys.argv[1]
+
+    # Redirect stdout to output file
+    if len(sys.argv) > 2:
+        output_filename = sys.argv[2]
+    else:
+        output_filename = input_filename.replace(".net", ".net2")
+
+    if output_filename != "-":
+        sys.stdout = file(output_filename, "wt")
+
+    subckt_nodes, subckt_defns, toplevel = read_netlist(input_filename)
 
     # Circuits to rewrite need to be loaded first. Any transistor-level circuits
     # you want to replace with ICs, must be loaded here. TODO: automatic, better,
