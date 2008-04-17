@@ -1,45 +1,45 @@
-* Chip-level netlist, converted from dtflop-ms_test.net by bb.py on Wed Apr 16 22:14:56 2008
+* Chip-level netlist, converted from dtflop-ms_test.net by bb.py on Wed Apr 16 22:53:08 2008
 * Flattened top-level, before part assignment:
-** V1 CLK 0 PULSE(-5 5 0 1p 1p 10n 20n)
-** V2 D 0 PWL(0 0 1n 0 5n -5 8n -5 9n 0 10n 0 11n 5 21n 5 22n 0 24n 0 25n -5 34n -5 35n -5 40n -5 41n -5 42n 0 43n 5 44n 5 45n -5 46n 0 47n -5 48n 0)
+** Vclk CLK 0 PULSE(-5 5 0 1p 1p 10n 20n)
+** Vd D 0 PWL(0 0 1n 0 5n -5 8n -5 9n 0 10n 0 11n 5 21n 5 22n 0 24n 0 25n -5 34n -5 35n -5 40n -5 41n -5 42n 0 43n 5 44n 5 45n -5 46n 0 47n -5 48n 0)
 ** * Instance of subcircuit tpower: $G_Vdd $G_Vss
 ** V$XX1$Vdd $G_Vdd 0 5V
 ** V$XX1$Vss 0 $G_Vss 5V
 ** * Instance of subcircuit dtflop-ms: D CLK Q
-** * Instance of subcircuit sti: N004 N002
-** XXX2$XX2$XX1 XX2$XX2$N004 XX2$XX2$NC_01 XX2$XX2$N002 XX2$XX2$NC_02 tinv
-** * Instance of subcircuit sti: N003 N004
-** XXX4$XX4$XX1 XX4$XX4$N003 XX4$XX4$NC_01 XX4$XX4$N004 XX4$XX4$NC_02 tinv
-** * Instance of subcircuit sti: N006 Q
-** XXX3$XX3$XX1 XX3$XX3$N006 XX3$XX3$NC_01 XX3$XX3$Q XX3$XX3$NC_02 tinv
-** * Instance of subcircuit sti: Q N005
-** XXX1$XX1$XX1 XX1$XX1$Q XX1$XX1$NC_01 XX1$XX1$N005 XX1$XX1$NC_02 tinv
-** X$XX2$XXB $XX2$N002 $XX2$N003 $XX2$CLK tg
-** X$XX2$XXC $XX2$N006 $XX2$N004 $XX2$CLK tg
-** X$XX2$XXA $XX2$D $XX2$N003 $XX2$N001 tg
-** X$XX2$XXD $XX2$N005 $XX2$N006 $XX2$N001 tg
-** * Instance of subcircuit sti: C N001
-** XXX5$XX5$XX1 XX5$XX5$C XX5$XX5$NC_01 XX5$XX5$N001 XX5$XX5$NC_02 tinv
+** * Instance of subcircuit sti: tg_master _Q_master
+** XXX2$XX2$Xinv XX2$XX2$tg_master XX2$XX2$NC_01 XX2$XX2$_Q_master XX2$XX2$NC_02 tinv
+** * Instance of subcircuit sti: tg_D tg_master
+** XXX4$XX4$Xinv XX4$XX4$tg_D XX4$XX4$NC_01 XX4$XX4$tg_master XX4$XX4$NC_02 tinv
+** * Instance of subcircuit sti: tg_slave Q
+** XXX3$XX3$Xinv XX3$XX3$tg_slave XX3$XX3$NC_01 XX3$XX3$Q XX3$XX3$NC_02 tinv
+** * Instance of subcircuit sti: Q _Q_slave
+** XXX1$XX1$Xinv XX1$XX1$Q XX1$XX1$NC_01 XX1$XX1$_Q_slave XX1$XX1$NC_02 tinv
+** X$Xflipflop$XXB $Xflipflop$_Q_master $Xflipflop$tg_D $Xflipflop$CLK tg
+** X$Xflipflop$XXC $Xflipflop$tg_slave $Xflipflop$tg_master $Xflipflop$CLK tg
+** X$Xflipflop$XXA $Xflipflop$D $Xflipflop$tg_D $Xflipflop$_C tg
+** X$Xflipflop$XXD $Xflipflop$_Q_slave $Xflipflop$tg_slave $Xflipflop$_C tg
+** * Instance of subcircuit sti: C _C
+** XXX5$XX5$Xinv XX5$XX5$C XX5$XX5$NC_01 XX5$XX5$_C XX5$XX5$NC_02 tinv
 * Begin converted circuit
 
-V1 CLK 0 PULSE(-5 5 0 1p 1p 10n 20n)
-V2 D 0 PWL(0 0 1n 0 5n -5 8n -5 9n 0 10n 0 11n 5 21n 5 22n 0 24n 0 25n -5 34n -5 35n -5 40n -5 41n -5 42n 0 43n 5 44n 5 45n -5 46n 0 47n -5 48n 0)
+Vclk CLK 0 PULSE(-5 5 0 1p 1p 10n 20n)
+Vd D 0 PWL(0 0 1n 0 5n -5 8n -5 9n 0 10n 0 11n 5 21n 5 22n 0 24n 0 25n -5 34n -5 35n -5 40n -5 41n -5 42n 0 43n 5 44n 5 45n -5 46n 0 47n -5 48n 0)
 * Instance of subcircuit tpower: $G_Vdd $G_Vss
 V$XX1$Vdd $G_Vdd 0 5V
 V$XX1$Vss 0 $G_Vss 5V
 * Instance of subcircuit dtflop-ms: D CLK Q
-* Instance of subcircuit sti: N004 N002
-* Instance of subcircuit sti: N003 N004
-* Instance of subcircuit sti: N006 Q
-* Instance of subcircuit sti: Q N005
-* Instance of subcircuit sti: C N001
+* Instance of subcircuit sti: tg_master _Q_master
+* Instance of subcircuit sti: tg_D tg_master
+* Instance of subcircuit sti: tg_slave Q
+* Instance of subcircuit sti: Q _Q_slave
+* Instance of subcircuit sti: C _C
 * Chip #0 - CD4007 pinout:
 * 	1: XX4$XX4$NC_01
 * 	2: $G_Vdd
-* 	3: XX4$XX4$N003
+* 	3: XX4$XX4$tg_D
 * 	4: $G_Vss
 * 	5: XX4$XX4$NC_02
-* 	6: XX2$XX2$N004
+* 	6: XX2$XX2$tg_master
 * 	7: $G_Vss
 * 	8: XX2$XX2$NC_02
 * 	9: NC__8
@@ -48,7 +48,7 @@ V$XX1$Vss 0 $G_Vss 5V
 * 	12: NC__11
 * 	13: XX2$XX2$NC_01
 * 	14: $G_Vdd
-X_IC_0_CD4007 XX4$XX4$NC_01 $G_Vdd XX4$XX4$N003 $G_Vss XX4$XX4$NC_02 XX2$XX2$N004 $G_Vss XX2$XX2$NC_02 NC__8 NC__9 NC__10 NC__11 XX2$XX2$NC_01 $G_Vdd CD4007
+X_IC_0_CD4007 XX4$XX4$NC_01 $G_Vdd XX4$XX4$tg_D $G_Vss XX4$XX4$NC_02 XX2$XX2$tg_master $G_Vss XX2$XX2$NC_02 NC__8 NC__9 NC__10 NC__11 XX2$XX2$NC_01 $G_Vdd CD4007
 
 * Chip #1 - CD4007 pinout:
 * 	1: XX1$XX1$NC_01
@@ -56,7 +56,7 @@ X_IC_0_CD4007 XX4$XX4$NC_01 $G_Vdd XX4$XX4$N003 $G_Vss XX4$XX4$NC_02 XX2$XX2$N00
 * 	3: XX1$XX1$Q
 * 	4: $G_Vss
 * 	5: XX1$XX1$NC_02
-* 	6: XX3$XX3$N006
+* 	6: XX3$XX3$tg_slave
 * 	7: $G_Vss
 * 	8: XX3$XX3$NC_02
 * 	9: NC__22
@@ -65,7 +65,7 @@ X_IC_0_CD4007 XX4$XX4$NC_01 $G_Vdd XX4$XX4$N003 $G_Vss XX4$XX4$NC_02 XX2$XX2$N00
 * 	12: NC__25
 * 	13: XX3$XX3$NC_01
 * 	14: $G_Vdd
-X_IC_1_CD4007 XX1$XX1$NC_01 $G_Vdd XX1$XX1$Q $G_Vss XX1$XX1$NC_02 XX3$XX3$N006 $G_Vss XX3$XX3$NC_02 NC__22 NC__23 NC__24 NC__25 XX3$XX3$NC_01 $G_Vdd CD4007
+X_IC_1_CD4007 XX1$XX1$NC_01 $G_Vdd XX1$XX1$Q $G_Vss XX1$XX1$NC_02 XX3$XX3$tg_slave $G_Vss XX3$XX3$NC_02 NC__22 NC__23 NC__24 NC__25 XX3$XX3$NC_01 $G_Vdd CD4007
 
 * Chip #2 - CD4007 pinout:
 * 	1: NC__28
@@ -85,30 +85,30 @@ X_IC_1_CD4007 XX1$XX1$NC_01 $G_Vdd XX1$XX1$Q $G_Vss XX1$XX1$NC_02 XX3$XX3$N006 $
 X_IC_2_CD4007 NC__28 NC__29 NC__30 NC__31 NC__32 XX5$XX5$C $G_Vss XX5$XX5$NC_02 NC__36 NC__37 NC__38 NC__39 XX5$XX5$NC_01 $G_Vdd CD4007
 
 * Chip #3 - CD4016 pinout:
-* 	1: $XX2$N002
-* 	2: $XX2$N003
-* 	3: $XX2$N004
-* 	4: $XX2$N006
-* 	5: $XX2$CLK
-* 	6: $XX2$N001
+* 	1: $Xflipflop$_Q_master
+* 	2: $Xflipflop$tg_D
+* 	3: $Xflipflop$tg_master
+* 	4: $Xflipflop$tg_slave
+* 	5: $Xflipflop$CLK
+* 	6: $Xflipflop$_C
 * 	7: $G_Vss
-* 	8: $XX2$D
-* 	9: $XX2$N003
-* 	10: $XX2$N006
-* 	11: $XX2$N005
-* 	12: $XX2$N001
-* 	13: $XX2$CLK
+* 	8: $Xflipflop$D
+* 	9: $Xflipflop$tg_D
+* 	10: $Xflipflop$tg_slave
+* 	11: $Xflipflop$_Q_slave
+* 	12: $Xflipflop$_C
+* 	13: $Xflipflop$CLK
 * 	14: $G_Vdd
-X_IC_3_CD4016 $XX2$N002 $XX2$N003 $XX2$N004 $XX2$N006 $XX2$CLK $XX2$N001 $G_Vss $XX2$D $XX2$N003 $XX2$N006 $XX2$N005 $XX2$N001 $XX2$CLK $G_Vdd CD4016
+X_IC_3_CD4016 $Xflipflop$_Q_master $Xflipflop$tg_D $Xflipflop$tg_master $Xflipflop$tg_slave $Xflipflop$CLK $Xflipflop$_C $G_Vss $Xflipflop$D $Xflipflop$tg_D $Xflipflop$tg_slave $Xflipflop$_Q_slave $Xflipflop$_C $Xflipflop$CLK $G_Vdd CD4016
 
 * Parts to support subcircuits:
-RXXX2$XX2$XX1$RP XX2$XX2$NC_01 XX2$XX2$N002 12k
-RXXX2$XX2$XX1$RN XX2$XX2$N002 XX2$XX2$NC_02 12k
-RXXX4$XX4$XX1$RP XX4$XX4$NC_01 XX4$XX4$N004 12k
-RXXX4$XX4$XX1$RN XX4$XX4$N004 XX4$XX4$NC_02 12k
-RXXX3$XX3$XX1$RP XX3$XX3$NC_01 XX3$XX3$Q 12k
-RXXX3$XX3$XX1$RN XX3$XX3$Q XX3$XX3$NC_02 12k
-RXXX1$XX1$XX1$RP XX1$XX1$NC_01 XX1$XX1$N005 12k
-RXXX1$XX1$XX1$RN XX1$XX1$N005 XX1$XX1$NC_02 12k
-RXXX5$XX5$XX1$RP XX5$XX5$NC_01 XX5$XX5$N001 12k
-RXXX5$XX5$XX1$RN XX5$XX5$N001 XX5$XX5$NC_02 12k
+RXXX2$XX2$Xinv$RP XX2$XX2$NC_01 XX2$XX2$_Q_master 12k
+RXXX2$XX2$Xinv$RN XX2$XX2$_Q_master XX2$XX2$NC_02 12k
+RXXX4$XX4$Xinv$RP XX4$XX4$NC_01 XX4$XX4$tg_master 12k
+RXXX4$XX4$Xinv$RN XX4$XX4$tg_master XX4$XX4$NC_02 12k
+RXXX3$XX3$Xinv$RP XX3$XX3$NC_01 XX3$XX3$Q 12k
+RXXX3$XX3$Xinv$RN XX3$XX3$Q XX3$XX3$NC_02 12k
+RXXX1$XX1$Xinv$RP XX1$XX1$NC_01 XX1$XX1$_Q_slave 12k
+RXXX1$XX1$Xinv$RN XX1$XX1$_Q_slave XX1$XX1$NC_02 12k
+RXXX5$XX5$Xinv$RP XX5$XX5$NC_01 XX5$XX5$_C 12k
+RXXX5$XX5$Xinv$RN XX5$XX5$_C XX5$XX5$NC_02 12k
