@@ -310,7 +310,7 @@ def is_expandable_subcircuit(words):
 def expand(subckt_defns, subckt_nodes, line, prefix):
     """Recursively expand a subcircuit instantiation if needed."""
     words = line.split()
-    refdesg = words[0]
+    outer_refdesg = words[0]
     if is_expandable_subcircuit(words):
         model = words[-1]
         args = words[1:-1]
@@ -324,41 +324,43 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
 
         for sline in subckt_defns[model]:
             words = sline.split()
+            inner_refdesg = words[0]
+            inner_model = words[-1]
+            inner_args = words[1:-1]
+
             if is_expandable_subcircuit(words):
                 # Recursively expand subcircuits, to a limit
-                new_lines.extend(expand(subckt_defns, subckt_nodes, sline, "%s" % (words[0],)))
+                new_lines.extend(expand(subckt_defns, subckt_nodes, sline, inner_refdesg))
             else:
                 new_words = []
                 # Nest reference designator
-                new_words.append(rewrite_refdesg(words[0], prefix + "$" + refdesg))
+                new_words.append(rewrite_refdesg(inner_refdesg, prefix + "$" + outer_refdesg))
 
                 # Map internal to external nodes
-                these_args = words[1:-1]
-                for word in these_args:
+                for word in inner_args:
                     #print "****", word
                     if word in nodes.keys():
                         #new_words.append(nodes[word])
-                        new_words.append(rewrite_node(prefix, refdesg, nodes[word]))
+                        new_words.append(rewrite_node(prefix, outer_refdesg, nodes[word]))
                     elif is_floating(word):
                         # this is a port, but that is not connected on the outside, but
                         # still may be internally-connected so it needs a node name
                         #new_words.append("N__%s" % (get_serial(),))
-                        new_words.append(rewrite_node(prefix, refdesg, word))
+                        new_words.append(rewrite_node(prefix, outer_refdesg, word))
                     elif word[0].isdigit():
                         new_words.append(word)
                     else:
                         # A signal only connected within this subcircuit, but not a port.
                         # Make a new node name for it and replace it.
                         if not internal_only_nodes.has_key(word):
-                            internal_only_nodes[word] = rewrite_node(prefix, refdesg, word)
+                            internal_only_nodes[word] = rewrite_node(prefix, outer_refdesg, word)
                             #print "* sline: %s, Subcircuit %s, mapping internal-only node %s -> %s" % (sline, model, word, internal_only_nodes[word])
 
                         new_words.append(internal_only_nodes[word])
                         #new_words.append(word)
                         #raise "Expanding subcircuit line '%s' (for line '%s'), couldn't map word %s, nodes=%s" % (sline, line, word, nodes)
 
-                # subcircuit model name
-                new_words.append(words[-1])
+                new_words.append(inner_model)
 
                 new_lines.append(" ".join(new_words))
             #new_lines.append("")
