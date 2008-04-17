@@ -340,8 +340,11 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
                 for word in inner_args:
                     #print "****", word
                     if word in nodes.keys():
-                        #new_words.append(nodes[word])
-                        new_words.append(rewrite_node(prefix, outer_refdesg, nodes[word]))
+                        if prefix == "":
+                            # top-level node, no mangling. XXX: still kinda unsure about this.
+                            new_words.append(nodes[word])
+                        else:
+                            new_words.append(rewrite_node(prefix, outer_refdesg, nodes[word]))
                     elif is_floating(word):
                         # this is a port, but that is not connected on the outside, but
                         # still may be internally-connected so it needs a node name

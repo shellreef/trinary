@@ -1,4 +1,4 @@
-* Chip-level netlist, converted from dtflop-ms_test.net by bb.py on Wed Apr 16 22:53:08 2008
+* Chip-level netlist, converted from dtflop-ms_test.net by bb.py on Wed Apr 16 23:14:15 2008
 * Flattened top-level, before part assignment:
 ** Vclk CLK 0 PULSE(-5 5 0 1p 1p 10n 20n)
 ** Vd D 0 PWL(0 0 1n 0 5n -5 8n -5 9n 0 10n 0 11n 5 21n 5 22n 0 24n 0 25n -5 34n -5 35n -5 40n -5 41n -5 42n 0 43n 5 44n 5 45n -5 46n 0 47n -5 48n 0)
@@ -14,9 +14,9 @@
 ** XXX3$XX3$Xinv XX3$XX3$tg_slave XX3$XX3$NC_01 XX3$XX3$Q XX3$XX3$NC_02 tinv
 ** * Instance of subcircuit sti: Q _Q_slave
 ** XXX1$XX1$Xinv XX1$XX1$Q XX1$XX1$NC_01 XX1$XX1$_Q_slave XX1$XX1$NC_02 tinv
-** X$Xflipflop$XXB $Xflipflop$_Q_master $Xflipflop$tg_D $Xflipflop$CLK tg
-** X$Xflipflop$XXC $Xflipflop$tg_slave $Xflipflop$tg_master $Xflipflop$CLK tg
-** X$Xflipflop$XXA $Xflipflop$D $Xflipflop$tg_D $Xflipflop$_C tg
+** X$Xflipflop$XXB $Xflipflop$_Q_master $Xflipflop$tg_D CLK tg
+** X$Xflipflop$XXC $Xflipflop$tg_slave $Xflipflop$tg_master CLK tg
+** X$Xflipflop$XXA D $Xflipflop$tg_D $Xflipflop$_C tg
 ** X$Xflipflop$XXD $Xflipflop$_Q_slave $Xflipflop$tg_slave $Xflipflop$_C tg
 ** * Instance of subcircuit sti: C _C
 ** XXX5$XX5$Xinv XX5$XX5$C XX5$XX5$NC_01 XX5$XX5$_C XX5$XX5$NC_02 tinv
@@ -89,17 +89,17 @@ X_IC_2_CD4007 NC__28 NC__29 NC__30 NC__31 NC__32 XX5$XX5$C $G_Vss XX5$XX5$NC_02 
 * 	2: $Xflipflop$tg_D
 * 	3: $Xflipflop$tg_master
 * 	4: $Xflipflop$tg_slave
-* 	5: $Xflipflop$CLK
+* 	5: CLK
 * 	6: $Xflipflop$_C
 * 	7: $G_Vss
-* 	8: $Xflipflop$D
+* 	8: D
 * 	9: $Xflipflop$tg_D
 * 	10: $Xflipflop$tg_slave
 * 	11: $Xflipflop$_Q_slave
 * 	12: $Xflipflop$_C
-* 	13: $Xflipflop$CLK
+* 	13: CLK
 * 	14: $G_Vdd
-X_IC_3_CD4016 $Xflipflop$_Q_master $Xflipflop$tg_D $Xflipflop$tg_master $Xflipflop$tg_slave $Xflipflop$CLK $Xflipflop$_C $G_Vss $Xflipflop$D $Xflipflop$tg_D $Xflipflop$tg_slave $Xflipflop$_Q_slave $Xflipflop$_C $Xflipflop$CLK $G_Vdd CD4016
+X_IC_3_CD4016 $Xflipflop$_Q_master $Xflipflop$tg_D $Xflipflop$tg_master $Xflipflop$tg_slave CLK $Xflipflop$_C $G_Vss D $Xflipflop$tg_D $Xflipflop$tg_slave $Xflipflop$_Q_slave $Xflipflop$_C CLK $G_Vdd CD4016
 
 * Parts to support subcircuits:
 RXXX2$XX2$Xinv$RP XX2$XX2$NC_01 XX2$XX2$_Q_master 12k
