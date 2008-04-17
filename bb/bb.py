@@ -2,7 +2,11 @@
 # Created:20080411
 # By Jeff Connelly
 #
-# Breadboard/circuit pin layout program
+# Circuit pin layout program, for mapping sub-chip (or partially sub-chip)
+# subcircuits to actual integrated circuit chips plus optional extra components,
+# outside the chip. For example, the 'tinv' subcircuit has a complementary pair
+# of MOSFETs, which this program maps to part of CD4007, assigning the pins,
+# and mapping the other pair inside the CD4007 if another 'tinv' comes along.
 
 import copy
 import types
@@ -13,6 +17,10 @@ import tg
 import tinv
 
 PROGRAM_NAME = "bb.py"
+
+# Subcircuits to map that should be mapped physical ICs
+SUBCIRCUITS_TO_MAP = ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3')
+SUBCIRCUITS_CAN_MAP = ('tg', 'tinv')        # subcircuits we actually can map, as of yet
 
 def combine_dicts(dict1, dict2):
     """Combine two dictionaries; dict2 takes priority over dict1."""
@@ -304,11 +312,6 @@ def rewrite_node(prefix, circuit_inside, original_node_name):
     if original_node_name.startswith("$G_") or original_node_name == "0":
         return original_node_name
 
-    # TODO: fix, XXX: this is not correct!
-    # The port can be unconnected, but it might still be internally connected!
-    #if is_floating(original_node_name):
-    #    return get_floating()
-
     new_name = original_node_name
     if circuit_inside:
         new_name = "%s$%s" % (circuit_inside, new_name)
@@ -321,7 +324,7 @@ def rewrite_node(prefix, circuit_inside, original_node_name):
 def is_expandable_subcircuit(refdesg, model):
     """Return whether the SPICE reference designator and model is 
     a) a subcircuit, b) _and_ it can be hierarchically expanded further."""
-    return refdesg[0] == 'X' and model not in ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3')
+    return refdesg[0] == 'X' and model not in SUBCIRCUITS_TO_MAP
 
 def expand(subckt_defns, subckt_nodes, line, prefix):
     """Recursively expand a subcircuit instantiation if needed."""
@@ -407,10 +410,6 @@ def test_assignment():
             #("CD4007", get_floating(14) )
             ]
 
-    # TODO: parse from SPICE files, assigning nodes based on pos2node_*
-    # TODO: sti
-    # line = "XX1 IN NC_01 OUT NC_02 tinv"
-
     extra = []
     chips, extra = assign_part(chips, subckt_defns, extra, "tinv", 
             {
@@ -493,14 +492,11 @@ def main():
     print "* Chip-level netlist, converted from %s by %s on %s" % (input_filename, PROGRAM_NAME, time.asctime())
 
     # Circuits to rewrite need to be loaded first. Any transistor-level circuits
-    # you want to replace with ICs, must be loaded here. TODO: automatic, better,
-    # all modules in some directory.
-    if subckt_defns.has_key("tinv"):
-        mod_tinv, subckt_defns, pos2node_tinv = rewrite_subckt(subckt_defns, "tinv")
-
-    if subckt_defns.has_key("tg"):
-        tg_tinv, subckt_defns, pos2node_tg = rewrite_subckt(subckt_defns, "tg")
-
+    # you want to replace with ICs, are loaded here. 
+    modules = pos2node = {}
+    for s in SUBCIRCUITS_CAN_MAP:
+        if subckt_defns.has_key(s):
+            modules[s], subckt_defns, pos2node[s] = rewrite_subckt(subckt_defns, s)
 
     # First semi-flatten the circuit 
     flat_toplevel = []
@@ -534,7 +530,7 @@ def main():
             #print subckt_defns[model]
             #print subckt_nodes[model]
 
-            if model in ('tg', 'tinv'):
+            if model in SUBCIRCUITS_CAN_MAP:
                 nodes = make_node_mapping(subckt_nodes[model], args)
                 #print nodes
                 chips, extra = assign_part(chips, subckt_defns, extra, model, nodes, refdesg)
