@@ -21,11 +21,11 @@ XX4 S N001 N003 N002 decoder3-1
 
 .subckt tg IN_OUT OUT_IN CONTROL
 M1 OUT_IN _C IN_OUT $G_Vdd CD4007P
-M2 IN_OUT N003 OUT_IN $G_Vss CD4007N
+M2 IN_OUT C OUT_IN $G_Vss CD4007N
 M3 $G_Vdd CONTROL _C $G_Vdd CD4007P
 M4 _C CONTROL $G_Vss $G_Vss CD4007N
-M5 $G_Vdd _C N003 $G_Vdd CD4007P
-M6 N003 _C $G_Vss $G_Vss CD4007N
+M5 $G_Vdd _C C $G_Vdd CD4007P
+M6 C _C $G_Vss $G_Vss CD4007N
 .ends tg
 
 .subckt decoder3-1 IN OUT_i OUT_0 OUT_1
@@ -38,15 +38,15 @@ XX3 IN N002 N001 max
 .ends decoder3-1
 
 .subckt pti IN OUT
-XX1 IN OUT NC_01 NC_02 tinv
+Xinv IN OUT NC_01 NC_02 tinv
 .ends pti
 
 .subckt nti IN OUT
-XX1 IN NC_01 NC_02 OUT tinv
+Xinv IN NC_01 NC_02 OUT tinv
 .ends nti
 
 .subckt sti IN OUT
-XX1 IN NC_01 OUT NC_02 tinv
+Xinv IN NC_01 OUT NC_02 tinv
 .ends sti
 
 .subckt max A B MAX_OUT
@@ -62,12 +62,12 @@ MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
 .ends tinv
 
 .subckt tnor A B TNOR_Out
-RP N002 TNOR_Out 12k
-RN TNOR_Out N003 12k
-MN1 N003 A $G_Vss $G_Vss CD4007N
-MP2 N001 A $G_Vdd $G_Vdd CD4007P
-MN2 N003 B $G_Vss $G_Vss CD4007N
-MP1 N001 B N002 $G_Vdd CD4007P
+RP NP TNOR_Out 12k
+RN TNOR_Out NN 12k
+MN1 NN A $G_Vss $G_Vss CD4007N
+MP2 NI A $G_Vdd $G_Vdd CD4007P
+MN2 NN B $G_Vss $G_Vss CD4007N
+MP1 NI B NP $G_Vdd CD4007P
 .ends tnor
 
 .model NMOS NMOS
