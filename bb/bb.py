@@ -229,12 +229,15 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
 
         if part is not None:
             if node.startswith("$G_") or node == "0":
-                external_node = node                    # global node (LTspice)
-            else:
+                new_node = node                    # global node (LTspice)
+            elif external_nodes.has_key(node):
                 sys.stderr.write("Mapping external node %s, map = %s\n" % (node, external_nodes))
-                external_node = external_nodes[node]    # map internal to external node
+                new_node = external_nodes[node]    # map internal to external node
+            else:
+                sys.stderr.write("Mapping internal-only node %s\n" % (node,))
+                new_node = rewrite_node("", refdesg, node)
 
-            chips[chip_num][1][pin] = external_node
+            chips[chip_num][1][pin] = new_node
 
     internal_only_nodes = {}
 
@@ -271,7 +274,7 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
                 new_words.append(internal_only_nodes[w])
 
                 # TODO: comment this out, if the above works
-                raise "Could not map argument '%s' in subcircuit line %s, not found in %s" % (w, line, external_nodes)
+                #raise "Could not map argument '%s' in subcircuit line %s, not found in %s" % (w, line, external_nodes)
 
         extra.append(" ".join(new_words))
 

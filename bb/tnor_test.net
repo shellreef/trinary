@@ -1,0 +1,27 @@
+* Z:\trinary\code\circuits\tnor_test.asc
+VA A 0 PWL file=INPUT_A.txt
+VB B 0 PWL file=INPUT_B.txt
+XX1 A B TNOR_Out tnor
+XX2 $G_Vdd $G_Vss tpower
+
+* block symbol definitions
+.subckt tnor A B TNOR_Out
+RP NP TNOR_Out 12k
+RN TNOR_Out NN 12k
+MN1 NN A $G_Vss $G_Vss CD4007N
+MP2 NI A $G_Vdd $G_Vdd CD4007P
+MN2 NN B $G_Vss $G_Vss CD4007N
+MP1 NI B NP $G_Vdd CD4007P
+.ends tnor
+
+.subckt tpower Vdd Vss
+Vdd Vdd 0 5V
+Vss 0 Vss 5V
+.ends tpower
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\PROGRA~1\LTC\SwCADIII\lib\cmp\standard.mos
+.tran 500ns
+.backanno
+.end

@@ -15,7 +15,9 @@ pins = [
             "A": ("CD4007", 6),
             "B": ("CD4007", 3),
             "TNOR_Out": "TNOR_Out",
-            "$G_Vss": ("CD4007", 4),
+            "$G_Vss": [("CD4007", 4), ("CD4007", 7)],
+            "$G_Vdd": ("CD4007", 14), 
+
 
             # Internal nodes
 
@@ -24,15 +26,12 @@ pins = [
             # Connects to resistors
             "NP": ("CD4007", 1),
             "NN": [("CD4007", 8), ("CD4007", 5)],
+
         }
        ]
 
 # Always connected once if use once or more
-global_pins = { 
-        # Power connections
-        "$G_Vdd": ("CD4007", 14), 
-        "$G_Vss": ("CD4007", 7),
-
+global_pins = {
         # TODO: always connect binary inverter, since we'll never be using it,
         # but to prevent MOSFETs from switching on and off, wasting power?
         # May need a change in this data structure to support multiple connections to $G_Vdd/Vss
