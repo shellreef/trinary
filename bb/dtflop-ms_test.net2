@@ -84,7 +84,11 @@ X_IC_1_CD4007 Xflipflop$XX1$PTI_Out $G_Vdd Xflipflop$Q $G_Vss Xflipflop$XX1$NTI_
 * 	14: $G_Vdd
 X_IC_2_CD4007 NC__28 NC__29 NC__30 NC__31 NC__32 Xflipflop$C $G_Vss Xflipflop$XX5$NTI_Out NC__36 NC__37 NC__38 NC__39 Xflipflop$XX5$PTI_Out $G_Vdd CD4007
 
-* Chip #3 - CD4016 pinout:
+* Chip #3 - CD4007 no pins used, skipping
+* Chip #4 - CD4007 no pins used, skipping
+* Chip #5 - CD4007 no pins used, skipping
+* Chip #6 - CD4007 no pins used, skipping
+* Chip #7 - CD4016 pinout:
 * 	1: Xflipflop$_Q_master
 * 	2: Xflipflop$tg_D
 * 	3: Xflipflop$tg_master
@@ -99,7 +103,7 @@ X_IC_2_CD4007 NC__28 NC__29 NC__30 NC__31 NC__32 Xflipflop$C $G_Vss Xflipflop$XX
 * 	12: Xflipflop$_C
 * 	13: CLK
 * 	14: $G_Vdd
-X_IC_3_CD4016 Xflipflop$_Q_master Xflipflop$tg_D Xflipflop$tg_master Xflipflop$tg_slave CLK Xflipflop$_C $G_Vss D Xflipflop$tg_D Xflipflop$tg_slave Xflipflop$_Q_slave Xflipflop$_C CLK $G_Vdd CD4016
+X_IC_7_CD4016 Xflipflop$_Q_master Xflipflop$tg_D Xflipflop$tg_master Xflipflop$tg_slave CLK Xflipflop$_C $G_Vss D Xflipflop$tg_D Xflipflop$tg_slave Xflipflop$_Q_slave Xflipflop$_C CLK $G_Vdd CD4016
 
 * Parts to support subcircuits:
 RXXflipflop$XX2$Xinv$RP Xflipflop$XX2$PTI_Out Xflipflop$_Q_master 12k

@@ -1,0 +1,23 @@
+* Z:\trinary\code\circuits\dtflop-ms_test.asc
+X0 higher DATA1 DATA2 DATA3 higher
+
+.subckt higher D1 D2 D3
+Xflipflop D1 CLK1 QQQ1 dtflop-ms
+Xflipflop D2 CLK2 QQQ2 dtflop-ms
+Xflipflop D3 CLK3 QQQ3 dtflop-ms
+.ends
+
+.subckt dtflop-ms D C Q
+X1 D Q sti
+X2 C _C sti
+.ends dtflop-ms
+
+.subckt sti IN OUT
+Xinv IN NC_01 OUT NC_02 tinv
+.ends sti
+
+.subckt tinv Vin PTI_Out STI_Out NTI_Out
+RP PTI_Out STI_Out 12k
+RN STI_Out NTI_Out 12k
+.ends tinv
+

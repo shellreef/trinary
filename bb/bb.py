@@ -348,7 +348,7 @@ def is_expandable_subcircuit(refdesg, model):
     a) a subcircuit, b) _and_ it can be hierarchically expanded further."""
     return refdesg[0] == 'X' and model not in SUBCIRCUITS_TO_MAP
 
-def expand(subckt_defns, subckt_nodes, line, prefix):
+def expand(subckt_defns, subckt_nodes, line, prefix, outer_nodes, outer_prefixes):
     """Recursively expand a subcircuit instantiation if needed."""
     words = line.split()
     outer_refdesg = words[0]
@@ -369,8 +369,19 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
             inner_args = swords[1:-1]
 
             if is_expandable_subcircuit(inner_refdesg, inner_model):
-                # Recursively expand subcircuits, to a limit
-                new_lines.extend(expand(subckt_defns, subckt_nodes, sline, outer_refdesg))
+                # Recursively expand subcircuits, to transistor-level subcircuits (SUBCIRCUITS_TO_MAP)
+                nodes_to_pass = {}
+                for n in nodes:
+                    if outer_nodes.has_key(nodes[n]):
+                        nodes_to_pass[n] = outer_nodes[nodes[n]]
+                        outer_prefixes[nodes_to_pass[n]] = rewrite_node(prefix, outer_refdesg, "")
+                    else:
+                        nodes_to_pass[n] = nodes[n]
+                # TODO: get the prefixes right!
+                sys.stderr.write("PASSING NODES: %s (outer=%s)\n" % (nodes_to_pass, outer_nodes))
+                sys.stderr.write("\tWITH PREFIXES: %s\n" % (outer_prefixes,))
+                new_lines.extend(expand(subckt_defns, subckt_nodes, sline, outer_refdesg, 
+                    nodes_to_pass, outer_prefixes))
             else:
                 new_words = []
                 # Nest reference designator
@@ -393,8 +404,14 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
                         #
                         # It should be CLK, not Xflipflop$C. These problems will occur
                         # with more nesting of subcircuits
-                        sys.stderr.write("In nodes %s, rewrite %s -> %s, prefix %s\n" % (nodes, w, nodes[w], prefix))
-                        new_words.append(rewrite_node(prefix, "", nodes[w]))
+                        if nodes[w] in outer_nodes:
+                            # This is a port of this subcircuit, ascends hierarchy
+                            #new_words.append(outer_prefixes[outer_nodes[nodes[w]]] + outer_nodes[nodes[w]])
+                            # TODO: get the prefixes right! what if it isn't top-level?
+                            new_words.append(outer_nodes[nodes[w]])
+                        else:
+                            new_words.append(rewrite_node(prefix, "", nodes[w]))
+
                     elif is_floating(w):
                         # This is a port, but that is not connected on the outside, but
                         # still may be internally-connected so it needs a node name.
@@ -429,7 +446,7 @@ def test_flatten():
     subckt_nodes, subckt_defns, toplevel = read_netlist("mux3-1_test.net")
 
     for line in toplevel:
-        print "\n".join(expand(subckt_defns, subckt_nodes, line, ""))
+        print "\n".join(expand(subckt_defns, subckt_nodes, line, "", {}))
 
 def test_assignment():
     """Demonstrate subcircuit assignment."""
@@ -537,13 +554,16 @@ def main():
     # First semi-flatten the circuit 
     flat_toplevel = []
     for line in toplevel:
-        flat_toplevel.extend((expand(subckt_defns, subckt_nodes, line, "")))
+        flat_toplevel.extend((expand(subckt_defns, subckt_nodes, line, "", {}, {})))
 
     print "* Flattened top-level, before part assignment:"
     for f in flat_toplevel:
         print "** %s" % (f,)
     print "* Begin converted circuit"
     print
+
+    # XXX TEST
+    raise SystemExit
 
     # Available chips
     chips = [

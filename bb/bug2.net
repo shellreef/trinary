@@ -1,0 +1,19 @@
+* Z:\trinary\code\circuits\dtflop-ms_test.asc
+X0 top higher
+
+.subckt higher h
+X1 h medium
+.ends
+
+.subckt medium m
+X2 m low
+.ends
+
+.subckt low L
+X3 L lowest
+.ends sti
+
+.subckt lowest LL
+R1 LL LL 12k
+.ends tinv
+

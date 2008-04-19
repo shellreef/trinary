@@ -1,0 +1,9 @@
+* Chip-level netlist, converted from bug2.net by bb.py
+* Flattened top-level, before part assignment:
+** * X0: Instance of subcircuit higher: top
+** * X1: Instance of subcircuit medium: h
+** * X2: Instance of subcircuit low: m
+** * X3: Instance of subcircuit lowest: L
+** RX2$X3$R1 top top 12k
+* Begin converted circuit
+
