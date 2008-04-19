@@ -15,12 +15,13 @@ import sys
 import tg
 import tinv
 import tnor
+import tnand
 
 PROGRAM_NAME = "bb.py"
 
 # Subcircuits to map that should be mapped physical ICs
 SUBCIRCUITS_TO_MAP = ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3')
-SUBCIRCUITS_CAN_MAP = ('tg', 'tinv', 'tnor')        # subcircuits we actually can map, as of yet
+SUBCIRCUITS_CAN_MAP = ('tg', 'tinv', 'tnor', 'tnand')        # subcircuits we actually can map, as of yet
 
 def combine_dicts(dict1, dict2):
     """Combine two dictionaries; dict2 takes priority over dict1."""

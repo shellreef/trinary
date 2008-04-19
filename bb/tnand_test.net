@@ -6,12 +6,12 @@ XU1 $G_Vdd $G_Vss tpower
 
 * block symbol definitions
 .subckt tnand A B TNAND_Out
-RP N001 TNAND_Out 12k
-RN TNAND_Out N002 12k
-MP1 N001 B $G_Vdd $G_Vdd CD4007P
-MP2 N001 A $G_Vdd $G_Vdd CD4007P
-MN2 N003 B $G_Vss $G_Vss CD4007N
-MN1 N002 A N003 $G_Vss CD4007N
+RP NP TNAND_Out 12k
+RN TNAND_Out NN 12k
+MP1 NP B $G_Vdd $G_Vdd CD4007P
+MP2 NP A $G_Vdd $G_Vdd CD4007P
+MN2 NI B $G_Vss $G_Vss CD4007N
+MN1 NN A NI $G_Vss CD4007N
 .ends tnand
 
 .subckt tpower Vdd Vss

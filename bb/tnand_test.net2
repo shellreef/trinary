@@ -1,0 +1,38 @@
+* Chip-level netlist, converted from tnand_test.net by bb.py
+* Flattened top-level, before part assignment:
+** VA A 0 PWL file=INPUT_A.txt
+** XX1 A B TNAND_Out tnand
+** VB B 0 PWL file=INPUT_B.txt
+** * XU1: Instance of subcircuit tpower: $G_Vdd $G_Vss
+** V$XU1$Vdd $G_Vdd 0 5V
+** V$XU1$Vss 0 $G_Vss 5V
+* Begin converted circuit
+
+VA A 0 PWL file=INPUT_A.txt
+VB B 0 PWL file=INPUT_B.txt
+* XU1: Instance of subcircuit tpower: $G_Vdd $G_Vss
+V$XU1$Vdd $G_Vdd 0 5V
+V$XU1$Vss 0 $G_Vss 5V
+* Chip #0 - CD4007 pinout:
+* 	1: XX1$NP
+* 	2: $G_Vdd
+* 	3: A
+* 	4: XX1$NI
+* 	5: NC__4
+* 	6: B
+* 	7: $G_Vss
+* 	8: XX1$NI
+* 	9: XX1$NN
+* 	10: NC__9
+* 	11: NC__10
+* 	12: NC__11
+* 	13: XX1$NP
+* 	14: $G_Vdd
+X_IC_0_CD4007 XX1$NP $G_Vdd A XX1$NI NC__4 B $G_Vss XX1$NI XX1$NN NC__9 NC__10 NC__11 XX1$NP $G_Vdd CD4007
+
+* Chip #1 - CD4007 no pins used, skipping
+* Chip #2 - CD4007 no pins used, skipping
+* Chip #3 - CD4016 no pins used, skipping
+* Parts to support subcircuits:
+RXX1$RP N$XX1$NP TNAND_Out 12k
+RXX1$RN TNAND_Out N$XX1$NN 12k
