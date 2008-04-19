@@ -1,26 +1,26 @@
-* Converted from netlist tinv_test.net by bb.py on Sat Apr 12 23:49:26 2008
+* Chip-level netlist, converted from tinv_test.net by bb.py on Fri Apr 18 20:50:06 2008
 * Flattened top-level, before part assignment:
 ** V1 input 0 -5V
 ** Xpti_sti_nti input PTI_Out STI_Out NTI_Out tinv
 ** Xeartheds input EPTI_Out 0 ENTI_Out tinv
-** * Instance of subcircuit tpower: $G_Vdd $G_Vss
-** VXU3$Vdd $G_Vdd 0 5V
-** VXU3$Vss 0 $G_Vss 5V
-** * Instance of subcircuit sti: input STI_Out1
-** XXsti1$XX1 input N__0 STI_Out1 N__1 tinv
-** * Instance of subcircuit nti: input NTI_Out1
-** XXnti1$XX1 input N__2 N__3 NTI_Out1 tinv
-** * Instance of subcircuit pti: input PTI_Out1
-** XXpti1$XX1 input PTI_Out1 N__4 N__5 tinv
+** * XU3: Instance of subcircuit tpower: $G_Vdd $G_Vss
+** V$XU3$Vdd $G_Vdd 0 5V
+** V$XU3$Vss 0 $G_Vss 5V
+** * Xsti1: Instance of subcircuit sti: input STI_Out1
+** X$Xsti1$XX1 input Xsti1$PTI_Out STI_Out1 Xsti1$NTI_Out tinv
+** * Xnti1: Instance of subcircuit nti: input NTI_Out1
+** X$Xnti1$XX1 input Xnti1$PTI_Out Xnti1$STI_Out NTI_Out1 tinv
+** * Xpti1: Instance of subcircuit pti: input PTI_Out1
+** X$Xpti1$XX1 input PTI_Out1 Xpti1$STI_Out Xpti1$NTI_Out tinv
 * Begin converted circuit
 
 V1 input 0 -5V
-* Instance of subcircuit tpower: $G_Vdd $G_Vss
-VXU3$Vdd $G_Vdd 0 5V
-VXU3$Vss 0 $G_Vss 5V
-* Instance of subcircuit sti: input STI_Out1
-* Instance of subcircuit nti: input NTI_Out1
-* Instance of subcircuit pti: input PTI_Out1
+* XU3: Instance of subcircuit tpower: $G_Vdd $G_Vss
+V$XU3$Vdd $G_Vdd 0 5V
+V$XU3$Vss 0 $G_Vss 5V
+* Xsti1: Instance of subcircuit sti: input STI_Out1
+* Xnti1: Instance of subcircuit nti: input NTI_Out1
+* Xpti1: Instance of subcircuit pti: input PTI_Out1
 * Chip #0 - CD4007 pinout:
 * 	1: EPTI_Out
 * 	2: $G_Vdd
@@ -30,47 +30,47 @@ VXU3$Vss 0 $G_Vss 5V
 * 	6: input
 * 	7: $G_Vss
 * 	8: NTI_Out
-* 	9: NC__14
-* 	10: NC__15
-* 	11: NC__16
-* 	12: NC__17
+* 	9: NC__8
+* 	10: NC__9
+* 	11: NC__10
+* 	12: NC__11
 * 	13: PTI_Out
 * 	14: $G_Vdd
-X_IC_0  EPTI_Out $G_Vdd input $G_Vss ENTI_Out input $G_Vss NTI_Out NC__14 NC__15 NC__16 NC__17 PTI_Out $G_Vdd CD4007
+X_IC_0_CD4007 EPTI_Out $G_Vdd input $G_Vss ENTI_Out input $G_Vss NTI_Out NC__8 NC__9 NC__10 NC__11 PTI_Out $G_Vdd CD4007
 
 * Chip #1 - CD4007 pinout:
-* 	1: N__2
+* 	1: Xnti1$PTI_Out
 * 	2: $G_Vdd
 * 	3: input
 * 	4: $G_Vss
 * 	5: NTI_Out1
 * 	6: input
 * 	7: $G_Vss
-* 	8: N__1
-* 	9: NC__28
-* 	10: NC__29
-* 	11: NC__30
-* 	12: NC__31
-* 	13: N__0
+* 	8: Xsti1$NTI_Out
+* 	9: NC__22
+* 	10: NC__23
+* 	11: NC__24
+* 	12: NC__25
+* 	13: Xsti1$PTI_Out
 * 	14: $G_Vdd
-X_IC_1  N__2 $G_Vdd input $G_Vss NTI_Out1 input $G_Vss N__1 NC__28 NC__29 NC__30 NC__31 N__0 $G_Vdd CD4007
+X_IC_1_CD4007 Xnti1$PTI_Out $G_Vdd input $G_Vss NTI_Out1 input $G_Vss Xsti1$NTI_Out NC__22 NC__23 NC__24 NC__25 Xsti1$PTI_Out $G_Vdd CD4007
 
 * Chip #2 - CD4007 pinout:
-* 	1: NC__34
-* 	2: NC__35
-* 	3: NC__36
-* 	4: NC__37
-* 	5: NC__38
+* 	1: NC__28
+* 	2: NC__29
+* 	3: NC__30
+* 	4: NC__31
+* 	5: NC__32
 * 	6: input
 * 	7: $G_Vss
-* 	8: N__5
-* 	9: NC__42
-* 	10: NC__43
-* 	11: NC__44
-* 	12: NC__45
+* 	8: Xpti1$NTI_Out
+* 	9: NC__36
+* 	10: NC__37
+* 	11: NC__38
+* 	12: NC__39
 * 	13: PTI_Out1
 * 	14: $G_Vdd
-X_IC_2  NC__34 NC__35 NC__36 NC__37 NC__38 input $G_Vss N__5 NC__42 NC__43 NC__44 NC__45 PTI_Out1 $G_Vdd CD4007
+X_IC_2_CD4007 NC__28 NC__29 NC__30 NC__31 NC__32 input $G_Vss Xpti1$NTI_Out NC__36 NC__37 NC__38 NC__39 PTI_Out1 $G_Vdd CD4007
 
 * Chip #3 - CD4016 no pins used, skipping
 * Parts to support subcircuits:
@@ -78,9 +78,9 @@ RXpti_sti_nti$RP PTI_Out STI_Out 12k
 RXpti_sti_nti$RN STI_Out NTI_Out 12k
 RXeartheds$RP EPTI_Out 0 12k
 RXeartheds$RN 0 ENTI_Out 12k
-RXXsti1$XX1$RP N__0 STI_Out1 12k
-RXXsti1$XX1$RN STI_Out1 N__1 12k
-RXXnti1$XX1$RP N__2 N__3 12k
-RXXnti1$XX1$RN N__3 NTI_Out1 12k
-RXXpti1$XX1$RP PTI_Out1 N__4 12k
-RXXpti1$XX1$RN N__4 N__5 12k
+RX$Xsti1$XX1$RP Xsti1$PTI_Out STI_Out1 12k
+RX$Xsti1$XX1$RN STI_Out1 Xsti1$NTI_Out 12k
+RX$Xnti1$XX1$RP Xnti1$PTI_Out Xnti1$STI_Out 12k
+RX$Xnti1$XX1$RN Xnti1$STI_Out NTI_Out1 12k
+RX$Xpti1$XX1$RP PTI_Out1 Xpti1$STI_Out 12k
+RX$Xpti1$XX1$RN Xpti1$STI_Out Xpti1$NTI_Out 12k
