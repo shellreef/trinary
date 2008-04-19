@@ -335,7 +335,7 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
     if is_expandable_subcircuit(outer_refdesg, outer_model):
         nodes = make_node_mapping(subckt_nodes[outer_model], outer_args)
         new_lines = []
-        new_lines.append(("* Instance of subcircuit %s: %s" % (outer_model, " ".join(outer_args))))
+        new_lines.append(("* %s: Instance of subcircuit %s: %s" % (outer_refdesg, outer_model, " ".join(outer_args))))
 
         # Notes that are internal to the subcircuit, not exposed in any ports
         internal_only_nodes = {}  
@@ -358,6 +358,20 @@ def expand(subckt_defns, subckt_nodes, line, prefix):
                 for w in inner_args:
                     #print "****", word
                     if w in nodes.keys():
+                        # XXX TODO: Need to follow up hierarchy! This leads to
+                        # incomplete nets. For example, dtflop-ms_test.net maps:
+                        #
+                        # In nodes {'Q': 'Q', 'C': 'CLK', 'D': 'D'}, rewrite C -> CLK, prefix  [correct]
+                        # In nodes {'Q': 'Q', 'C': 'CLK', 'D': 'D'}, rewrite C -> CLK, prefix  [correct]
+                        #
+                        # but because the 'nodes' dict is only for the parent, it
+                        # doesn't map this correctly, leading to an unconnected node:
+                        #
+                        # In nodes {'OUT': '_C', 'IN': 'C'}, rewrite IN -> C, prefix Xflipflop [wrong]
+                        #
+                        # It should be CLK, not Xflipflop$C. These problems will occur
+                        # with more nesting of subcircuits
+                        sys.stderr.write("In nodes %s, rewrite %s -> %s, prefix %s\n" % (nodes, w, nodes[w], prefix))
                         new_words.append(rewrite_node(prefix, "", nodes[w]))
                     elif is_floating(w):
                         # This is a port, but that is not connected on the outside, but
