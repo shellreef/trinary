@@ -10,7 +10,6 @@
 
 import copy
 import types
-import time
 import sys
 
 import tg
@@ -522,7 +521,7 @@ def main():
     if output_filename != "-":
         sys.stdout = file(output_filename, "wt")
 
-    print "* Chip-level netlist, converted from %s by %s on %s" % (input_filename, PROGRAM_NAME, time.asctime())
+    print "* Chip-level netlist, converted from %s by %s" % (input_filename, PROGRAM_NAME)
 
     # Circuits to rewrite need to be loaded first. Any transistor-level circuits
     # you want to replace with ICs, are loaded here. 

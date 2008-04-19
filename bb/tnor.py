@@ -12,21 +12,20 @@ parts_kept = ["RP", "RN"]
 # Based on pinout from http://www.cedmagic.com/tech-info/data/cd4016.pdf
 pins = [ 
         { 
-            "A": ("CD4007", 3),
-            "B": ("CD4007", 6),
+            "A": ("CD4007", 6),
+            "B": ("CD4007", 3),
             "TNOR_Out": "TNOR_Out",
+            "$G_Vss": ("CD4007", 4),
+
+            # Internal nodes
+
+            # Connect these two nodes together
+            "NI": [("CD4007", 13), ("CD4007", 2)],
+            # Connects to resistors
+            "NP": ("CD4007", 1),
+            "NN": [("CD4007", 8), ("CD4007", 5)],
         }
        ]
-
-# TODO:
-# 14 to $G_Vdd
-# 6 to A
-# 13 to 2
-# 1 to RP+
-# RP- to TNOR_Out to RN-
-# 8 to RN+ to 5
-# 7 to 4 to $G_Vss
-# 3 to B
 
 # Always connected once if use once or more
 global_pins = { 

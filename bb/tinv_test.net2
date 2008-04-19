@@ -1,4 +1,4 @@
-* Chip-level netlist, converted from tinv_test.net by bb.py on Fri Apr 18 20:50:06 2008
+* Chip-level netlist, converted from tinv_test.net by bb.py
 * Flattened top-level, before part assignment:
 ** V1 input 0 -5V
 ** Xpti_sti_nti input PTI_Out STI_Out NTI_Out tinv

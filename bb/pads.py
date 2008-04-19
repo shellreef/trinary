@@ -5,7 +5,6 @@
 # Created PADS-PCB netlist file, for FreePCB at http://www.freepcb.com/ , 
 # or any other PCB layout program that supports the PADS-PCB format.
 
-import time
 import sys
 
 PROGRAM_NAME = "pads.py"
@@ -48,7 +47,7 @@ if output_filename != "-":
     sys.stdout = file(output_filename, "wt")
 
 print "*PADS-PCB*"
-print "*%s %s*" % (filename, time.asctime())
+print "*%s*" % (filename, )
 
 parts = []
 nets = {}

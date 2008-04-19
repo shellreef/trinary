@@ -1,4 +1,4 @@
-* Chip-level netlist, converted from dtflop-ms_test.net by bb.py on Fri Apr 18 22:33:20 2008
+* Chip-level netlist, converted from dtflop-ms_test.net by bb.py
 * Flattened top-level, before part assignment:
 ** Vclk CLK 0 PULSE(-5 5 0 1p 1p 10n 20n)
 ** Vd D 0 PWL(0 0 1n 0 5n -5 8n -5 9n 0 10n 0 11n 5 21n 5 22n 0 24n 0 25n -5 34n -5 35n -5 40n -5 41n -5 42n 0 43n 5 44n 5 45n -5 46n 0 47n -5 48n 0)
