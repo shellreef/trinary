@@ -15,12 +15,13 @@ import sys
 
 import tg
 import tinv
+import tnor
 
 PROGRAM_NAME = "bb.py"
 
 # Subcircuits to map that should be mapped physical ICs
 SUBCIRCUITS_TO_MAP = ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3')
-SUBCIRCUITS_CAN_MAP = ('tg', 'tinv')        # subcircuits we actually can map, as of yet
+SUBCIRCUITS_CAN_MAP = ('tg', 'tinv', 'tnor')        # subcircuits we actually can map, as of yet
 
 def combine_dicts(dict1, dict2):
     """Combine two dictionaries; dict2 takes priority over dict1."""
@@ -163,6 +164,13 @@ def find_pins_needed(pins):
                 need[model] = []
 
             need[model].append(pin)
+        elif type(x) == types.ListType:
+            for mp in x:
+                model, pin = mp
+                if not need.has_key(model):
+                    need[model] = []
+
+                need[model].append(pin)
 
     return need
 
@@ -202,18 +210,29 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
     #print "* FOUND CHIP:",chip_num
     #print "* WITH PINS (option #%s):" % (option_num,), mod.pins[option_num]
 
-    for node, pin in combine_dicts(mod.global_pins, mod.pins[option_num]).iteritems():
+    findings = []
+    for node_pin in combine_dicts(mod.global_pins, mod.pins[option_num]).iteritems():
+        node, pin = node_pin
+
         if type(pin) == types.TupleType:
             part, pin = pin
+            findings.append((node, part, pin))
+        elif type(pin) == types.ListType:
+            for pp in pin:
+                part, p = pp
+                findings.append((node, part, p))
         else:
             part = None
+            findings.append((node, part, pin))
 
+    for node, part, pin in findings:
         #print "* %s -> %s:%s" % (node, part, pin)
 
         if part is not None:
             if node.startswith("$G_") or node == "0":
                 external_node = node                    # global node (LTspice)
             else:
+                sys.stderr.write("Mapping external node %s, map = %s\n" % (node, external_nodes))
                 external_node = external_nodes[node]    # map internal to external node
 
             chips[chip_num][1][pin] = external_node
