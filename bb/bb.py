@@ -232,10 +232,10 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
             if node.startswith("$G_") or node == "0":
                 new_node = node                    # global node (LTspice)
             elif external_nodes.has_key(node):
-                sys.stderr.write("Mapping external node %s, map = %s\n" % (node, external_nodes))
+                #sys.stderr.write("Mapping external node %s, map = %s\n" % (node, external_nodes))
                 new_node = external_nodes[node]    # map internal to external node
             else:
-                sys.stderr.write("Mapping internal-only node %s\n" % (node,))
+                #sys.stderr.write("Mapping internal-only node %s\n" % (node,))
                 new_node = rewrite_node("", refdesg, node)
 
             chips[chip_num][1][pin] = new_node
@@ -547,6 +547,10 @@ def main():
 
     # Available chips
     chips = [
+            ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
             ("CD4007", get_floating(14) ),
             ("CD4007", get_floating(14) ),
             ("CD4007", get_floating(14) ),
