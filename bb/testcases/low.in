@@ -1,0 +1,6 @@
+X1 1 lowest
+
+.subckt lowest LL
+RLL LL LL 12k
+.ends
+

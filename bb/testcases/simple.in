@@ -1,0 +1,8 @@
+X1 1 2 s
+X2 3 4 s
+X3 5 6 s
+X4 7 8 s
+
+.subckt s A B
+R1 A B 12k
+.ends s

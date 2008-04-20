@@ -16,6 +16,7 @@ import tg
 import tinv
 import tnor
 import tnand
+import os
 
 PROGRAM_NAME = "bb.py"
 
@@ -446,10 +447,37 @@ def expand(subckt_defns, subckt_nodes, line, prefix, outer_nodes, outer_prefixes
 
 def test_flatten():
     """Demonstrate flattening of a hierarchical subcircuit."""
-    subckt_nodes, subckt_defns, toplevel = read_netlist("mux3-1_test.net")
+    if os.access("testcases", os.R_OK | os.X_OK):
+        testdir = "testcases"
+    else:
+        testdir = "."
 
-    for line in toplevel:
-        print "\n".join(expand(subckt_defns, subckt_nodes, line, "", {}))
+    i = 0
+    for case_in in os.listdir(testdir):
+        if ".in" not in case_in or ".swp" in case_in:
+            continue
+        i += 1
+        case = case_in.replace(".in", "")
+
+        subckt_nodes, subckt_defns, toplevel = read_netlist("%s/%s.in" % (testdir, case))
+
+        actual_out = []
+        for line in toplevel:
+            actual_out.extend(expand(subckt_defns, subckt_nodes, line, "", {}, {}))
+  
+        outfile = file("%s/%s.act" % (testdir, case), "wt")
+        for line in actual_out:
+            if line[0] == '*':
+                continue
+            outfile.write("%s\n" % (line,))
+        outfile.close()
+
+        if os.system("diff -u %s/%s.exp %s/%s.act" % (testdir, case, testdir, case)) != 0:
+            print "%2d. FAILED: %s" % (i, case)
+            raise SystemExit
+        else:
+            print "%2d. Passed: %s" % (i, case)
+
 
 def test_assignment():
     """Demonstrate subcircuit assignment."""
@@ -609,6 +637,6 @@ def main():
         os.system("python pads.py %s" % (output_filename,))
 
 if __name__ == "__main__":
-    #test_flatten()
+    test_flatten()
     #test_assignment()
-    main()
+    #main()
