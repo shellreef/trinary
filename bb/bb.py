@@ -24,6 +24,11 @@ PROGRAM_NAME = "bb.py"
 SUBCIRCUITS_TO_MAP = ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3')
 SUBCIRCUITS_CAN_MAP = ('tg', 'tinv', 'tnor', 'tnand')        # subcircuits we actually can map, as of yet
 
+# This program doesn't thoroughly parse SPICE cards, so you must
+# give it parameters that are not nodes, to not map at all.
+# For example, '12k' for the 12k resistors. TODO: better parsing
+PARAMETERS_NOT_NODES = ('12k')
+
 def combine_dicts(dict1, dict2):
     """Combine two dictionaries; dict2 takes priority over dict1."""
     ret = copy.deepcopy(dict1)
@@ -136,6 +141,9 @@ def chip_has_pins_available(pins_needed, pins):
             return False
     return True
 
+# This program doesn't thoroughly parse SPICE cards, so you must
+# give it parameters that are not nodes, to not map at all.
+# For example, '12k' for the 12k resistors. TODO: better parsing
 def find_chip(chips, model_needed, pins_needed_options):
     """Return an index into the chips array, and what pins, with the given model and the pins free.
     
@@ -386,8 +394,9 @@ def expand(subckt_defns, subckt_nodes, line, prefix, outer_nodes, outer_prefixes
                         if prefix:
                             prefixes_to_pass[nodes_to_pass[n]] += "$"
 
-                        #if len(prefixes_to_pass[nodes_to_pass[n]]) >= 1 and prefixes_to_pass[nodes_to_pass[n]][0] == '$':
-                        #    prefixes_to_pass[nodes_to_pass[n]] = prefixes_to_pass[nodes_to_pass[n]][0][1:]
+                        # Chop '$' if begins with it
+                        if len(prefixes_to_pass[nodes_to_pass[n]]) >= 1 and prefixes_to_pass[nodes_to_pass[n]][0] == '$':
+                            prefixes_to_pass[nodes_to_pass[n]] = prefixes_to_pass[nodes_to_pass[n]][1:]
                 # TODO: get the prefixes right!
                 sys.stderr.write("PASSING NODES: %s (outer=%s, inner=%s), outer_refdesg=%s, prefix=%s\n" % (nodes_to_pass, outer_nodes, nodes, outer_refdesg, prefix))
                 sys.stderr.write("\tPASSING PREFIXES: %s (outer=%s)\n" % (prefixes_to_pass, outer_prefixes))
@@ -433,7 +442,7 @@ def expand(subckt_defns, subckt_nodes, line, prefix, outer_nodes, outer_prefixes
                         inner_node_map = make_node_mapping(inner_args, subckt_nodes[inner_model])
                         new_words.append(rewrite_node(prefix, outer_refdesg, inner_node_map[w]))
                         #print "Floating:",w," now=",new_words,"node map=",inner_node_map
-                    elif w[0].isdigit():
+                    elif w in PARAMETERS_NOT_NODES:
                         new_words.append(w)
                     else:
                         # A signal only connected within this subcircuit, but not a port.
@@ -466,7 +475,6 @@ def test_flatten():
     for case_in in sorted(os.listdir(testdir)):
         if ".in" not in case_in or ".swp" in case_in:
             continue
-        i += 1
         case = case_in.replace(".in", "")
 
         subckt_nodes, subckt_defns, toplevel = read_netlist("%s/%s.in" % (testdir, case))
@@ -488,6 +496,7 @@ def test_flatten():
         else:
             print "%2d. Passed: %s" % (i, case)
         print "-" * 70
+        i += 1
 
 def test_assignment():
     """Demonstrate subcircuit assignment."""
