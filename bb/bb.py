@@ -24,11 +24,6 @@ PROGRAM_NAME = "bb.py"
 SUBCIRCUITS_TO_MAP = ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3')
 SUBCIRCUITS_CAN_MAP = ('tg', 'tinv', 'tnor', 'tnand')        # subcircuits we actually can map, as of yet
 
-# This program doesn't thoroughly parse SPICE cards, so you must
-# give it parameters that are not nodes, to not map at all.
-# For example, '12k' for the 12k resistors. TODO: better parsing
-PARAMETERS_NOT_NODES = ('12k')
-
 def combine_dicts(dict1, dict2):
     """Combine two dictionaries; dict2 takes priority over dict1."""
     ret = copy.deepcopy(dict1)
@@ -276,7 +271,7 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
             elif is_floating(w):
                 # TODO ???
                 new_words.append(get_floating())
-            elif w[0].isdigit():   # value
+            elif w[0].isdigit():   # value XXX TODO: won't map numeric nodes correctly, if they make it here?
                 new_words.append(w)
             else:
                 if not internal_only_nodes.has_key(w):
@@ -442,8 +437,6 @@ def expand(subckt_defns, subckt_nodes, line, prefix, outer_nodes, outer_prefixes
                         inner_node_map = make_node_mapping(inner_args, subckt_nodes[inner_model])
                         new_words.append(rewrite_node(prefix, outer_refdesg, inner_node_map[w]))
                         #print "Floating:",w," now=",new_words,"node map=",inner_node_map
-                    elif w in PARAMETERS_NOT_NODES:
-                        new_words.append(w)
                     else:
                         # A signal only connected within this subcircuit, but not a port.
                         # Make a new node name for it and replace it.
