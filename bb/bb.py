@@ -641,6 +641,8 @@ def main():
         os.system("python pads.py %s" % (output_filename,))
 
 if __name__ == "__main__":
-    test_flatten()
+    if len(sys.argv) > 1 and sys.argv[1] == "-t":
+        test_flatten()
+        raise SystemExit
     #test_assignment()
-    #main()
+    main()
