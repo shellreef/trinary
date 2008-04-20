@@ -240,7 +240,13 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
                 new_node = external_nodes[node]    # map internal to external node
             else:
                 #sys.stderr.write("Mapping internal-only node %s\n" % (node,))
-                new_node = rewrite_node("", refdesg, node)
+                # 'refdesg' here is prefixed with X, for a subcircuit instantation,
+                # but we only need the subcircuit prefix for a node, without the
+                # X prefix.
+                assert refdesg[0:2] == 'X$', "Assumed refdesg %s began with X$, but it didn't" % (refdesg,)
+                refdesg_without_letter = refdesg[2:]
+                new_node = rewrite_node("", refdesg_without_letter, node)
+                sys.stderr.write("@ Rewriting to node = %s\n" % (new_node,))
 
             chips[chip_num][1][pin] = new_node
 
@@ -351,6 +357,9 @@ def rewrite_node(prefix, circuit_inside, original_node_name):
     # Nodes don't need to begin with spurious '$'s (can happen if no prefix)
     if new_name[0] == '$':
         new_name = new_name[1:]
+
+    if new_name.startswith("N$"):
+        raise "New name = %s" % (new_name,)
 
     return new_name
 
