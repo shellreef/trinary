@@ -6,14 +6,16 @@ X1 h medium
 .ends
 
 .subckt medium m
-X2 m low
+X2 m low 
+RM low2 low2 12k
 .ends
 
-.subckt low L
+.subckt low L L2
 X3 L lowest
-.ends sti
+X4 L2 lowest
+.ends
 
 .subckt lowest LL
-R1 LL LL 12k
-.ends tinv
+RLL LL LL 12k
+.ends
 

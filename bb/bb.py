@@ -371,17 +371,19 @@ def expand(subckt_defns, subckt_nodes, line, prefix, outer_nodes, outer_prefixes
             if is_expandable_subcircuit(inner_refdesg, inner_model):
                 # Recursively expand subcircuits, to transistor-level subcircuits (SUBCIRCUITS_TO_MAP)
                 nodes_to_pass = {}
+                prefixes_to_pass = {}
                 for n in nodes:
                     if outer_nodes.has_key(nodes[n]):
                         nodes_to_pass[n] = outer_nodes[nodes[n]]
-                        outer_prefixes[nodes_to_pass[n]] = rewrite_node(prefix, outer_refdesg, "")
+                        prefixes_to_pass[nodes_to_pass[n]] = \
+                                outer_prefixes.get(nodes_to_pass[n], "") + prefix + "$"
                     else:
                         nodes_to_pass[n] = nodes[n]
                 # TODO: get the prefixes right!
-                sys.stderr.write("PASSING NODES: %s (outer=%s)\n" % (nodes_to_pass, outer_nodes))
-                sys.stderr.write("\tWITH PREFIXES: %s\n" % (outer_prefixes,))
+                sys.stderr.write("PASSING NODES: %s (outer=%s), outer_refdesg=%s, prefix=%s\n" % (nodes_to_pass, outer_nodes, outer_refdesg, prefix))
+                sys.stderr.write("\tPASSING PREFIXES: %s (outer=%s)\n" % (prefixes_to_pass, outer_prefixes))
                 new_lines.extend(expand(subckt_defns, subckt_nodes, sline, outer_refdesg, 
-                    nodes_to_pass, outer_prefixes))
+                    nodes_to_pass, prefixes_to_pass))
             else:
                 new_words = []
                 # Nest reference designator
@@ -409,6 +411,7 @@ def expand(subckt_defns, subckt_nodes, line, prefix, outer_nodes, outer_prefixes
                             #new_words.append(outer_prefixes[outer_nodes[nodes[w]]] + outer_nodes[nodes[w]])
                             # TODO: get the prefixes right! what if it isn't top-level?
                             new_words.append(outer_nodes[nodes[w]])
+                            sys.stderr.write("Node %s -> %s -> %s\n" % (w, nodes[w], outer_nodes[nodes[w]]))
                         else:
                             new_words.append(rewrite_node(prefix, "", nodes[w]))
 
