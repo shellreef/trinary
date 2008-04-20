@@ -1,0 +1,14 @@
+Xtop7 7 low
+Xtop6 6 low
+Xtop5 5 low
+Xtop4 4 low
+Xtop3 3 low
+
+.subckt low L
+X1 L lowest
+.ends
+
+.subckt lowest LL
+RLL LL LL 12k
+.ends
+

@@ -1,0 +1,26 @@
+Xtop 7 highest
+
+.subckt highest HH
+X4 HH higher
+RD HH HH 12k
+.ends
+
+.subckt higher h
+X3 h medium
+RH h h 12k
+.ends
+
+.subckt medium m
+X2 m low
+RM m m 12k
+.ends
+
+.subckt low L
+X1 L lowest
+RL L L 12k
+.ends
+
+.subckt lowest LL
+RLL LL LL 12k
+.ends
+

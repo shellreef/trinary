@@ -1,0 +1,27 @@
+Xtop highest
+
+.subckt highest 
+* Node 7 ends here
+X4 7 higher
+RD 7 7 12k
+.ends
+
+.subckt higher h h2
+X3 h medium
+RH h h 12k
+.ends
+
+.subckt medium m
+X2 m low
+RM m m 12k
+.ends
+
+.subckt low L
+X1 L lowest
+RL L L 12k
+.ends
+
+.subckt lowest LL
+RLL LL LL 12k
+.ends
+

@@ -355,6 +355,8 @@ def expand(subckt_defns, subckt_nodes, line, prefix, outer_nodes, outer_prefixes
     outer_refdesg = words[0]
     outer_model = words[-1]
     outer_args = words[1:-1]
+
+    sys.stderr.write("expand(%s,%s,%s,%s)\n" % (line, prefix, outer_nodes, outer_prefixes))
     if is_expandable_subcircuit(outer_refdesg, outer_model):
         nodes = make_node_mapping(subckt_nodes[outer_model], outer_args)
         new_lines = []
@@ -376,15 +378,15 @@ def expand(subckt_defns, subckt_nodes, line, prefix, outer_nodes, outer_prefixes
                 for n in nodes:
                     if outer_nodes.has_key(nodes[n]):
                         nodes_to_pass[n] = outer_nodes[nodes[n]]
-                        prefixes_to_pass[nodes_to_pass[n]] = \
-                                outer_prefixes.get(nodes_to_pass[n], "") + prefix + "$"
+                        # XXX TODO
+                        prefixes_to_pass[nodes_to_pass[n]] = prefix + "$" #outer_prefixes.get(nodes_to_pass[n], "") + \
                     else:
                         nodes_to_pass[n] = nodes[n]
                 # TODO: get the prefixes right!
                 sys.stderr.write("PASSING NODES: %s (outer=%s), outer_refdesg=%s, prefix=%s\n" % (nodes_to_pass, outer_nodes, outer_refdesg, prefix))
                 sys.stderr.write("\tPASSING PREFIXES: %s (outer=%s)\n" % (prefixes_to_pass, outer_prefixes))
-                new_lines.extend(expand(subckt_defns, subckt_nodes, sline, outer_refdesg, 
-                    nodes_to_pass, prefixes_to_pass))
+                new_lines.extend(expand(subckt_defns, subckt_nodes, sline, prefix +
+                    "$" + outer_refdesg, nodes_to_pass, prefixes_to_pass))
             else:
                 new_words = []
                 # Nest reference designator
@@ -410,9 +412,11 @@ def expand(subckt_defns, subckt_nodes, line, prefix, outer_nodes, outer_prefixes
                         if nodes[w] in outer_nodes:
                             # This is a port of this subcircuit, ascends hierarchy
                             #new_words.append(outer_prefixes[outer_nodes[nodes[w]]] + outer_nodes[nodes[w]])
-                            # TODO: get the prefixes right! what if it isn't top-level?
+                            # TODO XXX: get the prefixes right! what if it isn't top-level?
                             new_words.append(outer_nodes[nodes[w]])
-                            sys.stderr.write("Node %s -> %s -> %s\n" % (w, nodes[w], outer_nodes[nodes[w]]))
+                            sys.stderr.write("Node %s -> %s -> %s (outer nodes=%s, prefixes=%s) (prefix=%s, refdesgs=%s,%s)\n" % 
+                                    (w, nodes[w], outer_nodes[nodes[w]], outer_nodes, outer_prefixes, prefix, 
+                                        outer_refdesg, inner_refdesg))
                         else:
                             new_words.append(rewrite_node(prefix, "", nodes[w]))
 
@@ -453,7 +457,7 @@ def test_flatten():
         testdir = "."
 
     i = 0
-    for case_in in os.listdir(testdir):
+    for case_in in sorted(os.listdir(testdir)):
         if ".in" not in case_in or ".swp" in case_in:
             continue
         i += 1
@@ -477,7 +481,7 @@ def test_flatten():
             raise SystemExit
         else:
             print "%2d. Passed: %s" % (i, case)
-
+        print "-" * 70
 
 def test_assignment():
     """Demonstrate subcircuit assignment."""

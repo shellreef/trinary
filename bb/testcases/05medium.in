@@ -1,0 +1,14 @@
+Xtop 7 medium
+
+.subckt medium m
+X2 m low
+.ends
+
+.subckt low L
+X1 L lowest
+.ends
+
+.subckt lowest LL
+RLL LL LL 12k
+.ends
+
