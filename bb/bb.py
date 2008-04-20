@@ -565,9 +565,6 @@ def main():
     print "* Begin converted circuit"
     print
 
-    # XXX TEST
-    raise SystemExit
-
     # Available chips
     chips = [
             ("CD4007", get_floating(14) ),
