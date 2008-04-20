@@ -4,6 +4,26 @@
 ** * X1: Instance of subcircuit medium: h
 ** * X2: Instance of subcircuit low: m
 ** * X3: Instance of subcircuit lowest: L
-** RX2$X3$R1 top top 12k
+** RX2$X3$RLL top top 12k
+** * X4: Instance of subcircuit lowest: L2
+** RX2$X4$RLL X2$L2 X2$L2 12k
+** RX0$X1$RM X0$X1$low2 X0$X1$low2 12k
 * Begin converted circuit
 
+* X0: Instance of subcircuit higher: top
+* X1: Instance of subcircuit medium: h
+* X2: Instance of subcircuit low: m
+* X3: Instance of subcircuit lowest: L
+RX2$X3$RLL top top 12k
+* X4: Instance of subcircuit lowest: L2
+RX2$X4$RLL X2$L2 X2$L2 12k
+RX0$X1$RM X0$X1$low2 X0$X1$low2 12k
+* Chip #0 - CD4007 no pins used, skipping
+* Chip #1 - CD4007 no pins used, skipping
+* Chip #2 - CD4007 no pins used, skipping
+* Chip #3 - CD4007 no pins used, skipping
+* Chip #4 - CD4007 no pins used, skipping
+* Chip #5 - CD4007 no pins used, skipping
+* Chip #6 - CD4007 no pins used, skipping
+* Chip #7 - CD4016 no pins used, skipping
+* Parts to support subcircuits:
