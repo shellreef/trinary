@@ -272,6 +272,7 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
                 # TODO ???
                 new_words.append(get_floating())
             elif w[0].isdigit():   # value XXX TODO: won't map numeric nodes correctly, if they make it here?
+                raise "Word %s begins with digit, not sure if this works. Check the code." % (w,)
                 new_words.append(w)
             else:
                 if not internal_only_nodes.has_key(w):
@@ -344,6 +345,10 @@ def rewrite_node(prefix, circuit_inside, original_node_name):
 
     if prefix:
         new_name = "%s$%s" % (prefix, new_name)
+
+    # Nodes don't need to begin with spurious '$'s (can happen if no prefix)
+    if new_name[0] == '$':
+        new_name = new_name[1:]
 
     return new_name
 
