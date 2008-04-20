@@ -246,8 +246,9 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
                 assert refdesg[0:2] == 'X$', "Assumed refdesg %s began with X$, but it didn't" % (refdesg,)
                 refdesg_without_letter = refdesg[2:]
                 new_node = rewrite_node("", refdesg_without_letter, node)
-                sys.stderr.write("@ Rewriting to node = %s\n" % (new_node,))
+                sys.stderr.write("Rewriting to node = %s\n" % (new_node,))
 
+            sys.stderr.write("Adding to chips: %s\n" % (new_node,))
             chips[chip_num][1][pin] = new_node
 
     internal_only_nodes = {}
@@ -282,7 +283,10 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
                 new_words.append(get_floating())
             else:
                 if not internal_only_nodes.has_key(w):
-                    internal_only_nodes[w] = "%s$%s$%s" % (w[0], refdesg, w)
+                    #internal_only_nodes[w] = "%s$%s$%s" % (w[0], refdesg, w)
+                    assert refdesg[0:2] == 'X$', "Reference designator %s expected to begin with X$, but didn't" % (refdesg,)
+                    refdesg_without_letter = refdesg[2:]
+                    internal_only_nodes[w] = rewrite_node("", refdesg_without_letter, w)
                 new_words.append(internal_only_nodes[w])
 
                 # TODO: comment this out, if the above works
@@ -336,7 +340,10 @@ def make_node_mapping(internal, external):
 
 def rewrite_refdesg(original, prefix):
     """Prefix a reference designator, preserving the first character."""
-    return "%s%s$%s" % (original[0], prefix, original)
+    new_refdesg = "%s%s$%s" % (original[0], prefix, original)
+
+    #sys.stderr.write("@ rewrite_refdesg = %s\n" % (new_refdesg,))
+    return new_refdesg
 
 def rewrite_node(prefix, circuit_inside, original_node_name):
     """Rewrite a node name inside a subcircuit, prefixing it with
@@ -358,9 +365,7 @@ def rewrite_node(prefix, circuit_inside, original_node_name):
     if new_name[0] == '$':
         new_name = new_name[1:]
 
-    if new_name.startswith("N$"):
-        raise "New name = %s" % (new_name,)
-
+    #sys.stderr.write("@@ rewrite_node = %s\n" % (new_name,))
     return new_name
 
 def is_expandable_subcircuit(refdesg, model):

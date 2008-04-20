@@ -65,10 +65,10 @@ routing_grid_spacing: 508000.000000
   routing_grid_item: 3.33330709MIL
   routing_grid_item: 4MIL
   routing_grid_item: 5MIL
-  routing_grid_item: 6.6665748MIL
+  routing_grid_item: 6.66653543MIL
   routing_grid_item: 10MIL
   routing_grid_item: 12.5MIL
-  routing_grid_item: 16.6665748MIL
+  routing_grid_item: 16.66653543MIL
   routing_grid_item: 20MIL
   routing_grid_item: 25MIL
   routing_grid_item: 40MIL
@@ -473,14 +473,6 @@ part: RX$XX1$XXdecoder$XX0tnand$XX2$Xinv$RN
 
 [nets]
 
-net: "XX1$XXdecoder$XX1pti2$STI_Out" 2 1 0 0 0 0 1
-  pin: 1 RX$XX1$XXdecoder$XX1pti2$Xinv$RP.2
-  pin: 2 RX$XX1$XXdecoder$XX1pti2$Xinv$RN.1
-  connect: 1 1 0 1 0
-    vtx: 1 -16637000 24307800 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -3937000 16687800 11 0 0 0 0
-
 net: "XX1$XXdecoder$XX1pti1$NTI_Out" 2 1 0 0 0 0 1
   pin: 1 X_IC_0_CD4007.8
   pin: 2 RX$XX1$XXdecoder$XX1pti1$Xinv$RN.2
@@ -489,13 +481,13 @@ net: "XX1$XXdecoder$XX1pti1$NTI_Out" 2 1 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 -141351000 67106800 11 0 0 0 0
 
-net: "XX1$XXdecoder$XX1pti1$STI_Out" 2 1 0 0 0 0 1
-  pin: 1 RX$XX1$XXdecoder$XX1pti1$Xinv$RP.2
-  pin: 2 RX$XX1$XXdecoder$XX1pti1$Xinv$RN.1
+net: "XX1$XXdecoder$XX1pti2$STI_Out" 2 1 0 0 0 0 1
+  pin: 1 RX$XX1$XXdecoder$XX1pti2$Xinv$RP.2
+  pin: 2 RX$XX1$XXdecoder$XX1pti2$Xinv$RN.1
   connect: 1 1 0 1 0
-    vtx: 1 -16637000 9067800 11 0 0 0 0
+    vtx: 1 -16637000 24307800 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -3937000 1447800 11 0 0 0 0
+    vtx: 2 -3937000 16687800 11 0 0 0 0
 
 net: "X$XX1$XXdecoder$XX0tnand$XX1$NI" 2 1 0 0 0 0 1
   pin: 1 X_IC_3_CD4007.2
@@ -505,6 +497,14 @@ net: "X$XX1$XXdecoder$XX0tnand$XX1$NI" 2 1 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 -68580000 106680000 11 0 0 0 0
 
+net: "XX1$XXdecoder$XX1pti1$STI_Out" 2 1 0 0 0 0 1
+  pin: 1 RX$XX1$XXdecoder$XX1pti1$Xinv$RP.2
+  pin: 2 RX$XX1$XXdecoder$XX1pti1$Xinv$RN.1
+  connect: 1 1 0 1 0
+    vtx: 1 -16637000 9067800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -3937000 1447800 11 0 0 0 0
+
 net: "XX1$XXdecoder$XXinti$PTI_Out" 2 1 0 0 0 0 1
   pin: 1 X_IC_1_CD4007.13
   pin: 2 RX$XX1$XXdecoder$XXinti$Xinv$RP.1
@@ -512,6 +512,9 @@ net: "XX1$XXdecoder$XXinti$PTI_Out" 2 1 0 0 0 0 1
     vtx: 1 -16637000 31927800 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 -60960000 73660000 11 0 0 0 0
+
+net: "N$X$XX1$XXdecoder$XX0tnand$XX1$NN" 1 0 0 0 0 0 1
+  pin: 1 RX$XX1$XXdecoder$XX0tnand$XX1$RN.2
 
 net: "XX1$XXdecoder$XXinti$STI_Out" 2 1 0 0 0 0 1
   pin: 1 RX$XX1$XXdecoder$XXinti$Xinv$RP.2
@@ -521,24 +524,48 @@ net: "XX1$XXdecoder$XXinti$STI_Out" 2 1 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 -3937000 31927800 11 0 0 0 0
 
-net: "N$X$XX1$XXdecoder$XX0tnand$XX1$NN" 1 0 0 0 0 0 1
-  pin: 1 RX$XX1$XXdecoder$XX0tnand$XX1$RN.2
-
-net: "XX1$XXdecoder$XX0pti$NTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_1_CD4007.5
-  pin: 2 RX$XX1$XXdecoder$XX0pti$Xinv$RN.2
-  connect: 1 1 0 1 0
-    vtx: 1 -3937000 54787800 11 0 0 0 0
+net: "$G_Vdd" 9 8 0 0 0 0 1
+  pin: 1 V$XX11$Vdd.1
+  pin: 2 X_IC_0_CD4007.2
+  pin: 3 X_IC_0_CD4007.14
+  pin: 4 X_IC_1_CD4007.2
+  pin: 5 X_IC_1_CD4007.14
+  pin: 6 X_IC_2_CD4007.2
+  pin: 7 X_IC_2_CD4007.14
+  pin: 8 X_IC_3_CD4007.14
+  pin: 9 X_IC_7_CD4016.14
+  connect: 1 4 3 1 0
+    vtx: 1 -60960000 76200000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -68580000 66040000 11 0 0 0 0
-
-net: "XX1$XXdecoder$XX0sti$NTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_2_CD4007.8
-  pin: 2 RX$XX1$XXdecoder$XX0sti$Xinv$RN.2
-  connect: 1 1 0 1 0
-    vtx: 1 -3937000 70027800 11 0 0 0 0
+    vtx: 2 -68580000 73660000 11 0 0 0 0
+  connect: 2 6 5 1 0
+    vtx: 1 -142240000 109220000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -142240000 93980000 11 0 0 0 0
+    vtx: 2 -149860000 106680000 11 0 0 0 0
+  connect: 3 2 1 1 0
+    vtx: 1 -141351000 82346800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -148971000 79806800 11 0 0 0 0
+  connect: 4 5 2 1 0
+    vtx: 1 -149860000 106680000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -141351000 82346800 11 0 0 0 0
+  connect: 5 7 4 1 0
+    vtx: 1 -60960000 109220000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -60960000 76200000 11 0 0 0 0
+  connect: 6 8 7 1 0
+    vtx: 1 -22860000 109220000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -60960000 109220000 11 0 0 0 0
+  connect: 7 3 2 1 0
+    vtx: 1 -68580000 73660000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -141351000 82346800 11 0 0 0 0
+  connect: 8 8 0 1 0
+    vtx: 1 -22860000 109220000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 55041800 65201800 11 0 0 0 0
 
 net: "$G_Vss" 10 9 0 0 0 0 1
   pin: 1 V$XX11$Vss.2
@@ -588,59 +615,21 @@ net: "$G_Vss" 10 9 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 55041800 55041800 11 0 0 0 0
 
-net: "$G_Vdd" 9 8 0 0 0 0 1
-  pin: 1 V$XX11$Vdd.1
-  pin: 2 X_IC_0_CD4007.2
-  pin: 3 X_IC_0_CD4007.14
-  pin: 4 X_IC_1_CD4007.2
-  pin: 5 X_IC_1_CD4007.14
-  pin: 6 X_IC_2_CD4007.2
-  pin: 7 X_IC_2_CD4007.14
-  pin: 8 X_IC_3_CD4007.14
-  pin: 9 X_IC_7_CD4016.14
-  connect: 1 4 3 1 0
-    vtx: 1 -60960000 76200000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -68580000 73660000 11 0 0 0 0
-  connect: 2 6 5 1 0
-    vtx: 1 -142240000 109220000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -149860000 106680000 11 0 0 0 0
-  connect: 3 2 1 1 0
-    vtx: 1 -141351000 82346800 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -148971000 79806800 11 0 0 0 0
-  connect: 4 5 2 1 0
-    vtx: 1 -149860000 106680000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -141351000 82346800 11 0 0 0 0
-  connect: 5 7 4 1 0
-    vtx: 1 -60960000 109220000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -60960000 76200000 11 0 0 0 0
-  connect: 6 8 7 1 0
-    vtx: 1 -22860000 109220000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -60960000 109220000 11 0 0 0 0
-  connect: 7 3 2 1 0
-    vtx: 1 -68580000 73660000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -141351000 82346800 11 0 0 0 0
-  connect: 8 8 0 1 0
-    vtx: 1 -22860000 109220000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 55041800 65201800 11 0 0 0 0
-
-net: "N$X$XX1$XXdecoder$XX0tnand$XX1$NP" 1 0 0 0 0 0 1
-  pin: 1 RX$XX1$XXdecoder$XX0tnand$XX1$RP.1
-
-net: "X$XX1$XXdecoder$XX0tnand$XX1$NN" 2 1 0 0 0 0 1
-  pin: 1 X_IC_3_CD4007.5
-  pin: 2 X_IC_3_CD4007.8
+net: "XX1$XXdecoder$XX0sti$NTI_Out" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007.8
+  pin: 2 RX$XX1$XXdecoder$XX0sti$Xinv$RN.2
   connect: 1 1 0 1 0
-    vtx: 1 -60960000 93980000 11 0 0 0 0
+    vtx: 1 -3937000 70027800 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -68580000 99060000 11 0 0 0 0
+    vtx: 2 -142240000 93980000 11 0 0 0 0
+
+net: "XX1$XXdecoder$XX0pti$NTI_Out" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007.5
+  pin: 2 RX$XX1$XXdecoder$XX0pti$Xinv$RN.2
+  connect: 1 1 0 1 0
+    vtx: 1 -3937000 54787800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -68580000 66040000 11 0 0 0 0
 
 net: "XX1$XXdecoder$N0sti" 3 2 0 0 0 0 1
   pin: 1 X_IC_3_CD4007.3
@@ -655,6 +644,17 @@ net: "XX1$XXdecoder$N0sti" 3 2 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 -68580000 104140000 11 0 0 0 0
 
+net: "X$XX1$XXdecoder$XX0tnand$XX1$NN" 2 1 0 0 0 0 1
+  pin: 1 X_IC_3_CD4007.5
+  pin: 2 X_IC_3_CD4007.8
+  connect: 1 1 0 1 0
+    vtx: 1 -60960000 93980000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -68580000 99060000 11 0 0 0 0
+
+net: "N$X$XX1$XXdecoder$XX0tnand$XX1$NP" 1 0 0 0 0 0 1
+  pin: 1 RX$XX1$XXdecoder$XX0tnand$XX1$RP.1
+
 net: "XX1$XXdecoder$XX0sti$PTI_Out" 2 1 0 0 0 0 1
   pin: 1 X_IC_2_CD4007.13
   pin: 2 RX$XX1$XXdecoder$XX0sti$Xinv$RP.1
@@ -663,6 +663,9 @@ net: "XX1$XXdecoder$XX0sti$PTI_Out" 2 1 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 -142240000 106680000 11 0 0 0 0
 
+net: "X$XX1$XXdecoder$XX0tnand$XX1$NP" 1 0 0 0 0 0 1
+  pin: 1 X_IC_3_CD4007.1
+
 net: "XX1$XXdecoder$XX0pti$STI_Out" 2 1 0 0 0 0 1
   pin: 1 RX$XX1$XXdecoder$XX0pti$Xinv$RP.2
   pin: 2 RX$XX1$XXdecoder$XX0pti$Xinv$RN.1
@@ -670,48 +673,6 @@ net: "XX1$XXdecoder$XX0pti$STI_Out" 2 1 0 0 0 0 1
     vtx: 1 -16637000 54787800 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 -3937000 47167800 11 0 0 0 0
-
-net: "X$XX1$XXdecoder$XX0tnand$XX1$NP" 1 0 0 0 0 0 1
-  pin: 1 X_IC_3_CD4007.1
-
-net: "XX1$CTRL_A" 3 2 0 0 0 0 1
-  pin: 1 X_IC_1_CD4007.8
-  pin: 2 X_IC_7_CD4016.13
-  pin: 3 RX$XX1$XXdecoder$XXinti$Xinv$RN.2
-  connect: 1 1 0 1 0
-    vtx: 1 -22860000 106680000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -60960000 60960000 11 0 0 0 0
-  connect: 2 2 0 1 0
-    vtx: 1 -3937000 39547800 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -60960000 60960000 11 0 0 0 0
-
-net: "XX1$XXdecoder$XX0tnand$P001" 3 2 0 0 0 0 1
-  pin: 1 X_IC_2_CD4007.3
-  pin: 2 RX$XX1$XXdecoder$XX0tnand$XX1$RP.2
-  pin: 3 RX$XX1$XXdecoder$XX0tnand$XX1$RN.1
-  connect: 1 2 1 1 0
-    vtx: 1 -16637000 85267800 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -3937000 77647800 11 0 0 0 0
-  connect: 2 2 0 1 0
-    vtx: 1 -16637000 85267800 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -149860000 104140000 11 0 0 0 0
-
-net: "XX1$XXdecoder$N0tnand" 3 2 0 0 0 0 1
-  pin: 1 X_IC_1_CD4007.3
-  pin: 2 RX$XX1$XXdecoder$XX0tnand$XX2$Xinv$RP.2
-  pin: 3 RX$XX1$XXdecoder$XX0tnand$XX2$Xinv$RN.1
-  connect: 1 2 1 1 0
-    vtx: 1 -16637000 100507800 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -3937000 92887800 11 0 0 0 0
-  connect: 2 2 0 1 0
-    vtx: 1 -16637000 100507800 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -68580000 71120000 11 0 0 0 0
 
 net: "Q" 3 2 0 0 0 0 1
   pin: 1 X_IC_7_CD4016.2
@@ -726,47 +687,44 @@ net: "Q" 3 2 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 -30480000 104140000 11 0 0 0 0
 
-net: "XX1$XXdecoder$XX0tnand$XX2$NTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_2_CD4007.5
-  pin: 2 RX$XX1$XXdecoder$XX0tnand$XX2$Xinv$RN.2
-  connect: 1 1 0 1 0
-    vtx: 1 -3937000 100507800 11 0 0 0 0
+net: "XX1$XXdecoder$N0tnand" 3 2 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007.3
+  pin: 2 RX$XX1$XXdecoder$XX0tnand$XX2$Xinv$RP.2
+  pin: 3 RX$XX1$XXdecoder$XX0tnand$XX2$Xinv$RN.1
+  connect: 1 2 1 1 0
+    vtx: 1 -16637000 100507800 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -149860000 99060000 11 0 0 0 0
+    vtx: 2 -3937000 92887800 11 0 0 0 0
+  connect: 2 2 0 1 0
+    vtx: 1 -16637000 100507800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -68580000 71120000 11 0 0 0 0
 
-net: "XX1$XXdecoder$N1" 3 2 0 0 0 0 1
-  pin: 1 X_IC_0_CD4007.3
-  pin: 2 X_IC_0_CD4007.13
-  pin: 3 RX$XX1$XXdecoder$XX1pti1$Xinv$RP.1
-  connect: 1 1 0 1 0
-    vtx: 1 -141351000 79806800 11 0 0 0 0
+net: "XX1$XXdecoder$XX0tnand$P001" 3 2 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007.3
+  pin: 2 RX$XX1$XXdecoder$XX0tnand$XX1$RP.2
+  pin: 3 RX$XX1$XXdecoder$XX0tnand$XX1$RN.1
+  connect: 1 2 1 1 0
+    vtx: 1 -16637000 85267800 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -148971000 77266800 11 0 0 0 0
-  connect: 2 2 1 1 0
-    vtx: 1 -16637000 1447800 11 0 0 0 0
+    vtx: 2 -3937000 77647800 11 0 0 0 0
+  connect: 2 2 0 1 0
+    vtx: 1 -16637000 85267800 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -141351000 79806800 11 0 0 0 0
+    vtx: 2 -149860000 104140000 11 0 0 0 0
 
-net: "XX1$CTRL_B" 3 2 0 0 0 0 1
-  pin: 1 X_IC_1_CD4007.1
-  pin: 2 X_IC_7_CD4016.6
-  pin: 3 RX$XX1$XXdecoder$XX0pti$Xinv$RP.1
+net: "XX1$CTRL_A" 3 2 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007.8
+  pin: 2 X_IC_7_CD4016.13
+  pin: 3 RX$XX1$XXdecoder$XXinti$Xinv$RN.2
   connect: 1 1 0 1 0
-    vtx: 1 -30480000 96520000 11 0 0 0 0
+    vtx: 1 -22860000 106680000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -68580000 76200000 11 0 0 0 0
-  connect: 2 2 1 1 0
-    vtx: 1 -16637000 47167800 11 0 0 0 0
+    vtx: 2 -60960000 60960000 11 0 0 0 0
+  connect: 2 2 0 1 0
+    vtx: 1 -3937000 39547800 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -30480000 96520000 11 0 0 0 0
-
-net: "A" 2 1 0 0 0 0 1
-  pin: 1 V1.1
-  pin: 2 X_IC_7_CD4016.1
-  connect: 1 1 0 1 0
-    vtx: 1 -30480000 109220000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 55041800 95681800 11 0 0 0 0
+    vtx: 2 -60960000 60960000 11 0 0 0 0
 
 net: "0" 6 5 0 0 0 0 1
   pin: 1 V1.2
@@ -796,26 +754,55 @@ net: "0" 6 5 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 55041800 77901800 11 0 0 0 0
 
-net: "XX1$CTRL_C" 3 2 0 0 0 0 1
-  pin: 1 X_IC_0_CD4007.1
-  pin: 2 X_IC_7_CD4016.5
-  pin: 3 RX$XX1$XXdecoder$XX1pti2$Xinv$RP.1
-  connect: 1 2 1 1 0
-    vtx: 1 -16637000 16687800 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -30480000 99060000 11 0 0 0 0
-  connect: 2 1 0 1 0
-    vtx: 1 -30480000 99060000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 -148971000 82346800 11 0 0 0 0
-
-net: "XX1$XXdecoder$XX0tnand$XX2$PTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_2_CD4007.1
-  pin: 2 RX$XX1$XXdecoder$XX0tnand$XX2$Xinv$RP.1
+net: "A" 2 1 0 0 0 0 1
+  pin: 1 V1.1
+  pin: 2 X_IC_7_CD4016.1
   connect: 1 1 0 1 0
-    vtx: 1 -16637000 92887800 11 0 0 0 0
+    vtx: 1 -30480000 109220000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -149860000 109220000 11 0 0 0 0
+    vtx: 2 55041800 95681800 11 0 0 0 0
+
+net: "XX1$CTRL_B" 3 2 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007.1
+  pin: 2 X_IC_7_CD4016.6
+  pin: 3 RX$XX1$XXdecoder$XX0pti$Xinv$RP.1
+  connect: 1 1 0 1 0
+    vtx: 1 -30480000 96520000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -68580000 76200000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 -16637000 47167800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -30480000 96520000 11 0 0 0 0
+
+net: "XX1$XXdecoder$N1" 3 2 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007.3
+  pin: 2 X_IC_0_CD4007.13
+  pin: 3 RX$XX1$XXdecoder$XX1pti1$Xinv$RP.1
+  connect: 1 1 0 1 0
+    vtx: 1 -141351000 79806800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -148971000 77266800 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 -16637000 1447800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -141351000 79806800 11 0 0 0 0
+
+net: "XX1$XXdecoder$XX0tnand$XX2$NTI_Out" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007.5
+  pin: 2 RX$XX1$XXdecoder$XX0tnand$XX2$Xinv$RN.2
+  connect: 1 1 0 1 0
+    vtx: 1 -3937000 100507800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -149860000 99060000 11 0 0 0 0
+
+net: "B" 2 1 0 0 0 0 1
+  pin: 1 V2.1
+  pin: 2 X_IC_7_CD4016.8
+  connect: 1 1 0 1 0
+    vtx: 1 -22860000 93980000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 55041800 88061800 11 0 0 0 0
 
 net: "S" 5 4 0 0 0 0 1
   pin: 1 V4.1
@@ -840,21 +827,26 @@ net: "S" 5 4 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 55041800 72821800 11 0 0 0 0
 
-net: "B" 2 1 0 0 0 0 1
-  pin: 1 V2.1
-  pin: 2 X_IC_7_CD4016.8
+net: "XX1$XXdecoder$XX0tnand$XX2$PTI_Out" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007.1
+  pin: 2 RX$XX1$XXdecoder$XX0tnand$XX2$Xinv$RP.1
   connect: 1 1 0 1 0
-    vtx: 1 -22860000 93980000 11 0 0 0 0
+    vtx: 1 -16637000 92887800 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 55041800 88061800 11 0 0 0 0
+    vtx: 2 -149860000 109220000 11 0 0 0 0
 
-net: "XX1$XXdecoder$XX1pti2$NTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_0_CD4007.5
-  pin: 2 RX$XX1$XXdecoder$XX1pti2$Xinv$RN.2
-  connect: 1 1 0 1 0
-    vtx: 1 -3937000 24307800 11 0 0 0 0
+net: "XX1$CTRL_C" 3 2 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007.1
+  pin: 2 X_IC_7_CD4016.5
+  pin: 3 RX$XX1$XXdecoder$XX1pti2$Xinv$RP.1
+  connect: 1 2 1 1 0
+    vtx: 1 -16637000 16687800 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 -148971000 72186800 11 0 0 0 0
+    vtx: 2 -30480000 99060000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 -30480000 99060000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -148971000 82346800 11 0 0 0 0
 
 net: "C" 2 1 0 0 0 0 1
   pin: 1 V3.1
@@ -863,6 +855,14 @@ net: "C" 2 1 0 0 0 0 1
     vtx: 1 -30480000 101600000 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 55041800 80441800 11 0 0 0 0
+
+net: "XX1$XXdecoder$XX1pti2$NTI_Out" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007.5
+  pin: 2 RX$XX1$XXdecoder$XX1pti2$Xinv$RN.2
+  connect: 1 1 0 1 0
+    vtx: 1 -3937000 24307800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -148971000 72186800 11 0 0 0 0
 
 [texts]
 
