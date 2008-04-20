@@ -1,0 +1,13 @@
+00flat to 11top test subcircuit flattening.
+
+Run with:
+
+    python ../bb.py -t
+
+Files:
+*.in - SPICE input deck, likely hierarchical
+*.exp - expected flatten SPICE deck
+*.act - actual SPICE deck, should match *.exp
+
+Jeff Connelly
+2008-04-20
