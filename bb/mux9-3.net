@@ -1,0 +1,70 @@
+* Z:\trinary\code\circuits\mux9-3.asc
+XX1 IiA I0A I1A S QA mux3-1
+XX2 IiB I0B I1B S QB mux3-1
+XX3 IiC I0C I1C S QC mux3-1
+
+* block symbol definitions
+.subckt mux3-1 A B C S Q
+XXtgA A Q CTRL_A tg
+XXtgC C Q CTRL_C tg
+XXtgB B Q CTRL_B tg
+XXdecoder S CTRL_A CTRL_B CTRL_C decoder3-1
+.ends mux3-1
+
+.subckt tg IN_OUT OUT_IN CONTROL
+M1 OUT_IN _C IN_OUT $G_Vdd CD4007P
+M2 IN_OUT C OUT_IN $G_Vss CD4007N
+M3 $G_Vdd CONTROL _C $G_Vdd CD4007P
+M4 _C CONTROL $G_Vss $G_Vss CD4007N
+M5 $G_Vdd _C C $G_Vdd CD4007P
+M6 C _C $G_Vss $G_Vss CD4007N
+.ends tg
+
+.subckt decoder3-1 IN OUT_i OUT_0 OUT_1
+XX1pti1 IN N1 pti
+XX1pti2 N1 OUT_1 pti
+XXinti IN OUT_i nti
+XX0pti N0tnand OUT_0 pti
+XX0sti IN N0sti sti
+XX0tnand IN N0sti N0tnand max
+.ends decoder3-1
+
+.subckt pti IN OUT
+Xinv IN OUT NC_01 NC_02 tinv
+.ends pti
+
+.subckt nti IN OUT
+Xinv IN NC_01 NC_02 OUT tinv
+.ends nti
+
+.subckt sti IN OUT
+Xinv IN NC_01 OUT NC_02 tinv
+.ends sti
+
+.subckt max A B MAX_OUT
+XX1 A B P001 tnor
+XX2 P001 MAX_OUT sti
+.ends max
+
+.subckt tinv Vin PTI_Out STI_Out NTI_Out
+RP PTI_Out STI_Out 12k
+RN STI_Out NTI_Out 12k
+MN NTI_Out Vin $G_Vss $G_Vss CD4007N
+MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
+.ends tinv
+
+.subckt tnor A B TNOR_Out
+RP NP TNOR_Out 12k
+RN TNOR_Out NN 12k
+MN1 NN A $G_Vss $G_Vss CD4007N
+MP2 NI A $G_Vdd $G_Vdd CD4007P
+MN2 NN B $G_Vss $G_Vss CD4007N
+MP1 NI B NP $G_Vdd CD4007P
+.ends tnor
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\PROGRA~1\LTC\SwCADIII\lib\cmp\standard.mos
+* 9:3 multiplexer\nSelect from one of three groups of 3 trits
+.backanno
+.end

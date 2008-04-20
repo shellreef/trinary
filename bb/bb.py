@@ -635,6 +635,16 @@ def main():
             ("CD4007", get_floating(14) ),
             ("CD4007", get_floating(14) ),
             ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
+            ("CD4007", get_floating(14) ),
+            ("CD4016", get_floating(14) ),
+            ("CD4016", get_floating(14) ),
             ("CD4016", get_floating(14) ),
             ]
 
