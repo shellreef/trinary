@@ -13,10 +13,10 @@ Vss 0 Vss 5V
 .ends tpower
 
 .subckt mux3-1 A B C S Q
-XX1 A Q N001 tg
-XX3 C Q N002 tg
-XX2 B Q N003 tg
-XX4 S N001 N003 N002 decoder3-1
+XXtgA A Q CTRL_A tg
+XXtgC C Q CTRL_C tg
+XXtgB B Q CTRL_B tg
+XXdecoder S CTRL_A CTRL_B CTRL_C decoder3-1
 .ends mux3-1
 
 .subckt tg IN_OUT OUT_IN CONTROL
@@ -29,12 +29,12 @@ M6 C _C $G_Vss $G_Vss CD4007N
 .ends tg
 
 .subckt decoder3-1 IN OUT_i OUT_0 OUT_1
-XX5 IN N003 pti
-XX6 N003 OUT_1 pti
-XX1 IN OUT_i nti
-XX4 N001 OUT_0 pti
-XX2 IN N002 sti
-XX3 IN N002 N001 max
+XX1pti1 IN N1 pti
+XX1pti2 N1 OUT_1 pti
+XXinti IN OUT_i nti
+XX0pti N0tnand OUT_0 pti
+XX0sti IN N0sti sti
+XX0tnand IN N0sti N0tnand max
 .ends decoder3-1
 
 .subckt pti IN OUT
