@@ -264,16 +264,16 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
 
         new_words.append(name)
 
+        args = words[1:-1]
+        model_name = words[-1]
+
         # Replace internal nodes with external nodes.
-        for w in words[1:]:
+        for w in args:
             if w in external_nodes.keys():
                 new_words.append(external_nodes[w])
             elif is_floating(w):
                 # TODO ???
                 new_words.append(get_floating())
-            elif w[0].isdigit():   # value XXX TODO: won't map numeric nodes correctly, if they make it here?
-                raise "Word %s begins with digit, not sure if this works. Check the code." % (w,)
-                new_words.append(w)
             else:
                 if not internal_only_nodes.has_key(w):
                     internal_only_nodes[w] = "%s$%s$%s" % (w[0], refdesg, w)
@@ -281,6 +281,8 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
 
                 # TODO: comment this out, if the above works
                 #raise "Could not map argument '%s' in subcircuit line %s, not found in %s" % (w, line, external_nodes)
+
+        new_words.append(model_name)
 
         extra.append(" ".join(new_words))
 
