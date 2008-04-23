@@ -39,3 +39,9 @@ def get_expr(desired):
     end = Trits.Trits(desired)
     crnt = Trits.Trits("i01")
     functions = []
+
+# use a.pop() to remove last item from list
+# check for a max depth of 3 functions to apply to get desired behavior
+# check for inverted and non-inverted input signal
+# make recursive function that iterates through functions, rtns true when
+#  desired function is found
