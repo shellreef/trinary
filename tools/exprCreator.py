@@ -23,6 +23,11 @@ ru_t  = Trits.Trits("01i")
 rd_t  = Trits.Trits("1i0")
 inv_t = Trits.Trits("10i")
 
+buf_t = Trits.Trits("i01")
+ci_t  = Trits.Trits("iii")
+c0_t  = Trits.Trits("000")
+c1_t  = Trits.Trits("111")
+
 basic_funcs = {"sd":sd, "su":su, "s01":s01, "si0":si0, "ru":ru, "rd":rd, "inv":inv}
 basic_f_t = {"sd":sd_t, "su":su_t, "s01":s01_t, "si0":si0_t, "ru":ru_t, "rd":rd_t, "inv":inv_t}
 
