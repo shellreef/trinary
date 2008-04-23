@@ -54,6 +54,17 @@ class Trits(object):
      def __len__(self):
           return len(self.trits)
 
+     def equals(self, y):
+          if len(self) != len(y):
+               return False
+
+          for i in range(0, len(self)):
+               if self[i] != y[i]:
+                    return False
+
+          return True
+
+
 if __name__ == "__main__":
      ts = Trits("iiii1i01i1110000")
      print "Trit vector:", ts
