@@ -14,7 +14,7 @@ footprint_map = {
         "CD4016": "14DIP300",
         "R": "RC07",             # 1/4 resistor
         "V": "1X2HDR-100",
-        "sp3t-trit": "SS14MDP2", # NKK switch
+        "sp3t": "SS14MDP2",      # NKK switch
         }
 
 #naked_node_footprint = "HOLE_100_RND_200"
