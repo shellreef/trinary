@@ -21,8 +21,9 @@ import os
 PROGRAM_NAME = "bb.py"
 
 # Subcircuits to map that should be mapped physical ICs
-SUBCIRCUITS_TO_MAP = ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3')
-SUBCIRCUITS_CAN_MAP = ('tg', 'tinv', 'tnor', 'tnand')        # subcircuits we actually can map, as of yet
+SUBCIRCUITS_TO_MAP = ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3', 'sp3t-trit')
+SUBCIRCUITS_CAN_MAP = ('tg', 'tinv', 'tnor', 'tnand')        # subcircuits we actually can map to ICs, as of yet
+SUBCIRCUITS_PASS = ('sp3t-trit')                 # pass unchanged
 
 def combine_dicts(dict1, dict2):
     """Combine two dictionaries; dict2 takes priority over dict1."""
@@ -665,6 +666,8 @@ def main():
                 nodes = make_node_mapping(subckt_nodes[model], args)
                 #print nodes
                 chips, extra = assign_part(chips, subckt_defns, extra, model, nodes, refdesg)
+            elif model in SUBCIRCUITS_PASS:
+                print line
             else:
                 raise "Cannot synthesize model: %s, line: %s" % (model, line)
         else:
