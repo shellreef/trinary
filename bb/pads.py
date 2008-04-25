@@ -17,8 +17,23 @@ footprint_map = {
         "sp3t": "SS14MDP2",      # NKK switch
         }
 
+# TODO: remove these limitations on FreePCB, so that
+# use_short_names and break_long_lines can be turned off!
+
+# If true, reference designators and node names will be assigned
+# sequentially, instead of using their hierarchical name
+# from the net2 file. Some PCB programs have length limits
+# on reference designators (FreePCB).
+use_short_names = True
+
+# Split long nets over multiple lines.
+break_long_lines = True
+
+# If not false, nodes with only one connection will have a
+# testpoint attached, using the given footprint.
 #naked_node_footprint = "HOLE_100_RND_200"
 naked_node_footprint = None
+
 
 def usage():
     print """usage: %s input-filename [output-filename]
@@ -32,6 +47,46 @@ with a .pads extension instead of .net2, or .pads appended.
 Either filenames can be "-" for stdin or stdout, respectively.
 """ % (PROGRAM_NAME, )
     raise SystemExit 
+
+long2short = {
+         # Names to preserve, if use_short_names is True.
+         # Would be nice to preserve all/more net names, but
+         # some are just too long and hierarchical.
+        "$G_Vss": "$G_Vss",
+        "$G_Vdd": "$G_Vdd",
+        "0": "0",
+        }
+next_serial = { 
+        "R": 1, 
+        "N": 1, 
+        "X": 1,
+        }
+def shorten(long, is_netname):
+    if not use_short_names:
+        return long
+
+    if long.startswith("X_IC_"):
+        # Short enough
+        return long
+
+    # Resistors are what you have to watch our for
+    if long2short.has_key(long):
+        short = long2short[long]
+    else:
+        # id = first letter, 'R', etc.
+        # Net names get a prefix of "N"
+        if is_netname:
+            id = "N"
+        else:
+            id = long[0]
+
+
+        #sys.stderr.write("%s\n" % (long,))
+        short = "%s%d" % (id, next_serial[id])
+        long2short[long] = short
+        next_serial[id] += 1
+
+    return short
 
 if len(sys.argv) < 2:
     usage()
@@ -65,7 +120,10 @@ for line in infile.readlines():
         continue
 
     words = line.split()
-    refdesg = words[0]
+    long_refdesg = words[0]
+
+    refdesg = shorten(long_refdesg, is_netname=False)
+
     args = words[1:-1]
     if refdesg[0] == 'V':
         # Voltage sources only have two pins, other arguments
@@ -74,12 +132,15 @@ for line in infile.readlines():
         args = [args[0], args[1]]
 
     # Make nets list
-    for i, arg in enumerate(args):
-        if arg.startswith("NC_"):
+    for i, long_arg in enumerate(args):
+        if long_arg.startswith("NC_"):
             continue
 
         #if arg == "0":
         #    arg = "GND"
+   
+        #sys.stderr.write("-> %s" % (line,))
+        arg = shorten(long_arg, is_netname=True)
 
         if arg not in nets.keys():
             nets[arg] = []
@@ -112,10 +173,22 @@ if naked_node_footprint:
             nets[signal_name].append(testpoint)
 
 
+# Dump all nets
 print "*NET*"
 for signal, pins in nets.iteritems():
     print "*SIGNAL* %s" % (signal,)
-    print " ".join(pins)
+    if break_long_lines:
+        i = 0
+        for p in pins:
+            print p,
+            # Break lines every so many pins
+            # (would be nice if didn't have to do this)
+            if i % 5 == 0:
+                print
+            i += 1
+        print
+    else:
+        print " ".join(pins)
 
 # Print a newline at the end for picky layout programs (ExpressPCB)
 print
