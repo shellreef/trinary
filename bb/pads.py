@@ -48,6 +48,11 @@ Either filenames can be "-" for stdin or stdout, respectively.
 """ % (PROGRAM_NAME, )
     raise SystemExit 
 
+# MAX_NET_NAME_SIZE and FMAX_PIN_NAME_SIZE from 
+# svn://svn.berlios.de/freepcb/trunk/Shape.h and Netlist.h
+# (TODO: remove these arbitrary limits in FreePCB)
+MAX_SIZE = 39
+
 long2short = {
          # Names to preserve, if use_short_names is True.
          # Would be nice to preserve all/more net names, but
@@ -58,15 +63,15 @@ long2short = {
         }
 next_serial = { 
         "R": 1, 
-        "N": 1, 
+        "NX": 1, 
         "X": 1,
         }
 def shorten(long, is_netname):
     if not use_short_names:
         return long
 
-    if long.startswith("X_IC_"):
-        # Short enough
+    if len(long) <= MAX_SIZE:
+        # We got away with it this time.
         return long
 
     # Resistors are what you have to watch our for
@@ -74,9 +79,10 @@ def shorten(long, is_netname):
         short = long2short[long]
     else:
         # id = first letter, 'R', etc.
-        # Net names get a prefix of "N"
+        # Net names get a prefix of "NX" (for node extended;
+        # the name was too long so it was shortened)
         if is_netname:
-            id = "N"
+            id = "NX"
         else:
             id = long[0]
 
