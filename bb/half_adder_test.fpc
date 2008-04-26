@@ -5,7 +5,7 @@ file_version: 1.332
 project_name: "test"
 full_library_folder: "c:\program files\freepcb\lib"
 CAM_folder: ""
-ses_file_path: ""
+ses_file_path: "Z:\trinary\code\bb\half_adder_test.ses"
 SMT_connect_copper: "0"
 dsn_flags: "0"
 dsn_bounds_poly: "0"
