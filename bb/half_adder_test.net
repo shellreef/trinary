@@ -1,0 +1,121 @@
+* Z:\trinary\code\circuits\half_adder_test.asc
+XX1 $G_Vdd $G_Vss tpower
+VA A 0 PWL file=INPUT_A.txt
+VB B 0 PWL file=INPUT_B.txt
+XXadder A C S B half_adder
+
+* block symbol definitions
+.subckt tpower Vdd Vss
+Vdd Vdd 0 5V
+Vss 0 Vss 5V
+.ends tpower
+
+.subckt half_adder A C S B
+XXmux_carry1 N001 0 N002 B C mux3-1
+XXmux_sum1 N003 A N004 B S mux3-1
+XXcd A N003 tcycle_down
+XXsu A N004 shift_up
+XXrd A N001 rd
+XXfd A N002 fd
+.ends half_adder
+
+.subckt mux3-1 A B C S Q
+XXtgA A Q CTRL_A tg
+XXtgC C Q CTRL_C tg
+XXtgB B Q CTRL_B tg
+XXdecoder S CTRL_A CTRL_B CTRL_C decoder3-1
+.ends mux3-1
+
+.subckt tcycle_down IN OUT
+XXtnand1 _IN_PTI INI OUT tnand
+XXtnand0 _IN_NTI 0 INI tnand
+XXnti _IN _IN_NTI nti
+XXpti _IN _IN_PTI pti
+XXsti IN _IN sti
+.ends tcycle_down
+
+.subckt shift_up IN OUT
+D§Xrd N002 N001 1N4148
+XXsti N002 OUT sti
+XXnti IN N001 nti
+Rrd N002 0 10Meg
+.ends shift_up
+
+.subckt rd IN OUT
+Drd OUT IN D
+Rrd OUT 0 10Meg
+.ends rd
+
+.subckt fd IN OUT
+Dfd IN OUT D
+Rfd OUT 0 10Meg
+.ends fd
+
+.subckt tg IN_OUT OUT_IN CONTROL
+M1 OUT_IN _C IN_OUT $G_Vdd CD4007P
+M2 IN_OUT C OUT_IN $G_Vss CD4007N
+M3 $G_Vdd CONTROL _C $G_Vdd CD4007P
+M4 _C CONTROL $G_Vss $G_Vss CD4007N
+M5 $G_Vdd _C C $G_Vdd CD4007P
+M6 C _C $G_Vss $G_Vss CD4007N
+.ends tg
+
+.subckt decoder3-1 IN OUT_i OUT_0 OUT_1
+XXPpti1 IN NP pti
+XXPpti2 NP OUT_1 pti
+XXintN IN OUT_i nti
+XXZpti NZtnand OUT_0 pti
+XXZsti IN NZsti sti
+XXZtnand IN NZsti NZtnand max
+.ends decoder3-1
+
+.subckt tnand A B TNAND_Out
+RP NP TNAND_Out 12k
+RN TNAND_Out NN 12k
+MP1 NP B $G_Vdd $G_Vdd CD4007P
+MP2 NP A $G_Vdd $G_Vdd CD4007P
+MN2 NI B $G_Vss $G_Vss CD4007N
+MN1 NN A NI $G_Vss CD4007N
+.ends tnand
+
+.subckt nti IN OUT
+Xinv IN NC_01 NC_02 OUT tinv
+.ends nti
+
+.subckt pti IN OUT
+Xinv IN OUT NC_01 NC_02 tinv
+.ends pti
+
+.subckt sti IN OUT
+XXinv IN NC_01 OUT NC_02 tinv
+.ends sti
+
+.subckt max A B MAX_OUT
+XXtnor A B AtnorB tnor
+XXsti_tor AtnorB MAX_OUT sti
+.ends max
+
+.subckt tinv Vin PTI_Out STI_Out NTI_Out
+RP PTI_Out STI_Out 12k
+RN STI_Out NTI_Out 12k
+MN NTI_Out Vin $G_Vss $G_Vss CD4007N
+MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
+.ends tinv
+
+.subckt tnor A B TNOR_Out
+RP NP TNOR_Out 12k
+RN TNOR_Out NN 12k
+MN1 NN A $G_Vss $G_Vss CD4007N
+MP2 NI A $G_Vdd $G_Vdd CD4007P
+MN2 NN B $G_Vss $G_Vss CD4007N
+MP1 NI B NP $G_Vdd CD4007P
+.ends tnor
+
+.model D D
+.lib C:\PROGRA~1\LTC\SwCADIII\lib\cmp\standard.dio
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\PROGRA~1\LTC\SwCADIII\lib\cmp\standard.mos
+.tran 540e-9
+.backanno
+.end

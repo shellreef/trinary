@@ -15,6 +15,8 @@ footprint_map = {
         "R": "RC07",             # 1/4 resistor
         "V": "1X2HDR-100",
         "sp3t": "SS14MDP2",      # NKK switch
+        #"1N4148": "DO-35",       # Diode
+        "D": "DO-35",           # All diodes (note: should really be specific!)
         }
 
 # TODO: remove these limitations on FreePCB, so that
