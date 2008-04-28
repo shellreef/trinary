@@ -1,0 +1,98 @@
+* Z:\trinary\code\circuits\swrom-blank.asc
+XXrom NiA NiB NiC N0A N0B N0C N1A N1B N1C ADDRESS D2 D1 D0 mux9-3
+XXiA NiA sp3t-trit
+XXiB NiB sp3t-trit
+XXiC NiC sp3t-trit
+XX0A N0A sp3t-trit
+XX0B N0B sp3t-trit
+XX0C N0C sp3t-trit
+XX1A N1A sp3t-trit
+XX1B N1B sp3t-trit
+XX1C N1C sp3t-trit
+XX1 $G_Vdd $G_Vss tpower
+
+* block symbol definitions
+.subckt mux9-3 IiA IiB IiC I0A I0B I0C I1A I1B I1C S QC QB QA
+XXmux1 IiA I0A I1A S QA mux3-1
+XXmux2 IiB I0B I1B S QB mux3-1
+XXmux3 IiC I0C I1C S QC mux3-1
+.ends mux9-3
+
+.subckt sp3t-trit COM
+XXsw $G_Vss 0 $G_Vdd COM sp3t
+.ends sp3t-trit
+
+.subckt tpower Vdd Vss
+Vdd Vdd 0 5V
+Vss 0 Vss 5V
+.ends tpower
+
+.subckt mux3-1 A B C S Q
+XXtgA A Q CTRL_A tg
+XXtgC C Q CTRL_C tg
+XXtgB B Q CTRL_B tg
+XXdecoder S CTRL_A CTRL_B CTRL_C decoder3-1
+.ends mux3-1
+
+.subckt sp3t 1 2 3 COM
+C1 1 COM 1pF
+C2 COM 2 1pF
+C3 COM 3 1pF
+.ends sp3t
+
+.subckt tg IN_OUT OUT_IN CONTROL
+M1 OUT_IN _C IN_OUT $G_Vdd CD4007P
+M2 IN_OUT C OUT_IN $G_Vss CD4007N
+M3 $G_Vdd CONTROL _C $G_Vdd CD4007P
+M4 _C CONTROL $G_Vss $G_Vss CD4007N
+M5 $G_Vdd _C C $G_Vdd CD4007P
+M6 C _C $G_Vss $G_Vss CD4007N
+.ends tg
+
+.subckt decoder3-1 IN OUT_i OUT_0 OUT_1
+XXPpti1 IN NP pti
+XXPpti2 NP OUT_1 pti
+XXintN IN OUT_i nti
+XXZpti NZtnand OUT_0 pti
+XXZsti IN NZsti sti
+XXZtnand IN NZsti NZtnand max
+.ends decoder3-1
+
+.subckt pti IN OUT
+Xinv IN OUT NC_01 NC_02 tinv
+.ends pti
+
+.subckt nti IN OUT
+Xinv IN NC_01 NC_02 OUT tinv
+.ends nti
+
+.subckt sti IN OUT
+XXinv IN NC_01 OUT NC_02 tinv
+.ends sti
+
+.subckt max A B MAX_OUT
+XXtnor A B AtnorB tnor
+XXsti_tor AtnorB MAX_OUT sti
+.ends max
+
+.subckt tinv Vin PTI_Out STI_Out NTI_Out
+RP PTI_Out STI_Out 12k
+RN STI_Out NTI_Out 12k
+MN NTI_Out Vin $G_Vss $G_Vss CD4007N
+MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
+.ends tinv
+
+.subckt tnor A B TNOR_Out
+RP NP TNOR_Out 12k
+RN TNOR_Out NN 12k
+MN1 NN A $G_Vss $G_Vss CD4007N
+MP2 NI A $G_Vdd $G_Vdd CD4007P
+MN2 NN B $G_Vss $G_Vss CD4007N
+MP1 NI B NP $G_Vdd CD4007P
+.ends tnor
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\PROGRA~1\LTC\SwCADIII\lib\cmp\standard.mos
+.backanno
+.end
