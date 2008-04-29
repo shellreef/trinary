@@ -34,7 +34,7 @@ visible_grid_spacing: 5080000.000000
   visible_grid_item: 50MM
   visible_grid_item: 100MM
 
-placement_grid_spacing: 5080000.000000
+placement_grid_spacing: 1270000.000000
   placement_grid_item: 10MIL
   placement_grid_item: 20MIL
   placement_grid_item: 25MIL
@@ -157,7 +157,7 @@ cam_space_x: 0
 cam_space_y: 0
 
 report_options: 0
-drc_check_unrouted: 0
+drc_check_unrouted: 1
 drc_trace_width: 254000
 drc_pad_pad: 254000
 drc_pad_trace: 254000
@@ -389,10 +389,10 @@ description: "NKK SP3T Switch"
 [board]
 
 outline: 4 0
-  corner: 1 25400000 111760000 0
-  corner: 2 172720000 111760000 0
-  corner: 3 172720000 -35560000 0
-  corner: 4 25400000 -35560000 0
+  corner: 1 24130000 114300000 0
+  corner: 2 173990000 114300000 0
+  corner: 3 173990000 -34290000 0
+  corner: 4 24130000 -34290000 0
 
 [solder_mask_cutouts]
 
