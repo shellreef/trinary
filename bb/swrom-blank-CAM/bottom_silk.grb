@@ -1,0 +1,102 @@
+G04 FreePCB version 1.343*
+G04 Z:\trinary\code\bb\swrom-blank-CAM\bottom_silk.grb*
+G04 bottom silk layer *
+G04 Scale: 100 percent, Rotated: No, Reflected: No *
+%FSLAX24Y24*%
+%MOIN*%
+%LNTop*%
+%ADD10C,0.005000*%
+G90*
+G70D02*
+
+G04 Step and Repeat for panelization *
+
+G04 ----------------------- Draw board outline (positive)*
+%LPD*%
+G54D10*
+G01X-29000Y31500D02*
+G01X-29000Y-29500D01*
+G04 end of side 1*
+G01X29500Y-29500D01*
+G04 end of side 2*
+G01X29500Y31500D01*
+G04 end of side 3*
+G01X-29000Y31500D01*
+
+G04 -------------- Draw Parts, Pads, Traces, Vias and Text (positive)*
+%LPD*%
+G04 Draw part X_IC_0_CD4007*
+G04 Draw part X_IC_1_CD4007*
+G04 Draw part X_IC_2_CD4007*
+G04 Draw part X_IC_3_CD4007*
+G04 Draw part X_IC_4_CD4007*
+G04 Draw part X_IC_5_CD4007*
+G04 Draw part X_IC_6_CD4007*
+G04 Draw part X_IC_7_CD4007*
+G04 Draw part X_IC_8_CD4007*
+G04 Draw part X_IC_9_CD4007*
+G04 Draw part X_IC_10_CD4007*
+G04 Draw part X_IC_11_CD4007*
+G04 Draw part X_IC_15_CD4016*
+G04 Draw part X_IC_16_CD4016*
+G04 Draw part X_IC_17_CD4016*
+G04 Draw part R1*
+G04 Draw part R2*
+G04 Draw part R3*
+G04 Draw part R4*
+G04 Draw part R5*
+G04 Draw part R6*
+G04 Draw part R7*
+G04 Draw part R8*
+G04 Draw part R9*
+G04 Draw part R10*
+G04 Draw part R11*
+G04 Draw part R12*
+G04 Draw part R13*
+G04 Draw part R14*
+G04 Draw part R15*
+G04 Draw part R16*
+G04 Draw part R17*
+G04 Draw part R18*
+G04 Draw part R19*
+G04 Draw part R20*
+G04 Draw part R21*
+G04 Draw part R22*
+G04 Draw part R23*
+G04 Draw part R24*
+G04 Draw part R25*
+G04 Draw part R26*
+G04 Draw part R27*
+G04 Draw part R28*
+G04 Draw part R29*
+G04 Draw part R30*
+G04 Draw part R31*
+G04 Draw part R32*
+G04 Draw part R33*
+G04 Draw part R34*
+G04 Draw part R35*
+G04 Draw part R36*
+G04 Draw part R37*
+G04 Draw part R38*
+G04 Draw part R39*
+G04 Draw part R40*
+G04 Draw part R41*
+G04 Draw part R42*
+G04 Draw part X$XXiA$XXsw*
+G04 Draw part X$XXiB$XXsw*
+G04 Draw part X$XXiC$XXsw*
+G04 Draw part X$XX0A$XXsw*
+G04 Draw part X$XX0B$XXsw*
+G04 Draw part X$XX0C$XXsw*
+G04 Draw part X$XX1A$XXsw*
+G04 Draw part X$XX1B$XXsw*
+G04 Draw part X$XX1C$XXsw*
+G04 Draw part V$XX1$Vdd*
+G04 Draw part V$XX1$Vss*
+G04 Draw part DATA_AND_ADDR*
+
+G04 Draw traces*
+
+G04 Draw Text*
+M00*
+M02*
