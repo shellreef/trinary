@@ -9,14 +9,6 @@
 import sys, os
 import Trits
 
-sd  = {"i":"i", "0":"i", "1":"0"}
-su  = {"i":"0", "0":"1", "1":"1"}
-s01 = {"i":"i", "0":"1", "1":"0"}
-si0 = {"i":"0", "0":"i", "1":"1"}
-ru  = {"i":"0", "0":"1", "1":"i"}
-rd  = {"i":"1", "0":"i", "1":"0"}
-inv = {"i":"1", "0":"0", "1":"i"}
-
 sd_t  = Trits.Trits("ii0")
 su_t  = Trits.Trits("011")
 s01_t = Trits.Trits("i10")
@@ -34,7 +26,6 @@ valid_chars = ("i", "0", "1")
 map_t = {False:0, None:1, True:2}
 map_str = {False:"i", None:"0", True:"1"}
 
-basic_funcs = {"sd":sd, "su":su, "s01":s01, "si0":si0, "ru":ru, "rd":rd, "inv":inv}
 basic_f_t = {"sd":sd_t, "su":su_t, "s01":s01_t, "si0":si0_t, "ru":ru_t, "rd":rd_t, "inv":inv_t}
 easy_f_t = {"buf":buf_t, "ci":ci_t, "c0":c0_t, "c1":c1_t}
 
@@ -178,13 +169,3 @@ if __name__ == "__main__":
     result, gates1, gates2, gates3 = get_dyatic("i0111000i")
     if result:
         print gates1, gates2, gates3
-
-# use a.pop() to remove last item from list
-# check for a max depth of 3 functions to apply to get desired behavior
-# check for inverted and non-inverted input signal
-# make recursive function that iterates through functions, rtns true when
-#  desired function is found
-
-# for i in basic_f_t:
-#  if basic_f_t[i].equals(a):
-#    print "Hi"
