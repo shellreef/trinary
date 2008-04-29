@@ -3,6 +3,8 @@
 # Created: April 22, 2008
 #
 # Expression creator
+#   Currently produces list of functions to apply.
+#   Todo: add utf support names and return string expression
 
 import sys, os
 import Trits
@@ -36,24 +38,44 @@ basic_funcs = {"sd":sd, "su":su, "s01":s01, "si0":si0, "ru":ru, "rd":rd, "inv":i
 basic_f_t = {"sd":sd_t, "su":su_t, "s01":s01_t, "si0":si0_t, "ru":ru_t, "rd":rd_t, "inv":inv_t}
 easy_f_t = {"buf":buf_t, "ci":ci_t, "c0":c0_t, "c1":c1_t}
 
-def eval_one(crnt, func):
-    ''' eval_one: the input given in crnt with function 'func'
-        crnt: Trits object as input
-        func: function to apply
-        return: Trist object containing result
+
+def get_dyatic(desired):
+    ''' get_dyatic: get expression for a dyatic function
+        desired: string representation of desired function
+        returns: Returns a tuple.  True or false (if function was not found).
+            A list of expressions for each unary function needed to build
+            the desired function.
     '''
 
-    next = ""
-    for i in range(0, 3):
-        next = next + map_str[basic_f_t[func][map_t[crnt[i]]]]
+    if len(desired) != 9:
+        print "truth table must be 9 chars wide"
+        raise SystemExit
 
-    return Trits.Trits(next)
+    for i in range(0, 9):
+        if not desired[i] in valid_chars:
+            print "%s not a valid character" % desired[i]
+            raise SystemExit
+
+    goal_1 = desired[0:3]
+    goal_2 = desired[3:6]
+    goal_3 = desired[6:9]
+
+    result_1, gates_1 = get_unary(goal_1)
+    result_2, gates_2 = get_unary(goal_2)
+    result_3, gates_3 = get_unary(goal_3)
+
+    if result_1 and result_2 and result_3:
+        return True, gates_1, gates_2, gates_3
+
+    return False, [], [], []
 
 
 def get_unary(desired):
     ''' get_unary: get expression for a unary function
         desired: string representation of desired function
-        returns: list of functions to apply to get the desired function
+        returns: Returns a tuple. True or false (if function was not found)
+            and a list of functions to apply to get the desired function.
+            The list is read from left to right.
     '''
 
     # do some input error checking
@@ -90,6 +112,7 @@ def recurse_unary(crnt, goal, l_gates, depth):
         goal: the desired function result
         l_gates: list of gates to apply to get to crnt
         count: the number of gate levels
+        returns: true and list of gates if goal is met, else false and []
     '''
 
     # check the basic gates for an answer
@@ -120,6 +143,7 @@ def test_all(crnt, goal, l_gates):
         crnt: the current evaluation of the function
         goal: the desired function result
         l_gates: list of gates currently applied to crnt
+        returns: true and list of gates if goal is met, else false and []
     '''
 
     for i in basic_f_t:
@@ -133,8 +157,27 @@ def test_all(crnt, goal, l_gates):
 
     return False, []
 
+def eval_one(crnt, func):
+    ''' eval_one: the input given in crnt with function 'func'
+        crnt: Trits object as input
+        func: function to apply
+        return: Trist object containing result
+    '''
+
+    next = ""
+    for i in range(0, 3):
+        next = next + map_str[basic_f_t[func][map_t[crnt[i]]]]
+
+    return Trits.Trits(next)
+
 if __name__ == "__main__":
-    print get_unary("11i")
+    result, gates = get_unary("11i")
+    if result:
+        print gates
+
+    result, gates1, gates2, gates3 = get_dyatic("i0111000i")
+    if result:
+        print gates1, gates2, gates3
 
 # use a.pop() to remove last item from list
 # check for a max depth of 3 functions to apply to get desired behavior
