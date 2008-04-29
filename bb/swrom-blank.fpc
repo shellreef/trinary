@@ -5,7 +5,7 @@ file_version: 1.332
 project_name: "swrom"
 full_library_folder: "c:\program files\freepcb\lib"
 CAM_folder: ""
-ses_file_path: ""
+ses_file_path: "Z:\trinary\code\bb\swrom-blank.ses"
 SMT_connect_copper: "0"
 dsn_flags: "0"
 dsn_bounds_poly: "0"
@@ -379,6 +379,12 @@ description: "NKK SP3T Switch"
       bottom_pad: 1 75 0 0 0
 
 [board]
+
+outline: 4 0
+  corner: 1 43180000 96520000 0
+  corner: 2 170180000 96520000 0
+  corner: 3 170180000 -25400000 0
+  corner: 4 43180000 -25400000 0
 
 [solder_mask_cutouts]
 
