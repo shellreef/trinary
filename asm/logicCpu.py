@@ -2,35 +2,48 @@
 # Created:20080415
 # By Antonio Chavez
 #
-# 3-trit computer simulator
+# 3-trit Computer Simulator
+# usage: logicCpu program.3
+# This program simulates the hardware of the 3 trit computer we are
+#    developing. Input to the program is a ".3" file which should contain
+#    three encoded instructions to simulate on the first line.  Once started,
+#    the user may interactively change the "IN" register at any time.
+#    Execution begins with instruction at program counter 0.
 
 import sys, os, threading, time
 
 trit_integer = {"i": -1, "0":0, "1":1}
 
 # Lookup a register's name by address
-register_name = { 
+register_name = {
         -1: "IN",
-        0: "OUT",
-        1: "A" 
-        }
+         0: "OUT",
+         1: "A"
+    }
 
 # Register contents
-registers = { 
-        "IN": 0, 
-        "OUT": 0, 
-        "A": 0, 
-        "S": 1 }
+registers = {
+        "IN":  0,
+        "OUT": 0,
+        "A":   0,
+        "S":   1
+    }
 
 # Thread that gets input from user
 class CPUInput (threading.Thread):
     def run (self):
         while True:
             print "Register Status: %s :" % registers,
-            user_input = input('Input value for IN:')
+            user_input = raw_input('Input value for IN:')
 
-            if user_input >= -4 and user_input <= 4:
-                registers["IN"] = user_input
+            if not user_input.isdigit():
+                print """invalid input: %s""" % user_input
+                continue
+
+            digit = int(user_input)
+
+            if digit >= -4 and digit <= 4:
+                registers["IN"] = digit
                 time.sleep(0.25)
             else:
                 print """invalid input: %s""" % user_input
@@ -49,9 +62,13 @@ input file: program.3 - machine code
 
     # retrieve file
     codefile = file(sys.argv[1], "rt")
-    tritstream = codefile.read()
+    tritstream = codefile.readline()
 
     # check for errors in file
+    if codefile == []:
+        print """\'%s\' files is empty""" % (sys.argv[1])
+        raise SystemExit
+
     for i in tritstream:
         if not i in trit_integer:
             print """invalid char \'%s\' in file \'%s\'""" % (i, sys.argv[1])
@@ -71,6 +88,7 @@ input file: program.3 - machine code
         memory[i] = Decoder(tritstream)
         tritstream = tritstream[3:]
 
+    # start user input thread
     CPUInput().start()
 
     # execute instructions
@@ -112,6 +130,7 @@ def Execute(memory, pc):
         memory: were decoded instructions are stored
         registers: contains registers and their values
         pc: program counter
+        returns: updated pc
     """
 
     op = (memory[pc])["op"]
