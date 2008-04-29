@@ -26,12 +26,13 @@ valid_chars = ("i", "0", "1")
 map_t = {False:0, None:1, True:2}
 map_str = {False:"i", None:"0", True:"1"}
 
-basic_f_t = {"sd":sd_t, "su":su_t, "s01":s01_t, "si0":si0_t, "ru":ru_t, "rd":rd_t, "inv":inv_t}
+basic_f_t = {"sd":sd_t, "su":su_t, "s01":s01_t, "si0":si0_t, "ru":ru_t,
+             "rd":rd_t, "inv":inv_t}
 easy_f_t = {"buf":buf_t, "ci":ci_t, "c0":c0_t, "c1":c1_t}
 
 
-def get_dyatic(desired):
-    ''' get_dyatic: get expression for a dyatic function
+def get_dyadic(desired):
+    ''' get_dyadic: get expression for a dyadic function
         desired: string representation of desired function
         returns: Returns a tuple.  True or false (if function was not found).
             A list of expressions for each unary function needed to build
@@ -166,6 +167,6 @@ if __name__ == "__main__":
     if result:
         print gates
 
-    result, gates1, gates2, gates3 = get_dyatic("i0111000i")
+    result, gates1, gates2, gates3 = get_dyadic("i0111000i")
     if result:
         print gates1, gates2, gates3
