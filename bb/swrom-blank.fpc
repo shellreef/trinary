@@ -34,7 +34,7 @@ visible_grid_spacing: 5080000.000000
   visible_grid_item: 50MM
   visible_grid_item: 100MM
 
-placement_grid_spacing: 2540000.000000
+placement_grid_spacing: 254000.000000
   placement_grid_item: 10MIL
   placement_grid_item: 20MIL
   placement_grid_item: 25MIL
@@ -200,16 +200,46 @@ n_copper_layers: 2
 
 [footprints]
 
-name: "HOLE_100_SQR_200"
+name: "4X2HDR-100"
+author: "Ivex"
+source: "PRINTED CIRCUIT DESIGN METHODS PAGE 411"
   units: MIL
-  sel_rect: -126 -126 126 126
-  ref_text: 50 0 0 0 5
-  centroid: 0 0 0
-  n_pins: 1
-    pin: "1" 100 0 0 270
-      top_pad: 2 200 0 0 0
-      inner_pad: 1 200 0 0 0
-      bottom_pad: 2 200 0 0 0
+  sel_rect: -33 -33 333 133
+  ref_text: 50 150 160 0 7
+  centroid: 0 150 50
+  n_pins: 8
+    pin: "1" 28 0 0 0
+      top_pad: 2 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 2 50 25 25 0
+    pin: "2" 28 0 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "3" 28 100 0 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "4" 28 100 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "5" 28 200 0 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "6" 28 200 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "7" 28 300 0 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "8" 28 300 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
 
 name: "14DIP300"
 author: "Ivex"
@@ -303,17 +333,6 @@ source: "PRINTED CIRCUIT DESIGN METHODS PAGE 411"
       inner_pad: 1 50 25 25 0
       bottom_pad: 1 50 25 25 0
 
-name: "HOLE_100_RND_200"
-  units: MIL
-  sel_rect: -126 -126 126 126
-  ref_text: 50 0 0 0 5
-  centroid: 0 0 0
-  n_pins: 1
-    pin: "1" 100 0 0 270
-      top_pad: 1 200 0 0 0
-      inner_pad: 1 200 0 0 0
-      bottom_pad: 1 200 0 0 0
-
 name: "RC07"
 author: "Ivex"
 source: "DIGITAL PRINTED CIRCUIT DESIGN & DRAFTING, PAGE 408"
@@ -335,17 +354,6 @@ source: "DIGITAL PRINTED CIRCUIT DESIGN & DRAFTING, PAGE 408"
       top_pad: 1 75 37 37 0
       inner_pad: 1 75 37 37 0
       bottom_pad: 1 75 37 37 0
-
-name: "HOLE_125_RND_250"
-  units: MIL
-  sel_rect: -135 -135 135 135
-  ref_text: 50 0 0 0 5
-  centroid: 0 0 0
-  n_pins: 1
-    pin: "1" 125 0 0 270
-      top_pad: 1 250 0 0 0
-      inner_pad: 1 250 0 0 0
-      bottom_pad: 1 250 0 0 0
 
 name: "SS14MDP2"
 author: "Jeff Connelly"
@@ -793,29 +801,11 @@ part: V$XX1$Vss
   shape: "1X2HDR-100"
   pos: 147320000 -27940000 0 0 0
 
-part: D0pad
-  ref_text: 1270000 127000 0 -10160000 0
+part: DATA_AND_ADDR
+  ref_text: 1270000 177800 0 1270000 4064000
   package: ""
-  shape: "HOLE_100_SQR_200"
-  pos: 165100000 -5080000 0 0 0
-
-part: D1pad
-  ref_text: 1270000 127000 0 -10160000 0
-  package: ""
-  shape: "HOLE_125_RND_250"
-  pos: 165100000 -17780000 0 0 0
-
-part: D2pad
-  ref_text: 1270000 127000 0 -2540000 -5080000
-  package: ""
-  shape: "HOLE_100_RND_200"
-  pos: 165100000 -25400000 0 0 0
-
-part: ADDR
-  ref_text: 1270000 127000 0 -2540000 -5080000
-  package: ""
-  shape: "HOLE_100_SQR_200"
-  pos: 149860000 -5080000 0 0 0
+  shape: "4X2HDR-100"
+  pos: 157480000 -10160000 0 90 0
 
 [nets]
 
@@ -1803,23 +1793,28 @@ net: "NX14" 2 1 0 254000 711200 355600 1
     seg: 1 6 0 0 0
     vtx: 2 66802000 71628000 11 0 0 0 0
 
-net: "D0" 4 3 0 254000 711200 355600 1
+net: "D0" 5 4 0 254000 711200 355600 1
   pin: 1 X_IC_15_CD4016.2
   pin: 2 X_IC_15_CD4016.3
   pin: 3 X_IC_15_CD4016.9
-  pin: 4 D0pad.1
+  pin: 4 DATA_AND_ADDR.7
+  pin: 5 DATA_AND_ADDR.8
   connect: 1 1 0 1 0
     vtx: 1 35560000 101600000 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 33020000 101600000 11 0 0 0 0
-  connect: 2 2 1 1 0
+  connect: 2 4 3 1 0
+    vtx: 1 160020000 -17780000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 157480000 -17780000 11 0 0 0 0
+  connect: 3 2 1 1 0
     vtx: 1 43180000 109220000 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 35560000 101600000 11 0 0 0 0
-  connect: 3 3 2 1 0
-    vtx: 1 165100000 -5080000 11 0 0 0 0
+  connect: 4 3 1 1 0
+    vtx: 1 157480000 -17780000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 43180000 109220000 11 0 0 0 0
+    vtx: 2 35560000 101600000 11 0 0 0 0
 
 net: "XXrom$XXmux3$XXdecoder$XXPpti2$NTI_Out" 2 1 0 254000 711200 355600 1
   pin: 1 X_IC_8_CD4007.5
@@ -1924,25 +1919,30 @@ net: "NX15" 3 2 0 254000 711200 355600 1
     seg: 1 6 0 0 0
     vtx: 2 74422000 71628000 11 0 0 0 0
 
-net: "D1" 4 3 0 254000 711200 355600 1
+net: "D1" 5 4 0 254000 711200 355600 1
   pin: 1 X_IC_15_CD4016.10
   pin: 2 X_IC_16_CD4016.2
   pin: 3 X_IC_16_CD4016.3
-  pin: 4 D1pad.1
-  connect: 1 2 1 1 0
+  pin: 4 DATA_AND_ADDR.5
+  pin: 5 DATA_AND_ADDR.6
+  connect: 1 4 3 1 0
+    vtx: 1 160020000 -15240000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 157480000 -15240000 11 0 0 0 0
+  connect: 2 2 1 1 0
     vtx: 1 160528000 100330000 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 157988000 100330000 11 0 0 0 0
-  connect: 2 1 0 1 0
+  connect: 3 4 2 1 0
+    vtx: 1 160020000 -15240000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 160528000 100330000 11 0 0 0 0
+  connect: 4 1 0 1 0
     vtx: 1 157988000 100330000 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 40640000 109220000 11 0 0 0 0
-  connect: 3 3 2 1 0
-    vtx: 1 165100000 -17780000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 160528000 100330000 11 0 0 0 0
 
-net: "ADDRESS" 13 12 0 254000 711200 355600 1
+net: "ADDRESS" 14 13 0 254000 711200 355600 1
   pin: 1 X_IC_0_CD4007.6
   pin: 2 X_IC_1_CD4007.6
   pin: 3 X_IC_2_CD4007.6
@@ -1955,15 +1955,16 @@ net: "ADDRESS" 13 12 0 254000 711200 355600 1
   pin: 10 X_IC_9_CD4007.6
   pin: 11 X_IC_10_CD4007.6
   pin: 12 X_IC_11_CD4007.6
-  pin: 13 ADDR.1
-  connect: 1 12 7 1 0
-    vtx: 1 149860000 -5080000 11 0 0 0 0
+  pin: 13 DATA_AND_ADDR.1
+  pin: 14 DATA_AND_ADDR.2
+  connect: 1 13 12 1 0
+    vtx: 1 160020000 -10160000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 157480000 -10160000 11 0 0 0 0
+  connect: 2 13 7 1 0
+    vtx: 1 160020000 -10160000 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 167132000 3556000 11 0 0 0 0
-  connect: 2 12 2 1 0
-    vtx: 1 149860000 -5080000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 127000000 5080000 11 0 0 0 0
   connect: 3 11 5 1 0
     vtx: 1 76962000 71628000 11 0 0 0 0
     seg: 1 6 0 0 0
@@ -1980,10 +1981,10 @@ net: "ADDRESS" 13 12 0 254000 711200 355600 1
     vtx: 1 76962000 71628000 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 77724000 39878000 11 0 0 0 0
-  connect: 7 12 1 1 0
-    vtx: 1 149860000 -5080000 11 0 0 0 0
+  connect: 7 12 2 1 0
+    vtx: 1 157480000 -10160000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 127762000 -30480000 11 0 0 0 0
+    vtx: 2 127000000 5080000 11 0 0 0 0
   connect: 8 10 9 1 0
     vtx: 1 77724000 39878000 11 0 0 0 0
     seg: 1 6 0 0 0
@@ -1996,11 +1997,15 @@ net: "ADDRESS" 13 12 0 254000 711200 355600 1
     vtx: 1 78740000 5080000 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 78740000 -30480000 11 0 0 0 0
-  connect: 11 8 6 1 0
+  connect: 11 2 1 1 0
+    vtx: 1 127000000 5080000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 127762000 -30480000 11 0 0 0 0
+  connect: 12 8 6 1 0
     vtx: 1 167640000 71120000 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 166116000 34290000 11 0 0 0 0
-  connect: 12 9 2 1 0
+  connect: 13 9 2 1 0
     vtx: 1 78740000 5080000 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 127000000 5080000 11 0 0 0 0
@@ -2021,21 +2026,26 @@ net: "XXrom$XXmux1$XXdecoder$XXZsti$NTI_Out" 2 1 0 254000 711200 355600 1
     seg: 1 6 0 0 0
     vtx: 2 129540000 12700000 11 0 0 0 0
 
-net: "D2" 4 3 0 254000 711200 355600 1
+net: "D2" 5 4 0 254000 711200 355600 1
   pin: 1 X_IC_16_CD4016.9
   pin: 2 X_IC_16_CD4016.10
   pin: 3 X_IC_17_CD4016.2
-  pin: 4 D2pad.1
+  pin: 4 DATA_AND_ADDR.3
+  pin: 5 DATA_AND_ADDR.4
   connect: 1 1 0 1 0
     vtx: 1 165608000 107950000 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 168148000 107950000 11 0 0 0 0
-  connect: 2 2 1 1 0
+  connect: 2 4 3 1 0
+    vtx: 1 160020000 -12700000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 157480000 -12700000 11 0 0 0 0
+  connect: 3 2 1 1 0
     vtx: 1 116840000 99060000 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 165608000 107950000 11 0 0 0 0
-  connect: 3 3 2 1 0
-    vtx: 1 165100000 -25400000 11 0 0 0 0
+  connect: 4 3 2 1 0
+    vtx: 1 157480000 -12700000 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 116840000 99060000 11 0 0 0 0
 
@@ -2061,5 +2071,13 @@ net: "XXrom$XXmux1$XXdecoder$XXZtnand$AtnorB" 3 2 0 254000 711200 355600 1
     vtx: 2 119380000 5080000 11 0 0 0 0
 
 [texts]
+
+text: "ADDRESS" 152400000 -7620000 7 0 0 1905000 254000 0
+
+text: "D2" 151892000 -12700000 7 0 0 1905000 254000 0
+
+text: "D1" 151892000 -15748000 7 0 0 1905000 177800 0
+
+text: "D0" 151892000 -19050000 7 0 0 1905000 190500 0
 
 [end]
