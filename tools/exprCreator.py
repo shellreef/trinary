@@ -9,18 +9,18 @@
 import sys, os
 import Trits
 
-sd_t  = Trits.Trits("ii0")
-su_t  = Trits.Trits("011")
-s01_t = Trits.Trits("i10")
-si0_t = Trits.Trits("0i1")
-ru_t  = Trits.Trits("01i")
-rd_t  = Trits.Trits("1i0")
-inv_t = Trits.Trits("10i")
+sd_t  = Trits.Trits("ii0") # shift down	
+su_t  = Trits.Trits("011") # shift up
+s01_t = Trits.Trits("i10") # swap 0/1
+si0_t = Trits.Trits("0i1") # swap i/0
+ru_t  = Trits.Trits("01i") # rotate up
+rd_t  = Trits.Trits("1i0") # rotate down
+inv_t = Trits.Trits("10i") # inverter
 
-buf_t = Trits.Trits("i01")
-ci_t  = Trits.Trits("iii")
-c0_t  = Trits.Trits("000")
-c1_t  = Trits.Trits("111")
+buf_t = Trits.Trits("i01") # identity
+ci_t  = Trits.Trits("iii") # constant i
+c0_t  = Trits.Trits("000") # constant 0
+c1_t  = Trits.Trits("111") # constant 1
 
 valid_chars = ("i", "0", "1")
 map_t = {False:0, None:1, True:2}
@@ -170,3 +170,4 @@ if __name__ == "__main__":
     result, gates1, gates2, gates3 = get_dyadic("i0111000i")
     if result:
         print gates1, gates2, gates3
+
