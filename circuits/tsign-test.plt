@@ -1,9 +1,8 @@
 [Transient Analysis]
 {
    Npanes: 4
-   Active Pane: 3
    {
-      traces: 1 {524293,0,"V(sign)"}
+      traces: 2 {524293,0,"V(sign3)"} {524294,0,"V(sign4)"}
       X: ('µ',1,0,2e-007,1.65e-006)
       Y[0]: (' ',0,-6,1,6)
       Y[1]: ('_',0,1e+308,0,-1e+308)
