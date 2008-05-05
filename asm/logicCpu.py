@@ -80,7 +80,7 @@ input file: program.3 - machine code
 
     # memory, registers, and program counter
     memory = {}
-    pc = 0
+    registers["PC"] = 0
 
     # decode instructions from file
     for i in range(-1, 2):
@@ -93,7 +93,7 @@ input file: program.3 - machine code
 
     # execute instructions
     while True:
-        pc = Execute(memory, pc)
+        registers["PC"] = Execute(memory)
 
 def Decoder(tritstream):
     """ Decode a single instruction.
@@ -125,41 +125,41 @@ def Decoder(tritstream):
 
     return inst
 
-def Execute(memory, pc):
+def Execute(memory):
     """ Execute one instruction.
         memory: were decoded instructions are stored
         registers: contains registers and their values
-        pc: program counter
-        returns: updated pc
+        returns: new program counter, to be stored in registers["PC"]
     """
 
-    op = (memory[pc])["op"]
+    op = (memory[registers["PC"]])["op"]
 
     # cmp
     if op == -1:
-        src1 = (memory[pc])["src1"]
-        src2 = (memory[pc])["src2"]
+        src1 = (memory[registers["PC"]])["src1"]
+        src2 = (memory[registers["PC"]])["src2"]
         if registers[register_name[src1]] < registers[register_name[src2]]:
             registers["S"] = -1
         elif registers[register_name[src1]] > registers[register_name[src2]]:
             registers["S"] = 1
         else:
             registers["S"] = 0
-        pc = pc + 1
+        registers["PC"] = registers["PC"] + 1
     # lwi
     elif op == 0:
-        registers["A"] = (memory[pc])["immed"]
-        pc = pc + 1
+        registers["A"] = (memory[registers["PC"]])["immed"]
+        new_pc= registers["PC"] + 1
     # be
     elif op == 1:
         if registers["S"] == 0:
-            pc = (memory[pc])["src1"]
+            new_pc = (memory[registers["PC"]])["src1"]
         else:
-            pc = (memory[pc])["src2"]
+            new_pc = (memory[registers["PC"]])["src2"]
 
-    if pc > 1:
-       pc = -1
-    return pc
+    if registers["PC"] > 1:
+       new_pc = -1
+
+    return new_pc
 
 if __name__ == "__main__":
     main()
