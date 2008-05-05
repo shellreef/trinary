@@ -92,7 +92,7 @@ input file: program.3 - machine code
     CPUInput().start()
 
     # execute instructions
-    while pc in (-1, 0, 1):
+    while True:
         pc = Execute(memory, pc)
 
 def Decoder(tritstream):
