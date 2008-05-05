@@ -12,6 +12,9 @@
 
 import sys, os, threading, time
 
+TRACE = True
+DELAY = 1
+
 trit_integer = {"i": -1, "0":0, "1":1}
 
 # Lookup a register's name by address
@@ -44,7 +47,6 @@ class CPUInput (threading.Thread):
 
             if digit >= -4 and digit <= 4:
                 registers["IN"] = digit
-                time.sleep(0.25)
             else:
                 print """invalid input: %s""" % user_input
 
@@ -94,6 +96,11 @@ input file: program.3 - machine code
     # execute instructions
     while True:
         registers["PC"] = Execute(memory)
+
+        if TRACE:
+            print registers
+                
+        time.sleep(DELAY)
 
 def Decoder(tritstream):
     """ Decode a single instruction.
