@@ -132,8 +132,13 @@ def assemble(asmfile):
         #print machine_code
         tritstream.extend(machine_code)
         pc += 1
-        if pc == 2:
-            pc = -1
+        if pc > 3:
+            print "Too many instructions, need exactly 3 but pc=%d" % (pc,)
+            raise SystemExit
+
+    if pc != 3:
+        print "Too few instructions, need exactly 3 but pc=%d" % (pc,)
+        raise SystemExit
 
     #print labels
 
