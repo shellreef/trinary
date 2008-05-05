@@ -151,7 +151,7 @@ def Execute(memory):
             registers["S"] = 1
         else:
             registers["S"] = 0
-        registers["PC"] = registers["PC"] + 1
+        new_pc = registers["PC"] + 1
     # lwi
     elif op == 0:
         registers["A"] = (memory[registers["PC"]])["immed"]
