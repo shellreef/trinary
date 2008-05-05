@@ -13,7 +13,7 @@
 import sys, os, threading, time
 
 TRACE = True
-DELAY = 1
+DELAY = 1       # second
 
 trit_integer = {"i": -1, "0":0, "1":1}
 
@@ -155,7 +155,7 @@ def Execute(memory):
     # lwi
     elif op == 0:
         registers["A"] = (memory[registers["PC"]])["immed"]
-        new_pc= registers["PC"] + 1
+        new_pc = registers["PC"] + 1
     # be
     elif op == 1:
         if registers["S"] == 0:
@@ -163,7 +163,7 @@ def Execute(memory):
         else:
             new_pc = (memory[registers["PC"]])["src2"]
 
-    if registers["PC"] > 1:
+    if new_pc > 1:
        new_pc = -1
 
     return new_pc
