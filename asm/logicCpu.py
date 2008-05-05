@@ -36,11 +36,11 @@ class CPUInput (threading.Thread):
             print "Register Status: %s :" % registers,
             user_input = raw_input('Input value for IN:')
 
-            if not user_input.isdigit():
-                print """invalid input: %s""" % user_input
+            try:
+                digit = int(user_input)
+            except ValueError, e:
+                print "invalid input: %s (%s)" % (user_input, e)
                 continue
-
-            digit = int(user_input)
 
             if digit >= -4 and digit <= 4:
                 registers["IN"] = digit
