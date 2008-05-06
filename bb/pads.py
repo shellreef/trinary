@@ -22,7 +22,7 @@ footprint_map = {
 # If enabled, RX$Xflipflop$XX<n>$Xinv$R{P,N} will be mapped to ${P,N}<n>.
 # Useful for laying out a single dtflop-ms_test, but may cause serious
 # errors otherwise!
-SHORT_DTFLOP_RP_RN = True
+SHORT_DTFLOP_RP_RN = False
 
 # TODO: remove these limitations on FreePCB, so that
 # USE_SHORT_NAMES and BREAK_LONG_LINES can be turned off!
