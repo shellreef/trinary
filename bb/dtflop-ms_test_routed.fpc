@@ -437,31 +437,18 @@ part: Vq_0
 
 [nets]
 
-net: "Xflipflop$XX4$PTI_Out_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX2$PTI_Out_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_slave_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_Q_master_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX3$NTI_Out_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_Q_slave_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX5$PTI_Out_$G3" 0 0 0 0 0 0 1
 
-net: "Q_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX5$PTI_Out_$G1_$G2" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_slave_$G1_$G2" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX2$PTI_Out_$G1_$G2" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX2$NTI_Out_$G1_$G2" 0 0 0 0 0 0 1
 
-net: "Q_$G1" 0 0 0 0 0 0 1
 
 net: "Xflipflop$tg_D" 3 2 0 508000 711200 355600 1
   pin: 1 X_IC_0_CD4007_0.3
@@ -532,41 +519,23 @@ net: "Xflipflop$XX1$PTI_Out" 2 1 0 508000 711200 355600 1
     seg: 6 13 254000 0 0
     vtx: 7 -27940000 109220000 11 0 0 0 0
 
-net: "Xflipflop$_C_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX4$NTI_Out_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_slave_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX5$PTI_Out_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_slave_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX2$PTI_Out_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "CLK_$G3" 0 0 0 0 0 0 1
 
-net: "CLK_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX2$NTI_Out_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_D_$G1_$G2" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX5$NTI_Out_$G1_$G2" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_Q_slave_$G1" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_C_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_Q_slave_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_D_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "Q_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX3$PTI_Out_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX5$NTI_Out_$G1_$G3" 0 0 0 0 0 0 1
 
 net: "Xflipflop$XX5$NTI_Out" 2 1 0 508000 711200 355600 1
   pin: 1 X_IC_2_CD4007_0.8
@@ -578,19 +547,12 @@ net: "Xflipflop$XX5$NTI_Out" 2 1 0 508000 711200 355600 1
     seg: 2 13 254000 0 0
     vtx: 3 -20320000 116840000 11 0 0 0 0
 
-net: "Xflipflop$XX4$NTI_Out_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX4$PTI_Out_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "CLK_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_Q_master_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Q_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_Q_slave_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_master_$G1_$G2" 0 0 0 0 0 0 1
 
 net: "Xflipflop$XX5$PTI_Out" 2 1 0 508000 711200 355600 1
   pin: 1 X_IC_2_CD4007_0.13
@@ -600,27 +562,16 @@ net: "Xflipflop$XX5$PTI_Out" 2 1 0 508000 711200 355600 1
     seg: 1 12 254000 0 0
     vtx: 2 -20320000 129540000 11 0 0 0 0
 
-net: "Xflipflop$XX3$PTI_Out_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX2$NTI_Out_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX5$PTI_Out_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_slave_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX2$PTI_Out_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_master_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX3$NTI_Out_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX1$NTI_Out_$G1" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX3$PTI_Out_$G1" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX4$NTI_Out_$G1" 0 0 0 0 0 0 1
 
-net: "D_$G1" 0 0 0 0 0 0 1
 
 net: "Xflipflop$_Q_slave" 3 2 0 508000 711200 355600 1
   pin: 1 X_IC_3_CD4016_0.11
@@ -635,19 +586,12 @@ net: "Xflipflop$_Q_slave" 3 2 0 508000 711200 355600 1
     seg: 1 13 254000 0 0
     vtx: 2 -35560000 116840000 11 0 0 0 0
 
-net: "Xflipflop$tg_D_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX5$NTI_Out_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX2$PTI_Out_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "CLK_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_Q_slave_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_D_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_Q_slave_$G1_$G2" 0 0 0 0 0 0 1
 
 net: "Xflipflop$XX4$NTI_Out" 2 1 0 508000 711200 355600 1
   pin: 1 X_IC_0_CD4007_0.5
@@ -659,33 +603,19 @@ net: "Xflipflop$XX4$NTI_Out" 2 1 0 508000 711200 355600 1
     seg: 2 13 254000 0 0
     vtx: 3 -50800000 99060000 11 0 0 0 0
 
-net: "Xflipflop$XX3$NTI_Out_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Q_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX2$NTI_Out_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX1$NTI_Out_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_C_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "D_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX3$PTI_Out_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX4$NTI_Out_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_Q_slave_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "D_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX4$PTI_Out_$G1_$G2" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX1$PTI_Out_$G1_$G2" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX1$NTI_Out_$G1_$G2" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX4$NTI_Out_$G1_$G2" 0 0 0 0 0 0 1
 
 net: "Xflipflop$_C" 4 3 0 508000 711200 355600 1
   pin: 1 X_IC_3_CD4016_0.6
@@ -713,21 +643,13 @@ net: "Xflipflop$_C" 4 3 0 508000 711200 355600 1
     seg: 1 12 254000 0 0
     vtx: 2 -13970000 116840000 11 0 0 0 0
 
-net: "Xflipflop$tg_master_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_D_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX4$PTI_Out_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX1$PTI_Out_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX1$NTI_Out_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX4$NTI_Out_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX2$PTI_Out_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_C_$G1" 0 0 0 0 0 0 1
 
 net: "Xflipflop$XX4$PTI_Out" 2 1 0 508000 711200 355600 1
   pin: 1 X_IC_0_CD4007_0.1
@@ -739,23 +661,14 @@ net: "Xflipflop$XX4$PTI_Out" 2 1 0 508000 711200 355600 1
     seg: 2 12 254000 0 0
     vtx: 3 -50800000 109220000 11 0 0 0 0
 
-net: "Xflipflop$_C_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "D_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX2$NTI_Out_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_Q_slave_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX2$PTI_Out_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_C_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX2$NTI_Out_$G1" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX5$NTI_Out_$G1" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX1$PTI_Out_$G1" 0 0 0 0 0 0 1
 
 net: "Xflipflop$tg_master" 4 3 0 508000 711200 355600 1
   pin: 1 X_IC_0_CD4007_0.6
@@ -899,27 +812,16 @@ net: "Xflipflop$XX3$NTI_Out" 2 1 0 508000 711200 355600 1
     seg: 1 12 254000 0 0
     vtx: 2 -20320000 93980000 11 0 0 0 0
 
-net: "Xflipflop$XX4$PTI_Out_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX5$PTI_Out_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX1$PTI_Out_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "D_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX1$NTI_Out_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX4$NTI_Out_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX2$NTI_Out_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_Q_master_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "D_$G1_$G2" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_Q_master_$G1" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX4$PTI_Out_$G1" 0 0 0 0 0 0 1
 
 net: "Xflipflop$XX3$PTI_Out" 2 1 0 508000 711200 355600 1
   pin: 1 X_IC_1_CD4007_0.13
@@ -931,21 +833,13 @@ net: "Xflipflop$XX3$PTI_Out" 2 1 0 508000 711200 355600 1
     seg: 2 13 254000 0 0
     vtx: 3 -20320000 106680000 11 0 0 0 0
 
-net: "Xflipflop$XX5$NTI_Out_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX2$NTI_Out_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX1$PTI_Out_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "D_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX5$NTI_Out_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX5$PTI_Out_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX1$PTI_Out_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX3$PTI_Out_$G1_$G2" 0 0 0 0 0 0 1
 
 net: "Xflipflop$tg_slave" 3 2 0 508000 711200 355600 1
   pin: 1 X_IC_1_CD4007_0.6
@@ -972,29 +866,17 @@ net: "Xflipflop$tg_slave" 3 2 0 508000 711200 355600 1
     seg: 4 13 254000 0 0
     vtx: 5 -40815260 114484404 0 0 0 0 6736
 
-net: "Xflipflop$tg_D_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX3$PTI_Out_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_Q_master_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Q_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_Q_master_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX4$PTI_Out_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX1$NTI_Out_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX3$PTI_Out_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_master_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX5$NTI_Out_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "CLK_$G1_$G2" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX3$NTI_Out_$G1_$G2" 0 0 0 0 0 0 1
 
 net: "Xflipflop$XX2$NTI_Out" 2 1 0 508000 711200 355600 1
   pin: 1 X_IC_0_CD4007_0.8
@@ -1012,21 +894,13 @@ net: "Xflipflop$XX2$NTI_Out" 2 1 0 508000 711200 355600 1
     seg: 5 13 254000 0 0
     vtx: 6 -43180000 93980000 11 0 0 0 0
 
-net: "Xflipflop$tg_master_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_Q_master_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX1$PTI_Out_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX3$NTI_Out_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX5$PTI_Out_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "CLK_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX3$NTI_Out_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_D_$G1" 0 0 0 0 0 0 1
 
 net: "Q" 4 3 0 508000 711200 355600 1
   pin: 1 X_IC_1_CD4007_0.3
@@ -1058,19 +932,12 @@ net: "Q" 4 3 0 508000 711200 355600 1
     seg: 3 13 254000 0 0
     vtx: 4 -13970000 106680000 11 0 0 0 0
 
-net: "Xflipflop$XX1$NTI_Out_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "D_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_master_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX5$NTI_Out_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Q_$G1_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_C_$G1_$G2" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_master_$G1" 0 0 0 0 0 0 1
 
 net: "Xflipflop$XX2$PTI_Out" 2 1 0 508000 711200 355600 1
   pin: 1 X_IC_0_CD4007_0.13
@@ -1117,25 +984,15 @@ net: "0" 5 4 0 508000 711200 355600 1
     seg: 3 13 254000 0 0
     vtx: 4 -74930000 110490000 11 0 0 0 0
 
-net: "Xflipflop$XX1$NTI_Out_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX1$PTI_Out_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX3$PTI_Out_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_C_$G1_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX4$PTI_Out_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_D_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX2$PTI_Out_$G1" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_slave_$G1" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX3$NTI_Out_$G1" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX5$PTI_Out_$G1" 0 0 0 0 0 0 1
 
 net: "CLK" 4 3 0 508000 711200 355600 1
   pin: 1 Vclk_0.1
@@ -1159,23 +1016,14 @@ net: "CLK" 4 3 0 508000 711200 355600 1
     seg: 1 12 254000 0 0
     vtx: 2 -50800000 121920000 11 0 0 0 0
 
-net: "Xflipflop$tg_slave_$G1_$G2_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "CLK_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX3$NTI_Out_$G3_$G4" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_master_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$XX4$NTI_Out_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$tg_slave_$G1_$G2_$G3" 0 0 0 0 0 0 1
 
-net: "Xflipflop$_Q_master_$G1_$G2" 0 0 0 0 0 0 1
 
-net: "Q_$G1_$G2" 0 0 0 0 0 0 1
 
-net: "CLK_$G1" 0 0 0 0 0 0 1
 
 net: "Xflipflop$XX1$NTI_Out" 2 1 0 508000 711200 355600 1
   pin: 1 X_IC_1_CD4007_0.5
