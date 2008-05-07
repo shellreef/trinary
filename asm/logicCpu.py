@@ -91,7 +91,8 @@ input file: program.3 - machine code
         tritstream = tritstream[3:]
 
     # start user input thread
-    CPUInput().start()
+    #CPUInput().start()
+    registers["IN"] = 8
 
     # execute instructions
     while True:
