@@ -1,0 +1,207 @@
+G04 FreePCB version 1.343*
+G04 Z:\trinary\code\bb\CAM-dtflop\bottom_silk.grb*
+G04 bottom silk layer *
+G04 Scale: 100 percent, Rotated: No, Reflected: No *
+%FSLAX24Y24*%
+%MOIN*%
+%LNTop*%
+%ADD10C,0.005000*%
+G90*
+G70D02*
+
+G04 Step and Repeat for panelization *
+
+G04 ----------------------- Draw board outline (positive)*
+%LPD*%
+G54D10*
+G01X-31000Y-12000D02*
+G01X67000Y-12000D01*
+G04 end of side 1*
+G01X67000Y55000D01*
+G04 end of side 2*
+G01X-31000Y55000D01*
+G04 end of side 3*
+G01X-31000Y-12000D01*
+
+G04 -------------- Draw Parts, Pads, Traces, Vias and Text (positive)*
+%LPD*%
+G04 Draw part Vclk_0*
+G04 Draw part Vd_0*
+G04 Draw part Vdd_0*
+G04 Draw part Vss_0*
+G04 Draw part X_IC_0_CD4007_0*
+G04 Draw part X_IC_1_CD4007_0*
+G04 Draw part X_IC_2_CD4007_0*
+G04 Draw part X_IC_3_CD4016_0*
+G04 Draw part RP2_0*
+G04 Draw part RN2_0*
+G04 Draw part RP4_0*
+G04 Draw part RN4_0*
+G04 Draw part RP3_0*
+G04 Draw part RN3_0*
+G04 Draw part RP1_0*
+G04 Draw part RN1_0*
+G04 Draw part RP5_0*
+G04 Draw part RN5_0*
+G04 Draw part Vq_0*
+G04 Draw part Vclk_1*
+G04 Draw part Vd_1*
+G04 Draw part Vdd_1*
+G04 Draw part Vss_1*
+G04 Draw part X_IC_0_CD4007_1*
+G04 Draw part X_IC_1_CD4007_1*
+G04 Draw part X_IC_2_CD4007_1*
+G04 Draw part X_IC_3_CD4016_1*
+G04 Draw part RP2_1*
+G04 Draw part RN2_1*
+G04 Draw part RP4_1*
+G04 Draw part RN4_1*
+G04 Draw part RP3_1*
+G04 Draw part RN3_1*
+G04 Draw part RP1_1*
+G04 Draw part RN1_1*
+G04 Draw part RP5_1*
+G04 Draw part RN5_1*
+G04 Draw part Vq_1*
+G04 Draw part Vclk_2*
+G04 Draw part Vd_2*
+G04 Draw part Vdd_2*
+G04 Draw part Vss_2*
+G04 Draw part X_IC_0_CD4007_2*
+G04 Draw part X_IC_1_CD4007_2*
+G04 Draw part X_IC_2_CD4007_2*
+G04 Draw part X_IC_3_CD4016_2*
+G04 Draw part RP2_2*
+G04 Draw part RN2_2*
+G04 Draw part RP4_2*
+G04 Draw part RN4_2*
+G04 Draw part RP3_2*
+G04 Draw part RN3_2*
+G04 Draw part RP1_2*
+G04 Draw part RN1_2*
+G04 Draw part RP5_2*
+G04 Draw part RN5_2*
+G04 Draw part Vq_2*
+G04 Draw part Vclk_3*
+G04 Draw part Vd_3*
+G04 Draw part Vdd_3*
+G04 Draw part Vss_3*
+G04 Draw part X_IC_0_CD4007_3*
+G04 Draw part X_IC_1_CD4007_3*
+G04 Draw part X_IC_2_CD4007_3*
+G04 Draw part X_IC_3_CD4016_3*
+G04 Draw part RP2_3*
+G04 Draw part RN2_3*
+G04 Draw part RP4_3*
+G04 Draw part RN4_3*
+G04 Draw part RP3_3*
+G04 Draw part RN3_3*
+G04 Draw part RP1_3*
+G04 Draw part RN1_3*
+G04 Draw part RP5_3*
+G04 Draw part RN5_3*
+G04 Draw part Vq_3*
+G04 Draw part Vclk_4*
+G04 Draw part Vd_4*
+G04 Draw part Vdd_4*
+G04 Draw part Vss_4*
+G04 Draw part X_IC_0_CD4007_4*
+G04 Draw part X_IC_1_CD4007_4*
+G04 Draw part X_IC_2_CD4007_4*
+G04 Draw part X_IC_3_CD4016_4*
+G04 Draw part RP2_4*
+G04 Draw part RN2_4*
+G04 Draw part RP4_4*
+G04 Draw part RN4_4*
+G04 Draw part RP3_4*
+G04 Draw part RN3_4*
+G04 Draw part RP1_4*
+G04 Draw part RN1_4*
+G04 Draw part RP5_4*
+G04 Draw part RN5_4*
+G04 Draw part Vq_4*
+G04 Draw part Vclk_5*
+G04 Draw part Vd_5*
+G04 Draw part Vdd_5*
+G04 Draw part Vss_5*
+G04 Draw part X_IC_0_CD4007_5*
+G04 Draw part X_IC_1_CD4007_5*
+G04 Draw part X_IC_2_CD4007_5*
+G04 Draw part X_IC_3_CD4016_5*
+G04 Draw part RP2_5*
+G04 Draw part RN2_5*
+G04 Draw part RP4_5*
+G04 Draw part RN4_5*
+G04 Draw part RP3_5*
+G04 Draw part RN3_5*
+G04 Draw part RP1_5*
+G04 Draw part RN1_5*
+G04 Draw part RP5_5*
+G04 Draw part RN5_5*
+G04 Draw part Vq_5*
+G04 Draw part Vclk_6*
+G04 Draw part Vd_6*
+G04 Draw part Vdd_6*
+G04 Draw part Vss_6*
+G04 Draw part X_IC_0_CD4007_6*
+G04 Draw part X_IC_1_CD4007_6*
+G04 Draw part X_IC_2_CD4007_6*
+G04 Draw part X_IC_3_CD4016_6*
+G04 Draw part RP2_6*
+G04 Draw part RN2_6*
+G04 Draw part RP4_6*
+G04 Draw part RN4_6*
+G04 Draw part RP3_6*
+G04 Draw part RN3_6*
+G04 Draw part RP1_6*
+G04 Draw part RN1_6*
+G04 Draw part RP5_6*
+G04 Draw part RN5_6*
+G04 Draw part Vq_6*
+G04 Draw part Vclk_7*
+G04 Draw part Vd_7*
+G04 Draw part Vdd_7*
+G04 Draw part Vss_7*
+G04 Draw part X_IC_0_CD4007_7*
+G04 Draw part X_IC_1_CD4007_7*
+G04 Draw part X_IC_2_CD4007_7*
+G04 Draw part X_IC_3_CD4016_7*
+G04 Draw part RP2_7*
+G04 Draw part RN2_7*
+G04 Draw part RP4_7*
+G04 Draw part RN4_7*
+G04 Draw part RP3_7*
+G04 Draw part RN3_7*
+G04 Draw part RP1_7*
+G04 Draw part RN1_7*
+G04 Draw part RP5_7*
+G04 Draw part RN5_7*
+G04 Draw part Vq_7*
+G04 Draw part Vclk_8*
+G04 Draw part Vd_8*
+G04 Draw part Vdd_8*
+G04 Draw part Vss_8*
+G04 Draw part X_IC_0_CD4007_8*
+G04 Draw part X_IC_1_CD4007_8*
+G04 Draw part X_IC_2_CD4007_8*
+G04 Draw part X_IC_3_CD4016_8*
+G04 Draw part RP2_8*
+G04 Draw part RN2_8*
+G04 Draw part RP4_8*
+G04 Draw part RN4_8*
+G04 Draw part RP3_8*
+G04 Draw part RN3_8*
+G04 Draw part RP1_8*
+G04 Draw part RN1_8*
+G04 Draw part RP5_8*
+G04 Draw part RN5_8*
+G04 Draw part Vq_8*
+G04 Draw part INPUTS*
+G04 Draw part OUTPUTS*
+G04 Draw part POWER*
+
+G04 Draw traces*
+
+G04 Draw Text*
+M00*
+M02*

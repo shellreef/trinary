@@ -4,7 +4,7 @@ version: 1.343
 file_version: 1.332
 project_name: "dtflop-ms_test"
 full_library_folder: "c:\program files\freepcb\lib"
-CAM_folder: ""
+CAM_folder: "Z:\trinary\code\bb\CAM-dtflop"
 ses_file_path: "Z:\trinary\code\bb\dtflop-ms_test.ses"
 SMT_connect_copper: "0"
 dsn_flags: "0"
@@ -14,7 +14,7 @@ autosave_interval: 0
 netlist_import_flags: 451
 units: MIL
 
-visible_grid_spacing: 5080000.000000
+visible_grid_spacing: 25400000.000000
   visible_grid_item: 100MIL
   visible_grid_item: 125MIL
   visible_grid_item: 200MIL
@@ -148,7 +148,7 @@ annular_ring_for_pins: 177800
 annular_ring_for_vias: 127000
 shrink_paste_mask: 0
 cam_flags: 1
-cam_layers: 4095
+cam_layers: 63
 cam_drill_file: 1
 cam_units: 2
 cam_n_x: 1
