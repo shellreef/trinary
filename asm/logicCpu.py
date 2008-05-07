@@ -13,7 +13,9 @@
 import sys, os, threading, time
 
 TRACE = True
-DELAY = 1       # second
+DELAY = 1                   # second(s)
+USER_INPUT_THREAD = True    # ask for user input?
+USER_INPUT_INIT = 8         # initialize input to this
 
 trit_integer = {"i": -1, "0":0, "1":1}
 
@@ -91,8 +93,9 @@ input file: program.3 - machine code
         tritstream = tritstream[3:]
 
     # start user input thread
-    #CPUInput().start()
-    registers["IN"] = 8
+    if USER_INPUT_THREAD:
+        CPUInput().start()
+    registers["IN"] = USER_INPUT_INIT
 
     # execute instructions
     while True:
