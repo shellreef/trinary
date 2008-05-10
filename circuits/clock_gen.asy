@@ -10,9 +10,6 @@ SYMATTR Description Trinary D-type master-slave flip-flop built using transmissi
 PIN 80 48 RIGHT 4
 PINATTR PinName FETCH
 PINATTR SpiceOrder 1
-PIN 80 80 RIGHT 4
-PINATTR PinName DECODE
-PINATTR SpiceOrder 2
 PIN 80 112 RIGHT 4
 PINATTR PinName EXECUTE
-PINATTR SpiceOrder 3
+PINATTR SpiceOrder 2
