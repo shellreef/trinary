@@ -14,6 +14,7 @@ LINE Normal 31 0 39 0
 LINE Normal 48 0 39 0
 ARC Normal -30 -28 31 30 0 31 0 -28
 ARC Normal -34 -26 27 27 4 31 1 -21
+TEXT -4 0 Left 0 3
 WINDOW 0 0 -43 Center 0
 SYMATTR Description MIN dyadic trinary 2-input gate, inverted TNAND function
 PIN -32 -16 NONE 8
