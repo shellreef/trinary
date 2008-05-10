@@ -1,7 +1,7 @@
 Version 4
 SymbolType BLOCK
 RECTANGLE Normal 96 116 -96 -17
-TEXT -66 24 Left 0 3:1 Decoder
+TEXT -66 24 Left 0 1:3 Decoder
 PIN -96 48 LEFT 8
 PINATTR PinName IN
 PINATTR SpiceOrder 1
