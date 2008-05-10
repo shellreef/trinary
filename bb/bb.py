@@ -21,9 +21,9 @@ import os
 PROGRAM_NAME = "bb.py"
 
 # Subcircuits to map that should be mapped physical ICs
-SUBCIRCUITS_TO_MAP = ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3', 'sp3t')
+SUBCIRCUITS_TO_MAP = ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3', 'sp3t-1', 'sp3t-2', 'sp3t-3')
 SUBCIRCUITS_CAN_MAP = ('tg', 'tinv', 'tnor', 'tnand')        # subcircuits we actually can map to ICs, as of yet
-SUBCIRCUITS_PASS = ('sp3t')                 # pass unchanged to pads.py
+SUBCIRCUITS_PASS = ('sp3t-1', 'sp3t-2', 'sp3t-3')                 # pass unchanged to pads.py
 
 def combine_dicts(dict1, dict2):
     """Combine two dictionaries; dict2 takes priority over dict1."""

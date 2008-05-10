@@ -1,0 +1,394 @@
+[options]
+
+version: 1.343
+file_version: 1.332
+project_name: "test"
+full_library_folder: "c:\program files\freepcb\lib"
+CAM_folder: ""
+ses_file_path: ""
+SMT_connect_copper: "0"
+dsn_flags: "0"
+dsn_bounds_poly: "0"
+dsn_signals_poly: "0"
+autosave_interval: 0
+netlist_import_flags: 451
+units: MIL
+
+visible_grid_spacing: 5080000.000000
+  visible_grid_item: 100MIL
+  visible_grid_item: 125MIL
+  visible_grid_item: 200MIL
+  visible_grid_item: 250MIL
+  visible_grid_item: 400MIL
+  visible_grid_item: 500MIL
+  visible_grid_item: 1000MIL
+  visible_grid_item: 1MM
+  visible_grid_item: 2MM
+  visible_grid_item: 2.5MM
+  visible_grid_item: 4MM
+  visible_grid_item: 5MM
+  visible_grid_item: 10MM
+  visible_grid_item: 20MM
+  visible_grid_item: 25MM
+  visible_grid_item: 40MM
+  visible_grid_item: 50MM
+  visible_grid_item: 100MM
+
+placement_grid_spacing: 2540000.000000
+  placement_grid_item: 10MIL
+  placement_grid_item: 20MIL
+  placement_grid_item: 25MIL
+  placement_grid_item: 40MIL
+  placement_grid_item: 50MIL
+  placement_grid_item: 100MIL
+  placement_grid_item: 200MIL
+  placement_grid_item: 250MIL
+  placement_grid_item: 400MIL
+  placement_grid_item: 500MIL
+  placement_grid_item: 1000MIL
+  placement_grid_item: 0.1MM
+  placement_grid_item: 0.2MM
+  placement_grid_item: 0.25MM
+  placement_grid_item: 0.4MM
+  placement_grid_item: 0.5MM
+  placement_grid_item: 1MM
+  placement_grid_item: 2MM
+  placement_grid_item: 2.5MM
+  placement_grid_item: 4MM
+  placement_grid_item: 5MM
+  placement_grid_item: 10MM
+
+routing_grid_spacing: 508000.000000
+  routing_grid_item: 1MIL
+  routing_grid_item: 2MIL
+  routing_grid_item: 2.5MIL
+  routing_grid_item: 3.33330709MIL
+  routing_grid_item: 4MIL
+  routing_grid_item: 5MIL
+  routing_grid_item: 6.66665354MIL
+  routing_grid_item: 10MIL
+  routing_grid_item: 12.5MIL
+  routing_grid_item: 16.66665354MIL
+  routing_grid_item: 20MIL
+  routing_grid_item: 25MIL
+  routing_grid_item: 40MIL
+  routing_grid_item: 50MIL
+  routing_grid_item: 0.01MM
+  routing_grid_item: 0.02MM
+  routing_grid_item: 0.04MM
+  routing_grid_item: 0.05MM
+  routing_grid_item: 0.1MM
+  routing_grid_item: 0.2MM
+  routing_grid_item: 0.25MM
+  routing_grid_item: 0.4MM
+  routing_grid_item: 0.5MM
+  routing_grid_item: 1MM
+  routing_grid_item: 2MM
+  routing_grid_item: 2.5MM
+  routing_grid_item: 4MM
+  routing_grid_item: 5MM
+  routing_grid_item: 10MM
+
+snap_angle: 45
+
+fp_visible_grid_spacing: 5080000.000000
+  fp_visible_grid_item: 100MIL
+  fp_visible_grid_item: 125MIL
+  fp_visible_grid_item: 200MIL
+  fp_visible_grid_item: 250MIL
+  fp_visible_grid_item: 400MIL
+  fp_visible_grid_item: 500MIL
+  fp_visible_grid_item: 1000MIL
+  fp_visible_grid_item: 1MM
+  fp_visible_grid_item: 2MM
+  fp_visible_grid_item: 2.5MM
+  fp_visible_grid_item: 4MM
+  fp_visible_grid_item: 5MM
+  fp_visible_grid_item: 10MM
+  fp_visible_grid_item: 20MM
+  fp_visible_grid_item: 25MM
+  fp_visible_grid_item: 40MM
+  fp_visible_grid_item: 50MM
+  fp_visible_grid_item: 100MM
+
+fp_placement_grid_spacing: 2540000.000000
+  fp_placement_grid_item: 10MIL
+  fp_placement_grid_item: 20MIL
+  fp_placement_grid_item: 25MIL
+  fp_placement_grid_item: 40MIL
+  fp_placement_grid_item: 50MIL
+  fp_placement_grid_item: 100MIL
+  fp_placement_grid_item: 200MIL
+  fp_placement_grid_item: 250MIL
+  fp_placement_grid_item: 400MIL
+  fp_placement_grid_item: 500MIL
+  fp_placement_grid_item: 1000MIL
+  fp_placement_grid_item: 0.1MM
+  fp_placement_grid_item: 0.2MM
+  fp_placement_grid_item: 0.25MM
+  fp_placement_grid_item: 0.4MM
+  fp_placement_grid_item: 0.5MM
+  fp_placement_grid_item: 1MM
+  fp_placement_grid_item: 2MM
+  fp_placement_grid_item: 2.5MM
+  fp_placement_grid_item: 4MM
+  fp_placement_grid_item: 5MM
+  fp_placement_grid_item: 10MM
+
+fp_snap_angle: 45
+
+fill_clearance: 254000
+mask_clearance: 203200
+thermal_width: 254000
+min_silkscreen_width: 127000
+board_outline_width: 127000
+hole_clearance: 381000
+pilot_diameter: 254000
+annular_ring_for_pins: 177800
+annular_ring_for_vias: 127000
+shrink_paste_mask: 0
+cam_flags: 1
+cam_layers: 15732735
+cam_drill_file: 1
+cam_units: 2
+cam_n_x: 1
+cam_n_y: 1
+cam_space_x: 0
+cam_space_y: 0
+
+report_options: 0
+drc_check_unrouted: 0
+drc_trace_width: 254000
+drc_pad_pad: 254000
+drc_pad_trace: 254000
+drc_trace_trace: 254000
+drc_hole_copper: 381000
+drc_annular_ring_pins: 177800
+drc_annular_ring_vias: 127000
+drc_board_edge_copper: 635000
+drc_board_edge_hole: 635000
+drc_hole_hole: 635000
+drc_copper_copper: 254000
+
+default_trace_width: 254000
+default_via_pad_width: 711200
+default_via_hole_width: 355600
+n_width_menu: 7
+  width_menu_item: 1 152400 711200 355600
+  width_menu_item: 2 203200 711200 355600
+  width_menu_item: 3 254000 711200 355600
+  width_menu_item: 4 304800 711200 355600
+  width_menu_item: 5 381000 711200 355600
+  width_menu_item: 6 508000 711200 355600
+  width_menu_item: 7 635000 711200 355600
+
+n_copper_layers: 2
+  layer_info: "selection" 0 255 255 255 1
+  layer_info: "background" 1 0 0 0 1
+  layer_info: "visible grid" 2 255 255 255 1
+  layer_info: "highlight" 3 255 255 255 1
+  layer_info: "DRC error" 4 255 128 64 1
+  layer_info: "board outline" 5 0 0 255 1
+  layer_info: "rat line" 6 255 0 255 1
+  layer_info: "top silk" 7 255 255 0 1
+  layer_info: "bottom silk" 8 255 192 192 1
+  layer_info: "top sm cutout" 9 160 160 160 1
+  layer_info: "bot sm cutout" 10 95 95 95 1
+  layer_info: "thru pad" 11 0 0 255 1
+  layer_info: "top copper" 12 0 255 0 1
+  layer_info: "bottom copper" 13 255 0 0 1
+
+[footprints]
+
+name: "1X2HDR-100"
+author: "Ivex"
+source: "PRINTED CIRCUIT DESIGN METHODS PAGE 411"
+  units: MIL
+  sel_rect: -33 -33 33 133
+  ref_text: 50 0 160 0 7
+  centroid: 0 0 50
+  n_pins: 2
+    pin: "1" 28 0 0 0
+      top_pad: 2 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 2 50 25 25 0
+    pin: "2" 28 0 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+
+name: "SS14MDP2"
+author: "Jeff Connelly"
+source: "http://www.nkkswitches.com/pdf/SSnonilluminated.pdf"
+description: "NKK SP3T Switch"
+  units: MIL
+  sel_rect: -15 -15 215 715
+  ref_text: 100 0 800 0 10
+  centroid: -842150451 -33155.529528 -33155.529528
+  outline_polyline: 10 0 0
+    next_corner: 200 0 0
+    next_corner: 200 700 0
+    next_corner: 0 700 0
+    close_polyline: 0
+  n_pins: 4
+    pin: "1" 45 100 100 0
+      top_pad: 1 75 0 0 0
+      inner_pad: 0 75 0 0 0
+      bottom_pad: 1 75 0 0 0
+    pin: "2" 45 100 200 0
+      top_pad: 1 75 0 0 0
+      inner_pad: 0 75 0 0 0
+      bottom_pad: 1 75 0 0 0
+    pin: "3" 45 100 300 0
+      top_pad: 1 75 0 0 0
+      inner_pad: 0 75 0 0 0
+      bottom_pad: 1 75 0 0 0
+    pin: "4" 45 100 500 0
+      top_pad: 1 75 0 0 0
+      inner_pad: 0 75 0 0 0
+      bottom_pad: 1 75 0 0 0
+
+[board]
+
+[solder_mask_cutouts]
+
+
+[parts]
+
+part: X$Xtrit_i$XX1
+  ref_text: 2540000 254000 0 0 20320000
+  package: "SS14MDP2"
+  shape: "SS14MDP2"
+  pos: 55880000 38100000 0 0 0
+
+part: V$Xpower$Vdd
+  ref_text: 1270000 177800 0 0 4064000
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 78740000 48260000 0 180 0
+
+part: V$Xpower$Vss
+  ref_text: 1270000 177800 0 0 4064000
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 78740000 40640000 0 180 0
+
+part: X$Xtrit_0$XX1
+  ref_text: 2540000 254000 0 0 20320000
+  package: "SS14MDP2"
+  shape: "SS14MDP2"
+  pos: -9779000 37973000 0 0 0
+
+part: X$Xtrit_1$XX1
+  ref_text: 2540000 254000 0 0 20320000
+  package: "SS14MDP2"
+  shape: "SS14MDP2"
+  pos: 22860000 38100000 0 0 0
+
+[nets]
+
+net: "TRIT_i" 1 0 0 0 0 0 1
+  pin: 1 X$Xtrit_i$XX1.4
+
+net: "$G_Vss" 4 3 0 0 0 0 1
+  pin: 1 X$Xtrit_i$XX1.1
+  pin: 2 V$Xpower$Vss.2
+  pin: 3 X$Xtrit_0$XX1.1
+  pin: 4 X$Xtrit_1$XX1.1
+  connect: 1 1 0 2 0
+    vtx: 1 78740000 38100000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 60960000 38100000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 58420000 40640000 11 0 0 0 0
+  connect: 2 3 2 3 0
+    vtx: 1 25400000 40640000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 25400000 40640000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -7112000 40640000 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 -7239000 40513000 11 0 0 0 0
+  connect: 3 3 0 2 0
+    vtx: 1 25400000 40640000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 57912000 40640000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 58420000 40640000 11 0 0 0 0
+
+net: "$G_Vdd" 4 3 0 0 0 0 1
+  pin: 1 X$Xtrit_i$XX1.3
+  pin: 2 V$Xpower$Vdd.1
+  pin: 3 X$Xtrit_0$XX1.3
+  pin: 4 X$Xtrit_1$XX1.3
+  connect: 1 1 0 3 0
+    vtx: 1 78740000 48260000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 78232000 48260000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 60960000 48260000 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 58420000 45720000 11 0 0 0 0
+  connect: 2 3 2 3 0
+    vtx: 1 25400000 45720000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 25908000 45720000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 25781000 45593000 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 -7239000 45593000 11 0 0 0 0
+  connect: 3 3 0 2 0
+    vtx: 1 25400000 45720000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 58928000 45720000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 58420000 45720000 11 0 0 0 0
+
+net: "TRIT_0" 1 0 0 0 0 0 1
+  pin: 1 X$Xtrit_0$XX1.4
+
+net: "0" 5 4 0 0 0 0 1
+  pin: 1 X$Xtrit_i$XX1.2
+  pin: 2 V$Xpower$Vdd.2
+  pin: 3 V$Xpower$Vss.1
+  pin: 4 X$Xtrit_0$XX1.2
+  pin: 5 X$Xtrit_1$XX1.2
+  connect: 1 2 1 3 0
+    vtx: 1 78740000 40640000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 81280000 40640000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 81280000 45720000 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 78740000 45720000 11 0 0 0 0
+  connect: 2 2 0 4 0
+    vtx: 1 78740000 40640000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 64008000 40640000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 61976000 40640000 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 58928000 43688000 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 58420000 43180000 11 0 0 0 0
+  connect: 3 4 3 3 0
+    vtx: 1 25400000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 25908000 43688000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 25273000 43053000 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 -7239000 43053000 11 0 0 0 0
+  connect: 4 4 0 2 0
+    vtx: 1 25400000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 57912000 43180000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 58420000 43180000 11 0 0 0 0
+
+net: "TRIT_1" 1 0 0 0 0 0 1
+  pin: 1 X$Xtrit_1$XX1.4
+
+[texts]
+
+[end]

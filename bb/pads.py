@@ -14,7 +14,9 @@ footprint_map = {
         "CD4016": "14DIP300",
         "R": "RC07",             # 1/4 resistor
         "V": "1X2HDR-100",
-        "sp3t": "SS14MDP2",      # NKK switch
+        "sp3t-1": "SS14MDP2",      # NKK switch, in position 1
+        "sp3t-2": "SS14MDP2",      # NKK switch, in position 2
+        "sp3t-3": "SS14MDP2",      # NKK switch, in position 3
         #"1N4148": "DO-35",       # Diode
         "D": "DO-35",           # All diodes (note: should really be specific!)
         }

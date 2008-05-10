@@ -1,0 +1,45 @@
+* Z:\trinary\code\circuits\trit_test.asc
+Xtrit_i TRIT_i trit-i
+Xpower $G_Vdd $G_Vss tpower
+Xtrit_0 TRIT_0 trit-0
+Xtrit_1 TRIT_1 trit-1
+
+* block symbol definitions
+.subckt trit-i COM
+XX1 $G_Vss 0 $G_Vdd COM sp3t-1
+.ends trit-i
+
+.subckt tpower Vdd Vss
+Vdd Vdd 0 5V
+Vss 0 Vss 5V
+.ends tpower
+
+.subckt trit-0 COM
+XX1 $G_Vss 0 $G_Vdd COM sp3t-2
+.ends trit-0
+
+.subckt trit-1 COM
+XX1 $G_Vss 0 $G_Vdd COM sp3t-3
+.ends trit-1
+
+.subckt sp3t-1 1 2 3 COM
+R§short1 COM 1 1
+C§open2 2 COM 1p
+C§open3 3 COM 1p
+.ends sp3t-1
+
+.subckt sp3t-2 1 2 3 COM
+C§open1 1 COM 1p
+C§open3 3 COM 1p
+R§short2 2 COM 1
+.ends sp3t-2
+
+.subckt sp3t-3 1 2 3 COM
+C§open1 COM 1 1p
+C§open2 COM 2 1p
+R§short3 3 COM 1
+.ends sp3t-3
+
+.op
+.backanno
+.end
