@@ -12,6 +12,11 @@
 
 import sys, os, threading, time
 
+TRACE = True
+DELAY = 1                   # second(s)
+USER_INPUT_THREAD = True    # ask for user input?
+USER_INPUT_INIT = 8         # initialize input to this
+
 trit_integer = {"i": -1, "0":0, "1":1}
 
 # Lookup a register's name by address
@@ -36,15 +41,14 @@ class CPUInput (threading.Thread):
             print "Register Status: %s :" % registers,
             user_input = raw_input('Input value for IN:')
 
-            if not user_input.isdigit():
-                print """invalid input: %s""" % user_input
+            try:
+                digit = int(user_input)
+            except ValueError, e:
+                print "invalid input: %s (%s)" % (user_input, e)
                 continue
-
-            digit = int(user_input)
 
             if digit >= -4 and digit <= 4:
                 registers["IN"] = digit
-                time.sleep(0.25)
             else:
                 print """invalid input: %s""" % user_input
 
@@ -80,7 +84,7 @@ input file: program.3 - machine code
 
     # memory, registers, and program counter
     memory = {}
-    pc = 0
+    registers["PC"] = 0
 
     # decode instructions from file
     for i in range(-1, 2):
@@ -89,11 +93,18 @@ input file: program.3 - machine code
         tritstream = tritstream[3:]
 
     # start user input thread
-    CPUInput().start()
+    if USER_INPUT_THREAD:
+        CPUInput().start()
+    registers["IN"] = USER_INPUT_INIT
 
     # execute instructions
-    while pc in (-1, 0, 1):
-        pc = Execute(memory, pc)
+    while True:
+        registers["PC"] = Execute(memory)
+
+        if TRACE:
+            print registers
+                
+        time.sleep(DELAY)
 
 def Decoder(tritstream):
     """ Decode a single instruction.
@@ -125,41 +136,41 @@ def Decoder(tritstream):
 
     return inst
 
-def Execute(memory, pc):
+def Execute(memory):
     """ Execute one instruction.
         memory: were decoded instructions are stored
         registers: contains registers and their values
-        pc: program counter
-        returns: updated pc
+        returns: new program counter, to be stored in registers["PC"]
     """
 
-    op = (memory[pc])["op"]
+    op = (memory[registers["PC"]])["op"]
 
     # cmp
     if op == -1:
-        src1 = (memory[pc])["src1"]
-        src2 = (memory[pc])["src2"]
+        src1 = (memory[registers["PC"]])["src1"]
+        src2 = (memory[registers["PC"]])["src2"]
         if registers[register_name[src1]] < registers[register_name[src2]]:
             registers["S"] = -1
         elif registers[register_name[src1]] > registers[register_name[src2]]:
             registers["S"] = 1
         else:
             registers["S"] = 0
-        pc = pc + 1
+        new_pc = registers["PC"] + 1
     # lwi
     elif op == 0:
-        registers["A"] = (memory[pc])["immed"]
-        pc = pc + 1
+        registers["A"] = (memory[registers["PC"]])["immed"]
+        new_pc = registers["PC"] + 1
     # be
     elif op == 1:
         if registers["S"] == 0:
-            pc = (memory[pc])["src1"]
+            new_pc = (memory[registers["PC"]])["src1"]
         else:
-            pc = (memory[pc])["src2"]
+            new_pc = (memory[registers["PC"]])["src2"]
 
-    if pc > 1:
-       pc = -1
-    return pc
+    if new_pc > 1:
+       new_pc = -1
+
+    return new_pc
 
 if __name__ == "__main__":
     main()

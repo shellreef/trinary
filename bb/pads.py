@@ -19,22 +19,27 @@ footprint_map = {
         "D": "DO-35",           # All diodes (note: should really be specific!)
         }
 
+# If enabled, RX$Xflipflop$XX<n>$Xinv$R{P,N} will be mapped to ${P,N}<n>.
+# Useful for laying out a single dtflop-ms_test, but may cause serious
+# errors otherwise!
+SHORT_DTFLOP_RP_RN = False
+
 # TODO: remove these limitations on FreePCB, so that
-# use_short_names and break_long_lines can be turned off!
+# USE_SHORT_NAMES and BREAK_LONG_LINES can be turned off!
 
 # If true, reference designators and node names will be assigned
 # sequentially, instead of using their hierarchical name
 # from the net2 file. Some PCB programs have length limits
 # on reference designators (FreePCB).
-use_short_names = True
+USE_SHORT_NAMES = True
 
 # Split long nets over multiple lines.
-break_long_lines = True
+BREAK_LONG_LINES = True
 
 # If not false, nodes with only one connection will have a
 # testpoint attached, using the given footprint.
-#naked_node_footprint = "HOLE_100_RND_200"
-naked_node_footprint = None
+#NAKED_NODE_FOOTPRINT = "HOLE_100_RND_200"
+NAKED_NODE_FOOTPRINT = None
 
 
 def usage():
@@ -56,7 +61,7 @@ Either filenames can be "-" for stdin or stdout, respectively.
 MAX_SIZE = 39
 
 long2short = {
-         # Names to preserve, if use_short_names is True.
+         # Names to preserve, if USE_SHORT_NAMES is True.
          # Would be nice to preserve all/more net names, but
          # some are just too long and hierarchical.
         "$G_Vss": "$G_Vss",
@@ -69,8 +74,19 @@ next_serial = {
         "X": 1,
         }
 def shorten(long, is_netname):
-    if not use_short_names:
+    if not USE_SHORT_NAMES:
         return long
+
+    if SHORT_DTFLOP_RP_RN and long.startswith("RX$Xflipflop$XX"):
+        short = long[len("RX$Xflipflop$XX"):][0]
+        if long.endswith("RP"):
+            short = "RP" + short
+        elif long.endswith("RN"):
+            short = "RN" + short
+        else:
+            sys.stderr.write("dtflop RP/RN mapping enabled, but not RP/RN!")
+            raise SystemExit
+        return short
 
     if len(long) <= MAX_SIZE:
         # We got away with it this time.
@@ -173,11 +189,11 @@ for part in parts:
     print "%s %s" % (refdesg, package)
 
 # Nets with only one node get testpoints for free (also appends to parts list)
-if naked_node_footprint:
+if NAKED_NODE_FOOTPRINT:
     for signal_name, nodes in nets.iteritems():
         if len(nodes) == 1:
             testpoint = "%s_tp" % (signal_name,)
-            print "%s %s" % (testpoint, naked_node_footprint)
+            print "%s %s" % (testpoint, NAKED_NODE_FOOTPRINT)
             nets[signal_name].append(testpoint)
 
 
@@ -185,7 +201,7 @@ if naked_node_footprint:
 print "*NET*"
 for signal, pins in nets.iteritems():
     print "*SIGNAL* %s" % (signal,)
-    if break_long_lines:
+    if BREAK_LONG_LINES:
         i = 0
         for p in pins:
             print p,

@@ -4,7 +4,7 @@ version: 1.343
 file_version: 1.332
 project_name: "dtflop-ms_test"
 full_library_folder: "c:\program files\freepcb\lib"
-CAM_folder: ""
+CAM_folder: "Z:\trinary\code\bb\CAM-dtflop"
 ses_file_path: "Z:\trinary\code\bb\dtflop-ms_test.ses"
 SMT_connect_copper: "0"
 dsn_flags: "0"
@@ -14,7 +14,7 @@ autosave_interval: 0
 netlist_import_flags: 451
 units: MIL
 
-visible_grid_spacing: 5080000.000000
+visible_grid_spacing: 25400000.000000
   visible_grid_item: 100MIL
   visible_grid_item: 125MIL
   visible_grid_item: 200MIL
@@ -65,10 +65,10 @@ routing_grid_spacing: 508000.000000
   routing_grid_item: 3.33326772MIL
   routing_grid_item: 4MIL
   routing_grid_item: 5MIL
-  routing_grid_item: 6.66653543MIL
+  routing_grid_item: 6.66610236MIL
   routing_grid_item: 10MIL
   routing_grid_item: 12.5MIL
-  routing_grid_item: 16.66653543MIL
+  routing_grid_item: 16.66610236MIL
   routing_grid_item: 20MIL
   routing_grid_item: 25MIL
   routing_grid_item: 40MIL
@@ -148,7 +148,7 @@ annular_ring_for_pins: 177800
 annular_ring_for_vias: 127000
 shrink_paste_mask: 0
 cam_flags: 1
-cam_layers: 4095
+cam_layers: 63
 cam_drill_file: 1
 cam_units: 2
 cam_n_x: 1
@@ -199,6 +199,47 @@ n_copper_layers: 2
   layer_info: "bottom copper" 13 255 0 0 1
 
 [footprints]
+
+name: "4X2HDR-100"
+author: "Ivex"
+source: "PRINTED CIRCUIT DESIGN METHODS PAGE 411"
+  units: MIL
+  sel_rect: -33 -33 333 133
+  ref_text: 50 150 160 0 7
+  centroid: 0 150 50
+  n_pins: 8
+    pin: "1" 28 0 0 0
+      top_pad: 2 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 2 50 25 25 0
+    pin: "2" 28 0 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "3" 28 100 0 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "4" 28 100 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "5" 28 200 0 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "6" 28 200 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "7" 28 300 0 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "8" 28 300 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
 
 name: "14DIP300"
 author: "Ivex"
@@ -314,580 +355,5597 @@ source: "DIGITAL PRINTED CIRCUIT DESIGN & DRAFTING, PAGE 408"
       inner_pad: 1 75 37 37 0
       bottom_pad: 1 75 37 37 0
 
+name: "9X2HDR-100"
+author: "Ivex"
+source: "PRINTED CIRCUIT DESIGN METHODS PAGE 411"
+  units: MIL
+  sel_rect: -33 -33 833 133
+  ref_text: 50 400 160 0 7
+  centroid: 0 400 50
+  n_pins: 18
+    pin: "1" 28 0 0 0
+      top_pad: 2 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 2 50 25 25 0
+    pin: "2" 28 0 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "3" 28 100 0 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "4" 28 100 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "5" 28 200 0 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "6" 28 200 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "7" 28 300 0 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "8" 28 300 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "9" 28 400 0 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "10" 28 400 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "11" 28 500 0 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "12" 28 500 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "13" 28 600 0 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "14" 28 600 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "15" 28 700 0 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "16" 28 700 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "17" 28 800 0 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+    pin: "18" 28 800 100 0
+      top_pad: 1 50 25 25 0
+      inner_pad: 1 50 25 25 0
+      bottom_pad: 1 50 25 25 0
+
 [board]
 
 outline: 4 0
-  corner: 1 -101600000 137160000 0
-  corner: 2 -5080000 137160000 0
-  corner: 3 -5080000 81280000 0
-  corner: 4 -101600000 81280000 0
+  corner: 1 -78740000 -30480000 0
+  corner: 2 170180000 -30480000 0
+  corner: 3 170180000 139700000 0
+  corner: 4 -78740000 139700000 0
 
 [solder_mask_cutouts]
 
 
 [parts]
 
-part: Vclk
-  ref_text: 2540000 254000 0 2540000 0
+part: Vclk_0
+  ref_text: 1905000 190500 0 2540000 0
   package: "1X2HDR-100"
   shape: "1X2HDR-100"
-  pos: -99060000 111760000 0 0 0
+  pos: -74930000 115570000 0 0 0
 
-part: Vd
-  ref_text: 2540000 254000 0 2540000 0
+part: Vd_0
+  ref_text: 1905000 190500 0 2540000 0
   package: "1X2HDR-100"
   shape: "1X2HDR-100"
-  pos: -99060000 119380000 0 0 0
+  pos: -74930000 123190000 0 0 0
 
-part: V$XX1$Vdd
-  ref_text: 2540000 254000 0 2540000 0
+part: Vdd_0
+  ref_text: 1270000 127000 0 2540000 0
   package: "1X2HDR-100"
   shape: "1X2HDR-100"
-  pos: -99060000 104140000 0 0 0
+  pos: -74930000 107950000 0 0 0
 
-part: V$XX1$Vss
-  ref_text: 2540000 254000 0 2540000 0
+part: Vss_0
+  ref_text: 1270000 127000 0 2540000 0
   package: "1X2HDR-100"
   shape: "1X2HDR-100"
-  pos: -99060000 99060000 0 0 0
+  pos: -74930000 102870000 0 0 0
 
-part: X_IC_0_CD4007
-  ref_text: 1270000 177800 270 -2540000 -2540000
+part: X_IC_0_CD4007_0
+  ref_text: 1270000 177800 270 -2540000 -3810000
   package: "14DIP300"
   shape: "14DIP300"
-  pos: -55880000 109220000 0 90 0
+  pos: -50800000 109220000 0 90 0
 
-part: X_IC_1_CD4007
-  ref_text: 1270000 177800 270 -2540000 -2540000
+part: X_IC_1_CD4007_0
+  ref_text: 1270000 177800 270 -2540000 -3810000
   package: "14DIP300"
   shape: "14DIP300"
-  pos: -30480000 109220000 0 90 0
+  pos: -27940000 109220000 0 90 0
 
-part: X_IC_2_CD4007
-  ref_text: 1270000 177800 270 -2540000 -2540000
+part: X_IC_2_CD4007_0
+  ref_text: 1270000 177800 270 -2540000 -3810000
   package: "14DIP300"
   shape: "14DIP300"
-  pos: -30480000 132080000 0 90 0
+  pos: -27940000 132080000 0 90 0
 
-part: X_IC_3_CD4016
-  ref_text: 1270000 177800 270 -2540000 -2540000
+part: X_IC_3_CD4016_0
+  ref_text: 1270000 177800 270 -2540000 -3810000
   package: "14DIP300"
   shape: "14DIP300"
-  pos: -55880000 132080000 0 90 0
+  pos: -50800000 132080000 0 90 0
 
-part: RXXflipflop$XX2$Xinv$RP
-  ref_text: 1270000 177800 0 -7620000 2540000
+part: RP2_0
+  ref_text: 1270000 177800 0 7620000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -63500000 129540000 0 90 0
+  pos: -55880000 119380000 0 270 0
 
-part: RXXflipflop$XX2$Xinv$RN
-  ref_text: 1270000 177800 0 -7620000 2540000
+part: RN2_0
+  ref_text: 1270000 177800 0 7620000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -71120000 129540000 0 90 0
+  pos: -63500000 132080000 0 90 0
 
-part: RXXflipflop$XX4$Xinv$RP
-  ref_text: 1270000 177800 0 -2540000 2540000
+part: RP4_0
+  ref_text: 1270000 177800 0 7620000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -71120000 109220000 0 90 0
+  pos: -63500000 106680000 0 90 0
 
-part: RXXflipflop$XX4$Xinv$RN
-  ref_text: 1270000 177800 0 -2540000 2540000
+part: RN4_0
+  ref_text: 1270000 177800 0 7620000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -63500000 109220000 0 90 0
+  pos: -55880000 93980000 0 270 0
 
-part: RXXflipflop$XX3$Xinv$RP
-  ref_text: 1270000 177800 0 -2540000 2540000
+part: RP3_0
+  ref_text: 1270000 177800 0 7620000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -17780000 106680000 0 90 0
+  pos: -6350000 93980000 0 270 0
 
-part: RXXflipflop$XX3$Xinv$RN
-  ref_text: 1270000 177800 0 -2540000 2540000
+part: RN3_0
+  ref_text: 1270000 177800 0 7620000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -12700000 106680000 0 90 0
+  pos: -13970000 106680000 0 90 0
 
-part: RXXflipflop$XX1$Xinv$RP
+part: RP1_0
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -43180000 129540000 0 90 0
+  pos: -35560000 129540000 0 90 0
 
-part: RXXflipflop$XX1$Xinv$RN
+part: RN1_0
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -38100000 129540000 0 90 0
+  pos: -35560000 106680000 0 90 0
 
-part: RXXflipflop$XX5$Xinv$RP
-  ref_text: 1270000 177800 0 -5080000 2540000
+part: RP5_0
+  ref_text: 1270000 177800 0 7620000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -17780000 129540000 0 90 0
+  pos: -13970000 129540000 0 90 0
 
-part: RXXflipflop$XX5$Xinv$RN
-  ref_text: 1270000 177800 0 -5080000 2540000
+part: RN5_0
+  ref_text: 1270000 177800 0 7620000 2514600
   package: "RC07"
   shape: "RC07"
-  pos: -12700000 129540000 0 90 0
+  pos: -6350000 116840000 0 270 0
+
+part: Vq_0
+  ref_text: 2540000 177800 0 2540000 1524000
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: -10160000 109220000 0 0 0
+
+part: Vclk_1
+  ref_text: 1905000 190500 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: -74930000 64770000 0 0 0
+
+part: Vd_1
+  ref_text: 1905000 190500 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: -74930000 72390000 0 0 0
+
+part: Vdd_1
+  ref_text: 1270000 127000 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: -74930000 57150000 0 0 0
+
+part: Vss_1
+  ref_text: 1270000 127000 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: -74930000 52070000 0 0 0
+
+part: X_IC_0_CD4007_1
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: -50800000 58420000 0 90 0
+
+part: X_IC_1_CD4007_1
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: -27940000 58420000 0 90 0
+
+part: X_IC_2_CD4007_1
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: -27940000 81280000 0 90 0
+
+part: X_IC_3_CD4016_1
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: -50800000 81280000 0 90 0
+
+part: RP2_1
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -55880000 68580000 0 270 0
+
+part: RN2_1
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -63500000 81280000 0 90 0
+
+part: RP4_1
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -63500000 55880000 0 90 0
+
+part: RN4_1
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -55880000 43180000 0 270 0
+
+part: RP3_1
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -6350000 43180000 0 270 0
+
+part: RN3_1
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -13970000 55880000 0 90 0
+
+part: RP1_1
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -35560000 78740000 0 90 0
+
+part: RN1_1
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -35560000 55880000 0 90 0
+
+part: RP5_1
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -13970000 78740000 0 90 0
+
+part: RN5_1
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -6350000 66040000 0 270 0
+
+part: Vq_1
+  ref_text: 2540000 177800 0 2540000 1524000
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: -10160000 58420000 0 0 0
+
+part: Vclk_2
+  ref_text: 1905000 190500 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: -74930000 13970000 0 0 0
+
+part: Vd_2
+  ref_text: 1905000 190500 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: -74930000 21590000 0 0 0
+
+part: Vdd_2
+  ref_text: 1270000 127000 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: -74930000 6350000 0 0 0
+
+part: Vss_2
+  ref_text: 1270000 127000 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: -74930000 1270000 0 0 0
+
+part: X_IC_0_CD4007_2
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: -50800000 7620000 0 90 0
+
+part: X_IC_1_CD4007_2
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: -27940000 7620000 0 90 0
+
+part: X_IC_2_CD4007_2
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: -27940000 30480000 0 90 0
+
+part: X_IC_3_CD4016_2
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: -50800000 30480000 0 90 0
+
+part: RP2_2
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -55880000 17780000 0 270 0
+
+part: RN2_2
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -63500000 30480000 0 90 0
+
+part: RP4_2
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -63500000 5080000 0 90 0
+
+part: RN4_2
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -55880000 -7620000 0 270 0
+
+part: RP3_2
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -6350000 -7620000 0 270 0
+
+part: RN3_2
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -13970000 5080000 0 90 0
+
+part: RP1_2
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -35560000 27940000 0 90 0
+
+part: RN1_2
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -35560000 5080000 0 90 0
+
+part: RP5_2
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -13970000 27940000 0 90 0
+
+part: RN5_2
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -6350000 15240000 0 270 0
+
+part: Vq_2
+  ref_text: 2540000 177800 0 2540000 1524000
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: -10160000 7620000 0 0 0
+
+part: Vclk_3
+  ref_text: 1905000 190500 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 7620000 115570000 0 0 0
+
+part: Vd_3
+  ref_text: 1905000 190500 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 7620000 123190000 0 0 0
+
+part: Vdd_3
+  ref_text: 1270000 127000 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 7620000 107950000 0 0 0
+
+part: Vss_3
+  ref_text: 1270000 127000 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 7620000 102870000 0 0 0
+
+part: X_IC_0_CD4007_3
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 31750000 109220000 0 90 0
+
+part: X_IC_1_CD4007_3
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 54610000 109220000 0 90 0
+
+part: X_IC_2_CD4007_3
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 54610000 132080000 0 90 0
+
+part: X_IC_3_CD4016_3
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 31750000 132080000 0 90 0
+
+part: RP2_3
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 26670000 119380000 0 270 0
+
+part: RN2_3
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 19050000 132080000 0 90 0
+
+part: RP4_3
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 19050000 106680000 0 90 0
+
+part: RN4_3
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 26670000 93980000 0 270 0
+
+part: RP3_3
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 76200000 93980000 0 270 0
+
+part: RN3_3
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 68580000 106680000 0 90 0
+
+part: RP1_3
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 46990000 129540000 0 90 0
+
+part: RN1_3
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 46990000 106680000 0 90 0
+
+part: RP5_3
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 68580000 129540000 0 90 0
+
+part: RN5_3
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 76200000 116840000 0 270 0
+
+part: Vq_3
+  ref_text: 2540000 177800 0 2540000 1524000
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 72390000 109220000 0 0 0
+
+part: Vclk_4
+  ref_text: 1905000 190500 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 7620000 64770000 0 0 0
+
+part: Vd_4
+  ref_text: 1905000 190500 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 7620000 72390000 0 0 0
+
+part: Vdd_4
+  ref_text: 1270000 127000 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 7620000 57150000 0 0 0
+
+part: Vss_4
+  ref_text: 1270000 127000 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 7620000 52070000 0 0 0
+
+part: X_IC_0_CD4007_4
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 31750000 58420000 0 90 0
+
+part: X_IC_1_CD4007_4
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 54610000 58420000 0 90 0
+
+part: X_IC_2_CD4007_4
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 54610000 81280000 0 90 0
+
+part: X_IC_3_CD4016_4
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 31750000 81280000 0 90 0
+
+part: RP2_4
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 26670000 68580000 0 270 0
+
+part: RN2_4
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 19050000 81280000 0 90 0
+
+part: RP4_4
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 19050000 55880000 0 90 0
+
+part: RN4_4
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 26670000 43180000 0 270 0
+
+part: RP3_4
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 76200000 43180000 0 270 0
+
+part: RN3_4
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 68580000 55880000 0 90 0
+
+part: RP1_4
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 46990000 78740000 0 90 0
+
+part: RN1_4
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 46990000 55880000 0 90 0
+
+part: RP5_4
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 68580000 78740000 0 90 0
+
+part: RN5_4
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 76200000 66040000 0 270 0
+
+part: Vq_4
+  ref_text: 2540000 177800 0 2540000 1524000
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 72390000 58420000 0 0 0
+
+part: Vclk_5
+  ref_text: 1905000 190500 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 7620000 13970000 0 0 0
+
+part: Vd_5
+  ref_text: 1905000 190500 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 7620000 21590000 0 0 0
+
+part: Vdd_5
+  ref_text: 1270000 127000 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 7620000 6350000 0 0 0
+
+part: Vss_5
+  ref_text: 1270000 127000 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 7620000 1270000 0 0 0
+
+part: X_IC_0_CD4007_5
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 31750000 7620000 0 90 0
+
+part: X_IC_1_CD4007_5
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 54610000 7620000 0 90 0
+
+part: X_IC_2_CD4007_5
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 54610000 30480000 0 90 0
+
+part: X_IC_3_CD4016_5
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 31750000 30480000 0 90 0
+
+part: RP2_5
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 26670000 17780000 0 270 0
+
+part: RN2_5
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 19050000 30480000 0 90 0
+
+part: RP4_5
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 19050000 5080000 0 90 0
+
+part: RN4_5
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 26670000 -7620000 0 270 0
+
+part: RP3_5
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 76200000 -7620000 0 270 0
+
+part: RN3_5
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 68580000 5080000 0 90 0
+
+part: RP1_5
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 46990000 27940000 0 90 0
+
+part: RN1_5
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 46990000 5080000 0 90 0
+
+part: RP5_5
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 68580000 27940000 0 90 0
+
+part: RN5_5
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 76200000 15240000 0 270 0
+
+part: Vq_5
+  ref_text: 2540000 177800 0 2540000 1524000
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 72390000 7620000 0 0 0
+
+part: Vclk_6
+  ref_text: 1905000 190500 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 90170000 115570000 0 0 0
+
+part: Vd_6
+  ref_text: 1905000 190500 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 90170000 123190000 0 0 0
+
+part: Vdd_6
+  ref_text: 1270000 127000 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 90170000 107950000 0 0 0
+
+part: Vss_6
+  ref_text: 1270000 127000 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 90170000 102870000 0 0 0
+
+part: X_IC_0_CD4007_6
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 114300000 109220000 0 90 0
+
+part: X_IC_1_CD4007_6
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 137160000 109220000 0 90 0
+
+part: X_IC_2_CD4007_6
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 137160000 132080000 0 90 0
+
+part: X_IC_3_CD4016_6
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 114300000 132080000 0 90 0
+
+part: RP2_6
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 109220000 119380000 0 270 0
+
+part: RN2_6
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 101600000 132080000 0 90 0
+
+part: RP4_6
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 101600000 106680000 0 90 0
+
+part: RN4_6
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 109220000 93980000 0 270 0
+
+part: RP3_6
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 158750000 93980000 0 270 0
+
+part: RN3_6
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 151130000 106680000 0 90 0
+
+part: RP1_6
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 129540000 129540000 0 90 0
+
+part: RN1_6
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 129540000 106680000 0 90 0
+
+part: RP5_6
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 151130000 129540000 0 90 0
+
+part: RN5_6
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 158750000 116840000 0 270 0
+
+part: Vq_6
+  ref_text: 2540000 177800 0 2540000 1524000
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 154940000 109220000 0 0 0
+
+part: Vclk_7
+  ref_text: 1905000 190500 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 90170000 64770000 0 0 0
+
+part: Vd_7
+  ref_text: 1905000 190500 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 90170000 72390000 0 0 0
+
+part: Vdd_7
+  ref_text: 1270000 127000 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 90170000 57150000 0 0 0
+
+part: Vss_7
+  ref_text: 1270000 127000 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 90170000 52070000 0 0 0
+
+part: X_IC_0_CD4007_7
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 114300000 58420000 0 90 0
+
+part: X_IC_1_CD4007_7
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 137160000 58420000 0 90 0
+
+part: X_IC_2_CD4007_7
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 137160000 81280000 0 90 0
+
+part: X_IC_3_CD4016_7
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 114300000 81280000 0 90 0
+
+part: RP2_7
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 109220000 68580000 0 270 0
+
+part: RN2_7
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 101600000 81280000 0 90 0
+
+part: RP4_7
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 101600000 55880000 0 90 0
+
+part: RN4_7
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 109220000 43180000 0 270 0
+
+part: RP3_7
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 158750000 43180000 0 270 0
+
+part: RN3_7
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 151130000 55880000 0 90 0
+
+part: RP1_7
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 129540000 78740000 0 90 0
+
+part: RN1_7
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 129540000 55880000 0 90 0
+
+part: RP5_7
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 151130000 78740000 0 90 0
+
+part: RN5_7
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 158750000 66040000 0 270 0
+
+part: Vq_7
+  ref_text: 2540000 177800 0 2540000 1524000
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 154940000 58420000 0 0 0
+
+part: Vclk_8
+  ref_text: 1905000 190500 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 90170000 13970000 0 0 0
+
+part: Vd_8
+  ref_text: 1905000 190500 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 90170000 21590000 0 0 0
+
+part: Vdd_8
+  ref_text: 1270000 127000 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 90170000 6350000 0 0 0
+
+part: Vss_8
+  ref_text: 1270000 127000 0 2540000 0
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 90170000 1270000 0 0 0
+
+part: X_IC_0_CD4007_8
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 114300000 7620000 0 90 0
+
+part: X_IC_1_CD4007_8
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 137160000 7620000 0 90 0
+
+part: X_IC_2_CD4007_8
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 137160000 30480000 0 90 0
+
+part: X_IC_3_CD4016_8
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 114300000 30480000 0 90 0
+
+part: RP2_8
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 109220000 17780000 0 270 0
+
+part: RN2_8
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 101600000 30480000 0 90 0
+
+part: RP4_8
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 101600000 5080000 0 90 0
+
+part: RN4_8
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 109220000 -7620000 0 270 0
+
+part: RP3_8
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 158750000 -7620000 0 270 0
+
+part: RN3_8
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 151130000 5080000 0 90 0
+
+part: RP1_8
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 129540000 27940000 0 90 0
+
+part: RN1_8
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 129540000 5080000 0 90 0
+
+part: RP5_8
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 151130000 27940000 0 90 0
+
+part: RN5_8
+  ref_text: 1270000 177800 0 7620000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 158750000 15240000 0 270 0
+
+part: Vq_8
+  ref_text: 2540000 177800 0 2540000 1524000
+  package: "1X2HDR-100"
+  shape: "1X2HDR-100"
+  pos: 154940000 7620000 0 0 0
+
+part: INPUTS
+  ref_text: 1270000 177800 0 10160000 4064000
+  package: ""
+  shape: "9X2HDR-100"
+  pos: 24130000 -25400000 0 0 0
+
+part: OUTPUTS
+  ref_text: 1270000 177800 0 10160000 4064000
+  package: ""
+  shape: "9X2HDR-100"
+  pos: 55880000 -25400000 0 0 0
+
+part: POWER
+  ref_text: 1270000 177800 0 1270000 4064000
+  package: ""
+  shape: "4X2HDR-100"
+  pos: 0 -25400000 0 0 0
 
 [nets]
 
-net: "Xflipflop$tg_D" 3 2 0 0 0 0 1
-  pin: 1 X_IC_0_CD4007.3
-  pin: 2 X_IC_3_CD4016.2
-  pin: 3 X_IC_3_CD4016.9
-  connect: 1 1 0 4 0
-    vtx: 1 -55880000 129540000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -50959258 124619258 0 0 0 0 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -50959258 118700550 0 1 711200 355600 29452
-    seg: 3 13 254000 0 0
-    vtx: 4 -50959258 109060742 0 0 0 0 0
-    seg: 4 13 254000 0 0
-    vtx: 5 -55880000 104140000 11 0 0 0 0
-  connect: 2 2 -1 2 0
-    vtx: 1 -48260000 119380000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -50279808 119380000 0 0 0 0 0
-    seg: 2 12 254000 0 0
-    vtx: 3 -50959258 118700550 0 0 0 0 29452
-
-net: "D" 2 1 0 0 0 0 1
-  pin: 1 Vd.1
-  pin: 2 X_IC_3_CD4016.8
-  connect: 1 1 0 8 0
-    vtx: 1 -48260000 116840000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -51951128 113148872 0 0 0 0 0
-    seg: 2 12 254000 0 0
-    vtx: 3 -83373468 113148872 0 0 0 0 0
-    seg: 3 12 254000 0 0
-    vtx: 4 -86032594 110490000 0 0 0 0 0
-    seg: 4 12 254000 0 0
-    vtx: 5 -99972876 110490000 0 0 0 0 0
-    seg: 5 12 254000 0 0
-    vtx: 6 -100340160 110857284 0 0 0 0 0
-    seg: 6 12 254000 0 0
-    vtx: 7 -100340160 116829840 0 0 0 0 0
-    seg: 7 12 254000 0 0
-    vtx: 8 -99060000 118110000 0 0 0 0 0
-    seg: 8 12 254000 0 0
-    vtx: 9 -99060000 119380000 11 0 0 0 0
-
-net: "Xflipflop$XX1$PTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_1_CD4007.1
-  pin: 2 RXXflipflop$XX1$Xinv$RP.1
-  connect: 1 1 0 4 0
-    vtx: 1 -43180000 129540000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -31813500 118173500 0 0 0 0 0
-    seg: 2 12 254000 0 0
-    vtx: 3 -31813500 111887000 0 0 0 0 0
-    seg: 3 12 254000 0 0
-    vtx: 4 -30480000 110553500 0 0 0 0 0
-    seg: 4 12 254000 0 0
-    vtx: 5 -30480000 109220000 11 0 0 0 0
-
-net: "Xflipflop$XX5$NTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_2_CD4007.8
-  pin: 2 RXXflipflop$XX5$Xinv$RN.2
-  connect: 1 1 0 3 0
-    vtx: 1 -12700000 116840000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -14292072 115247928 0 0 0 0 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -21267928 115247928 0 0 0 0 0
-    seg: 3 13 254000 0 0
-    vtx: 4 -22860000 116840000 11 0 0 0 0
-
-net: "Xflipflop$XX5$PTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_2_CD4007.13
-  pin: 2 RXXflipflop$XX5$Xinv$RP.1
+net: "Xflipflop$_Q_master_$G8" 3 2 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_8.1
+  pin: 2 RP2_8.2
+  pin: 3 RN2_8.1
   connect: 1 1 0 1 0
-    vtx: 1 -17780000 129540000 11 0 0 0 0
+    vtx: 1 109220000 30480000 11 0 0 0 0
     seg: 1 12 254000 0 0
-    vtx: 2 -22860000 129540000 11 0 0 0 0
+    vtx: 2 114300000 30480000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 101600000 30480000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 109220000 30480000 11 0 0 0 0
 
-net: "Xflipflop$_Q_slave" 3 2 0 0 0 0 1
-  pin: 1 X_IC_3_CD4016.11
-  pin: 2 RXXflipflop$XX1$Xinv$RP.2
-  pin: 3 RXXflipflop$XX1$Xinv$RN.1
+net: "Xflipflop$XX4$PTI_Out_$G8" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_8.1
+  pin: 2 RP4_8.1
   connect: 1 1 0 2 0
+    vtx: 1 101600000 5080000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 104140000 7620000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 114300000 7620000 11 0 0 0 0
+
+net: "Xflipflop$tg_D_$G5" 3 2 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_5.3
+  pin: 2 X_IC_3_CD4016_5.2
+  pin: 3 X_IC_3_CD4016_5.9
+  connect: 1 1 0 5 0
+    vtx: 1 31750000 27940000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 31750000 27489658 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 31740602 27480260 0 0 0 0 25492
+    seg: 3 13 254000 0 0
+    vtx: 4 24949404 20689062 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 24949404 9340596 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 31750000 2540000 11 0 0 0 0
+  connect: 2 2 -1 7 0
+    vtx: 1 39370000 17780000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 40833040 16316960 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 40833040 14631924 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 39978330 13777468 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 38766242 13777468 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 35327336 17216120 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 35327336 23893272 0 0 0 0 0
+    seg: 7 13 254000 0 0
+    vtx: 8 31740602 27480260 0 0 0 0 25492
+
+net: "Xflipflop$tg_master_$G4" 4 3 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_4.6
+  pin: 2 X_IC_3_CD4016_4.3
+  pin: 3 RP4_4.2
+  pin: 4 RN4_4.1
+  connect: 1 1 0 3 0
+    vtx: 1 31750000 76200000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 23744682 68194682 0 0 711200 355600 0
+    seg: 2 13 254000 0 0
+    vtx: 3 23744682 53725318 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 31750000 45720000 11 0 0 0 0
+  connect: 2 3 0 2 0
+    vtx: 1 26670000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 29210000 45720000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 31750000 45720000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 26670000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 19050000 43180000 11 0 0 0 0
+
+net: "Xflipflop$XX2$PTI_Out_$G3" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_3.13
+  pin: 2 RP2_3.1
+  connect: 1 1 0 1 0
+    vtx: 1 26670000 119380000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 39370000 106680000 11 0 0 0 0
+
+net: "Xflipflop$tg_slave_$G3" 3 2 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_3.6
+  pin: 2 X_IC_3_CD4016_3.4
+  pin: 3 X_IC_3_CD4016_3.10
+  connect: 1 2 0 4 0
+    vtx: 1 39370000 121920000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 41734740 119555260 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 41734740 114484404 0 0 0 0 32338
+    seg: 3 13 254000 0 0
+    vtx: 4 41734740 109395260 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 54610000 96520000 11 0 0 0 0
+  connect: 2 1 -1 4 0
+    vtx: 1 31750000 124460000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 34438336 121771664 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 34438336 118439946 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 38393878 114484404 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 41734740 114484404 0 0 0 0 32338
+
+net: "Xflipflop$XX3$NTI_Out_$G3" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_3.8
+  pin: 2 RN3_3.2
+  connect: 1 1 0 1 0
+    vtx: 1 68580000 93980000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 62230000 93980000 11 0 0 0 0
+
+net: "Xflipflop$XX5$PTI_Out_$G3" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007_3.13
+  pin: 2 RP5_3.1
+  connect: 1 1 0 1 0
+    vtx: 1 68580000 129540000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 62230000 129540000 11 0 0 0 0
+
+net: "CLK_$G2" 5 4 0 0 0 0 1
+  pin: 1 Vclk_2.1
+  pin: 2 X_IC_2_CD4007_2.6
+  pin: 3 X_IC_3_CD4016_2.5
+  pin: 4 X_IC_3_CD4016_2.13
+  pin: 5 INPUTS.6
+  connect: 1 2 0 2 0
+    vtx: 1 -50800000 20320000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -57150000 13970000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -74930000 13970000 11 0 0 0 0
+  connect: 2 3 1 2 0
+    vtx: 1 -43180000 27940000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -33020000 17780000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -27940000 17780000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 -43180000 27940000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -50800000 20320000 11 0 0 0 0
+  connect: 4 4 1 1 0
+    vtx: 1 29210000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -27940000 17780000 11 0 0 0 0
+
+net: "Q_$G1" 6 5 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_1.3
+  pin: 2 RP3_1.2
+  pin: 3 RN3_1.1
+  pin: 4 Vq_1.1
+  pin: 5 OUTPUTS.3
+  pin: 6 OUTPUTS.4
+  connect: 1 2 0 3 0
+    vtx: 1 -13970000 55880000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -17970500 59880500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -21399500 59880500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -27940000 53340000 11 0 0 0 0
+  connect: 2 3 1 3 0
+    vtx: 1 -10160000 58420000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -8763000 58420000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -8763000 58293000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -6350000 55880000 11 0 0 0 0
+  connect: 3 3 2 3 0
+    vtx: 1 -10160000 58420000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -11557000 58420000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -11557000 58293000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -13970000 55880000 11 0 0 0 0
+  connect: 4 5 4 1 0
+    vtx: 1 58420000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 58420000 -25400000 11 0 0 0 0
+  connect: 5 5 1 1 0
+    vtx: 1 58420000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -6350000 55880000 11 0 0 0 0
+
+net: "Xflipflop$XX1$PTI_Out" 2 1 0 508000 711200 355600 1
+  pin: 1 X_IC_1_CD4007_0.1
+  pin: 2 RP1_0.1
+  connect: 1 1 0 6 0
+    vtx: 1 -35560000 129540000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -31559500 133540500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -26915872 133540500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -26479500 133104128 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -26479500 112141000 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 -27940000 110680500 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 -27940000 109220000 11 0 0 0 0
+
+net: "D" 3 2 0 508000 711200 355600 1
+  pin: 1 Vd_0.1
+  pin: 2 X_IC_3_CD4016_0.8
+  pin: 3 INPUTS.1
+  connect: 1 1 0 6 0
     vtx: 1 -43180000 116840000 11 0 0 0 0
     seg: 1 13 254000 0 0
-    vtx: 2 -43180000 124460000 0 0 0 0 29691
+    vtx: 2 -44871386 118531386 0 0 0 0 0
     seg: 2 13 254000 0 0
-    vtx: 3 -48260000 124460000 11 0 0 0 0
-  connect: 2 2 -1 1 0
-    vtx: 1 -38100000 129540000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -43180000 124460000 0 0 0 0 29691
-
-net: "Xflipflop$XX4$NTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_0_CD4007.5
-  pin: 2 RXXflipflop$XX4$Xinv$RN.2
-  connect: 1 1 0 2 0
-    vtx: 1 -63500000 96520000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -60960000 99060000 0 0 0 0 0
-    seg: 2 12 254000 0 0
-    vtx: 3 -55880000 99060000 11 0 0 0 0
-
-net: "Xflipflop$_C" 4 3 0 0 0 0 1
-  pin: 1 X_IC_3_CD4016.6
-  pin: 2 X_IC_3_CD4016.12
-  pin: 3 RXXflipflop$XX5$Xinv$RP.2
-  pin: 4 RXXflipflop$XX5$Xinv$RN.1
-  connect: 1 1 0 1 0
-    vtx: 1 -48260000 127000000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -55880000 119380000 11 0 0 0 0
-  connect: 2 2 1 5 0
-    vtx: 1 -17780000 116840000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -17780000 124460000 0 0 0 0 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -14106144 128133856 0 0 0 0 5991
+    vtx: 3 -44871386 128628394 0 0 0 0 0
     seg: 3 13 254000 0 0
-    vtx: 4 -19394678 133422644 0 0 0 0 0
+    vtx: 4 -49783492 133540500 0 0 0 0 0
     seg: 4 13 254000 0 0
-    vtx: 5 -41837356 133422644 0 0 0 0 0
+    vtx: 5 -51975004 133540500 0 0 0 0 0
     seg: 5 13 254000 0 0
-    vtx: 6 -48260000 127000000 11 0 0 0 0
-  connect: 3 3 -1 1 0
-    vtx: 1 -12700000 129540000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -14106144 128133856 0 0 0 0 5991
-
-net: "Xflipflop$XX4$PTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_0_CD4007.1
-  pin: 2 RXXflipflop$XX4$Xinv$RP.1
-  connect: 1 1 0 4 0
-    vtx: 1 -71120000 109220000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -69530468 110809532 0 0 0 0 0
-    seg: 2 12 254000 0 0
-    vtx: 3 -58803032 110809532 0 0 0 0 0
-    seg: 3 12 254000 0 0
-    vtx: 4 -57213500 109220000 0 0 0 0 0
-    seg: 4 12 254000 0 0
-    vtx: 5 -55880000 109220000 11 0 0 0 0
-
-net: "Xflipflop$tg_master" 4 3 0 0 0 0 1
-  pin: 1 X_IC_0_CD4007.6
-  pin: 2 X_IC_3_CD4016.3
-  pin: 3 RXXflipflop$XX4$Xinv$RP.2
-  pin: 4 RXXflipflop$XX4$Xinv$RN.1
-  connect: 1 3 0 2 0
-    vtx: 1 -63500000 109220000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -63500000 104140000 0 0 0 0 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -55880000 96520000 11 0 0 0 0
-  connect: 2 2 0 3 0
-    vtx: 1 -71120000 96520000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -69528436 94928436 0 0 0 0 0
-    seg: 2 12 254000 0 0
-    vtx: 3 -57471564 94928436 0 0 0 0 0
-    seg: 3 12 254000 0 0
-    vtx: 4 -55880000 96520000 11 0 0 0 0
-  connect: 3 3 1 3 0
-    vtx: 1 -63500000 109220000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -59510422 113209578 0 0 0 0 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -59510422 123369578 0 0 0 0 0
-    seg: 3 13 254000 0 0
-    vtx: 4 -55880000 127000000 11 0 0 0 0
-
-net: "Xflipflop$Q" 3 2 0 0 0 0 1
-  pin: 1 X_IC_1_CD4007.3
-  pin: 2 RXXflipflop$XX3$Xinv$RP.2
-  pin: 3 RXXflipflop$XX3$Xinv$RN.1
-  connect: 1 1 0 5 0
-    vtx: 1 -17780000 93980000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -19121120 92638880 0 0 0 0 0
-    seg: 2 12 254000 0 0
-    vtx: 3 -23418292 92638880 0 0 0 0 0
-    seg: 3 12 254000 0 0
-    vtx: 4 -26670000 95890588 0 0 0 0 0
-    seg: 4 12 254000 0 0
-    vtx: 5 -26670000 100330000 0 0 0 0 0
-    seg: 5 12 254000 0 0
-    vtx: 6 -30480000 104140000 11 0 0 0 0
-  connect: 2 2 1 2 0
-    vtx: 1 -12700000 106680000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -17780000 101600000 0 0 0 0 0
-    seg: 2 12 254000 0 0
-    vtx: 3 -17780000 93980000 11 0 0 0 0
-
-net: "$G_Vdd" 7 6 0 0 0 0 1
-  pin: 1 V$XX1$Vdd.1
-  pin: 2 X_IC_0_CD4007.2
-  pin: 3 X_IC_0_CD4007.14
-  pin: 4 X_IC_1_CD4007.2
-  pin: 5 X_IC_1_CD4007.14
-  pin: 6 X_IC_2_CD4007.14
-  pin: 7 X_IC_3_CD4016.14
-  connect: 1 1 0 3 0
-    vtx: 1 -55880000 106680000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -95250000 106680000 0 0 0 0 0
-    seg: 2 12 254000 0 0
-    vtx: 3 -97790000 104140000 0 0 0 0 0
-    seg: 3 12 254000 0 0
-    vtx: 4 -99060000 104140000 11 0 0 0 0
-  connect: 2 2 1 2 0
-    vtx: 1 -48260000 109220000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -50800000 106680000 0 0 0 0 0
-    seg: 2 12 254000 0 0
-    vtx: 3 -55880000 106680000 11 0 0 0 0
-  connect: 3 3 2 3 0
-    vtx: 1 -30480000 106680000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -44382944 106680000 0 0 0 0 0
-    seg: 2 12 254000 0 0
-    vtx: 3 -46922944 109220000 0 0 0 0 3515
-    seg: 3 12 254000 0 0
-    vtx: 4 -48260000 109220000 11 0 0 0 0
-  connect: 4 4 3 3 0
-    vtx: 1 -22860000 109220000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -24197056 109220000 0 0 0 0 30186
-    seg: 2 12 254000 0 0
-    vtx: 3 -26737056 106680000 0 0 0 0 0
-    seg: 3 12 254000 0 0
-    vtx: 4 -30480000 106680000 11 0 0 0 0
-  connect: 5 5 -1 2 0
-    vtx: 1 -22860000 132080000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -24197056 130742944 0 0 0 0 0
-    seg: 2 12 254000 0 0
-    vtx: 3 -24197056 109220000 0 0 0 0 30186
-  connect: 6 6 -1 2 0
-    vtx: 1 -48260000 132080000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -46922944 130742944 0 0 0 0 0
-    seg: 2 12 254000 0 0
-    vtx: 3 -46922944 109220000 0 0 0 0 3515
-
-net: "$G_Vss" 7 6 0 0 0 0 1
-  pin: 1 V$XX1$Vss.2
-  pin: 2 X_IC_0_CD4007.4
-  pin: 3 X_IC_0_CD4007.7
-  pin: 4 X_IC_1_CD4007.4
-  pin: 5 X_IC_1_CD4007.7
-  pin: 6 X_IC_2_CD4007.7
-  pin: 7 X_IC_3_CD4016.7
-  connect: 1 1 0 1 0
-    vtx: 1 -55880000 101600000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -99060000 101600000 11 0 0 0 0
-  connect: 2 6 1 3 0
-    vtx: 1 -55880000 116840000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -57213500 115506500 0 0 0 0 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -57213500 102933500 0 0 0 0 0
-    seg: 3 13 254000 0 0
-    vtx: 4 -55880000 101600000 11 0 0 0 0
-  connect: 3 2 1 3 0
-    vtx: 1 -55880000 93980000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -54531006 95328994 0 0 0 0 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -54531006 100251260 0 0 0 0 0
-    seg: 3 13 254000 0 0
-    vtx: 4 -55880000 101600000 11 0 0 0 0
-  connect: 4 4 2 3 0
-    vtx: 1 -30480000 93980000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -31819850 92640150 0 0 0 0 0
-    seg: 2 12 254000 0 0
-    vtx: 3 -54540150 92640150 0 0 0 0 0
-    seg: 3 12 254000 0 0
-    vtx: 4 -55880000 93980000 11 0 0 0 0
-  connect: 5 4 3 3 0
-    vtx: 1 -30480000 93980000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -29136340 95323660 0 0 0 0 0
-    seg: 2 12 254000 0 0
-    vtx: 3 -29136340 100256340 0 0 0 0 0
-    seg: 3 12 254000 0 0
-    vtx: 4 -30480000 101600000 11 0 0 0 0
-  connect: 6 5 3 3 0
-    vtx: 1 -30480000 116840000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -31813500 115506500 0 0 0 0 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -31813500 102933500 0 0 0 0 0
-    seg: 3 13 254000 0 0
-    vtx: 4 -30480000 101600000 11 0 0 0 0
-
-net: "Xflipflop$XX3$NTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_1_CD4007.8
-  pin: 2 RXXflipflop$XX3$Xinv$RN.2
-  connect: 1 1 0 3 0
-    vtx: 1 -12700000 93980000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -14297406 92382594 0 0 0 0 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -21262594 92382594 0 0 0 0 0
-    seg: 3 13 254000 0 0
-    vtx: 4 -22860000 93980000 11 0 0 0 0
-
-net: "Xflipflop$XX3$PTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_1_CD4007.13
-  pin: 2 RXXflipflop$XX3$Xinv$RP.1
-  connect: 1 1 0 1 0
-    vtx: 1 -17780000 106680000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -22860000 106680000 11 0 0 0 0
-
-net: "Xflipflop$tg_slave" 3 2 0 0 0 0 1
-  pin: 1 X_IC_1_CD4007.6
-  pin: 2 X_IC_3_CD4016.4
-  pin: 3 X_IC_3_CD4016.10
-  connect: 1 2 0 3 0
-    vtx: 1 -48260000 121920000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -45899578 119559578 0 0 0 0 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -45899578 111939578 0 0 0 0 0
-    seg: 3 13 254000 0 0
-    vtx: 4 -30480000 96520000 11 0 0 0 0
-  connect: 2 2 1 3 0
-    vtx: 1 -48260000 121920000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -51900582 121920000 0 0 711200 355600 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -54440582 124460000 0 0 0 0 0
-    seg: 3 13 254000 0 0
-    vtx: 4 -55880000 124460000 11 0 0 0 0
-
-net: "Xflipflop$C" 1 0 0 0 0 0 1
-  pin: 1 X_IC_2_CD4007.6
-
-net: "Xflipflop$XX2$NTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_0_CD4007.8
-  pin: 2 RXXflipflop$XX2$Xinv$RN.2
-  connect: 1 1 0 5 0
-    vtx: 1 -71120000 116840000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -67310000 113030000 0 0 0 0 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -67310000 103514652 0 0 0 0 0
-    seg: 3 13 254000 0 0
-    vtx: 4 -56431942 92636848 0 0 0 0 0
-    seg: 4 13 254000 0 0
-    vtx: 5 -49603152 92636848 0 0 0 0 0
-    seg: 5 13 254000 0 0
-    vtx: 6 -48260000 93980000 11 0 0 0 0
-
-net: "Xflipflop$XX2$PTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_0_CD4007.13
-  pin: 2 RXXflipflop$XX2$Xinv$RP.1
-  connect: 1 1 0 5 0
-    vtx: 1 -63500000 129540000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -59626500 133413500 0 0 0 0 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -54913530 133413500 0 0 0 0 0
-    seg: 3 13 254000 0 0
-    vtx: 4 -49923192 128423162 0 0 0 0 0
-    seg: 4 13 254000 0 0
-    vtx: 5 -49923192 108343192 0 0 0 0 0
-    seg: 5 13 254000 0 0
-    vtx: 6 -48260000 106680000 11 0 0 0 0
-
-net: "0" 4 3 0 0 0 0 1
-  pin: 1 Vclk.2
-  pin: 2 Vd.2
-  pin: 3 V$XX1$Vdd.2
-  pin: 4 V$XX1$Vss.1
-  connect: 1 1 0 3 0
-    vtx: 1 -99060000 121920000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -100330000 120650000 0 0 0 0 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -100330000 115570000 0 0 0 0 0
-    seg: 3 13 254000 0 0
-    vtx: 4 -99060000 114300000 11 0 0 0 0
-  connect: 2 2 0 3 0
-    vtx: 1 -99060000 106680000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -100330000 107950000 0 0 0 0 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -100330000 113030000 0 0 0 0 0
-    seg: 3 13 254000 0 0
-    vtx: 4 -99060000 114300000 11 0 0 0 0
-  connect: 3 3 2 3 0
-    vtx: 1 -99060000 99060000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -100330000 100330000 0 0 0 0 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -100330000 105410000 0 0 0 0 0
-    seg: 3 13 254000 0 0
-    vtx: 4 -99060000 106680000 11 0 0 0 0
-
-net: "CLK" 3 2 0 0 0 0 1
-  pin: 1 Vclk.1
-  pin: 2 X_IC_3_CD4016.5
-  pin: 3 X_IC_3_CD4016.13
-  connect: 1 1 0 3 0
-    vtx: 1 -55880000 121920000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -87630000 121920000 0 0 0 0 0
-    seg: 2 12 254000 0 0
-    vtx: 3 -97790000 111760000 0 0 0 0 0
-    seg: 3 12 254000 0 0
-    vtx: 4 -99060000 111760000 11 0 0 0 0
+    vtx: 6 -62325504 123190000 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 -74930000 123190000 11 0 0 0 0
   connect: 2 2 1 1 0
-    vtx: 1 -48260000 129540000 11 0 0 0 0
-    seg: 1 12 254000 0 0
-    vtx: 2 -55880000 121920000 11 0 0 0 0
+    vtx: 1 24130000 -25400000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -43180000 116840000 11 0 0 0 0
 
-net: "Xflipflop$XX1$NTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_1_CD4007.5
-  pin: 2 RXXflipflop$XX1$Xinv$RN.2
-  connect: 1 1 0 2 0
-    vtx: 1 -38100000 116840000 11 0 0 0 0
+net: "Xflipflop$tg_D" 3 2 0 508000 711200 355600 1
+  pin: 1 X_IC_0_CD4007_0.3
+  pin: 2 X_IC_3_CD4016_0.2
+  pin: 3 X_IC_3_CD4016_0.9
+  connect: 1 1 0 5 0
+    vtx: 1 -50800000 129540000 11 0 0 0 0
     seg: 1 13 254000 0 0
-    vtx: 2 -38100000 106680000 0 0 0 0 0
+    vtx: 2 -50800000 129089658 0 0 0 0 0
     seg: 2 13 254000 0 0
-    vtx: 3 -30480000 99060000 11 0 0 0 0
-
-net: "Xflipflop$_Q_master" 3 2 0 0 0 0 1
-  pin: 1 X_IC_3_CD4016.1
-  pin: 2 RXXflipflop$XX2$Xinv$RP.2
-  pin: 3 RXXflipflop$XX2$Xinv$RN.1
-  connect: 1 2 0 4 0
-    vtx: 1 -71120000 129540000 11 0 0 0 0
-    seg: 1 13 254000 0 0
-    vtx: 2 -66589656 125009656 0 0 0 0 0
-    seg: 2 13 254000 0 0
-    vtx: 3 -64283844 125009656 0 0 0 0 17197
+    vtx: 3 -50809398 129080260 0 0 0 0 3021
     seg: 3 13 254000 0 0
-    vtx: 4 -57213500 132080000 0 0 0 0 0
+    vtx: 4 -57600596 122289062 0 0 0 0 0
     seg: 4 13 254000 0 0
-    vtx: 5 -55880000 132080000 11 0 0 0 0
-  connect: 2 1 -1 2 0
-    vtx: 1 -63500000 116840000 11 0 0 0 0
+    vtx: 5 -57600596 110940596 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 -50800000 104140000 11 0 0 0 0
+  connect: 2 2 -1 7 0
+    vtx: 1 -43180000 119380000 11 0 0 0 0
     seg: 1 13 254000 0 0
-    vtx: 2 -64283844 117623844 0 0 0 0 0
+    vtx: 2 -41716960 117916960 0 0 0 0 0
     seg: 2 13 254000 0 0
-    vtx: 3 -64283844 125009656 0 0 0 0 17197
+    vtx: 3 -41716960 116231924 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -42571670 115377468 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -43783758 115377468 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 -47222664 118816120 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 -47222664 125493272 0 0 0 0 0
+    seg: 7 13 254000 0 0
+    vtx: 8 -50809398 129080260 0 0 0 0 3021
+
+net: "Xflipflop$tg_D_$G6" 3 2 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_6.3
+  pin: 2 X_IC_3_CD4016_6.2
+  pin: 3 X_IC_3_CD4016_6.9
+  connect: 1 1 0 5 0
+    vtx: 1 114300000 129540000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 114300000 129089658 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 114290602 129080260 0 0 0 0 25515
+    seg: 3 13 254000 0 0
+    vtx: 4 107499404 122289062 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 107499404 110940596 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 114300000 104140000 11 0 0 0 0
+  connect: 2 2 -1 7 0
+    vtx: 1 121920000 119380000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 123383040 117916960 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 123383040 116231924 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 122528330 115377468 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 121316242 115377468 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 117877336 118816120 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 117877336 125493272 0 0 0 0 0
+    seg: 7 13 254000 0 0
+    vtx: 8 114290602 129080260 0 0 0 0 25515
+
+net: "Xflipflop$tg_master_$G5" 4 3 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_5.6
+  pin: 2 X_IC_3_CD4016_5.3
+  pin: 3 RP4_5.2
+  pin: 4 RN4_5.1
+  connect: 1 1 0 3 0
+    vtx: 1 31750000 25400000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 23744682 17394682 0 0 711200 355600 0
+    seg: 2 13 254000 0 0
+    vtx: 3 23744682 2925318 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 31750000 -5080000 11 0 0 0 0
+  connect: 2 3 0 2 0
+    vtx: 1 26670000 -7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 29210000 -5080000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 31750000 -5080000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 26670000 -7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 19050000 -7620000 11 0 0 0 0
+
+net: "Xflipflop$XX2$PTI_Out_$G4" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_4.13
+  pin: 2 RP2_4.1
+  connect: 1 1 0 1 0
+    vtx: 1 26670000 68580000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 39370000 55880000 11 0 0 0 0
+
+net: "Xflipflop$tg_slave_$G4" 3 2 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_4.6
+  pin: 2 X_IC_3_CD4016_4.4
+  pin: 3 X_IC_3_CD4016_4.10
+  connect: 1 2 0 4 0
+    vtx: 1 39370000 71120000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 41734740 68755260 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 41734740 63684404 0 0 0 0 8451
+    seg: 3 13 254000 0 0
+    vtx: 4 41734740 58595260 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 54610000 45720000 11 0 0 0 0
+  connect: 2 1 -1 4 0
+    vtx: 1 31750000 73660000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 34438336 70971664 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 34438336 67639946 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 38393878 63684404 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 41734740 63684404 0 0 0 0 8451
+
+net: "Xflipflop$XX3$NTI_Out_$G4" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_4.8
+  pin: 2 RN3_4.2
+  connect: 1 1 0 1 0
+    vtx: 1 68580000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 62230000 43180000 11 0 0 0 0
+
+net: "Xflipflop$XX5$PTI_Out_$G4" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007_4.13
+  pin: 2 RP5_4.1
+  connect: 1 1 0 1 0
+    vtx: 1 68580000 78740000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 62230000 78740000 11 0 0 0 0
+
+net: "CLK_$G3" 5 4 0 0 0 0 1
+  pin: 1 Vclk_3.1
+  pin: 2 X_IC_2_CD4007_3.6
+  pin: 3 X_IC_3_CD4016_3.5
+  pin: 4 X_IC_3_CD4016_3.13
+  pin: 5 INPUTS.8
+  connect: 1 2 0 2 0
+    vtx: 1 31750000 121920000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 25400000 115570000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 7620000 115570000 11 0 0 0 0
+  connect: 2 3 1 2 0
+    vtx: 1 39370000 129540000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 49530000 119380000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 54610000 119380000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 39370000 129540000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 31750000 121920000 11 0 0 0 0
+  connect: 4 4 0 1 0
+    vtx: 1 31750000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 7620000 115570000 11 0 0 0 0
+
+net: "Q_$G2" 6 5 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_2.3
+  pin: 2 RP3_2.2
+  pin: 3 RN3_2.1
+  pin: 4 Vq_2.1
+  pin: 5 OUTPUTS.5
+  pin: 6 OUTPUTS.6
+  connect: 1 2 0 3 0
+    vtx: 1 -13970000 5080000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -17970500 9080500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -21399500 9080500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -27940000 2540000 11 0 0 0 0
+  connect: 2 3 1 3 0
+    vtx: 1 -10160000 7620000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -8763000 7620000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -8763000 7493000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -6350000 5080000 11 0 0 0 0
+  connect: 3 3 2 3 0
+    vtx: 1 -10160000 7620000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -11557000 7620000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -11557000 7493000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -13970000 5080000 11 0 0 0 0
+  connect: 4 5 4 1 0
+    vtx: 1 60960000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 60960000 -25400000 11 0 0 0 0
+  connect: 5 5 1 1 0
+    vtx: 1 60960000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -6350000 5080000 11 0 0 0 0
+
+net: "0_$G1" 5 4 0 0 0 0 1
+  pin: 1 Vclk_1.2
+  pin: 2 Vd_1.2
+  pin: 3 Vdd_1.2
+  pin: 4 Vss_1.1
+  pin: 5 Vq_1.2
+  connect: 1 2 0 3 0
+    vtx: 1 -74930000 59690000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -76327000 61087000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -76327000 65913000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -74930000 67310000 11 0 0 0 0
+  connect: 2 1 0 3 0
+    vtx: 1 -74930000 74930000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -76327000 73533000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -76327000 68707000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -74930000 67310000 11 0 0 0 0
+  connect: 3 4 2 2 0
+    vtx: 1 -10160000 60960000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -73660000 60960000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -74930000 59690000 11 0 0 0 0
+  connect: 4 3 2 3 0
+    vtx: 1 -74930000 52070000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -76327000 53467000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -76327000 58293000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -74930000 59690000 11 0 0 0 0
+
+net: "Xflipflop$_Q_slave_$G1" 3 2 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_1.11
+  pin: 2 RP1_1.2
+  pin: 3 RN1_1.1
+  connect: 1 1 0 1 0
+    vtx: 1 -35560000 66040000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -43180000 73660000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 -35560000 55880000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -35560000 66040000 11 0 0 0 0
+
+net: "Xflipflop$tg_D_$G7" 3 2 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_7.3
+  pin: 2 X_IC_3_CD4016_7.2
+  pin: 3 X_IC_3_CD4016_7.9
+  connect: 1 1 0 5 0
+    vtx: 1 114300000 78740000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 114300000 78289658 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 114290602 78280260 0 0 0 0 25541
+    seg: 3 13 254000 0 0
+    vtx: 4 107499404 71489062 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 107499404 60140596 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 114300000 53340000 11 0 0 0 0
+  connect: 2 2 -1 7 0
+    vtx: 1 121920000 68580000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 123383040 67116960 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 123383040 65431924 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 122528330 64577468 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 121316242 64577468 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 117877336 68016120 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 117877336 74693272 0 0 0 0 0
+    seg: 7 13 254000 0 0
+    vtx: 8 114290602 78280260 0 0 0 0 25541
+
+net: "Xflipflop$tg_master_$G6" 4 3 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_6.6
+  pin: 2 X_IC_3_CD4016_6.3
+  pin: 3 RP4_6.2
+  pin: 4 RN4_6.1
+  connect: 1 1 0 3 0
+    vtx: 1 114300000 127000000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 106294682 118994682 0 0 711200 355600 0
+    seg: 2 13 254000 0 0
+    vtx: 3 106294682 104525318 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 114300000 96520000 11 0 0 0 0
+  connect: 2 3 0 2 0
+    vtx: 1 109220000 93980000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 111760000 96520000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 114300000 96520000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 109220000 93980000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 101600000 93980000 11 0 0 0 0
+
+net: "Xflipflop$XX2$PTI_Out_$G5" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_5.13
+  pin: 2 RP2_5.1
+  connect: 1 1 0 1 0
+    vtx: 1 26670000 17780000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 39370000 5080000 11 0 0 0 0
+
+net: "Xflipflop$tg_slave_$G5" 3 2 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_5.6
+  pin: 2 X_IC_3_CD4016_5.4
+  pin: 3 X_IC_3_CD4016_5.10
+  connect: 1 2 0 4 0
+    vtx: 1 39370000 20320000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 41734740 17955260 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 41734740 12884404 0 0 0 0 17332
+    seg: 3 13 254000 0 0
+    vtx: 4 41734740 7795260 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 54610000 -5080000 11 0 0 0 0
+  connect: 2 1 -1 4 0
+    vtx: 1 31750000 22860000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 34438336 20171664 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 34438336 16839946 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 38393878 12884404 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 41734740 12884404 0 0 0 0 17332
+
+net: "Xflipflop$XX3$NTI_Out_$G5" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_5.8
+  pin: 2 RN3_5.2
+  connect: 1 1 0 1 0
+    vtx: 1 68580000 -7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 62230000 -7620000 11 0 0 0 0
+
+net: "Xflipflop$XX5$PTI_Out_$G5" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007_5.13
+  pin: 2 RP5_5.1
+  connect: 1 1 0 1 0
+    vtx: 1 68580000 27940000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 62230000 27940000 11 0 0 0 0
+
+net: "CLK_$G4" 5 4 0 0 0 0 1
+  pin: 1 Vclk_4.1
+  pin: 2 X_IC_2_CD4007_4.6
+  pin: 3 X_IC_3_CD4016_4.5
+  pin: 4 X_IC_3_CD4016_4.13
+  pin: 5 INPUTS.10
+  connect: 1 2 0 2 0
+    vtx: 1 31750000 71120000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 25400000 64770000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 7620000 64770000 11 0 0 0 0
+  connect: 2 3 1 2 0
+    vtx: 1 39370000 78740000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 49530000 68580000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 54610000 68580000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 39370000 78740000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 31750000 71120000 11 0 0 0 0
+  connect: 4 4 0 1 0
+    vtx: 1 34290000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 7620000 64770000 11 0 0 0 0
+
+net: "Q_$G3" 6 5 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_3.3
+  pin: 2 RP3_3.2
+  pin: 3 RN3_3.1
+  pin: 4 Vq_3.1
+  pin: 5 OUTPUTS.7
+  pin: 6 OUTPUTS.8
+  connect: 1 2 0 3 0
+    vtx: 1 68580000 106680000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 64579500 110680500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 61150500 110680500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 54610000 104140000 11 0 0 0 0
+  connect: 2 3 1 3 0
+    vtx: 1 72390000 109220000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 73787000 109220000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 73787000 109093000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 76200000 106680000 11 0 0 0 0
+  connect: 3 3 2 3 0
+    vtx: 1 72390000 109220000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 70993000 109220000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 70993000 109093000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 68580000 106680000 11 0 0 0 0
+  connect: 4 5 4 1 0
+    vtx: 1 63500000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 63500000 -25400000 11 0 0 0 0
+  connect: 5 5 0 1 0
+    vtx: 1 63500000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 54610000 104140000 11 0 0 0 0
+
+net: "Xflipflop$_Q_slave_$G2" 3 2 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_2.11
+  pin: 2 RP1_2.2
+  pin: 3 RN1_2.1
+  connect: 1 1 0 1 0
+    vtx: 1 -35560000 15240000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -43180000 22860000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 -35560000 5080000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -35560000 15240000 11 0 0 0 0
+
+net: "Xflipflop$XX5$NTI_Out" 2 1 0 508000 711200 355600 1
+  pin: 1 X_IC_2_CD4007_0.8
+  pin: 2 RN5_0.2
+  connect: 1 1 0 2 0
+    vtx: 1 -6350000 129540000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -19050000 116840000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -20320000 116840000 11 0 0 0 0
+
+net: "Xflipflop$tg_D_$G8" 3 2 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_8.3
+  pin: 2 X_IC_3_CD4016_8.2
+  pin: 3 X_IC_3_CD4016_8.9
+  connect: 1 1 0 5 0
+    vtx: 1 114300000 27940000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 114300000 27489658 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 114290602 27480260 0 0 0 0 25564
+    seg: 3 13 254000 0 0
+    vtx: 4 107499404 20689062 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 107499404 9340596 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 114300000 2540000 11 0 0 0 0
+  connect: 2 2 -1 7 0
+    vtx: 1 121920000 17780000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 123383040 16316960 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 123383040 14631924 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 122528330 13777468 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 121316242 13777468 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 117877336 17216120 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 117877336 23893272 0 0 0 0 0
+    seg: 7 13 254000 0 0
+    vtx: 8 114290602 27480260 0 0 0 0 25564
+
+net: "Xflipflop$tg_master_$G7" 4 3 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_7.6
+  pin: 2 X_IC_3_CD4016_7.3
+  pin: 3 RP4_7.2
+  pin: 4 RN4_7.1
+  connect: 1 1 0 3 0
+    vtx: 1 114300000 76200000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 106294682 68194682 0 0 711200 355600 0
+    seg: 2 13 254000 0 0
+    vtx: 3 106294682 53725318 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 114300000 45720000 11 0 0 0 0
+  connect: 2 3 0 2 0
+    vtx: 1 109220000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 111760000 45720000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 114300000 45720000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 109220000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 101600000 43180000 11 0 0 0 0
+
+net: "Xflipflop$XX2$PTI_Out_$G6" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_6.13
+  pin: 2 RP2_6.1
+  connect: 1 1 0 1 0
+    vtx: 1 109220000 119380000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 121920000 106680000 11 0 0 0 0
+
+net: "Xflipflop$tg_slave_$G6" 3 2 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_6.6
+  pin: 2 X_IC_3_CD4016_6.4
+  pin: 3 X_IC_3_CD4016_6.10
+  connect: 1 2 0 4 0
+    vtx: 1 121920000 121920000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 124284740 119555260 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 124284740 114484404 0 0 0 0 11310
+    seg: 3 13 254000 0 0
+    vtx: 4 124284740 109395260 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 137160000 96520000 11 0 0 0 0
+  connect: 2 1 -1 4 0
+    vtx: 1 114300000 124460000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 116988336 121771664 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 116988336 118439946 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 120943878 114484404 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 124284740 114484404 0 0 0 0 11310
+
+net: "Xflipflop$XX3$NTI_Out_$G6" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_6.8
+  pin: 2 RN3_6.2
+  connect: 1 1 0 1 0
+    vtx: 1 151130000 93980000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 144780000 93980000 11 0 0 0 0
+
+net: "Xflipflop$XX5$PTI_Out_$G6" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007_6.13
+  pin: 2 RP5_6.1
+  connect: 1 1 0 1 0
+    vtx: 1 151130000 129540000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 144780000 129540000 11 0 0 0 0
+
+net: "CLK_$G5" 5 4 0 0 0 0 1
+  pin: 1 Vclk_5.1
+  pin: 2 X_IC_2_CD4007_5.6
+  pin: 3 X_IC_3_CD4016_5.5
+  pin: 4 X_IC_3_CD4016_5.13
+  pin: 5 INPUTS.12
+  connect: 1 2 0 2 0
+    vtx: 1 31750000 20320000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 25400000 13970000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 7620000 13970000 11 0 0 0 0
+  connect: 2 3 1 2 0
+    vtx: 1 39370000 27940000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 49530000 17780000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 54610000 17780000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 39370000 27940000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 31750000 20320000 11 0 0 0 0
+  connect: 4 4 2 1 0
+    vtx: 1 36830000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 31750000 20320000 11 0 0 0 0
+
+net: "Q_$G4" 6 5 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_4.3
+  pin: 2 RP3_4.2
+  pin: 3 RN3_4.1
+  pin: 4 Vq_4.1
+  pin: 5 OUTPUTS.9
+  pin: 6 OUTPUTS.10
+  connect: 1 2 0 3 0
+    vtx: 1 68580000 55880000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 64579500 59880500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 61150500 59880500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 54610000 53340000 11 0 0 0 0
+  connect: 2 3 1 3 0
+    vtx: 1 72390000 58420000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 73787000 58420000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 73787000 58293000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 76200000 55880000 11 0 0 0 0
+  connect: 3 3 2 3 0
+    vtx: 1 72390000 58420000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 70993000 58420000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 70993000 58293000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 68580000 55880000 11 0 0 0 0
+  connect: 4 5 4 1 0
+    vtx: 1 66040000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 66040000 -25400000 11 0 0 0 0
+  connect: 5 5 0 1 0
+    vtx: 1 66040000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 54610000 53340000 11 0 0 0 0
+
+net: "Xflipflop$_Q_slave_$G3" 3 2 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_3.11
+  pin: 2 RP1_3.2
+  pin: 3 RN1_3.1
+  connect: 1 1 0 1 0
+    vtx: 1 46990000 116840000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 39370000 124460000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 46990000 106680000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 46990000 116840000 11 0 0 0 0
+
+net: "Xflipflop$XX5$PTI_Out" 2 1 0 508000 711200 355600 1
+  pin: 1 X_IC_2_CD4007_0.13
+  pin: 2 RP5_0.1
+  connect: 1 1 0 1 0
+    vtx: 1 -13970000 129540000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -20320000 129540000 11 0 0 0 0
+
+net: "Xflipflop$tg_master_$G8" 4 3 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_8.6
+  pin: 2 X_IC_3_CD4016_8.3
+  pin: 3 RP4_8.2
+  pin: 4 RN4_8.1
+  connect: 1 1 0 3 0
+    vtx: 1 114300000 25400000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 106294682 17394682 0 0 711200 355600 0
+    seg: 2 13 254000 0 0
+    vtx: 3 106294682 2925318 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 114300000 -5080000 11 0 0 0 0
+  connect: 2 3 0 2 0
+    vtx: 1 109220000 -7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 111760000 -5080000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 114300000 -5080000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 109220000 -7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 101600000 -7620000 11 0 0 0 0
+
+net: "Xflipflop$XX2$PTI_Out_$G7" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_7.13
+  pin: 2 RP2_7.1
+  connect: 1 1 0 1 0
+    vtx: 1 109220000 68580000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 121920000 55880000 11 0 0 0 0
+
+net: "Xflipflop$tg_slave_$G7" 3 2 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_7.6
+  pin: 2 X_IC_3_CD4016_7.4
+  pin: 3 X_IC_3_CD4016_7.10
+  connect: 1 2 0 4 0
+    vtx: 1 121920000 71120000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 124284740 68755260 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 124284740 63684404 0 0 0 0 23151
+    seg: 3 13 254000 0 0
+    vtx: 4 124284740 58595260 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 137160000 45720000 11 0 0 0 0
+  connect: 2 1 -1 4 0
+    vtx: 1 114300000 73660000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 116988336 70971664 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 116988336 67639946 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 120943878 63684404 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 124284740 63684404 0 0 0 0 23151
+
+net: "Xflipflop$XX3$NTI_Out_$G7" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_7.8
+  pin: 2 RN3_7.2
+  connect: 1 1 0 1 0
+    vtx: 1 151130000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 144780000 43180000 11 0 0 0 0
+
+net: "Xflipflop$XX5$PTI_Out_$G7" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007_7.13
+  pin: 2 RP5_7.1
+  connect: 1 1 0 1 0
+    vtx: 1 151130000 78740000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 144780000 78740000 11 0 0 0 0
+
+net: "CLK_$G6" 5 4 0 0 0 0 1
+  pin: 1 Vclk_6.1
+  pin: 2 X_IC_2_CD4007_6.6
+  pin: 3 X_IC_3_CD4016_6.5
+  pin: 4 X_IC_3_CD4016_6.13
+  pin: 5 INPUTS.14
+  connect: 1 2 0 2 0
+    vtx: 1 114300000 121920000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 107950000 115570000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 90170000 115570000 11 0 0 0 0
+  connect: 2 3 1 2 0
+    vtx: 1 121920000 129540000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 132080000 119380000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 137160000 119380000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 121920000 129540000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 114300000 121920000 11 0 0 0 0
+  connect: 4 4 0 1 0
+    vtx: 1 39370000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 90170000 115570000 11 0 0 0 0
+
+net: "Q_$G5" 6 5 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_5.3
+  pin: 2 RP3_5.2
+  pin: 3 RN3_5.1
+  pin: 4 Vq_5.1
+  pin: 5 OUTPUTS.11
+  pin: 6 OUTPUTS.12
+  connect: 1 2 0 3 0
+    vtx: 1 68580000 5080000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 64579500 9080500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 61150500 9080500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 54610000 2540000 11 0 0 0 0
+  connect: 2 3 1 3 0
+    vtx: 1 72390000 7620000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 73787000 7620000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 73787000 7493000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 76200000 5080000 11 0 0 0 0
+  connect: 3 3 2 3 0
+    vtx: 1 72390000 7620000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 70993000 7620000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 70993000 7493000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 68580000 5080000 11 0 0 0 0
+  connect: 4 5 4 1 0
+    vtx: 1 68580000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 68580000 -25400000 11 0 0 0 0
+  connect: 5 5 2 1 0
+    vtx: 1 68580000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 68580000 5080000 11 0 0 0 0
+
+net: "Xflipflop$_Q_slave_$G4" 3 2 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_4.11
+  pin: 2 RP1_4.2
+  pin: 3 RN1_4.1
+  connect: 1 1 0 1 0
+    vtx: 1 46990000 66040000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 39370000 73660000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 46990000 55880000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 46990000 66040000 11 0 0 0 0
+
+net: "Xflipflop$XX1$NTI_Out_$G1" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_1.5
+  pin: 2 RN1_1.2
+  connect: 1 1 0 2 0
+    vtx: 1 -35560000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -30480000 48260000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -27940000 48260000 11 0 0 0 0
+
+net: "Xflipflop$XX3$PTI_Out_$G1" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_1.13
+  pin: 2 RP3_1.1
+  connect: 1 1 0 2 0
+    vtx: 1 -6350000 43180000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -19050000 55880000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -20320000 55880000 11 0 0 0 0
+
+net: "Xflipflop$XX4$NTI_Out_$G1" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_1.5
+  pin: 2 RN4_1.2
+  connect: 1 1 0 2 0
+    vtx: 1 -55880000 55880000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -55880000 53340000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -50800000 48260000 11 0 0 0 0
+
+net: "D_$G1" 3 2 0 0 0 0 1
+  pin: 1 Vd_1.1
+  pin: 2 X_IC_3_CD4016_1.8
+  pin: 3 INPUTS.3
+  connect: 1 1 0 6 0
+    vtx: 1 -43180000 66040000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -44871386 67731386 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -44871386 77828394 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -49783492 82740500 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -51975004 82740500 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 -62325504 72390000 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 -74930000 72390000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 26670000 -25400000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -43180000 66040000 11 0 0 0 0
+
+net: "Xflipflop$_Q_slave" 3 2 0 508000 711200 355600 1
+  pin: 1 X_IC_3_CD4016_0.11
+  pin: 2 RP1_0.2
+  pin: 3 RN1_0.1
+  connect: 1 1 0 1 0
+    vtx: 1 -35560000 116840000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -43180000 124460000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 -35560000 106680000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -35560000 116840000 11 0 0 0 0
+
+net: "Xflipflop$XX2$PTI_Out_$G8" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_8.13
+  pin: 2 RP2_8.1
+  connect: 1 1 0 1 0
+    vtx: 1 109220000 17780000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 121920000 5080000 11 0 0 0 0
+
+net: "Xflipflop$tg_slave_$G8" 3 2 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_8.6
+  pin: 2 X_IC_3_CD4016_8.4
+  pin: 3 X_IC_3_CD4016_8.10
+  connect: 1 2 0 4 0
+    vtx: 1 121920000 20320000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 124284740 17955260 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 124284740 12884404 0 0 0 0 17128
+    seg: 3 13 254000 0 0
+    vtx: 4 124284740 7795260 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 137160000 -5080000 11 0 0 0 0
+  connect: 2 1 -1 4 0
+    vtx: 1 114300000 22860000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 116988336 20171664 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 116988336 16839946 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 120943878 12884404 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 124284740 12884404 0 0 0 0 17128
+
+net: "Xflipflop$XX3$NTI_Out_$G8" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_8.8
+  pin: 2 RN3_8.2
+  connect: 1 1 0 1 0
+    vtx: 1 151130000 -7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 144780000 -7620000 11 0 0 0 0
+
+net: "Xflipflop$XX5$PTI_Out_$G8" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007_8.13
+  pin: 2 RP5_8.1
+  connect: 1 1 0 1 0
+    vtx: 1 151130000 27940000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 144780000 27940000 11 0 0 0 0
+
+net: "CLK_$G7" 5 4 0 0 0 0 1
+  pin: 1 Vclk_7.1
+  pin: 2 X_IC_2_CD4007_7.6
+  pin: 3 X_IC_3_CD4016_7.5
+  pin: 4 X_IC_3_CD4016_7.13
+  pin: 5 INPUTS.16
+  connect: 1 2 0 2 0
+    vtx: 1 114300000 71120000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 107950000 64770000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 90170000 64770000 11 0 0 0 0
+  connect: 2 3 1 2 0
+    vtx: 1 121920000 78740000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 132080000 68580000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 137160000 68580000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 121920000 78740000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 114300000 71120000 11 0 0 0 0
+  connect: 4 4 0 1 0
+    vtx: 1 41910000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 90170000 64770000 11 0 0 0 0
+
+net: "Q_$G6" 6 5 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_6.3
+  pin: 2 RP3_6.2
+  pin: 3 RN3_6.1
+  pin: 4 Vq_6.1
+  pin: 5 OUTPUTS.13
+  pin: 6 OUTPUTS.14
+  connect: 1 2 0 3 0
+    vtx: 1 151130000 106680000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 147129500 110680500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 143700500 110680500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 137160000 104140000 11 0 0 0 0
+  connect: 2 3 1 3 0
+    vtx: 1 154940000 109220000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 156337000 109220000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 156337000 109093000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 158750000 106680000 11 0 0 0 0
+  connect: 3 3 2 3 0
+    vtx: 1 154940000 109220000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 153543000 109220000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 153543000 109093000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 151130000 106680000 11 0 0 0 0
+  connect: 4 5 4 1 0
+    vtx: 1 71120000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 71120000 -25400000 11 0 0 0 0
+  connect: 5 5 0 1 0
+    vtx: 1 71120000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 137160000 104140000 11 0 0 0 0
+
+net: "Xflipflop$_Q_slave_$G5" 3 2 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_5.11
+  pin: 2 RP1_5.2
+  pin: 3 RN1_5.1
+  connect: 1 1 0 1 0
+    vtx: 1 46990000 15240000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 39370000 22860000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 46990000 5080000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 46990000 15240000 11 0 0 0 0
+
+net: "Xflipflop$XX1$NTI_Out_$G2" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_2.5
+  pin: 2 RN1_2.2
+  connect: 1 1 0 2 0
+    vtx: 1 -35560000 -7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -30480000 -2540000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -27940000 -2540000 11 0 0 0 0
+
+net: "Xflipflop$XX3$PTI_Out_$G2" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_2.13
+  pin: 2 RP3_2.1
+  connect: 1 1 0 2 0
+    vtx: 1 -6350000 -7620000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -19050000 5080000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -20320000 5080000 11 0 0 0 0
+
+net: "Xflipflop$XX4$NTI_Out_$G2" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_2.5
+  pin: 2 RN4_2.2
+  connect: 1 1 0 2 0
+    vtx: 1 -55880000 5080000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -55880000 2540000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -50800000 -2540000 11 0 0 0 0
+
+net: "D_$G2" 3 2 0 0 0 0 1
+  pin: 1 Vd_2.1
+  pin: 2 X_IC_3_CD4016_2.8
+  pin: 3 INPUTS.5
+  connect: 1 1 0 6 0
+    vtx: 1 -43180000 15240000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -44871386 16931386 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -44871386 27028394 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -49783492 31940500 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -51975004 31940500 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 -62325504 21590000 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 -74930000 21590000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 29210000 -25400000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -43180000 15240000 11 0 0 0 0
+
+net: "Xflipflop$XX4$NTI_Out" 2 1 0 508000 711200 355600 1
+  pin: 1 X_IC_0_CD4007_0.5
+  pin: 2 RN4_0.2
+  connect: 1 1 0 2 0
+    vtx: 1 -55880000 106680000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -55880000 104140000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -50800000 99060000 11 0 0 0 0
+
+net: "CLK_$G8" 5 4 0 0 0 0 1
+  pin: 1 Vclk_8.1
+  pin: 2 X_IC_2_CD4007_8.6
+  pin: 3 X_IC_3_CD4016_8.5
+  pin: 4 X_IC_3_CD4016_8.13
+  pin: 5 INPUTS.18
+  connect: 1 2 0 2 0
+    vtx: 1 114300000 20320000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 107950000 13970000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 90170000 13970000 11 0 0 0 0
+  connect: 2 3 1 2 0
+    vtx: 1 121920000 27940000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 132080000 17780000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 137160000 17780000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 121920000 27940000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 114300000 20320000 11 0 0 0 0
+  connect: 4 4 0 1 0
+    vtx: 1 44450000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 90170000 13970000 11 0 0 0 0
+
+net: "Q_$G7" 6 5 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_7.3
+  pin: 2 RP3_7.2
+  pin: 3 RN3_7.1
+  pin: 4 Vq_7.1
+  pin: 5 OUTPUTS.15
+  pin: 6 OUTPUTS.16
+  connect: 1 2 0 3 0
+    vtx: 1 151130000 55880000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 147129500 59880500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 143700500 59880500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 137160000 53340000 11 0 0 0 0
+  connect: 2 3 1 3 0
+    vtx: 1 154940000 58420000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 156337000 58420000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 156337000 58293000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 158750000 55880000 11 0 0 0 0
+  connect: 3 3 2 3 0
+    vtx: 1 154940000 58420000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 153543000 58420000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 153543000 58293000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 151130000 55880000 11 0 0 0 0
+  connect: 4 5 4 1 0
+    vtx: 1 73660000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 73660000 -25400000 11 0 0 0 0
+  connect: 5 5 0 1 0
+    vtx: 1 73660000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 137160000 53340000 11 0 0 0 0
+
+net: "Xflipflop$_Q_slave_$G6" 3 2 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_6.11
+  pin: 2 RP1_6.2
+  pin: 3 RN1_6.1
+  connect: 1 1 0 1 0
+    vtx: 1 129540000 116840000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 121920000 124460000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 129540000 106680000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 129540000 116840000 11 0 0 0 0
+
+net: "Xflipflop$XX1$NTI_Out_$G3" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_3.5
+  pin: 2 RN1_3.2
+  connect: 1 1 0 2 0
+    vtx: 1 46990000 93980000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 52070000 99060000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 54610000 99060000 11 0 0 0 0
+
+net: "Xflipflop$XX3$PTI_Out_$G3" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_3.13
+  pin: 2 RP3_3.1
+  connect: 1 1 0 2 0
+    vtx: 1 76200000 93980000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 63500000 106680000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 62230000 106680000 11 0 0 0 0
+
+net: "Xflipflop$XX4$NTI_Out_$G3" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_3.5
+  pin: 2 RN4_3.2
+  connect: 1 1 0 2 0
+    vtx: 1 26670000 106680000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 26670000 104140000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 31750000 99060000 11 0 0 0 0
+
+net: "D_$G3" 3 2 0 0 0 0 1
+  pin: 1 Vd_3.1
+  pin: 2 X_IC_3_CD4016_3.8
+  pin: 3 INPUTS.7
+  connect: 1 1 0 6 0
+    vtx: 1 39370000 116840000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 37678614 118531386 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 37678614 128628394 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 32766508 133540500 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 30574996 133540500 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 20224496 123190000 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 7620000 123190000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 31750000 -25400000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 39370000 116840000 11 0 0 0 0
+
+net: "Xflipflop$_C" 4 3 0 508000 711200 355600 1
+  pin: 1 X_IC_3_CD4016_0.6
+  pin: 2 X_IC_3_CD4016_0.12
+  pin: 3 RP5_0.2
+  pin: 4 RN5_0.1
+  connect: 1 2 0 5 0
+    vtx: 1 -13970000 116840000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -16584422 114225578 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -50272188 114225578 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 -52272184 116225574 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 -52272184 117907816 0 0 0 0 0
+    seg: 5 12 254000 0 0
+    vtx: 6 -50800000 119380000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 -43180000 127000000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -50800000 119380000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 -6350000 116840000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -13970000 116840000 11 0 0 0 0
+
+net: "Q_$G8" 6 5 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_8.3
+  pin: 2 RP3_8.2
+  pin: 3 RN3_8.1
+  pin: 4 Vq_8.1
+  pin: 5 OUTPUTS.17
+  pin: 6 OUTPUTS.18
+  connect: 1 2 0 3 0
+    vtx: 1 151130000 5080000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 147129500 9080500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 143700500 9080500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 137160000 2540000 11 0 0 0 0
+  connect: 2 3 1 3 0
+    vtx: 1 154940000 7620000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 156337000 7620000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 156337000 7493000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 158750000 5080000 11 0 0 0 0
+  connect: 3 3 2 3 0
+    vtx: 1 154940000 7620000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 153543000 7620000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 153543000 7493000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 151130000 5080000 11 0 0 0 0
+  connect: 4 5 4 1 0
+    vtx: 1 76200000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 76200000 -25400000 11 0 0 0 0
+  connect: 5 5 0 1 0
+    vtx: 1 76200000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 137160000 2540000 11 0 0 0 0
+
+net: "Xflipflop$_Q_slave_$G7" 3 2 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_7.11
+  pin: 2 RP1_7.2
+  pin: 3 RN1_7.1
+  connect: 1 1 0 1 0
+    vtx: 1 129540000 66040000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 121920000 73660000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 129540000 55880000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 129540000 66040000 11 0 0 0 0
+
+net: "Xflipflop$XX1$NTI_Out_$G4" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_4.5
+  pin: 2 RN1_4.2
+  connect: 1 1 0 2 0
+    vtx: 1 46990000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 52070000 48260000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 54610000 48260000 11 0 0 0 0
+
+net: "Xflipflop$XX3$PTI_Out_$G4" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_4.13
+  pin: 2 RP3_4.1
+  connect: 1 1 0 2 0
+    vtx: 1 76200000 43180000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 63500000 55880000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 62230000 55880000 11 0 0 0 0
+
+net: "Xflipflop$XX4$NTI_Out_$G4" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_4.5
+  pin: 2 RN4_4.2
+  connect: 1 1 0 2 0
+    vtx: 1 26670000 55880000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 26670000 53340000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 31750000 48260000 11 0 0 0 0
+
+net: "D_$G4" 3 2 0 0 0 0 1
+  pin: 1 Vd_4.1
+  pin: 2 X_IC_3_CD4016_4.8
+  pin: 3 INPUTS.9
+  connect: 1 1 0 6 0
+    vtx: 1 39370000 66040000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 37678614 67731386 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 37678614 77828394 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 32766508 82740500 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 30574996 82740500 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 20224496 72390000 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 7620000 72390000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 34290000 -25400000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 39370000 66040000 11 0 0 0 0
+
+net: "Xflipflop$_C_$G1" 4 3 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_1.6
+  pin: 2 X_IC_3_CD4016_1.12
+  pin: 3 RP5_1.2
+  pin: 4 RN5_1.1
+  connect: 1 2 0 5 0
+    vtx: 1 -13970000 66040000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -16584422 63425578 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -50272188 63425578 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 -52272184 65425574 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 -52272184 67107816 0 0 0 0 0
+    seg: 5 12 254000 0 0
+    vtx: 6 -50800000 68580000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 -43180000 76200000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -50800000 68580000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 -6350000 66040000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -13970000 66040000 11 0 0 0 0
+
+net: "Xflipflop$XX4$PTI_Out" 2 1 0 508000 711200 355600 1
+  pin: 1 X_IC_0_CD4007_0.1
+  pin: 2 RP4_0.1
+  connect: 1 1 0 2 0
+    vtx: 1 -63500000 106680000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -60960000 109220000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -50800000 109220000 11 0 0 0 0
+
+net: "Xflipflop$_Q_slave_$G8" 3 2 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_8.11
+  pin: 2 RP1_8.2
+  pin: 3 RN1_8.1
+  connect: 1 1 0 1 0
+    vtx: 1 129540000 15240000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 121920000 22860000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 129540000 5080000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 129540000 15240000 11 0 0 0 0
+
+net: "Xflipflop$XX1$NTI_Out_$G5" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_5.5
+  pin: 2 RN1_5.2
+  connect: 1 1 0 2 0
+    vtx: 1 46990000 -7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 52070000 -2540000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 54610000 -2540000 11 0 0 0 0
+
+net: "Xflipflop$XX3$PTI_Out_$G5" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_5.13
+  pin: 2 RP3_5.1
+  connect: 1 1 0 2 0
+    vtx: 1 76200000 -7620000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 63500000 5080000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 62230000 5080000 11 0 0 0 0
+
+net: "Xflipflop$XX4$NTI_Out_$G5" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_5.5
+  pin: 2 RN4_5.2
+  connect: 1 1 0 2 0
+    vtx: 1 26670000 5080000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 26670000 2540000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 31750000 -2540000 11 0 0 0 0
+
+net: "D_$G5" 3 2 0 0 0 0 1
+  pin: 1 Vd_5.1
+  pin: 2 X_IC_3_CD4016_5.8
+  pin: 3 INPUTS.11
+  connect: 1 1 0 6 0
+    vtx: 1 39370000 15240000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 37678614 16931386 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 37678614 27028394 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 32766508 31940500 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 30574996 31940500 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 20224496 21590000 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 7620000 21590000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 36830000 -25400000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 39370000 15240000 11 0 0 0 0
+
+net: "Xflipflop$_C_$G2" 4 3 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_2.6
+  pin: 2 X_IC_3_CD4016_2.12
+  pin: 3 RP5_2.2
+  pin: 4 RN5_2.1
+  connect: 1 2 0 5 0
+    vtx: 1 -13970000 15240000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -16584422 12625578 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -50272188 12625578 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 -52272184 14625574 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 -52272184 16307816 0 0 0 0 0
+    seg: 5 12 254000 0 0
+    vtx: 6 -50800000 17780000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 -43180000 25400000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -50800000 17780000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 -6350000 15240000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -13970000 15240000 11 0 0 0 0
+
+net: "Xflipflop$XX1$NTI_Out_$G6" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_6.5
+  pin: 2 RN1_6.2
+  connect: 1 1 0 2 0
+    vtx: 1 129540000 93980000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 134620000 99060000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 137160000 99060000 11 0 0 0 0
+
+net: "Xflipflop$XX3$PTI_Out_$G6" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_6.13
+  pin: 2 RP3_6.1
+  connect: 1 1 0 2 0
+    vtx: 1 158750000 93980000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 146050000 106680000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 144780000 106680000 11 0 0 0 0
+
+net: "Xflipflop$XX4$NTI_Out_$G6" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_6.5
+  pin: 2 RN4_6.2
+  connect: 1 1 0 2 0
+    vtx: 1 109220000 106680000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 109220000 104140000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 114300000 99060000 11 0 0 0 0
+
+net: "D_$G6" 3 2 0 0 0 0 1
+  pin: 1 Vd_6.1
+  pin: 2 X_IC_3_CD4016_6.8
+  pin: 3 INPUTS.13
+  connect: 1 1 0 6 0
+    vtx: 1 121920000 116840000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 120228614 118531386 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 120228614 128628394 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 115316508 133540500 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 113124996 133540500 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 102774496 123190000 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 90170000 123190000 11 0 0 0 0
+  connect: 2 2 0 1 0
+    vtx: 1 39370000 -25400000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 90170000 123190000 11 0 0 0 0
+
+net: "Xflipflop$_C_$G3" 4 3 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_3.6
+  pin: 2 X_IC_3_CD4016_3.12
+  pin: 3 RP5_3.2
+  pin: 4 RN5_3.1
+  connect: 1 2 0 5 0
+    vtx: 1 68580000 116840000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 65965578 114225578 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 32277812 114225578 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 30277816 116225574 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 30277816 117907816 0 0 0 0 0
+    seg: 5 12 254000 0 0
+    vtx: 6 31750000 119380000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 39370000 127000000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 31750000 119380000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 76200000 116840000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 68580000 116840000 11 0 0 0 0
+
+net: "Xflipflop$XX2$NTI_Out_$G1" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_1.8
+  pin: 2 RN2_1.2
+  connect: 1 1 0 5 0
+    vtx: 1 -63500000 68580000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -60836556 65916556 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -60836556 51151028 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -51393852 41708324 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -44651676 41708324 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 -43180000 43180000 11 0 0 0 0
+
+net: "Xflipflop$XX5$NTI_Out_$G1" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007_1.8
+  pin: 2 RN5_1.2
+  connect: 1 1 0 2 0
+    vtx: 1 -6350000 78740000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -19050000 66040000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -20320000 66040000 11 0 0 0 0
+
+net: "Xflipflop$XX1$PTI_Out_$G1" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_1.1
+  pin: 2 RP1_1.1
+  connect: 1 1 0 6 0
+    vtx: 1 -35560000 78740000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -31559500 82740500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -26915872 82740500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -26479500 82304128 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -26479500 61341000 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 -27940000 59880500 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 -27940000 58420000 11 0 0 0 0
+
+net: "Xflipflop$XX3$NTI_Out" 2 1 0 508000 711200 355600 1
+  pin: 1 X_IC_1_CD4007_0.8
+  pin: 2 RN3_0.2
+  connect: 1 1 0 1 0
+    vtx: 1 -13970000 93980000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -20320000 93980000 11 0 0 0 0
+
+net: "$G_Vss" 64 63 0 508000 711200 355600 1
+  pin: 1 Vss_0.2
+  pin: 2 X_IC_0_CD4007_0.4
+  pin: 3 X_IC_0_CD4007_0.7
+  pin: 4 X_IC_1_CD4007_0.4
+  pin: 5 X_IC_1_CD4007_0.7
+  pin: 6 X_IC_2_CD4007_0.7
+  pin: 7 X_IC_3_CD4016_0.7
+  pin: 8 Vss_1.2
+  pin: 9 X_IC_0_CD4007_1.4
+  pin: 10 X_IC_0_CD4007_1.7
+  pin: 11 X_IC_1_CD4007_1.4
+  pin: 12 X_IC_1_CD4007_1.7
+  pin: 13 X_IC_2_CD4007_1.7
+  pin: 14 X_IC_3_CD4016_1.7
+  pin: 15 Vss_2.2
+  pin: 16 X_IC_0_CD4007_2.4
+  pin: 17 X_IC_0_CD4007_2.7
+  pin: 18 X_IC_1_CD4007_2.4
+  pin: 19 X_IC_1_CD4007_2.7
+  pin: 20 X_IC_2_CD4007_2.7
+  pin: 21 X_IC_3_CD4016_2.7
+  pin: 22 Vss_3.2
+  pin: 23 X_IC_0_CD4007_3.4
+  pin: 24 X_IC_0_CD4007_3.7
+  pin: 25 X_IC_1_CD4007_3.4
+  pin: 26 X_IC_1_CD4007_3.7
+  pin: 27 X_IC_2_CD4007_3.7
+  pin: 28 X_IC_3_CD4016_3.7
+  pin: 29 Vss_4.2
+  pin: 30 X_IC_0_CD4007_4.4
+  pin: 31 X_IC_0_CD4007_4.7
+  pin: 32 X_IC_1_CD4007_4.4
+  pin: 33 X_IC_1_CD4007_4.7
+  pin: 34 X_IC_2_CD4007_4.7
+  pin: 35 X_IC_3_CD4016_4.7
+  pin: 36 Vss_5.2
+  pin: 37 X_IC_0_CD4007_5.4
+  pin: 38 X_IC_0_CD4007_5.7
+  pin: 39 X_IC_1_CD4007_5.4
+  pin: 40 X_IC_1_CD4007_5.7
+  pin: 41 X_IC_2_CD4007_5.7
+  pin: 42 X_IC_3_CD4016_5.7
+  pin: 43 Vss_6.2
+  pin: 44 X_IC_0_CD4007_6.4
+  pin: 45 X_IC_0_CD4007_6.7
+  pin: 46 X_IC_1_CD4007_6.4
+  pin: 47 X_IC_1_CD4007_6.7
+  pin: 48 X_IC_2_CD4007_6.7
+  pin: 49 X_IC_3_CD4016_6.7
+  pin: 50 Vss_7.2
+  pin: 51 X_IC_0_CD4007_7.4
+  pin: 52 X_IC_0_CD4007_7.7
+  pin: 53 X_IC_1_CD4007_7.4
+  pin: 54 X_IC_1_CD4007_7.7
+  pin: 55 X_IC_2_CD4007_7.7
+  pin: 56 X_IC_3_CD4016_7.7
+  pin: 57 Vss_8.2
+  pin: 58 X_IC_0_CD4007_8.4
+  pin: 59 X_IC_0_CD4007_8.7
+  pin: 60 X_IC_1_CD4007_8.4
+  pin: 61 X_IC_1_CD4007_8.7
+  pin: 62 X_IC_2_CD4007_8.7
+  pin: 63 X_IC_3_CD4016_8.7
+  pin: 64 POWER.1
+  connect: 1 1 0 2 0
+    vtx: 1 -50800000 101600000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -71120000 101600000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -74930000 105410000 11 0 0 0 0
+  connect: 2 2 1 3 0
+    vtx: 1 -50800000 93980000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -49336452 95443548 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -49336452 100136452 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -50800000 101600000 11 0 0 0 0
+  connect: 3 4 2 3 0
+    vtx: 1 -27940000 93980000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -29660342 92259658 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -49079658 92259658 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 -50800000 93980000 11 0 0 0 0
+  connect: 4 5 3 3 0
+    vtx: 1 -27940000 116840000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -29404310 115375690 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -29404310 103064310 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -27940000 101600000 11 0 0 0 0
+  connect: 5 4 3 3 0
+    vtx: 1 -27940000 93980000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -26476452 95443548 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -26476452 100136452 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -27940000 101600000 11 0 0 0 0
+  connect: 6 6 5 3 0
+    vtx: 1 -50800000 116840000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -49079404 115119404 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -29660596 115119404 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 -27940000 116840000 11 0 0 0 0
+  connect: 7 8 7 2 0
+    vtx: 1 -50800000 50800000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -71120000 50800000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -74930000 54610000 11 0 0 0 0
+  connect: 8 9 8 3 0
+    vtx: 1 -50800000 43180000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -49336452 44643548 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -49336452 49336452 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -50800000 50800000 11 0 0 0 0
+  connect: 9 11 9 3 0
+    vtx: 1 -27940000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -29660342 41459658 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -49079658 41459658 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 -50800000 43180000 11 0 0 0 0
+  connect: 10 12 10 3 0
+    vtx: 1 -27940000 66040000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -29404310 64575690 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -29404310 52264310 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -27940000 50800000 11 0 0 0 0
+  connect: 11 11 10 3 0
+    vtx: 1 -27940000 43180000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -26476452 44643548 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -26476452 49336452 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -27940000 50800000 11 0 0 0 0
+  connect: 12 13 12 3 0
+    vtx: 1 -50800000 66040000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -49079404 64319404 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -29660596 64319404 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 -27940000 66040000 11 0 0 0 0
+  connect: 13 15 14 2 0
+    vtx: 1 -50800000 0 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -71120000 0 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -74930000 3810000 11 0 0 0 0
+  connect: 14 16 15 3 0
+    vtx: 1 -50800000 -7620000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -49336452 -6156452 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -49336452 -1463548 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -50800000 0 11 0 0 0 0
+  connect: 15 18 16 3 0
+    vtx: 1 -27940000 -7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -29660342 -9340342 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -49079658 -9340342 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 -50800000 -7620000 11 0 0 0 0
+  connect: 16 19 17 3 0
+    vtx: 1 -27940000 15240000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -29404310 13775690 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -29404310 1464310 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -27940000 0 11 0 0 0 0
+  connect: 17 18 17 3 0
+    vtx: 1 -27940000 -7620000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -26476452 -6156452 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -26476452 -1463548 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -27940000 0 11 0 0 0 0
+  connect: 18 20 19 3 0
+    vtx: 1 -50800000 15240000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -49079404 13519404 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -29660596 13519404 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 -27940000 15240000 11 0 0 0 0
+  connect: 19 22 21 2 0
+    vtx: 1 31750000 101600000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 11430000 101600000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 7620000 105410000 11 0 0 0 0
+  connect: 20 23 22 3 0
+    vtx: 1 31750000 93980000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 33213548 95443548 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 33213548 100136452 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 31750000 101600000 11 0 0 0 0
+  connect: 21 25 23 3 0
+    vtx: 1 54610000 93980000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 52889658 92259658 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 33470342 92259658 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 31750000 93980000 11 0 0 0 0
+  connect: 22 26 24 3 0
+    vtx: 1 54610000 116840000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 53145690 115375690 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 53145690 103064310 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 54610000 101600000 11 0 0 0 0
+  connect: 23 25 24 3 0
+    vtx: 1 54610000 93980000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 56073548 95443548 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 56073548 100136452 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 54610000 101600000 11 0 0 0 0
+  connect: 24 27 26 3 0
+    vtx: 1 31750000 116840000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 33470596 115119404 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 52889404 115119404 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 54610000 116840000 11 0 0 0 0
+  connect: 25 29 28 2 0
+    vtx: 1 31750000 50800000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 11430000 50800000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 7620000 54610000 11 0 0 0 0
+  connect: 26 30 29 3 0
+    vtx: 1 31750000 43180000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 33213548 44643548 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 33213548 49336452 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 31750000 50800000 11 0 0 0 0
+  connect: 27 32 30 3 0
+    vtx: 1 54610000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 52889658 41459658 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 33470342 41459658 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 31750000 43180000 11 0 0 0 0
+  connect: 28 33 31 3 0
+    vtx: 1 54610000 66040000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 53145690 64575690 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 53145690 52264310 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 54610000 50800000 11 0 0 0 0
+  connect: 29 32 31 3 0
+    vtx: 1 54610000 43180000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 56073548 44643548 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 56073548 49336452 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 54610000 50800000 11 0 0 0 0
+  connect: 30 34 33 3 0
+    vtx: 1 31750000 66040000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 33470596 64319404 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 52889404 64319404 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 54610000 66040000 11 0 0 0 0
+  connect: 31 36 35 2 0
+    vtx: 1 31750000 0 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 11430000 0 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 7620000 3810000 11 0 0 0 0
+  connect: 32 37 36 3 0
+    vtx: 1 31750000 -7620000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 33213548 -6156452 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 33213548 -1463548 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 31750000 0 11 0 0 0 0
+  connect: 33 39 37 3 0
+    vtx: 1 54610000 -7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 52889658 -9340342 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 33470342 -9340342 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 31750000 -7620000 11 0 0 0 0
+  connect: 34 40 38 3 0
+    vtx: 1 54610000 15240000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 53145690 13775690 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 53145690 1464310 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 54610000 0 11 0 0 0 0
+  connect: 35 39 38 3 0
+    vtx: 1 54610000 -7620000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 56073548 -6156452 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 56073548 -1463548 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 54610000 0 11 0 0 0 0
+  connect: 36 41 40 3 0
+    vtx: 1 31750000 15240000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 33470596 13519404 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 52889404 13519404 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 54610000 15240000 11 0 0 0 0
+  connect: 37 43 42 2 0
+    vtx: 1 114300000 101600000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 93980000 101600000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 90170000 105410000 11 0 0 0 0
+  connect: 38 44 43 3 0
+    vtx: 1 114300000 93980000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 115763548 95443548 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 115763548 100136452 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 114300000 101600000 11 0 0 0 0
+  connect: 39 46 44 3 0
+    vtx: 1 137160000 93980000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 135439658 92259658 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 116020342 92259658 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 114300000 93980000 11 0 0 0 0
+  connect: 40 47 45 3 0
+    vtx: 1 137160000 116840000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 135695690 115375690 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 135695690 103064310 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 137160000 101600000 11 0 0 0 0
+  connect: 41 46 45 3 0
+    vtx: 1 137160000 93980000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 138623548 95443548 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 138623548 100136452 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 137160000 101600000 11 0 0 0 0
+  connect: 42 48 47 3 0
+    vtx: 1 114300000 116840000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 116020596 115119404 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 135439404 115119404 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 137160000 116840000 11 0 0 0 0
+  connect: 43 50 49 2 0
+    vtx: 1 114300000 50800000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 93980000 50800000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 90170000 54610000 11 0 0 0 0
+  connect: 44 51 50 3 0
+    vtx: 1 114300000 43180000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 115763548 44643548 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 115763548 49336452 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 114300000 50800000 11 0 0 0 0
+  connect: 45 53 51 3 0
+    vtx: 1 137160000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 135439658 41459658 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 116020342 41459658 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 114300000 43180000 11 0 0 0 0
+  connect: 46 54 52 3 0
+    vtx: 1 137160000 66040000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 135695690 64575690 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 135695690 52264310 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 137160000 50800000 11 0 0 0 0
+  connect: 47 53 52 3 0
+    vtx: 1 137160000 43180000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 138623548 44643548 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 138623548 49336452 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 137160000 50800000 11 0 0 0 0
+  connect: 48 55 54 3 0
+    vtx: 1 114300000 66040000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 116020596 64319404 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 135439404 64319404 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 137160000 66040000 11 0 0 0 0
+  connect: 49 57 56 2 0
+    vtx: 1 114300000 0 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 93980000 0 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 90170000 3810000 11 0 0 0 0
+  connect: 50 58 57 3 0
+    vtx: 1 114300000 -7620000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 115763548 -6156452 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 115763548 -1463548 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 114300000 0 11 0 0 0 0
+  connect: 51 60 58 3 0
+    vtx: 1 137160000 -7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 135439658 -9340342 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 116020342 -9340342 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 114300000 -7620000 11 0 0 0 0
+  connect: 52 61 59 3 0
+    vtx: 1 137160000 15240000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 135695690 13775690 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 135695690 1464310 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 137160000 0 11 0 0 0 0
+  connect: 53 60 59 3 0
+    vtx: 1 137160000 -7620000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 138623548 -6156452 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 138623548 -1463548 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 137160000 0 11 0 0 0 0
+  connect: 54 62 61 3 0
+    vtx: 1 114300000 15240000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 116020596 13519404 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 135439404 13519404 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 137160000 15240000 11 0 0 0 0
+  connect: 55 34 23 1 0
+    vtx: 1 31750000 66040000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 31750000 93980000 11 0 0 0 0
+  connect: 56 20 9 1 0
+    vtx: 1 -50800000 15240000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -50800000 43180000 11 0 0 0 0
+  connect: 57 12 4 1 0
+    vtx: 1 -27940000 66040000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -27940000 93980000 11 0 0 0 0
+  connect: 58 41 30 1 0
+    vtx: 1 31750000 15240000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 31750000 43180000 11 0 0 0 0
+  connect: 59 62 51 1 0
+    vtx: 1 114300000 15240000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 114300000 43180000 11 0 0 0 0
+  connect: 60 55 44 1 0
+    vtx: 1 114300000 66040000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 114300000 93980000 11 0 0 0 0
+  connect: 61 63 35 1 0
+    vtx: 1 0 -25400000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 7620000 3810000 11 0 0 0 0
+  connect: 62 63 18 1 0
+    vtx: 1 0 -25400000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -27940000 -7620000 11 0 0 0 0
+  connect: 63 42 24 1 0
+    vtx: 1 90170000 105410000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 54610000 101600000 11 0 0 0 0
+
+net: "$G_Vdd" 64 63 0 508000 711200 355600 1
+  pin: 1 Vdd_0.1
+  pin: 2 X_IC_0_CD4007_0.2
+  pin: 3 X_IC_0_CD4007_0.14
+  pin: 4 X_IC_1_CD4007_0.2
+  pin: 5 X_IC_1_CD4007_0.14
+  pin: 6 X_IC_2_CD4007_0.14
+  pin: 7 X_IC_3_CD4016_0.14
+  pin: 8 Vdd_1.1
+  pin: 9 X_IC_0_CD4007_1.2
+  pin: 10 X_IC_0_CD4007_1.14
+  pin: 11 X_IC_1_CD4007_1.2
+  pin: 12 X_IC_1_CD4007_1.14
+  pin: 13 X_IC_2_CD4007_1.14
+  pin: 14 X_IC_3_CD4016_1.14
+  pin: 15 Vdd_2.1
+  pin: 16 X_IC_0_CD4007_2.2
+  pin: 17 X_IC_0_CD4007_2.14
+  pin: 18 X_IC_1_CD4007_2.2
+  pin: 19 X_IC_1_CD4007_2.14
+  pin: 20 X_IC_2_CD4007_2.14
+  pin: 21 X_IC_3_CD4016_2.14
+  pin: 22 Vdd_3.1
+  pin: 23 X_IC_0_CD4007_3.2
+  pin: 24 X_IC_0_CD4007_3.14
+  pin: 25 X_IC_1_CD4007_3.2
+  pin: 26 X_IC_1_CD4007_3.14
+  pin: 27 X_IC_2_CD4007_3.14
+  pin: 28 X_IC_3_CD4016_3.14
+  pin: 29 Vdd_4.1
+  pin: 30 X_IC_0_CD4007_4.2
+  pin: 31 X_IC_0_CD4007_4.14
+  pin: 32 X_IC_1_CD4007_4.2
+  pin: 33 X_IC_1_CD4007_4.14
+  pin: 34 X_IC_2_CD4007_4.14
+  pin: 35 X_IC_3_CD4016_4.14
+  pin: 36 Vdd_5.1
+  pin: 37 X_IC_0_CD4007_5.2
+  pin: 38 X_IC_0_CD4007_5.14
+  pin: 39 X_IC_1_CD4007_5.2
+  pin: 40 X_IC_1_CD4007_5.14
+  pin: 41 X_IC_2_CD4007_5.14
+  pin: 42 X_IC_3_CD4016_5.14
+  pin: 43 Vdd_6.1
+  pin: 44 X_IC_0_CD4007_6.2
+  pin: 45 X_IC_0_CD4007_6.14
+  pin: 46 X_IC_1_CD4007_6.2
+  pin: 47 X_IC_1_CD4007_6.14
+  pin: 48 X_IC_2_CD4007_6.14
+  pin: 49 X_IC_3_CD4016_6.14
+  pin: 50 Vdd_7.1
+  pin: 51 X_IC_0_CD4007_7.2
+  pin: 52 X_IC_0_CD4007_7.14
+  pin: 53 X_IC_1_CD4007_7.2
+  pin: 54 X_IC_1_CD4007_7.14
+  pin: 55 X_IC_2_CD4007_7.14
+  pin: 56 X_IC_3_CD4016_7.14
+  pin: 57 Vdd_8.1
+  pin: 58 X_IC_0_CD4007_8.2
+  pin: 59 X_IC_0_CD4007_8.14
+  pin: 60 X_IC_1_CD4007_8.2
+  pin: 61 X_IC_1_CD4007_8.14
+  pin: 62 X_IC_2_CD4007_8.14
+  pin: 63 X_IC_3_CD4016_8.14
+  pin: 64 POWER.3
+  connect: 1 1 0 4 0
+    vtx: 1 -50800000 106680000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -52515262 104964738 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -70547484 104964738 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 -73533000 107950000 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 -74930000 107950000 11 0 0 0 0
+  connect: 2 2 1 2 0
+    vtx: 1 -43180000 109220000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -48260000 109220000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -50800000 106680000 11 0 0 0 0
+  connect: 3 3 2 2 0
+    vtx: 1 -27940000 106680000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -30480000 109220000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -43180000 109220000 11 0 0 0 0
+  connect: 4 5 3 4 0
+    vtx: 1 -20320000 132080000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -22257512 130142488 0 0 0 0 5061
+    seg: 2 13 254000 0 0
+    vtx: 3 -24825198 127574802 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -24825198 109794802 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -27940000 106680000 11 0 0 0 0
+  connect: 5 4 3 2 0
+    vtx: 1 -20320000 109220000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -22860000 106680000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -27940000 106680000 11 0 0 0 0
+  connect: 6 6 -1 3 0
+    vtx: 1 -43180000 132080000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -40816276 134443724 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -26558494 134443724 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -22257512 130142488 0 0 0 0 5061
+  connect: 7 8 7 4 0
+    vtx: 1 -50800000 55880000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -52515262 54164738 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -70547484 54164738 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 -73533000 57150000 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 -74930000 57150000 11 0 0 0 0
+  connect: 8 9 8 2 0
+    vtx: 1 -43180000 58420000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -48260000 58420000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -50800000 55880000 11 0 0 0 0
+  connect: 9 10 9 2 0
+    vtx: 1 -27940000 55880000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -30480000 58420000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -43180000 58420000 11 0 0 0 0
+  connect: 10 12 10 4 0
+    vtx: 1 -20320000 81280000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -22257512 79342488 0 0 0 0 1949
+    seg: 2 13 254000 0 0
+    vtx: 3 -24825198 76774802 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -24825198 58994802 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -27940000 55880000 11 0 0 0 0
+  connect: 11 11 10 2 0
+    vtx: 1 -20320000 58420000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -22860000 55880000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -27940000 55880000 11 0 0 0 0
+  connect: 12 13 -1 3 0
+    vtx: 1 -43180000 81280000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -40816276 83643724 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -26558494 83643724 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -22257512 79342488 0 0 0 0 1949
+  connect: 13 15 14 4 0
+    vtx: 1 -50800000 5080000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -52515262 3364738 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -70547484 3364738 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 -73533000 6350000 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 -74930000 6350000 11 0 0 0 0
+  connect: 14 16 15 2 0
+    vtx: 1 -43180000 7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -48260000 7620000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -50800000 5080000 11 0 0 0 0
+  connect: 15 17 16 2 0
+    vtx: 1 -27940000 5080000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -30480000 7620000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -43180000 7620000 11 0 0 0 0
+  connect: 16 19 17 4 0
+    vtx: 1 -20320000 30480000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -22257512 28542488 0 0 0 0 11129
+    seg: 2 13 254000 0 0
+    vtx: 3 -24825198 25974802 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -24825198 8194802 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -27940000 5080000 11 0 0 0 0
+  connect: 17 18 17 2 0
+    vtx: 1 -20320000 7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -22860000 5080000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -27940000 5080000 11 0 0 0 0
+  connect: 18 20 -1 3 0
+    vtx: 1 -43180000 30480000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -40816276 32843724 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -26558494 32843724 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -22257512 28542488 0 0 0 0 11129
+  connect: 19 22 21 4 0
+    vtx: 1 31750000 106680000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 30034738 104964738 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 12002516 104964738 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 9017000 107950000 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 7620000 107950000 11 0 0 0 0
+  connect: 20 23 22 2 0
+    vtx: 1 39370000 109220000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 34290000 109220000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 31750000 106680000 11 0 0 0 0
+  connect: 21 24 23 2 0
+    vtx: 1 54610000 106680000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 52070000 109220000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 39370000 109220000 11 0 0 0 0
+  connect: 22 26 24 4 0
+    vtx: 1 62230000 132080000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 60292488 130142488 0 0 0 0 9561
+    seg: 2 13 254000 0 0
+    vtx: 3 57724802 127574802 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 57724802 109794802 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 54610000 106680000 11 0 0 0 0
+  connect: 23 25 24 2 0
+    vtx: 1 62230000 109220000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 59690000 106680000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 54610000 106680000 11 0 0 0 0
+  connect: 24 27 -1 3 0
+    vtx: 1 39370000 132080000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 41733724 134443724 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 55991506 134443724 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 60292488 130142488 0 0 0 0 9561
+  connect: 25 29 28 4 0
+    vtx: 1 31750000 55880000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 30034738 54164738 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 12002516 54164738 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 9017000 57150000 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 7620000 57150000 11 0 0 0 0
+  connect: 26 30 29 2 0
+    vtx: 1 39370000 58420000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 34290000 58420000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 31750000 55880000 11 0 0 0 0
+  connect: 27 31 30 2 0
+    vtx: 1 54610000 55880000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 52070000 58420000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 39370000 58420000 11 0 0 0 0
+  connect: 28 33 31 4 0
+    vtx: 1 62230000 81280000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 60292488 79342488 0 0 0 0 8515
+    seg: 2 13 254000 0 0
+    vtx: 3 57724802 76774802 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 57724802 58994802 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 54610000 55880000 11 0 0 0 0
+  connect: 29 32 31 2 0
+    vtx: 1 62230000 58420000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 59690000 55880000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 54610000 55880000 11 0 0 0 0
+  connect: 30 34 -1 3 0
+    vtx: 1 39370000 81280000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 41733724 83643724 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 55991506 83643724 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 60292488 79342488 0 0 0 0 8515
+  connect: 31 36 35 4 0
+    vtx: 1 31750000 5080000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 30034738 3364738 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 12002516 3364738 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 9017000 6350000 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 7620000 6350000 11 0 0 0 0
+  connect: 32 37 36 2 0
+    vtx: 1 39370000 7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 34290000 7620000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 31750000 5080000 11 0 0 0 0
+  connect: 33 38 37 2 0
+    vtx: 1 54610000 5080000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 52070000 7620000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 39370000 7620000 11 0 0 0 0
+  connect: 34 40 38 4 0
+    vtx: 1 62230000 30480000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 60292488 28542488 0 0 0 0 7469
+    seg: 2 13 254000 0 0
+    vtx: 3 57724802 25974802 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 57724802 8194802 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 54610000 5080000 11 0 0 0 0
+  connect: 35 39 38 2 0
+    vtx: 1 62230000 7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 59690000 5080000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 54610000 5080000 11 0 0 0 0
+  connect: 36 41 -1 3 0
+    vtx: 1 39370000 30480000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 41733724 32843724 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 55991506 32843724 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 60292488 28542488 0 0 0 0 7469
+  connect: 37 43 42 4 0
+    vtx: 1 114300000 106680000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 112584738 104964738 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 94552516 104964738 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 91567000 107950000 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 90170000 107950000 11 0 0 0 0
+  connect: 38 44 43 2 0
+    vtx: 1 121920000 109220000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 116840000 109220000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 114300000 106680000 11 0 0 0 0
+  connect: 39 45 44 2 0
+    vtx: 1 137160000 106680000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 134620000 109220000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 121920000 109220000 11 0 0 0 0
+  connect: 40 47 45 4 0
+    vtx: 1 144780000 132080000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 142842488 130142488 0 0 0 0 17172
+    seg: 2 13 254000 0 0
+    vtx: 3 140274802 127574802 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 140274802 109794802 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 137160000 106680000 11 0 0 0 0
+  connect: 41 46 45 2 0
+    vtx: 1 144780000 109220000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 142240000 106680000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 137160000 106680000 11 0 0 0 0
+  connect: 42 48 -1 3 0
+    vtx: 1 121920000 132080000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 124283724 134443724 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 138541506 134443724 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 142842488 130142488 0 0 0 0 17172
+  connect: 43 50 49 4 0
+    vtx: 1 114300000 55880000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 112584738 54164738 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 94552516 54164738 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 91567000 57150000 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 90170000 57150000 11 0 0 0 0
+  connect: 44 51 50 2 0
+    vtx: 1 121920000 58420000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 116840000 58420000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 114300000 55880000 11 0 0 0 0
+  connect: 45 52 51 2 0
+    vtx: 1 137160000 55880000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 134620000 58420000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 121920000 58420000 11 0 0 0 0
+  connect: 46 54 52 4 0
+    vtx: 1 144780000 81280000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 142842488 79342488 0 0 0 0 4856
+    seg: 2 13 254000 0 0
+    vtx: 3 140274802 76774802 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 140274802 58994802 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 137160000 55880000 11 0 0 0 0
+  connect: 47 53 52 2 0
+    vtx: 1 144780000 58420000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 142240000 55880000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 137160000 55880000 11 0 0 0 0
+  connect: 48 55 -1 3 0
+    vtx: 1 121920000 81280000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 124283724 83643724 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 138541506 83643724 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 142842488 79342488 0 0 0 0 4856
+  connect: 49 57 56 4 0
+    vtx: 1 114300000 5080000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 112584738 3364738 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 94552516 3364738 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 91567000 6350000 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 90170000 6350000 11 0 0 0 0
+  connect: 50 58 57 2 0
+    vtx: 1 121920000 7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 116840000 7620000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 114300000 5080000 11 0 0 0 0
+  connect: 51 59 58 2 0
+    vtx: 1 137160000 5080000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 134620000 7620000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 121920000 7620000 11 0 0 0 0
+  connect: 52 61 59 4 0
+    vtx: 1 144780000 30480000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 142842488 28542488 0 0 0 0 14558
+    seg: 2 13 254000 0 0
+    vtx: 3 140274802 25974802 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 140274802 8194802 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 137160000 5080000 11 0 0 0 0
+  connect: 53 60 59 2 0
+    vtx: 1 144780000 7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 142240000 5080000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 137160000 5080000 11 0 0 0 0
+  connect: 54 62 -1 3 0
+    vtx: 1 121920000 30480000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 124283724 32843724 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 138541506 32843724 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 142842488 28542488 0 0 0 0 14558
+  connect: 55 13 1 1 0
+    vtx: 1 -43180000 81280000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -50800000 106680000 11 0 0 0 0
+  connect: 56 41 29 1 0
+    vtx: 1 39370000 30480000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 31750000 55880000 11 0 0 0 0
+  connect: 57 62 50 1 0
+    vtx: 1 121920000 30480000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 114300000 55880000 11 0 0 0 0
+  connect: 58 19 10 1 0
+    vtx: 1 -20320000 30480000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -27940000 55880000 11 0 0 0 0
+  connect: 59 34 22 1 0
+    vtx: 1 39370000 81280000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 31750000 106680000 11 0 0 0 0
+  connect: 60 55 43 1 0
+    vtx: 1 121920000 81280000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 114300000 106680000 11 0 0 0 0
+  connect: 61 56 39 1 0
+    vtx: 1 90170000 6350000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 62230000 7620000 11 0 0 0 0
+  connect: 62 28 11 1 0
+    vtx: 1 7620000 57150000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -20320000 58420000 11 0 0 0 0
+  connect: 63 63 35 1 0
+    vtx: 1 2540000 -25400000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 7620000 6350000 11 0 0 0 0
+
+net: "Xflipflop$tg_master" 4 3 0 508000 711200 355600 1
+  pin: 1 X_IC_0_CD4007_0.6
+  pin: 2 X_IC_3_CD4016_0.3
+  pin: 3 RP4_0.2
+  pin: 4 RN4_0.1
+  connect: 1 1 0 3 0
+    vtx: 1 -50800000 127000000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -58805318 118994682 0 0 711200 355600 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -58805318 104525318 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -50800000 96520000 11 0 0 0 0
+  connect: 2 3 0 2 0
+    vtx: 1 -55880000 93980000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -53340000 96520000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -50800000 96520000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 -55880000 93980000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -63500000 93980000 11 0 0 0 0
+
+net: "Xflipflop$XX1$NTI_Out_$G7" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_7.5
+  pin: 2 RN1_7.2
+  connect: 1 1 0 2 0
+    vtx: 1 129540000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 134620000 48260000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 137160000 48260000 11 0 0 0 0
+
+net: "Xflipflop$XX3$PTI_Out_$G7" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_7.13
+  pin: 2 RP3_7.1
+  connect: 1 1 0 2 0
+    vtx: 1 158750000 43180000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 146050000 55880000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 144780000 55880000 11 0 0 0 0
+
+net: "Xflipflop$XX4$NTI_Out_$G7" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_7.5
+  pin: 2 RN4_7.2
+  connect: 1 1 0 2 0
+    vtx: 1 109220000 55880000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 109220000 53340000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 114300000 48260000 11 0 0 0 0
+
+net: "D_$G7" 3 2 0 0 0 0 1
+  pin: 1 Vd_7.1
+  pin: 2 X_IC_3_CD4016_7.8
+  pin: 3 INPUTS.15
+  connect: 1 1 0 6 0
+    vtx: 1 121920000 66040000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 120228614 67731386 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 120228614 77828394 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 115316508 82740500 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 113124996 82740500 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 102774496 72390000 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 90170000 72390000 11 0 0 0 0
+  connect: 2 2 0 1 0
+    vtx: 1 41910000 -25400000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 90170000 72390000 11 0 0 0 0
+
+net: "Xflipflop$_C_$G4" 4 3 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_4.6
+  pin: 2 X_IC_3_CD4016_4.12
+  pin: 3 RP5_4.2
+  pin: 4 RN5_4.1
+  connect: 1 2 0 5 0
+    vtx: 1 68580000 66040000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 65965578 63425578 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 32277812 63425578 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 30277816 65425574 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 30277816 67107816 0 0 0 0 0
+    seg: 5 12 254000 0 0
+    vtx: 6 31750000 68580000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 39370000 76200000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 31750000 68580000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 76200000 66040000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 68580000 66040000 11 0 0 0 0
+
+net: "Xflipflop$XX2$NTI_Out_$G2" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_2.8
+  pin: 2 RN2_2.2
+  connect: 1 1 0 5 0
+    vtx: 1 -63500000 17780000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -60836556 15116556 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -60836556 351028 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -51393852 -9091676 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -44651676 -9091676 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 -43180000 -7620000 11 0 0 0 0
+
+net: "Xflipflop$XX5$NTI_Out_$G2" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007_2.8
+  pin: 2 RN5_2.2
+  connect: 1 1 0 2 0
+    vtx: 1 -6350000 27940000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -19050000 15240000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -20320000 15240000 11 0 0 0 0
+
+net: "Xflipflop$XX1$PTI_Out_$G2" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_2.1
+  pin: 2 RP1_2.1
+  connect: 1 1 0 6 0
+    vtx: 1 -35560000 27940000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -31559500 31940500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -26915872 31940500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -26479500 31504128 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -26479500 10541000 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 -27940000 9080500 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 -27940000 7620000 11 0 0 0 0
+
+net: "Xflipflop$_Q_master_$G1" 3 2 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_1.1
+  pin: 2 RP2_1.2
+  pin: 3 RN2_1.1
+  connect: 1 1 0 1 0
+    vtx: 1 -55880000 81280000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -50800000 81280000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 -63500000 81280000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -55880000 81280000 11 0 0 0 0
+
+net: "Xflipflop$XX4$PTI_Out_$G1" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_1.1
+  pin: 2 RP4_1.1
+  connect: 1 1 0 2 0
+    vtx: 1 -63500000 55880000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -60960000 58420000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -50800000 58420000 11 0 0 0 0
+
+net: "Xflipflop$XX3$PTI_Out" 2 1 0 508000 711200 355600 1
+  pin: 1 X_IC_1_CD4007_0.13
+  pin: 2 RP3_0.1
+  connect: 1 1 0 2 0
+    vtx: 1 -6350000 93980000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -19050000 106680000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -20320000 106680000 11 0 0 0 0
+
+net: "Xflipflop$XX1$NTI_Out_$G8" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_8.5
+  pin: 2 RN1_8.2
+  connect: 1 1 0 2 0
+    vtx: 1 129540000 -7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 134620000 -2540000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 137160000 -2540000 11 0 0 0 0
+
+net: "Xflipflop$XX3$PTI_Out_$G8" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_8.13
+  pin: 2 RP3_8.1
+  connect: 1 1 0 2 0
+    vtx: 1 158750000 -7620000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 146050000 5080000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 144780000 5080000 11 0 0 0 0
+
+net: "Xflipflop$XX4$NTI_Out_$G8" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_8.5
+  pin: 2 RN4_8.2
+  connect: 1 1 0 2 0
+    vtx: 1 109220000 5080000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 109220000 2540000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 114300000 -2540000 11 0 0 0 0
+
+net: "D_$G8" 3 2 0 0 0 0 1
+  pin: 1 Vd_8.1
+  pin: 2 X_IC_3_CD4016_8.8
+  pin: 3 INPUTS.17
+  connect: 1 1 0 6 0
+    vtx: 1 121920000 15240000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 120228614 16931386 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 120228614 27028394 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 115316508 31940500 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 113124996 31940500 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 102774496 21590000 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 90170000 21590000 11 0 0 0 0
+  connect: 2 2 0 1 0
+    vtx: 1 44450000 -25400000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 90170000 21590000 11 0 0 0 0
+
+net: "Xflipflop$_C_$G5" 4 3 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_5.6
+  pin: 2 X_IC_3_CD4016_5.12
+  pin: 3 RP5_5.2
+  pin: 4 RN5_5.1
+  connect: 1 2 0 5 0
+    vtx: 1 68580000 15240000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 65965578 12625578 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 32277812 12625578 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 30277816 14625574 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 30277816 16307816 0 0 0 0 0
+    seg: 5 12 254000 0 0
+    vtx: 6 31750000 17780000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 39370000 25400000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 31750000 17780000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 76200000 15240000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 68580000 15240000 11 0 0 0 0
+
+net: "Xflipflop$XX2$NTI_Out_$G3" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_3.8
+  pin: 2 RN2_3.2
+  connect: 1 1 0 5 0
+    vtx: 1 19050000 119380000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 21713444 116716556 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 21713444 101951028 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 31156148 92508324 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 37898324 92508324 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 39370000 93980000 11 0 0 0 0
+
+net: "Xflipflop$XX5$NTI_Out_$G3" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007_3.8
+  pin: 2 RN5_3.2
+  connect: 1 1 0 2 0
+    vtx: 1 76200000 129540000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 63500000 116840000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 62230000 116840000 11 0 0 0 0
+
+net: "Xflipflop$XX1$PTI_Out_$G3" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_3.1
+  pin: 2 RP1_3.1
+  connect: 1 1 0 6 0
+    vtx: 1 46990000 129540000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 50990500 133540500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 55634128 133540500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 56070500 133104128 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 56070500 112141000 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 54610000 110680500 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 54610000 109220000 11 0 0 0 0
+
+net: "Xflipflop$_Q_master_$G2" 3 2 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_2.1
+  pin: 2 RP2_2.2
+  pin: 3 RN2_2.1
+  connect: 1 1 0 1 0
+    vtx: 1 -55880000 30480000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -50800000 30480000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 -63500000 30480000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -55880000 30480000 11 0 0 0 0
+
+net: "Xflipflop$XX4$PTI_Out_$G2" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_2.1
+  pin: 2 RP4_2.1
+  connect: 1 1 0 2 0
+    vtx: 1 -63500000 5080000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -60960000 7620000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -50800000 7620000 11 0 0 0 0
+
+net: "Xflipflop$tg_slave" 3 2 0 508000 711200 355600 1
+  pin: 1 X_IC_1_CD4007_0.6
+  pin: 2 X_IC_3_CD4016_0.4
+  pin: 3 X_IC_3_CD4016_0.10
+  connect: 1 2 0 4 0
+    vtx: 1 -43180000 121920000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -40815260 119555260 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -40815260 114484404 0 0 0 0 6736
+    seg: 3 13 254000 0 0
+    vtx: 4 -40815260 109395260 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -27940000 96520000 11 0 0 0 0
+  connect: 2 1 -1 4 0
+    vtx: 1 -50800000 124460000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -48111664 121771664 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -48111664 118439946 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -44156122 114484404 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -40815260 114484404 0 0 0 0 6736
+
+net: "Xflipflop$_C_$G6" 4 3 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_6.6
+  pin: 2 X_IC_3_CD4016_6.12
+  pin: 3 RP5_6.2
+  pin: 4 RN5_6.1
+  connect: 1 2 0 5 0
+    vtx: 1 151130000 116840000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 148515578 114225578 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 114827812 114225578 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 112827816 116225574 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 112827816 117907816 0 0 0 0 0
+    seg: 5 12 254000 0 0
+    vtx: 6 114300000 119380000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 121920000 127000000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 114300000 119380000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 158750000 116840000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 151130000 116840000 11 0 0 0 0
+
+net: "Xflipflop$XX2$NTI_Out_$G4" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_4.8
+  pin: 2 RN2_4.2
+  connect: 1 1 0 5 0
+    vtx: 1 19050000 68580000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 21713444 65916556 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 21713444 51151028 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 31156148 41708324 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 37898324 41708324 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 39370000 43180000 11 0 0 0 0
+
+net: "Xflipflop$XX5$NTI_Out_$G4" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007_4.8
+  pin: 2 RN5_4.2
+  connect: 1 1 0 2 0
+    vtx: 1 76200000 78740000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 63500000 66040000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 62230000 66040000 11 0 0 0 0
+
+net: "Xflipflop$XX1$PTI_Out_$G4" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_4.1
+  pin: 2 RP1_4.1
+  connect: 1 1 0 6 0
+    vtx: 1 46990000 78740000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 50990500 82740500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 55634128 82740500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 56070500 82304128 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 56070500 61341000 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 54610000 59880500 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 54610000 58420000 11 0 0 0 0
+
+net: "Xflipflop$_Q_master_$G3" 3 2 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_3.1
+  pin: 2 RP2_3.2
+  pin: 3 RN2_3.1
+  connect: 1 1 0 1 0
+    vtx: 1 26670000 132080000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 31750000 132080000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 19050000 132080000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 26670000 132080000 11 0 0 0 0
+
+net: "Xflipflop$XX4$PTI_Out_$G3" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_3.1
+  pin: 2 RP4_3.1
+  connect: 1 1 0 2 0
+    vtx: 1 19050000 106680000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 21590000 109220000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 31750000 109220000 11 0 0 0 0
+
+net: "Xflipflop$XX2$NTI_Out" 2 1 0 508000 711200 355600 1
+  pin: 1 X_IC_0_CD4007_0.8
+  pin: 2 RN2_0.2
+  connect: 1 1 0 5 0
+    vtx: 1 -63500000 119380000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -60836556 116716556 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -60836556 101951028 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -51393852 92508324 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -44651676 92508324 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 -43180000 93980000 11 0 0 0 0
+
+net: "Xflipflop$_C_$G7" 4 3 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_7.6
+  pin: 2 X_IC_3_CD4016_7.12
+  pin: 3 RP5_7.2
+  pin: 4 RN5_7.1
+  connect: 1 2 0 5 0
+    vtx: 1 151130000 66040000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 148515578 63425578 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 114827812 63425578 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 112827816 65425574 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 112827816 67107816 0 0 0 0 0
+    seg: 5 12 254000 0 0
+    vtx: 6 114300000 68580000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 121920000 76200000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 114300000 68580000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 158750000 66040000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 151130000 66040000 11 0 0 0 0
+
+net: "Xflipflop$XX2$NTI_Out_$G5" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_5.8
+  pin: 2 RN2_5.2
+  connect: 1 1 0 5 0
+    vtx: 1 19050000 17780000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 21713444 15116556 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 21713444 351028 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 31156148 -9091676 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 37898324 -9091676 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 39370000 -7620000 11 0 0 0 0
+
+net: "Xflipflop$XX5$NTI_Out_$G5" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007_5.8
+  pin: 2 RN5_5.2
+  connect: 1 1 0 2 0
+    vtx: 1 76200000 27940000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 63500000 15240000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 62230000 15240000 11 0 0 0 0
+
+net: "Xflipflop$XX1$PTI_Out_$G5" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_5.1
+  pin: 2 RP1_5.1
+  connect: 1 1 0 6 0
+    vtx: 1 46990000 27940000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 50990500 31940500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 55634128 31940500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 56070500 31504128 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 56070500 10541000 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 54610000 9080500 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 54610000 7620000 11 0 0 0 0
+
+net: "Xflipflop$_Q_master_$G4" 3 2 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_4.1
+  pin: 2 RP2_4.2
+  pin: 3 RN2_4.1
+  connect: 1 1 0 1 0
+    vtx: 1 26670000 81280000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 31750000 81280000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 19050000 81280000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 26670000 81280000 11 0 0 0 0
+
+net: "Xflipflop$XX4$PTI_Out_$G4" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_4.1
+  pin: 2 RP4_4.1
+  connect: 1 1 0 2 0
+    vtx: 1 19050000 55880000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 21590000 58420000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 31750000 58420000 11 0 0 0 0
+
+net: "Xflipflop$tg_D_$G1" 3 2 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_1.3
+  pin: 2 X_IC_3_CD4016_1.2
+  pin: 3 X_IC_3_CD4016_1.9
+  connect: 1 1 0 5 0
+    vtx: 1 -50800000 78740000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -50800000 78289658 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -50809398 78280260 0 0 0 0 25391
+    seg: 3 13 254000 0 0
+    vtx: 4 -57600596 71489062 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -57600596 60140596 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 -50800000 53340000 11 0 0 0 0
+  connect: 2 2 -1 7 0
+    vtx: 1 -43180000 68580000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -41716960 67116960 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -41716960 65431924 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -42571670 64577468 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -43783758 64577468 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 -47222664 68016120 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 -47222664 74693272 0 0 0 0 0
+    seg: 7 13 254000 0 0
+    vtx: 8 -50809398 78280260 0 0 0 0 25391
+
+net: "Q" 6 5 0 508000 711200 355600 1
+  pin: 1 X_IC_1_CD4007_0.3
+  pin: 2 RP3_0.2
+  pin: 3 RN3_0.1
+  pin: 4 Vq_0.1
+  pin: 5 OUTPUTS.1
+  pin: 6 OUTPUTS.2
+  connect: 1 2 0 3 0
+    vtx: 1 -13970000 106680000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -17970500 110680500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -21399500 110680500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -27940000 104140000 11 0 0 0 0
+  connect: 2 3 1 3 0
+    vtx: 1 -10160000 109220000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -8763000 109220000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -8763000 109093000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -6350000 106680000 11 0 0 0 0
+  connect: 3 3 2 3 0
+    vtx: 1 -10160000 109220000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -11557000 109220000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -11557000 109093000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -13970000 106680000 11 0 0 0 0
+  connect: 4 5 4 1 0
+    vtx: 1 55880000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 55880000 -25400000 11 0 0 0 0
+  connect: 5 5 1 1 0
+    vtx: 1 55880000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -6350000 106680000 11 0 0 0 0
+
+net: "Xflipflop$_C_$G8" 4 3 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_8.6
+  pin: 2 X_IC_3_CD4016_8.12
+  pin: 3 RP5_8.2
+  pin: 4 RN5_8.1
+  connect: 1 2 0 5 0
+    vtx: 1 151130000 15240000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 148515578 12625578 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 114827812 12625578 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 112827816 14625574 0 0 0 0 0
+    seg: 4 12 254000 0 0
+    vtx: 5 112827816 16307816 0 0 0 0 0
+    seg: 5 12 254000 0 0
+    vtx: 6 114300000 17780000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 121920000 25400000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 114300000 17780000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 158750000 15240000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 151130000 15240000 11 0 0 0 0
+
+net: "Xflipflop$XX2$NTI_Out_$G6" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_6.8
+  pin: 2 RN2_6.2
+  connect: 1 1 0 5 0
+    vtx: 1 101600000 119380000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 104263444 116716556 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 104263444 101951028 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 113706148 92508324 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 120448324 92508324 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 121920000 93980000 11 0 0 0 0
+
+net: "Xflipflop$XX5$NTI_Out_$G6" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007_6.8
+  pin: 2 RN5_6.2
+  connect: 1 1 0 2 0
+    vtx: 1 158750000 129540000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 146050000 116840000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 144780000 116840000 11 0 0 0 0
+
+net: "Xflipflop$XX1$PTI_Out_$G6" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_6.1
+  pin: 2 RP1_6.1
+  connect: 1 1 0 6 0
+    vtx: 1 129540000 129540000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 133540500 133540500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 138184128 133540500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 138620500 133104128 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 138620500 112141000 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 137160000 110680500 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 137160000 109220000 11 0 0 0 0
+
+net: "Xflipflop$_Q_master_$G5" 3 2 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_5.1
+  pin: 2 RP2_5.2
+  pin: 3 RN2_5.1
+  connect: 1 1 0 1 0
+    vtx: 1 26670000 30480000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 31750000 30480000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 19050000 30480000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 26670000 30480000 11 0 0 0 0
+
+net: "Xflipflop$XX4$PTI_Out_$G5" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_5.1
+  pin: 2 RP4_5.1
+  connect: 1 1 0 2 0
+    vtx: 1 19050000 5080000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 21590000 7620000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 31750000 7620000 11 0 0 0 0
+
+net: "Xflipflop$tg_D_$G2" 3 2 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_2.3
+  pin: 2 X_IC_3_CD4016_2.2
+  pin: 3 X_IC_3_CD4016_2.9
+  connect: 1 1 0 5 0
+    vtx: 1 -50800000 27940000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -50800000 27489658 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -50809398 27480260 0 0 0 0 25423
+    seg: 3 13 254000 0 0
+    vtx: 4 -57600596 20689062 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -57600596 9340596 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 -50800000 2540000 11 0 0 0 0
+  connect: 2 2 -1 7 0
+    vtx: 1 -43180000 17780000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -41716960 16316960 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -41716960 14631924 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -42571670 13777468 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -43783758 13777468 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 -47222664 17216120 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 -47222664 23893272 0 0 0 0 0
+    seg: 7 13 254000 0 0
+    vtx: 8 -50809398 27480260 0 0 0 0 25423
+
+net: "Xflipflop$tg_master_$G1" 4 3 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_1.6
+  pin: 2 X_IC_3_CD4016_1.3
+  pin: 3 RP4_1.2
+  pin: 4 RN4_1.1
+  connect: 1 1 0 3 0
+    vtx: 1 -50800000 76200000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -58805318 68194682 0 0 711200 355600 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -58805318 53725318 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -50800000 45720000 11 0 0 0 0
+  connect: 2 3 0 2 0
+    vtx: 1 -55880000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -53340000 45720000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -50800000 45720000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 -55880000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -63500000 43180000 11 0 0 0 0
+
+net: "0" 46 45 0 508000 711200 355600 1
+  pin: 1 Vclk_0.2
+  pin: 2 Vd_0.2
+  pin: 3 Vdd_0.2
+  pin: 4 Vss_0.1
+  pin: 5 Vq_0.2
+  pin: 6 Vclk_2.2
+  pin: 7 Vd_2.2
+  pin: 8 Vdd_2.2
+  pin: 9 Vss_2.1
+  pin: 10 Vq_2.2
+  pin: 11 Vclk_3.2
+  pin: 12 Vd_3.2
+  pin: 13 Vdd_3.2
+  pin: 14 Vss_3.1
+  pin: 15 Vq_3.2
+  pin: 16 Vclk_4.2
+  pin: 17 Vd_4.2
+  pin: 18 Vdd_4.2
+  pin: 19 Vss_4.1
+  pin: 20 Vq_4.2
+  pin: 21 Vclk_5.2
+  pin: 22 Vd_5.2
+  pin: 23 Vdd_5.2
+  pin: 24 Vss_5.1
+  pin: 25 Vq_5.2
+  pin: 26 Vclk_6.2
+  pin: 27 Vd_6.2
+  pin: 28 Vdd_6.2
+  pin: 29 Vss_6.1
+  pin: 30 Vq_6.2
+  pin: 31 Vclk_7.2
+  pin: 32 Vd_7.2
+  pin: 33 Vdd_7.2
+  pin: 34 Vss_7.1
+  pin: 35 Vq_7.2
+  pin: 36 Vclk_8.2
+  pin: 37 Vd_8.2
+  pin: 38 Vdd_8.2
+  pin: 39 Vss_8.1
+  pin: 40 Vq_8.2
+  pin: 41 POWER.2
+  pin: 42 POWER.4
+  pin: 43 POWER.6
+  pin: 44 POWER.5
+  pin: 45 POWER.7
+  pin: 46 POWER.8
+  connect: 1 2 0 3 0
+    vtx: 1 -74930000 110490000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -76327000 111887000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -76327000 116713000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -74930000 118110000 11 0 0 0 0
+  connect: 2 1 0 3 0
+    vtx: 1 -74930000 125730000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -76327000 124333000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -76327000 119507000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -74930000 118110000 11 0 0 0 0
+  connect: 3 4 2 2 0
+    vtx: 1 -10160000 111760000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -73660000 111760000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -74930000 110490000 11 0 0 0 0
+  connect: 4 3 2 3 0
+    vtx: 1 -74930000 102870000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -76327000 104267000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -76327000 109093000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -74930000 110490000 11 0 0 0 0
+  connect: 5 7 5 3 0
+    vtx: 1 -74930000 8890000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -76327000 10287000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -76327000 15113000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -74930000 16510000 11 0 0 0 0
+  connect: 6 6 5 3 0
+    vtx: 1 -74930000 24130000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -76327000 22733000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -76327000 17907000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -74930000 16510000 11 0 0 0 0
+  connect: 7 9 7 2 0
+    vtx: 1 -10160000 10160000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -73660000 10160000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -74930000 8890000 11 0 0 0 0
+  connect: 8 8 7 3 0
+    vtx: 1 -74930000 1270000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -76327000 2667000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -76327000 7493000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -74930000 8890000 11 0 0 0 0
+  connect: 9 12 10 3 0
+    vtx: 1 7620000 110490000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 6223000 111887000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 6223000 116713000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 7620000 118110000 11 0 0 0 0
+  connect: 10 11 10 3 0
+    vtx: 1 7620000 125730000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 6223000 124333000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 6223000 119507000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 7620000 118110000 11 0 0 0 0
+  connect: 11 14 12 2 0
+    vtx: 1 72390000 111760000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 8890000 111760000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 7620000 110490000 11 0 0 0 0
+  connect: 12 13 12 3 0
+    vtx: 1 7620000 102870000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 6223000 104267000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 6223000 109093000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 7620000 110490000 11 0 0 0 0
+  connect: 13 17 15 3 0
+    vtx: 1 7620000 59690000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 6223000 61087000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 6223000 65913000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 7620000 67310000 11 0 0 0 0
+  connect: 14 16 15 3 0
+    vtx: 1 7620000 74930000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 6223000 73533000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 6223000 68707000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 7620000 67310000 11 0 0 0 0
+  connect: 15 19 17 2 0
+    vtx: 1 72390000 60960000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 8890000 60960000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 7620000 59690000 11 0 0 0 0
+  connect: 16 18 17 3 0
+    vtx: 1 7620000 52070000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 6223000 53467000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 6223000 58293000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 7620000 59690000 11 0 0 0 0
+  connect: 17 22 20 3 0
+    vtx: 1 7620000 8890000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 6223000 10287000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 6223000 15113000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 7620000 16510000 11 0 0 0 0
+  connect: 18 21 20 3 0
+    vtx: 1 7620000 24130000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 6223000 22733000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 6223000 17907000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 7620000 16510000 11 0 0 0 0
+  connect: 19 24 22 2 0
+    vtx: 1 72390000 10160000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 8890000 10160000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 7620000 8890000 11 0 0 0 0
+  connect: 20 23 22 3 0
+    vtx: 1 7620000 1270000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 6223000 2667000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 6223000 7493000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 7620000 8890000 11 0 0 0 0
+  connect: 21 27 25 3 0
+    vtx: 1 90170000 110490000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 88773000 111887000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 88773000 116713000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 90170000 118110000 11 0 0 0 0
+  connect: 22 26 25 3 0
+    vtx: 1 90170000 125730000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 88773000 124333000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 88773000 119507000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 90170000 118110000 11 0 0 0 0
+  connect: 23 29 27 2 0
+    vtx: 1 154940000 111760000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 91440000 111760000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 90170000 110490000 11 0 0 0 0
+  connect: 24 28 27 3 0
+    vtx: 1 90170000 102870000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 88773000 104267000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 88773000 109093000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 90170000 110490000 11 0 0 0 0
+  connect: 25 32 30 3 0
+    vtx: 1 90170000 59690000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 88773000 61087000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 88773000 65913000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 90170000 67310000 11 0 0 0 0
+  connect: 26 31 30 3 0
+    vtx: 1 90170000 74930000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 88773000 73533000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 88773000 68707000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 90170000 67310000 11 0 0 0 0
+  connect: 27 34 32 2 0
+    vtx: 1 154940000 60960000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 91440000 60960000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 90170000 59690000 11 0 0 0 0
+  connect: 28 33 32 3 0
+    vtx: 1 90170000 52070000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 88773000 53467000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 88773000 58293000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 90170000 59690000 11 0 0 0 0
+  connect: 29 37 35 3 0
+    vtx: 1 90170000 8890000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 88773000 10287000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 88773000 15113000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 90170000 16510000 11 0 0 0 0
+  connect: 30 36 35 3 0
+    vtx: 1 90170000 24130000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 88773000 22733000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 88773000 17907000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 90170000 16510000 11 0 0 0 0
+  connect: 31 39 37 2 0
+    vtx: 1 154940000 10160000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 91440000 10160000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 90170000 8890000 11 0 0 0 0
+  connect: 32 38 37 3 0
+    vtx: 1 90170000 1270000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 88773000 2667000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 88773000 7493000 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 90170000 8890000 11 0 0 0 0
+  connect: 33 45 44 1 0
+    vtx: 1 7620000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 7620000 -25400000 11 0 0 0 0
+  connect: 34 41 40 1 0
+    vtx: 1 2540000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 0 -22860000 11 0 0 0 0
+  connect: 35 42 41 1 0
+    vtx: 1 5080000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 2540000 -22860000 11 0 0 0 0
+  connect: 36 45 42 1 0
+    vtx: 1 7620000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 5080000 -22860000 11 0 0 0 0
+  connect: 37 43 42 1 0
+    vtx: 1 5080000 -25400000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 5080000 -22860000 11 0 0 0 0
+  connect: 38 37 24 1 0
+    vtx: 1 90170000 8890000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 72390000 10160000 11 0 0 0 0
+  connect: 39 27 14 1 0
+    vtx: 1 90170000 110490000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 72390000 111760000 11 0 0 0 0
+  connect: 40 32 19 1 0
+    vtx: 1 90170000 59690000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 72390000 60960000 11 0 0 0 0
+  connect: 41 12 4 1 0
+    vtx: 1 7620000 110490000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -10160000 111760000 11 0 0 0 0
+  connect: 42 22 9 1 0
+    vtx: 1 7620000 8890000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -10160000 10160000 11 0 0 0 0
+  connect: 43 45 23 1 0
+    vtx: 1 7620000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 7620000 1270000 11 0 0 0 0
+  connect: 44 31 28 1 0
+    vtx: 1 90170000 74930000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 90170000 102870000 11 0 0 0 0
+  connect: 45 21 18 1 0
+    vtx: 1 7620000 24130000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 7620000 52070000 11 0 0 0 0
+
+net: "Xflipflop$XX2$PTI_Out" 2 1 0 508000 711200 355600 1
+  pin: 1 X_IC_0_CD4007_0.13
+  pin: 2 RP2_0.1
+  connect: 1 1 0 1 0
+    vtx: 1 -55880000 119380000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -43180000 106680000 11 0 0 0 0
+
+net: "Xflipflop$XX2$NTI_Out_$G7" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_7.8
+  pin: 2 RN2_7.2
+  connect: 1 1 0 5 0
+    vtx: 1 101600000 68580000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 104263444 65916556 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 104263444 51151028 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 113706148 41708324 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 120448324 41708324 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 121920000 43180000 11 0 0 0 0
+
+net: "Xflipflop$XX5$NTI_Out_$G7" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007_7.8
+  pin: 2 RN5_7.2
+  connect: 1 1 0 2 0
+    vtx: 1 158750000 78740000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 146050000 66040000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 144780000 66040000 11 0 0 0 0
+
+net: "Xflipflop$XX1$PTI_Out_$G7" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_7.1
+  pin: 2 RP1_7.1
+  connect: 1 1 0 6 0
+    vtx: 1 129540000 78740000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 133540500 82740500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 138184128 82740500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 138620500 82304128 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 138620500 61341000 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 137160000 59880500 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 137160000 58420000 11 0 0 0 0
+
+net: "Xflipflop$_Q_master_$G6" 3 2 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_6.1
+  pin: 2 RP2_6.2
+  pin: 3 RN2_6.1
+  connect: 1 1 0 1 0
+    vtx: 1 109220000 132080000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 114300000 132080000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 101600000 132080000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 109220000 132080000 11 0 0 0 0
+
+net: "Xflipflop$XX4$PTI_Out_$G6" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_6.1
+  pin: 2 RP4_6.1
+  connect: 1 1 0 2 0
+    vtx: 1 101600000 106680000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 104140000 109220000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 114300000 109220000 11 0 0 0 0
+
+net: "Xflipflop$tg_D_$G3" 3 2 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_3.3
+  pin: 2 X_IC_3_CD4016_3.2
+  pin: 3 X_IC_3_CD4016_3.9
+  connect: 1 1 0 5 0
+    vtx: 1 31750000 129540000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 31750000 129089658 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 31740602 129080260 0 0 0 0 25453
+    seg: 3 13 254000 0 0
+    vtx: 4 24949404 122289062 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 24949404 110940596 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 31750000 104140000 11 0 0 0 0
+  connect: 2 2 -1 7 0
+    vtx: 1 39370000 119380000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 40833040 117916960 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 40833040 116231924 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 39978330 115377468 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 38766242 115377468 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 35327336 118816120 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 35327336 125493272 0 0 0 0 0
+    seg: 7 13 254000 0 0
+    vtx: 8 31740602 129080260 0 0 0 0 25453
+
+net: "Xflipflop$tg_master_$G2" 4 3 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_2.6
+  pin: 2 X_IC_3_CD4016_2.3
+  pin: 3 RP4_2.2
+  pin: 4 RN4_2.1
+  connect: 1 1 0 3 0
+    vtx: 1 -50800000 25400000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -58805318 17394682 0 0 711200 355600 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -58805318 2925318 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -50800000 -5080000 11 0 0 0 0
+  connect: 2 3 0 2 0
+    vtx: 1 -55880000 -7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -53340000 -5080000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -50800000 -5080000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 -55880000 -7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -63500000 -7620000 11 0 0 0 0
+
+net: "Xflipflop$XX2$PTI_Out_$G1" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_1.13
+  pin: 2 RP2_1.1
+  connect: 1 1 0 1 0
+    vtx: 1 -55880000 68580000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -43180000 55880000 11 0 0 0 0
+
+net: "Xflipflop$tg_slave_$G1" 3 2 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_1.6
+  pin: 2 X_IC_3_CD4016_1.4
+  pin: 3 X_IC_3_CD4016_1.10
+  connect: 1 2 0 4 0
+    vtx: 1 -43180000 71120000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -40815260 68755260 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -40815260 63684404 0 0 0 0 20599
+    seg: 3 13 254000 0 0
+    vtx: 4 -40815260 58595260 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -27940000 45720000 11 0 0 0 0
+  connect: 2 1 -1 4 0
+    vtx: 1 -50800000 73660000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -48111664 70971664 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -48111664 67639946 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -44156122 63684404 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -40815260 63684404 0 0 0 0 20599
+
+net: "Xflipflop$XX3$NTI_Out_$G1" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_1.8
+  pin: 2 RN3_1.2
+  connect: 1 1 0 1 0
+    vtx: 1 -13970000 43180000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -20320000 43180000 11 0 0 0 0
+
+net: "Xflipflop$XX5$PTI_Out_$G1" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007_1.13
+  pin: 2 RP5_1.1
+  connect: 1 1 0 1 0
+    vtx: 1 -13970000 78740000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -20320000 78740000 11 0 0 0 0
+
+net: "CLK" 5 4 0 508000 711200 355600 1
+  pin: 1 Vclk_0.1
+  pin: 2 X_IC_2_CD4007_0.6
+  pin: 3 X_IC_3_CD4016_0.5
+  pin: 4 X_IC_3_CD4016_0.13
+  pin: 5 INPUTS.2
+  connect: 1 2 0 2 0
+    vtx: 1 -50800000 121920000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -57150000 115570000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -74930000 115570000 11 0 0 0 0
+  connect: 2 3 1 2 0
+    vtx: 1 -43180000 129540000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -33020000 119380000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -27940000 119380000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 -43180000 129540000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -50800000 121920000 11 0 0 0 0
+  connect: 4 4 1 1 0
+    vtx: 1 24130000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -27940000 119380000 11 0 0 0 0
+
+net: "Xflipflop$XX2$NTI_Out_$G8" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_8.8
+  pin: 2 RN2_8.2
+  connect: 1 1 0 5 0
+    vtx: 1 101600000 17780000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 104263444 15116556 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 104263444 351028 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 113706148 -9091676 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 120448324 -9091676 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 121920000 -7620000 11 0 0 0 0
+
+net: "Xflipflop$XX5$NTI_Out_$G8" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007_8.8
+  pin: 2 RN5_8.2
+  connect: 1 1 0 2 0
+    vtx: 1 158750000 27940000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 146050000 15240000 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 144780000 15240000 11 0 0 0 0
+
+net: "Xflipflop$XX1$PTI_Out_$G8" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_8.1
+  pin: 2 RP1_8.1
+  connect: 1 1 0 6 0
+    vtx: 1 129540000 27940000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 133540500 31940500 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 138184128 31940500 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 138620500 31504128 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 138620500 10541000 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 137160000 9080500 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 137160000 7620000 11 0 0 0 0
+
+net: "Xflipflop$_Q_master_$G7" 3 2 0 0 0 0 1
+  pin: 1 X_IC_3_CD4016_7.1
+  pin: 2 RP2_7.2
+  pin: 3 RN2_7.1
+  connect: 1 1 0 1 0
+    vtx: 1 109220000 81280000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 114300000 81280000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 101600000 81280000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 109220000 81280000 11 0 0 0 0
+
+net: "Xflipflop$XX4$PTI_Out_$G7" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_7.1
+  pin: 2 RP4_7.1
+  connect: 1 1 0 2 0
+    vtx: 1 101600000 55880000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 104140000 58420000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 114300000 58420000 11 0 0 0 0
+
+net: "Xflipflop$tg_D_$G4" 3 2 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_4.3
+  pin: 2 X_IC_3_CD4016_4.2
+  pin: 3 X_IC_3_CD4016_4.9
+  connect: 1 1 0 5 0
+    vtx: 1 31750000 78740000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 31750000 78289658 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 31740602 78280260 0 0 0 0 25472
+    seg: 3 13 254000 0 0
+    vtx: 4 24949404 71489062 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 24949404 60140596 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 31750000 53340000 11 0 0 0 0
+  connect: 2 2 -1 7 0
+    vtx: 1 39370000 68580000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 40833040 67116960 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 40833040 65431924 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 39978330 64577468 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 38766242 64577468 0 0 0 0 0
+    seg: 5 13 254000 0 0
+    vtx: 6 35327336 68016120 0 0 0 0 0
+    seg: 6 13 254000 0 0
+    vtx: 7 35327336 74693272 0 0 0 0 0
+    seg: 7 13 254000 0 0
+    vtx: 8 31740602 78280260 0 0 0 0 25472
+
+net: "Xflipflop$tg_master_$G3" 4 3 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_3.6
+  pin: 2 X_IC_3_CD4016_3.3
+  pin: 3 RP4_3.2
+  pin: 4 RN4_3.1
+  connect: 1 1 0 3 0
+    vtx: 1 31750000 127000000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 23744682 118994682 0 0 711200 355600 0
+    seg: 2 13 254000 0 0
+    vtx: 3 23744682 104525318 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 31750000 96520000 11 0 0 0 0
+  connect: 2 3 0 2 0
+    vtx: 1 26670000 93980000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 29210000 96520000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 31750000 96520000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 26670000 93980000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 19050000 93980000 11 0 0 0 0
+
+net: "Xflipflop$XX2$PTI_Out_$G2" 2 1 0 0 0 0 1
+  pin: 1 X_IC_0_CD4007_2.13
+  pin: 2 RP2_2.1
+  connect: 1 1 0 1 0
+    vtx: 1 -55880000 17780000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -43180000 5080000 11 0 0 0 0
+
+net: "Xflipflop$tg_slave_$G2" 3 2 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_2.6
+  pin: 2 X_IC_3_CD4016_2.4
+  pin: 3 X_IC_3_CD4016_2.10
+  connect: 1 2 0 4 0
+    vtx: 1 -43180000 20320000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -40815260 17955260 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -40815260 12884404 0 0 0 0 2633
+    seg: 3 13 254000 0 0
+    vtx: 4 -40815260 7795260 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -27940000 -5080000 11 0 0 0 0
+  connect: 2 1 -1 4 0
+    vtx: 1 -50800000 22860000 11 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 -48111664 20171664 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 -48111664 16839946 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 -44156122 12884404 0 0 0 0 0
+    seg: 4 13 254000 0 0
+    vtx: 5 -40815260 12884404 0 0 0 0 2633
+
+net: "Xflipflop$XX3$NTI_Out_$G2" 2 1 0 0 0 0 1
+  pin: 1 X_IC_1_CD4007_2.8
+  pin: 2 RN3_2.2
+  connect: 1 1 0 1 0
+    vtx: 1 -13970000 -7620000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -20320000 -7620000 11 0 0 0 0
+
+net: "Xflipflop$XX5$PTI_Out_$G2" 2 1 0 0 0 0 1
+  pin: 1 X_IC_2_CD4007_2.13
+  pin: 2 RP5_2.1
+  connect: 1 1 0 1 0
+    vtx: 1 -13970000 27940000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -20320000 27940000 11 0 0 0 0
+
+net: "CLK_$G1" 5 4 0 0 0 0 1
+  pin: 1 Vclk_1.1
+  pin: 2 X_IC_2_CD4007_1.6
+  pin: 3 X_IC_3_CD4016_1.5
+  pin: 4 X_IC_3_CD4016_1.13
+  pin: 5 INPUTS.4
+  connect: 1 2 0 2 0
+    vtx: 1 -50800000 71120000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -57150000 64770000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -74930000 64770000 11 0 0 0 0
+  connect: 2 3 1 2 0
+    vtx: 1 -43180000 78740000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -33020000 68580000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -27940000 68580000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 -43180000 78740000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -50800000 71120000 11 0 0 0 0
+  connect: 4 4 1 1 0
+    vtx: 1 26670000 -22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -27940000 68580000 11 0 0 0 0
+
+net: "Xflipflop$_Q_master" 3 2 0 508000 711200 355600 1
+  pin: 1 X_IC_3_CD4016_0.1
+  pin: 2 RP2_0.2
+  pin: 3 RN2_0.1
+  connect: 1 1 0 1 0
+    vtx: 1 -55880000 132080000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -50800000 132080000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 -63500000 132080000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -55880000 132080000 11 0 0 0 0
+
+net: "Xflipflop$XX1$NTI_Out" 2 1 0 508000 711200 355600 1
+  pin: 1 X_IC_1_CD4007_0.5
+  pin: 2 RN1_0.2
+  connect: 1 1 0 2 0
+    vtx: 1 -35560000 93980000 11 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 -30480000 99060000 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 -27940000 99060000 11 0 0 0 0
 
 [texts]
+
+text: "CLK" 13970000 -23495000 7 0 0 2540000 254000 0
+
+text: "D" 19050000 -27305000 7 0 0 2540000 254000 0
+
+text: "0" 23495000 -28575000 7 0 0 1270000 127000 0
+
+text: "1" 26416000 -28575000 7 0 0 1270000 127000 0
+
+text: "2" 28575000 -28575000 7 0 0 1270000 127000 0
+
+text: "3" 31115000 -28575000 7 0 0 1270000 127000 0
+
+text: "4" 33655000 -28575000 7 0 0 1270000 127000 0
+
+text: "5" 36195000 -28575000 7 0 0 1270000 127000 0
+
+text: "6" 38735000 -28575000 7 0 0 1270000 127000 0
+
+text: "7" 41275000 -28575000 7 0 0 1270000 127000 0
+
+text: "8" 43815000 -28575000 7 0 0 1270000 127000 0
+
+text: "0" 55245000 -28575000 7 0 0 1270000 127000 0
+
+text: "1" 58166000 -28575000 7 0 0 1270000 127000 0
+
+text: "2" 60325000 -28575000 7 0 0 1270000 127000 0
+
+text: "3" 62865000 -28575000 7 0 0 1270000 127000 0
+
+text: "4" 65405000 -28575000 7 0 0 1270000 127000 0
+
+text: "5" 67945000 -28575000 7 0 0 1270000 127000 0
+
+text: "6" 70485000 -28575000 7 0 0 1270000 127000 0
+
+text: "7" 73025000 -28575000 7 0 0 1270000 127000 0
+
+text: "8" 75565000 -28575000 7 0 0 1270000 127000 0
+
+text: "-" -635000 -27940000 7 0 0 1270000 127000 0
+
+text: "+" 1905000 -27940000 7 0 0 1270000 127000 0
+
+text: "Q" 51435000 -25400000 7 0 0 2540000 254000 0
+
+text: "GND" -5080000 -23495000 7 0 0 1270000 254000 0
+
+text: "9-TRIT MASTER-SLAVE TRI-FLOP MEMORY BOARD" -12065000 -16510000 7 0 0 2540000 254000 0
+
+text: "http://jeff.tk/wiki/Trinary" -63500000 -19685000 7 0 0 1270000 127000 0
+
+text: "J. Connelly, C. Patel, A. Chavez - Spring 2008" 106680000 -20320000 7 0 0 1270000 127000 0
 
 [end]

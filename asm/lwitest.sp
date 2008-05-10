@@ -1,4 +1,4 @@
-; swrom-fast include file, generated to by asm/asm.py, for program:
+; swrom-fast include file, generated to by asm/asm.py, for tritstream:
 ; 000
 ; 0i0
 ; 01i
