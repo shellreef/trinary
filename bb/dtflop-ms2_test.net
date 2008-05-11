@@ -1,0 +1,52 @@
+* Z:\trinary\code\circuits\dtflop-ms2_test.asc
+Vclk CLK 0 PULSE(-5 5 0 1p 1p 10n 20n)
+Vd D 0 PWL(0 0 1n 0 5n -5 8n -5 9n 0 10n 0 11n 5 21n 5 22n 0 24n 0 25n -5 34n -5 35n -5 40n -5 41n -5 42n 0 43n 5 44n 5 45n -5 46n 0 47n -5 48n 0)
+XX1 $G_Vdd $G_Vss tpower
+Xff D CLK Q _Q dtflop-ms2
+
+* block symbol definitions
+.subckt tpower Vdd Vss
+Vdd Vdd 0 5V
+Vss 0 Vss 5V
+.ends tpower
+
+.subckt dtflop-ms2 D CLK Q _Q
+XMaster D _CLK between NC_01 dtflop
+XSlave between CLK Q _Q dtflop
+XXstiCLK CLK _CLK sti
+.ends dtflop-ms2
+
+.subckt dtflop D CLK Q _Q
+XXlatch Q_storage _Q Q tnand
+X_Xlatch Q _Q_storage _Q tnand
+XXgatetop D CLK Q_storage tnand
+XXgatebot CLK _D _Q_storage tnand
+XXstiD D _D sti
+.ends dtflop
+
+.subckt sti IN OUT
+XXinv IN NC_01 OUT NC_02 tinv
+.ends sti
+
+.subckt tnand A B TNAND_Out
+RP NP TNAND_Out 12k
+RN TNAND_Out NN 12k
+MP1 NP B $G_Vdd $G_Vdd CD4007P
+MP2 NP A $G_Vdd $G_Vdd CD4007P
+MN2 NI B $G_Vss $G_Vss CD4007N
+MN1 NN A NI $G_Vss CD4007N
+.ends tnand
+
+.subckt tinv Vin PTI_Out STI_Out NTI_Out
+RP PTI_Out STI_Out 12k
+RN STI_Out NTI_Out 12k
+MN NTI_Out Vin $G_Vss $G_Vss CD4007N
+MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
+.ends tinv
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\PROGRA~1\LTC\SwCADIII\lib\cmp\standard.mos
+.tran 50n
+.backanno
+.end
