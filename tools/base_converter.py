@@ -81,7 +81,7 @@ int_cnvrt(value, base_frm, base_to):
                 print "%s: invalid input", value[i]
                 raise SystemExit
 
-            sum = sum + prev*neg
+            sum = sum + prev*neg*count
 
             # reset variables to appropiate values
             prev = cur
@@ -102,7 +102,7 @@ int_cnvrt(value, base_frm, base_to):
                 print "%s: invalid input", value[i]
                 raise SystemExit
 
-            sum = sum + prev*neg
+            sum = sum + prev*neg*count
 
             # reset variables to appropriate values
             prev = cur
@@ -114,8 +114,24 @@ int_cnvrt(value, base_frm, base_to):
             raise SystemExit
 
     # sum up remaining digit
-    sum = sum + prev*neg
+    sum = sum + prev*neg*count
+    sum = sign*sum
 
+    # return base 10 if desired base is balanced
+    if base_f < 0:
+        return "" + sum
+
+    # compute unbalanced conversion
+    result = ""
+    quotient = sum
+    remainder = 0
+
+    while quotient != 0:
+        remainder = quotient%magnitude_t
+        quotient = quotient/magnitude_t
+        result = "" + remainder + result
+
+    return result
 
 ''' NOTES
     useful things to know for implementation
