@@ -5,7 +5,7 @@ file_version: 1.332
 project_name: "test"
 full_library_folder: "c:\program files\freepcb\lib"
 CAM_folder: ""
-ses_file_path: ""
+ses_file_path: "Z:\trinary\code\bb\dtflop-ms2_test.ses"
 SMT_connect_copper: "0"
 dsn_flags: "0"
 dsn_bounds_poly: "0"
@@ -845,7 +845,7 @@ net: "Xff$XSlave$XXgatetop$NN" 2 1 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 33020000 25400000 11 0 0 0 0
 
-net: "$G_Vss" 12 11 0 0 0 0 1
+net: "$G_Vss" 12 11 0 635000 711200 355600 1
   pin: 1 IC_0_CD4007.7
   pin: 2 IC_6_CD4007.7
   pin: 3 IC_5_CD4007.7
@@ -903,7 +903,7 @@ net: "$G_Vss" 12 11 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 93980000 22860000 11 0 0 0 0
 
-net: "$G_Vdd" 20 19 0 0 0 0 1
+net: "$G_Vdd" 20 19 0 635000 711200 355600 1
   pin: 1 IC_0_CD4007.2
   pin: 2 IC_0_CD4007.14
   pin: 3 IC_6_CD4007.2
@@ -1126,7 +1126,7 @@ net: "Xff$between" 5 4 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 25400000 33020000 11 0 0 0 0
 
-net: "0" 2 1 0 0 0 0 1
+net: "0" 2 1 0 635000 711200 355600 1
   pin: 1 FF.3
   pin: 2 FF.4
   connect: 1 1 0 1 0
