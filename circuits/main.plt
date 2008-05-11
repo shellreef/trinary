@@ -1,7 +1,7 @@
 [Transient Analysis]
 {
-   Npanes: 11
-   Active Pane: 1
+   Npanes: 12
+   Active Pane: 11
    {
       traces: 3 {524298,0,"V(s)"} {524295,0,"V(s_in)"} {524291,0,"V(clk_status)"}
       X: ('µ',0,0,3e-005,0.00032)
@@ -86,7 +86,7 @@
       GridStyle: 1
    },
    {
-      traces: 1 {524290,0,"V(alu_in_b1)"}
+      traces: 1 {524295,0,"V(alu_in_b1)"}
       X: ('µ',0,0,3e-005,0.00032)
       Y[0]: ('m',0,-0.9,0.1,0.2)
       Y[1]: ('_',0,1e+308,0,-1e+308)
@@ -100,6 +100,15 @@
       Y[0]: (' ',0,-5,1,6)
       Y[1]: ('_',0,1e+308,0,-1e+308)
       Volts: (' ',0,0,0,-5,1,6)
+      Log: 0 0 0
+      GridStyle: 1
+   },
+   {
+      traces: 2 {524290,0,"V(register_a:xtrit1:between)"} {524298,0,"V(register_a:xtrit1:_clk)"}
+      X: ('µ',0,0,3e-005,0.00032)
+      Y[0]: (' ',0,-6,1,6)
+      Y[1]: ('_',0,1e+308,0,-1e+308)
+      Volts: (' ',0,0,0,-6,1,6)
       Log: 0 0 0
       GridStyle: 1
    }
