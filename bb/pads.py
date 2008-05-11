@@ -21,6 +21,9 @@ footprint_map = {
         "D": "DO-35",           # All diodes (note: should really be specific!)
         }
 
+# If enabled, name resistors numerically R1, R2, ... instead of hierarchically.
+SERIAL_RESISTORS = True
+
 # If enabled, RX$Xflipflop$XX<n>$Xinv$R{P,N} will be mapped to ${P,N}<n>.
 # Useful for laying out a single dtflop-ms_test, but may cause serious
 # errors otherwise!
@@ -75,7 +78,16 @@ next_serial = {
         "NX": 1, 
         "X": 1,
         }
+
+resistor_serial = 0
+
 def shorten(long, is_netname):
+    global resistor_serial
+
+    if long.startswith("R") and SERIAL_RESISTORS:
+        resistor_serial += 1
+        return "R%d" % (resistor_serial,)
+
     if not USE_SHORT_NAMES:
         return long
 
