@@ -14,7 +14,7 @@ autosave_interval: 0
 netlist_import_flags: 451
 units: MIL
 
-visible_grid_spacing: 12700000.000000
+visible_grid_spacing: 25400000.000000
   visible_grid_item: 100MIL
   visible_grid_item: 125MIL
   visible_grid_item: 200MIL
@@ -148,7 +148,7 @@ annular_ring_for_pins: 177800
 annular_ring_for_vias: 127000
 shrink_paste_mask: 0
 cam_flags: 1
-cam_layers: 15732735
+cam_layers: 7340093
 cam_drill_file: 1
 cam_units: 2
 cam_n_x: 1
