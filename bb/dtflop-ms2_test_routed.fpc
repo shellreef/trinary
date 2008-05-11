@@ -340,210 +340,204 @@ source: "DIGITAL PRINTED CIRCUIT DESIGN & DRAFTING, PAGE 408"
 
 [board]
 
-outline: 4 0
-  corner: 1 -2540000 101600000 0
-  corner: 2 111760000 101600000 0
-  corner: 3 111760000 17780000 0
-  corner: 4 -2540000 17780000 0
-
 [solder_mask_cutouts]
 
 
 [parts]
 
-part: IC_0_CD4007
+part: IC_0_CD4007_1
   ref_text: 1270000 177800 270 -2540000 -3810000
   package: "14DIP300"
   shape: "14DIP300"
   pos: 5080000 93980000 0 90 0
 
-part: IC_6_CD4007
+part: IC_6_CD4007_1
   ref_text: 1270000 177800 270 -2540000 -3810000
   package: "14DIP300"
   shape: "14DIP300"
   pos: 72390000 38100000 0 90 0
 
-part: IC_5_CD4007
+part: IC_5_CD4007_1
   ref_text: 1270000 177800 270 -2540000 -3810000
   package: "14DIP300"
   shape: "14DIP300"
   pos: 93980000 38100000 0 90 0
 
-part: IC_1_CD4007
+part: IC_1_CD4007_1
   ref_text: 1270000 177800 270 -2540000 -3810000
   package: "14DIP300"
   shape: "14DIP300"
   pos: 26670000 93980000 0 90 0
 
-part: IC_2_CD4007
+part: IC_2_CD4007_1
   ref_text: 1270000 177800 270 -2540000 -3810000
   package: "14DIP300"
   shape: "14DIP300"
   pos: 50800000 93980000 0 90 0
 
-part: IC_3_CD4007
+part: IC_3_CD4007_1
   ref_text: 1270000 177800 270 -2540000 -3810000
   package: "14DIP300"
   shape: "14DIP300"
   pos: 74930000 93980000 0 90 0
 
-part: IC_4_CD4007
+part: IC_4_CD4007_1
   ref_text: 1270000 177800 270 -2540000 -3810000
   package: "14DIP300"
   shape: "14DIP300"
   pos: 96520000 93980000 0 90 0
 
-part: IC_8_CD4007
+part: IC_8_CD4007_1
   ref_text: 1270000 177800 270 -2540000 -3810000
   package: "14DIP300"
   shape: "14DIP300"
   pos: 25400000 38100000 0 90 0
 
-part: IC_7_CD4007
+part: IC_7_CD4007_1
   ref_text: 1270000 177800 270 -2540000 -3810000
   package: "14DIP300"
   shape: "14DIP300"
   pos: 48260000 38100000 0 90 0
 
-part: X_IC_9_CD4007
+part: X_IC_9_CD4007_1
   ref_text: 1270000 177800 270 -2540000 -3810000
   package: "14DIP300"
   shape: "14DIP300"
   pos: 5080000 38100000 0 90 0
 
-part: R1
+part: R1_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 17780000 68580000 0 180 0
 
-part: R2
+part: R2_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 53340000 50800000 0 180 0
 
-part: R3
+part: R3_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 88900000 50800000 0 180 0
 
-part: R4
+part: R4_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 22860000 59690000 0 180 0
 
-part: R5
+part: R5_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 106680000 50800000 0 180 0
 
-part: R6
+part: R6_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 86360000 38100000 0 90 0
 
-part: R7
+part: R7_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 20320000 93980000 0 90 0
 
-part: R8
+part: R8_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 22860000 68580000 0 0 0
 
-part: R9
+part: R9_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 53340000 68580000 0 180 0
 
-part: R10
+part: R10_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 43180000 81280000 0 270 0
 
-part: R11
+part: R11_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 66040000 93980000 0 90 0
 
-part: R12
+part: R12_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 88900000 68580000 0 180 0
 
-part: R13
+part: R13_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 106680000 68580000 0 180 0
 
-part: R14
+part: R14_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 88900000 93980000 0 90 0
 
-part: R15
+part: R15_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 22860000 50800000 0 0 0
 
-part: R16
+part: R16_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 40640000 38100000 0 90 0
 
-part: R17
+part: R17_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 49530000 59690000 0 0 0
 
-part: R18
+part: R18_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 63500000 38100000 0 90 0
 
-part: R19
+part: R19_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 58420000 50800000 0 0 0
 
-part: R20
+part: R20_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 73660000 68580000 0 180 0
 
-part: R21
+part: R21_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 5080000 50800000 0 0 0
 
-part: R22
+part: R22_1
   ref_text: 1270000 177800 0 6350000 2514600
   package: "RC07"
   shape: "RC07"
   pos: 20320000 38100000 0 90 0
 
-part: FF
+part: FF_1
   ref_text: 1270000 177800 0 2540000 6604000
   package: ""
   shape: "4X2HDR-100"
@@ -552,9 +546,9 @@ part: FF
 [nets]
 
 net: "Xff$XSlave$Q_storage" 3 2 0 0 0 0 1
-  pin: 1 IC_3_CD4007.3
-  pin: 2 R15.2
-  pin: 3 R16.1
+  pin: 1 IC_3_CD4007_1.3
+  pin: 2 R15_1.2
+  pin: 3 R16_1.1
   connect: 1 1 0 12 0
     vtx: 1 35560000 50800000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -589,9 +583,9 @@ net: "Xff$XSlave$Q_storage" 3 2 0 0 0 0 1
     vtx: 3 36883848 49476152 0 0 0 0 20727
 
 net: "Xff$XMaster$X_Xlatch$NP" 3 2 0 0 0 0 1
-  pin: 1 IC_6_CD4007.1
-  pin: 2 IC_6_CD4007.13
-  pin: 3 R3.1
+  pin: 1 IC_6_CD4007_1.1
+  pin: 2 IC_6_CD4007_1.13
+  pin: 3 R3_1.1
   connect: 1 2 0 5 0
     vtx: 1 88900000 50800000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -610,9 +604,9 @@ net: "Xff$XMaster$X_Xlatch$NP" 3 2 0 0 0 0 1
     vtx: 2 80010000 35797236 0 0 0 0 13730
 
 net: "D" 3 2 0 0 0 0 1
-  pin: 1 IC_5_CD4007.3
-  pin: 2 IC_2_CD4007.6
-  pin: 3 FF.6
+  pin: 1 IC_5_CD4007_1.3
+  pin: 2 IC_2_CD4007_1.6
+  pin: 3 FF_1.6
   connect: 1 2 0 7 0
     vtx: 1 90805000 60960000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -651,24 +645,24 @@ net: "D" 3 2 0 0 0 0 1
     vtx: 10 50800000 81280000 11 0 0 0 0
 
 net: "Xff$XMaster$XXgatebot$NI" 2 1 0 0 0 0 1
-  pin: 1 IC_1_CD4007.4
-  pin: 2 IC_1_CD4007.8
+  pin: 1 IC_1_CD4007_1.4
+  pin: 2 IC_1_CD4007_1.8
   connect: 1 1 0 1 0
     vtx: 1 34290000 78740000 11 0 0 0 0
     seg: 1 12 254000 0 0
     vtx: 2 26670000 86360000 11 0 0 0 0
 
 net: "Xff$XSlave$XXgatebot$NI" 2 1 0 0 0 0 1
-  pin: 1 IC_7_CD4007.4
-  pin: 2 IC_7_CD4007.8
+  pin: 1 IC_7_CD4007_1.4
+  pin: 2 IC_7_CD4007_1.8
   connect: 1 1 0 1 0
     vtx: 1 55880000 22860000 11 0 0 0 0
     seg: 1 12 254000 0 0
     vtx: 2 48260000 30480000 11 0 0 0 0
 
 net: "Xff$XSlave$XXlatch$NN" 2 1 0 0 0 0 1
-  pin: 1 IC_3_CD4007.9
-  pin: 2 R12.2
+  pin: 1 IC_3_CD4007_1.9
+  pin: 2 R12_1.2
   connect: 1 1 0 2 0
     vtx: 1 76200000 68580000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -677,10 +671,10 @@ net: "Xff$XSlave$XXlatch$NN" 2 1 0 0 0 0 1
     vtx: 3 82550000 81280000 11 0 0 0 0
 
 net: "Xff$_CLK" 4 3 0 0 0 0 1
-  pin: 1 IC_5_CD4007.6
-  pin: 2 IC_1_CD4007.3
-  pin: 3 R21.2
-  pin: 4 R22.1
+  pin: 1 IC_5_CD4007_1.6
+  pin: 2 IC_1_CD4007_1.3
+  pin: 3 R21_1.2
+  pin: 4 R22_1.1
   connect: 1 3 0 7 0
     vtx: 1 20320000 38100000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -717,25 +711,25 @@ net: "Xff$_CLK" 4 3 0 0 0 0 1
     vtx: 3 22679660 40459660 0 0 0 0 23936
 
 net: "Xff$XMaster$XXlatch$NI" 2 1 0 0 0 0 1
-  pin: 1 IC_0_CD4007.4
-  pin: 2 IC_0_CD4007.8
+  pin: 1 IC_0_CD4007_1.4
+  pin: 2 IC_0_CD4007_1.8
   connect: 1 1 0 1 0
     vtx: 1 12700000 78740000 11 0 0 0 0
     seg: 1 13 254000 0 0
     vtx: 2 5080000 86360000 11 0 0 0 0
 
 net: "Xff$XMaster$XXgatetop$NI" 2 1 0 0 0 0 1
-  pin: 1 IC_5_CD4007.4
-  pin: 2 IC_5_CD4007.8
+  pin: 1 IC_5_CD4007_1.4
+  pin: 2 IC_5_CD4007_1.8
   connect: 1 1 0 1 0
     vtx: 1 101600000 22860000 11 0 0 0 0
     seg: 1 12 254000 0 0
     vtx: 2 93980000 30480000 11 0 0 0 0
 
 net: "Xff$XSlave$_Q_storage" 3 2 0 0 0 0 1
-  pin: 1 IC_4_CD4007.6
-  pin: 2 R17.2
-  pin: 3 R18.1
+  pin: 1 IC_4_CD4007_1.6
+  pin: 2 R17_1.2
+  pin: 3 R18_1.1
   connect: 1 1 0 5 0
     vtx: 1 62230000 59690000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -756,9 +750,9 @@ net: "Xff$XSlave$_Q_storage" 3 2 0 0 0 0 1
     vtx: 3 62230000 59690000 11 0 0 0 0
 
 net: "Xff$XSlave$XXlatch$NP" 3 2 0 0 0 0 1
-  pin: 1 IC_3_CD4007.1
-  pin: 2 IC_3_CD4007.13
-  pin: 3 R11.1
+  pin: 1 IC_3_CD4007_1.1
+  pin: 2 IC_3_CD4007_1.13
+  pin: 3 R11_1.1
   connect: 1 1 0 3 0
     vtx: 1 82550000 91440000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -773,10 +767,10 @@ net: "Xff$XSlave$XXlatch$NP" 3 2 0 0 0 0 1
     vtx: 2 74930000 93980000 11 0 0 0 0
 
 net: "_Q" 4 3 0 0 0 0 1
-  pin: 1 IC_3_CD4007.6
-  pin: 2 R13.2
-  pin: 3 R14.1
-  pin: 4 FF.7
+  pin: 1 IC_3_CD4007_1.6
+  pin: 2 R13_1.2
+  pin: 3 R14_1.1
+  pin: 4 FF_1.7
   connect: 1 2 0 4 0
     vtx: 1 88900000 93980000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -807,16 +801,16 @@ net: "_Q" 4 3 0 0 0 0 1
     vtx: 3 87184230 76355956 0 0 0 0 10936
 
 net: "Xff$XSlave$XXgatetop$NI" 2 1 0 0 0 0 1
-  pin: 1 IC_8_CD4007.4
-  pin: 2 IC_8_CD4007.8
+  pin: 1 IC_8_CD4007_1.4
+  pin: 2 IC_8_CD4007_1.8
   connect: 1 1 0 1 0
     vtx: 1 33020000 22860000 11 0 0 0 0
     seg: 1 13 254000 0 0
     vtx: 2 25400000 30480000 11 0 0 0 0
 
 net: "Xff$XSlave$X_Xlatch$NN" 2 1 0 0 0 0 1
-  pin: 1 IC_4_CD4007.9
-  pin: 2 R14.2
+  pin: 1 IC_4_CD4007_1.9
+  pin: 2 R14_1.2
   connect: 1 1 0 4 0
     vtx: 1 88900000 81280000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -829,8 +823,8 @@ net: "Xff$XSlave$X_Xlatch$NN" 2 1 0 0 0 0 1
     vtx: 5 104140000 81280000 11 0 0 0 0
 
 net: "Xff$XMaster$XXgatebot$NN" 2 1 0 0 0 0 1
-  pin: 1 IC_1_CD4007.9
-  pin: 2 R8.2
+  pin: 1 IC_1_CD4007_1.9
+  pin: 2 R8_1.2
   connect: 1 1 0 3 0
     vtx: 1 35560000 68580000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -841,8 +835,8 @@ net: "Xff$XMaster$XXgatebot$NN" 2 1 0 0 0 0 1
     vtx: 4 34290000 81280000 11 0 0 0 0
 
 net: "Xff$XMaster$XXstiD$NTI_Out" 2 1 0 0 0 0 1
-  pin: 1 IC_2_CD4007.8
-  pin: 2 R10.2
+  pin: 1 IC_2_CD4007_1.8
+  pin: 2 R10_1.2
   connect: 1 1 0 5 0
     vtx: 1 43180000 93980000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -857,17 +851,17 @@ net: "Xff$XMaster$XXstiD$NTI_Out" 2 1 0 0 0 0 1
     vtx: 6 58420000 78740000 11 0 0 0 0
 
 net: "Xff$XSlave$XXgatebot$NN" 2 1 0 0 0 0 1
-  pin: 1 IC_7_CD4007.9
-  pin: 2 R18.2
+  pin: 1 IC_7_CD4007_1.9
+  pin: 2 R18_1.2
   connect: 1 1 0 1 0
     vtx: 1 63500000 25400000 11 0 0 0 0
     seg: 1 12 254000 0 0
     vtx: 2 55880000 25400000 11 0 0 0 0
 
 net: "Xff$XSlave$X_Xlatch$NP" 3 2 0 0 0 0 1
-  pin: 1 IC_4_CD4007.1
-  pin: 2 IC_4_CD4007.13
-  pin: 3 R13.1
+  pin: 1 IC_4_CD4007_1.1
+  pin: 2 IC_4_CD4007_1.13
+  pin: 3 R13_1.1
   connect: 1 1 0 2 0
     vtx: 1 104140000 91440000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -882,8 +876,8 @@ net: "Xff$XSlave$X_Xlatch$NP" 3 2 0 0 0 0 1
     vtx: 3 104140000 91440000 11 0 0 0 0
 
 net: "Xff$XMaster$XXlatch$NN" 2 1 0 0 0 0 1
-  pin: 1 IC_0_CD4007.9
-  pin: 2 R2.2
+  pin: 1 IC_0_CD4007_1.9
+  pin: 2 R2_1.2
   connect: 1 1 0 8 0
     vtx: 1 40640000 50800000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -904,8 +898,8 @@ net: "Xff$XMaster$XXlatch$NN" 2 1 0 0 0 0 1
     vtx: 9 12700000 81280000 11 0 0 0 0
 
 net: "Xff$XMaster$XXstiD$PTI_Out" 2 1 0 0 0 0 1
-  pin: 1 IC_2_CD4007.13
-  pin: 2 R9.1
+  pin: 1 IC_2_CD4007_1.13
+  pin: 2 R9_1.1
   connect: 1 1 0 3 0
     vtx: 1 53340000 68580000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -916,9 +910,9 @@ net: "Xff$XMaster$XXstiD$PTI_Out" 2 1 0 0 0 0 1
     vtx: 4 58420000 91440000 11 0 0 0 0
 
 net: "Xff$XMaster$XXgatebot$NP" 3 2 0 0 0 0 1
-  pin: 1 IC_1_CD4007.1
-  pin: 2 IC_1_CD4007.13
-  pin: 3 R7.1
+  pin: 1 IC_1_CD4007_1.1
+  pin: 2 IC_1_CD4007_1.13
+  pin: 3 R7_1.1
   connect: 1 1 0 3 0
     vtx: 1 34290000 91440000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -933,8 +927,8 @@ net: "Xff$XMaster$XXgatebot$NP" 3 2 0 0 0 0 1
     vtx: 2 26670000 93980000 11 0 0 0 0
 
 net: "Xff$XSlave$XXstiD$NTI_Out" 2 1 0 0 0 0 1
-  pin: 1 IC_2_CD4007.5
-  pin: 2 R20.2
+  pin: 1 IC_2_CD4007_1.5
+  pin: 2 R20_1.2
   connect: 1 1 0 3 0
     vtx: 1 60960000 68580000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -945,9 +939,9 @@ net: "Xff$XSlave$XXstiD$NTI_Out" 2 1 0 0 0 0 1
     vtx: 4 50800000 83820000 11 0 0 0 0
 
 net: "Xff$XSlave$XXgatebot$NP" 3 2 0 0 0 0 1
-  pin: 1 IC_7_CD4007.1
-  pin: 2 IC_7_CD4007.13
-  pin: 3 R17.1
+  pin: 1 IC_7_CD4007_1.1
+  pin: 2 IC_7_CD4007_1.13
+  pin: 3 R17_1.1
   connect: 1 1 0 3 0
     vtx: 1 55880000 35560000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -964,8 +958,8 @@ net: "Xff$XSlave$XXgatebot$NP" 3 2 0 0 0 0 1
     vtx: 3 48260000 38100000 11 0 0 0 0
 
 net: "Xff$XMaster$XXgatetop$NN" 2 1 0 0 0 0 1
-  pin: 1 IC_5_CD4007.9
-  pin: 2 R6.2
+  pin: 1 IC_5_CD4007_1.9
+  pin: 2 R6_1.2
   connect: 1 1 0 3 0
     vtx: 1 86360000 25400000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -976,9 +970,9 @@ net: "Xff$XMaster$XXgatetop$NN" 2 1 0 0 0 0 1
     vtx: 4 101600000 25400000 11 0 0 0 0
 
 net: "Xff$XMaster$_Q_storage" 3 2 0 0 0 0 1
-  pin: 1 IC_6_CD4007.6
-  pin: 2 R7.2
-  pin: 3 R8.1
+  pin: 1 IC_6_CD4007_1.6
+  pin: 2 R7_1.2
+  pin: 3 R8_1.1
   connect: 1 2 0 7 0
     vtx: 1 22860000 68580000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -1003,9 +997,9 @@ net: "Xff$XMaster$_Q_storage" 3 2 0 0 0 0 1
     vtx: 3 20320000 81280000 11 0 0 0 0
 
 net: "Xff$XMaster$XXlatch$NP" 3 2 0 0 0 0 1
-  pin: 1 IC_0_CD4007.1
-  pin: 2 IC_0_CD4007.13
-  pin: 3 R1.1
+  pin: 1 IC_0_CD4007_1.1
+  pin: 2 IC_0_CD4007_1.13
+  pin: 3 R1_1.1
   connect: 1 1 0 2 0
     vtx: 1 12700000 91440000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -1020,8 +1014,8 @@ net: "Xff$XMaster$XXlatch$NP" 3 2 0 0 0 0 1
     vtx: 3 12700000 91440000 11 0 0 0 0
 
 net: "Xff$XSlave$XXstiD$PTI_Out" 2 1 0 0 0 0 1
-  pin: 1 IC_2_CD4007.1
-  pin: 2 R19.1
+  pin: 1 IC_2_CD4007_1.1
+  pin: 2 R19_1.1
   connect: 1 1 0 6 0
     vtx: 1 58420000 50800000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -1038,26 +1032,26 @@ net: "Xff$XSlave$XXstiD$PTI_Out" 2 1 0 0 0 0 1
     vtx: 7 50800000 93980000 11 0 0 0 0
 
 net: "Xff$XSlave$XXgatetop$NN" 2 1 0 0 0 0 1
-  pin: 1 IC_8_CD4007.9
-  pin: 2 R16.2
+  pin: 1 IC_8_CD4007_1.9
+  pin: 2 R16_1.2
   connect: 1 1 0 1 0
     vtx: 1 40640000 25400000 11 0 0 0 0
     seg: 1 12 254000 0 0
     vtx: 2 33020000 25400000 11 0 0 0 0
 
 net: "$G_Vss" 12 11 0 635000 711200 355600 1
-  pin: 1 IC_0_CD4007.7
-  pin: 2 IC_6_CD4007.7
-  pin: 3 IC_5_CD4007.7
-  pin: 4 IC_1_CD4007.7
-  pin: 5 IC_2_CD4007.4
-  pin: 6 IC_2_CD4007.7
-  pin: 7 IC_3_CD4007.7
-  pin: 8 IC_4_CD4007.7
-  pin: 9 IC_8_CD4007.7
-  pin: 10 IC_7_CD4007.7
-  pin: 11 X_IC_9_CD4007.7
-  pin: 12 FF.2
+  pin: 1 IC_0_CD4007_1.7
+  pin: 2 IC_6_CD4007_1.7
+  pin: 3 IC_5_CD4007_1.7
+  pin: 4 IC_1_CD4007_1.7
+  pin: 5 IC_2_CD4007_1.4
+  pin: 6 IC_2_CD4007_1.7
+  pin: 7 IC_3_CD4007_1.7
+  pin: 8 IC_4_CD4007_1.7
+  pin: 9 IC_8_CD4007_1.7
+  pin: 10 IC_7_CD4007_1.7
+  pin: 11 X_IC_9_CD4007_1.7
+  pin: 12 FF_1.2
   connect: 1 3 0 3 0
     vtx: 1 26670000 78740000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -1168,26 +1162,26 @@ net: "$G_Vss" 12 11 0 635000 711200 355600 1
     vtx: 3 85616288 72409812 0 0 0 0 24901
 
 net: "$G_Vdd" 20 19 0 635000 711200 355600 1
-  pin: 1 IC_0_CD4007.2
-  pin: 2 IC_0_CD4007.14
-  pin: 3 IC_6_CD4007.2
-  pin: 4 IC_6_CD4007.14
-  pin: 5 IC_5_CD4007.2
-  pin: 6 IC_5_CD4007.14
-  pin: 7 IC_1_CD4007.2
-  pin: 8 IC_1_CD4007.14
-  pin: 9 IC_2_CD4007.2
-  pin: 10 IC_2_CD4007.14
-  pin: 11 IC_3_CD4007.2
-  pin: 12 IC_3_CD4007.14
-  pin: 13 IC_4_CD4007.2
-  pin: 14 IC_4_CD4007.14
-  pin: 15 IC_8_CD4007.2
-  pin: 16 IC_8_CD4007.14
-  pin: 17 IC_7_CD4007.2
-  pin: 18 IC_7_CD4007.14
-  pin: 19 X_IC_9_CD4007.14
-  pin: 20 FF.1
+  pin: 1 IC_0_CD4007_1.2
+  pin: 2 IC_0_CD4007_1.14
+  pin: 3 IC_6_CD4007_1.2
+  pin: 4 IC_6_CD4007_1.14
+  pin: 5 IC_5_CD4007_1.2
+  pin: 6 IC_5_CD4007_1.14
+  pin: 7 IC_1_CD4007_1.2
+  pin: 8 IC_1_CD4007_1.14
+  pin: 9 IC_2_CD4007_1.2
+  pin: 10 IC_2_CD4007_1.14
+  pin: 11 IC_3_CD4007_1.2
+  pin: 12 IC_3_CD4007_1.14
+  pin: 13 IC_4_CD4007_1.2
+  pin: 14 IC_4_CD4007_1.14
+  pin: 15 IC_8_CD4007_1.2
+  pin: 16 IC_8_CD4007_1.14
+  pin: 17 IC_7_CD4007_1.2
+  pin: 18 IC_7_CD4007_1.14
+  pin: 19 X_IC_9_CD4007_1.14
+  pin: 20 FF_1.1
   connect: 1 6 0 4 0
     vtx: 1 26670000 91440000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -1326,9 +1320,9 @@ net: "$G_Vdd" 20 19 0 635000 711200 355600 1
     vtx: 3 46786038 36373562 0 0 0 0 10876
 
 net: "Xff$XMaster$XXgatetop$NP" 3 2 0 0 0 0 1
-  pin: 1 IC_5_CD4007.1
-  pin: 2 IC_5_CD4007.13
-  pin: 3 R5.1
+  pin: 1 IC_5_CD4007_1.1
+  pin: 2 IC_5_CD4007_1.13
+  pin: 3 R5_1.1
   connect: 1 2 0 5 0
     vtx: 1 106680000 50800000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -1347,16 +1341,16 @@ net: "Xff$XMaster$XXgatetop$NP" 3 2 0 0 0 0 1
     vtx: 2 101600000 35797236 0 0 0 0 15265
 
 net: "Xff$XMaster$X_Xlatch$NI" 2 1 0 0 0 0 1
-  pin: 1 IC_6_CD4007.4
-  pin: 2 IC_6_CD4007.8
+  pin: 1 IC_6_CD4007_1.4
+  pin: 2 IC_6_CD4007_1.8
   connect: 1 1 0 1 0
     vtx: 1 80010000 22860000 11 0 0 0 0
     seg: 1 13 254000 0 0
     vtx: 2 72390000 30480000 11 0 0 0 0
 
 net: "Xff$XXstiCLK$NTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_9_CD4007.8
-  pin: 2 R22.2
+  pin: 1 X_IC_9_CD4007_1.8
+  pin: 2 R22_1.2
   connect: 1 1 0 2 0
     vtx: 1 20320000 25400000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -1365,9 +1359,9 @@ net: "Xff$XXstiCLK$NTI_Out" 2 1 0 0 0 0 1
     vtx: 3 12700000 22860000 11 0 0 0 0
 
 net: "Xff$XSlave$XXgatetop$NP" 3 2 0 0 0 0 1
-  pin: 1 IC_8_CD4007.1
-  pin: 2 IC_8_CD4007.13
-  pin: 3 R15.1
+  pin: 1 IC_8_CD4007_1.1
+  pin: 2 IC_8_CD4007_1.13
+  pin: 3 R15_1.1
   connect: 1 2 0 3 0
     vtx: 1 22860000 50800000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -1384,8 +1378,8 @@ net: "Xff$XSlave$XXgatetop$NP" 3 2 0 0 0 0 1
     vtx: 3 25400000 38100000 11 0 0 0 0
 
 net: "Xff$XXstiCLK$PTI_Out" 2 1 0 0 0 0 1
-  pin: 1 X_IC_9_CD4007.13
-  pin: 2 R21.1
+  pin: 1 X_IC_9_CD4007_1.13
+  pin: 2 R21_1.1
   connect: 1 1 0 2 0
     vtx: 1 5080000 50800000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -1394,9 +1388,9 @@ net: "Xff$XXstiCLK$PTI_Out" 2 1 0 0 0 0 1
     vtx: 3 12700000 35560000 11 0 0 0 0
 
 net: "Xff$XSlave$_D" 3 2 0 0 0 0 1
-  pin: 1 IC_7_CD4007.6
-  pin: 2 R19.2
-  pin: 3 R20.1
+  pin: 1 IC_7_CD4007_1.6
+  pin: 2 R19_1.2
+  pin: 3 R20_1.1
   connect: 1 1 0 6 0
     vtx: 1 71120000 50800000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -1419,10 +1413,10 @@ net: "Xff$XSlave$_D" 3 2 0 0 0 0 1
     vtx: 3 71120000 50800000 11 0 0 0 0
 
 net: "Q" 4 3 0 0 0 0 1
-  pin: 1 IC_4_CD4007.3
-  pin: 2 R11.2
-  pin: 3 R12.1
-  pin: 4 FF.8
+  pin: 1 IC_4_CD4007_1.3
+  pin: 2 R11_1.2
+  pin: 3 R12_1.1
+  pin: 4 FF_1.8
   connect: 1 1 0 5 0
     vtx: 1 66040000 81280000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -1447,9 +1441,9 @@ net: "Q" 4 3 0 0 0 0 1
     vtx: 2 88900000 71023988 0 0 0 0 22102
 
 net: "Xff$XMaster$_D" 3 2 0 0 0 0 1
-  pin: 1 IC_1_CD4007.6
-  pin: 2 R9.2
-  pin: 3 R10.1
+  pin: 1 IC_1_CD4007_1.6
+  pin: 2 R9_1.2
+  pin: 3 R10_1.1
   connect: 1 2 0 3 0
     vtx: 1 43180000 81280000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -1466,19 +1460,19 @@ net: "Xff$XMaster$_D" 3 2 0 0 0 0 1
     vtx: 3 40640000 68580000 11 0 0 0 0
 
 net: "Xff$XSlave$XXlatch$NI" 2 1 0 0 0 0 1
-  pin: 1 IC_3_CD4007.4
-  pin: 2 IC_3_CD4007.8
+  pin: 1 IC_3_CD4007_1.4
+  pin: 2 IC_3_CD4007_1.8
   connect: 1 1 0 1 0
     vtx: 1 82550000 78740000 11 0 0 0 0
     seg: 1 12 254000 0 0
     vtx: 2 74930000 86360000 11 0 0 0 0
 
 net: "Xff$between" 5 4 0 0 0 0 1
-  pin: 1 IC_6_CD4007.3
-  pin: 2 IC_2_CD4007.3
-  pin: 3 IC_8_CD4007.3
-  pin: 4 R1.2
-  pin: 5 R2.1
+  pin: 1 IC_6_CD4007_1.3
+  pin: 2 IC_2_CD4007_1.3
+  pin: 3 IC_8_CD4007_1.3
+  pin: 4 R1_1.2
+  pin: 5 R2_1.1
   connect: 1 4 0 4 0
     vtx: 1 53340000 50800000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -1527,17 +1521,17 @@ net: "Xff$between" 5 4 0 0 0 0 1
     vtx: 4 20462494 49080166 0 0 0 0 26421
 
 net: "0" 2 1 0 635000 711200 355600 1
-  pin: 1 FF.3
-  pin: 2 FF.4
+  pin: 1 FF_1.3
+  pin: 2 FF_1.4
   connect: 1 1 0 1 0
     vtx: 1 88265000 60960000 11 0 0 0 0
     seg: 1 13 254000 0 0
     vtx: 2 88265000 58420000 11 0 0 0 0
 
 net: "Xff$XMaster$Q_storage" 3 2 0 0 0 0 1
-  pin: 1 IC_0_CD4007.3
-  pin: 2 R5.2
-  pin: 3 R6.1
+  pin: 1 IC_0_CD4007_1.3
+  pin: 2 R5_1.2
+  pin: 3 R6_1.1
   connect: 1 1 0 7 0
     vtx: 1 93980000 50800000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -1562,8 +1556,8 @@ net: "Xff$XMaster$Q_storage" 3 2 0 0 0 0 1
     vtx: 3 93980000 50800000 11 0 0 0 0
 
 net: "Xff$XMaster$X_Xlatch$NN" 2 1 0 0 0 0 1
-  pin: 1 IC_6_CD4007.9
-  pin: 2 R4.2
+  pin: 1 IC_6_CD4007_1.9
+  pin: 2 R4_1.2
   connect: 1 1 0 8 0
     vtx: 1 10160000 59690000 11 0 0 0 0
     seg: 1 12 254000 0 0
@@ -1584,10 +1578,10 @@ net: "Xff$XMaster$X_Xlatch$NN" 2 1 0 0 0 0 1
     vtx: 9 80010000 25400000 11 0 0 0 0
 
 net: "CLK" 4 3 0 0 0 0 1
-  pin: 1 IC_8_CD4007.6
-  pin: 2 IC_7_CD4007.3
-  pin: 3 X_IC_9_CD4007.6
-  pin: 4 FF.5
+  pin: 1 IC_8_CD4007_1.6
+  pin: 2 IC_7_CD4007_1.3
+  pin: 3 X_IC_9_CD4007_1.6
+  pin: 4 FF_1.5
   connect: 1 1 0 4 0
     vtx: 1 48260000 33020000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -1624,9 +1618,9 @@ net: "CLK" 4 3 0 0 0 0 1
     vtx: 8 48260000 33020000 11 0 0 0 0
 
 net: "Xff$NC_01" 3 2 0 0 0 0 1
-  pin: 1 IC_0_CD4007.6
-  pin: 2 R3.2
-  pin: 3 R4.1
+  pin: 1 IC_0_CD4007_1.6
+  pin: 2 R3_1.2
+  pin: 3 R4_1.1
   connect: 1 2 0 3 0
     vtx: 1 22860000 59690000 11 0 0 0 0
     seg: 1 13 254000 0 0
@@ -1649,8 +1643,8 @@ net: "Xff$NC_01" 3 2 0 0 0 0 1
     vtx: 6 76200000 50800000 11 0 0 0 0
 
 net: "Xff$XSlave$X_Xlatch$NI" 2 1 0 0 0 0 1
-  pin: 1 IC_4_CD4007.4
-  pin: 2 IC_4_CD4007.8
+  pin: 1 IC_4_CD4007_1.4
+  pin: 2 IC_4_CD4007_1.8
   connect: 1 1 0 1 0
     vtx: 1 104140000 78740000 11 0 0 0 0
     seg: 1 12 254000 0 0
