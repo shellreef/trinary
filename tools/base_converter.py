@@ -11,7 +11,7 @@ import Trits
 MIN_VAL = 10
 LOW_BOUND = ord('A') + MIN_VAL
 
-int_cnvrt(value, base_frm, base_to):
+def int_cnvrt(value, base_frm, base_to):
     ''' int_cvrt: convert the number to the left of the decimal place
         value: string containing value to convert
         from: what base to convert from. Can be positive and negative.
@@ -62,7 +62,7 @@ int_cnvrt(value, base_frm, base_to):
     prev  = 1   # the value of the next digit
     cur   = 0   # current digit
 
-    if magnitude_f >= MIN_VAL
+    if magnitude_f >= MIN_VAL:
         max_val = magnitude_f - MIN_VAL
 
     for i in range(len(value) - 1, -1, -1):
@@ -121,7 +121,7 @@ int_cnvrt(value, base_frm, base_to):
     sum = sign*sum
 
     # return base 10 if desired base is balanced
-    if base_f < 0:
+    if base_frm < 0:
         return "" + sum
 
     # compute unbalanced conversion
@@ -132,7 +132,7 @@ int_cnvrt(value, base_frm, base_to):
     while quotient != 0:
         remainder = quotient%magnitude_t
         quotient = quotient/magnitude_t
-        result = "" + remainder + result
+        result = str(remainder) + result
 
     return result
 
@@ -152,3 +152,6 @@ int_cnvrt(value, base_frm, base_to):
 
     s = ".".join(lis_digits) => combine elements in list by "."
 '''
+
+if __name__ == "__main__":
+    print int_cnvrt("10", 2, 10)
