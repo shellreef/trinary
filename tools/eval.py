@@ -104,24 +104,24 @@ def trinary_eval(expression, variables):
        returns: The result of evaluating the expression.
 
 >>> print trinary_eval("//A+B", {"A" : "1", "B" : "1"})
-True
+1
 >>> print trinary_eval("//A+B", {"A" : "1", "B" : "0"})
-True
+1
 >>> print trinary_eval("//A+B", {"A" : "i", "B" : "0"})
-None
+0
 >>> print trinary_eval("//A+B", {"A" : "0", "B" : "0"})
-None
+0
 >>> print trinary_eval("//A+B", {"A" : "0", "B" : "1"})
-True
+1
 >>> print trinary_eval("/(A+/B*C)",{"A":"0","B":"0","C":"1"})
-None
+0
 >>> print trinary_eval("A⊽(/B*C)",{"A":"0","B":"0","C":"1"})
-None
+0
 >>> print trinary_eval("A⊽(/B∧C)",{"A":"0","B":"0","C":"1"})
-None
+0
     '''
     result, lo = expr_recurse(expression, variables)
-    return result
+    return trit_string[result]
 
 if __name__ == "__main__":
     # self-test

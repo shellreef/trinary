@@ -27,7 +27,10 @@ int_cnvrt(value, base_frm, base_to):
             not balanced.  Bases must also have a magnitude greater than 1.
         For balanced bases greater than 3, a negative number is represented
             with an 'i' next to it.
-        Example: 4i21 => 4(-2)1
+            Example: 4i21 => 4(-2)1
+        Currently conversion balanced bases is not supported.  If balanced
+            base is entered, the result will be returned in base 10.
+        A negative sign before the number will negate the result.
     '''
 
     # check for magnitude greater than 1
