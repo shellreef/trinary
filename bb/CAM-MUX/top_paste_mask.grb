@@ -1,0 +1,204 @@
+G04 FreePCB version 1.343*
+G04 Z:\trinary\bb\CAM-MUX\top_paste_mask.grb*
+G04  layer *
+G04 Scale: 100 percent, Rotated: No, Reflected: No *
+%FSLAX24Y24*%
+%MOIN*%
+%LNTop*%
+%ADD10C,0.005000*%
+G90*
+G70D02*
+
+G04 Step and Repeat for panelization *
+
+G04 ----------------------- Draw board outline (positive)*
+%LPD*%
+G54D10*
+G01X-68000Y48000D02*
+G01X12000Y48000D01*
+G04 end of side 1*
+G01X12000Y-8000D01*
+G04 end of side 2*
+G01X-68000Y-8000D01*
+G04 end of side 3*
+G01X-68000Y48000D01*
+
+G04 -------------- Draw Parts, Pads, Traces, Vias and Text (positive)*
+%LPD*%
+G04 Draw part VA*
+G04 Draw part VB*
+G04 Draw part VC*
+G04 Draw part VS*
+G04 Draw part Vdd*
+G04 Draw part Vss*
+G04 Draw part CD4007_IC0*
+G04 Draw part CD4007_IC1*
+G04 Draw part CD4007_IC2*
+G04 Draw part CD4016_IC0*
+G04 Draw part R1*
+G04 Draw part R2*
+G04 Draw part R3*
+G04 Draw part R4*
+G04 Draw part R5*
+G04 Draw part R6*
+G04 Draw part R7*
+G04 Draw part R8*
+G04 Draw part Q*
+G04 Draw part VA1*
+G04 Draw part VB1*
+G04 Draw part VC1*
+G04 Draw part VS1*
+G04 Draw part Vdd1*
+G04 Draw part Vss1*
+G04 Draw part CD4007_IC3*
+G04 Draw part CD4007_IC4*
+G04 Draw part CD4007_IC5*
+G04 Draw part CD4016_IC1*
+G04 Draw part R9*
+G04 Draw part R10*
+G04 Draw part R11*
+G04 Draw part R12*
+G04 Draw part R13*
+G04 Draw part R14*
+G04 Draw part R15*
+G04 Draw part R16*
+G04 Draw part Q1*
+G04 Draw part VA2*
+G04 Draw part VB2*
+G04 Draw part VC2*
+G04 Draw part VS2*
+G04 Draw part Vdd2*
+G04 Draw part Vss2*
+G04 Draw part CD4007_IC6*
+G04 Draw part CD4007_IC7*
+G04 Draw part CD4007_IC8*
+G04 Draw part CD4016_IC2*
+G04 Draw part R17*
+G04 Draw part R18*
+G04 Draw part R19*
+G04 Draw part R20*
+G04 Draw part R21*
+G04 Draw part R22*
+G04 Draw part R23*
+G04 Draw part R24*
+G04 Draw part Q2*
+G04 Draw part VA3*
+G04 Draw part VB3*
+G04 Draw part VC3*
+G04 Draw part VS3*
+G04 Draw part Vdd3*
+G04 Draw part Vss3*
+G04 Draw part CD4007_IC9*
+G04 Draw part CD4007_IC10*
+G04 Draw part CD4007_IC11*
+G04 Draw part CD4016_IC3*
+G04 Draw part R25*
+G04 Draw part R26*
+G04 Draw part R27*
+G04 Draw part R28*
+G04 Draw part R29*
+G04 Draw part R30*
+G04 Draw part R31*
+G04 Draw part R32*
+G04 Draw part Q3*
+G04 Draw part VA4*
+G04 Draw part VB4*
+G04 Draw part VC4*
+G04 Draw part VS4*
+G04 Draw part Vdd4*
+G04 Draw part Vss4*
+G04 Draw part CD4007_IC12*
+G04 Draw part CD4007_IC13*
+G04 Draw part CD4007_IC14*
+G04 Draw part CD4016_IC4*
+G04 Draw part R33*
+G04 Draw part R34*
+G04 Draw part R35*
+G04 Draw part R36*
+G04 Draw part R37*
+G04 Draw part R38*
+G04 Draw part R39*
+G04 Draw part R40*
+G04 Draw part Q4*
+G04 Draw part VA5*
+G04 Draw part VB5*
+G04 Draw part VC5*
+G04 Draw part VS5*
+G04 Draw part Vdd5*
+G04 Draw part Vss5*
+G04 Draw part CD4007_IC15*
+G04 Draw part CD4007_IC16*
+G04 Draw part CD4007_IC17*
+G04 Draw part CD4016_IC5*
+G04 Draw part R41*
+G04 Draw part R42*
+G04 Draw part R43*
+G04 Draw part R44*
+G04 Draw part R45*
+G04 Draw part R46*
+G04 Draw part R47*
+G04 Draw part R48*
+G04 Draw part Q5*
+G04 Draw part VA6*
+G04 Draw part VB6*
+G04 Draw part VC6*
+G04 Draw part VS6*
+G04 Draw part Vdd6*
+G04 Draw part Vss6*
+G04 Draw part CD4007_IC18*
+G04 Draw part CD4007_IC19*
+G04 Draw part CD4007_IC20*
+G04 Draw part CD4016_IC6*
+G04 Draw part R49*
+G04 Draw part R50*
+G04 Draw part R51*
+G04 Draw part R52*
+G04 Draw part R53*
+G04 Draw part R54*
+G04 Draw part R55*
+G04 Draw part R56*
+G04 Draw part Q6*
+G04 Draw part VA7*
+G04 Draw part VB7*
+G04 Draw part VC7*
+G04 Draw part VS7*
+G04 Draw part Vdd7*
+G04 Draw part Vss7*
+G04 Draw part CD4007_IC21*
+G04 Draw part CD4007_IC22*
+G04 Draw part CD4007_IC23*
+G04 Draw part CD4016_IC7*
+G04 Draw part R57*
+G04 Draw part R58*
+G04 Draw part R59*
+G04 Draw part R60*
+G04 Draw part R61*
+G04 Draw part R62*
+G04 Draw part R63*
+G04 Draw part R64*
+G04 Draw part Q7*
+G04 Draw part VA8*
+G04 Draw part VB8*
+G04 Draw part VC8*
+G04 Draw part VS8*
+G04 Draw part Vdd8*
+G04 Draw part Vss8*
+G04 Draw part CD4007_IC24*
+G04 Draw part CD4007_IC25*
+G04 Draw part CD4007_IC26*
+G04 Draw part CD4016_IC8*
+G04 Draw part R65*
+G04 Draw part R66*
+G04 Draw part R67*
+G04 Draw part R68*
+G04 Draw part R69*
+G04 Draw part R70*
+G04 Draw part R71*
+G04 Draw part R72*
+G04 Draw part Q8*
+
+G04 Draw traces*
+
+G04 Draw Text*
+M00*
+M02*
