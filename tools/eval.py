@@ -140,11 +140,20 @@ if __name__ == "__main__":
             assignments = line.split(",")
             for a in assignments:
                 name, value = a.split("=")
-                print u"Assigning %s to %s" % (name, value)
-                variables[name] = value
+
+                if name == "i":
+                    print "i is reserved, cannot be used as a variable name" 
+                elif not value in trit_char:
+                    print "%s, not a valid value", value
+                else:
+                    print u"Assigning %s to %s" % (name, value)
+                    variables[name] = value
+
         elif line == "":
             for k, v in variables.iteritems():
                 print u"%s: %s" % (k, v)
+        elif line in trit_char:
+            print line
         else:
             try:
                 print trinary_eval(line, variables)
