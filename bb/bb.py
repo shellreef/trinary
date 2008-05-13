@@ -319,7 +319,7 @@ def dump_chips(chips):
         for k, v in p.iteritems():
             print "* \t%s: %s" % (k, v)
 
-        print "X_IC_%s_%s" % (i, m),
+        print "IC_%s_%s" % (m, i),
         # Assumes all chips are 14-pin, arguments from 1 to 14 positional
         for k in range(1, 14+1):
             print p[k],
