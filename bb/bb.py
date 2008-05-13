@@ -143,7 +143,30 @@ def chip_has_pins_available(pins_needed, pins):
 def find_chip(chips, model_needed, pins_needed_options):
     """Return an index into the chips array, and what pins, with the given model and the pins free.
     
-    pins_needed_options is a list of lists, of any acceptable set of pins to use."""
+    pins_needed_options is a list of lists, of any acceptable set of pins to use.
+   
+    A new chip is added if none are found.  """
+
+    result = find_chip_no_add(chips, model_needed, pins_needed_options)
+    if result is not None:
+        return result
+
+    # No chips found with model model_needed and with pins free. Need more chips.
+    if model_needed not in ("CD4016", "CD4007"):
+        raise "Model %s not known, it is not CD4016 nor CD4007, not recognized!" % (model_needed,)
+
+    # Assume all are 14-pin chips
+    chips.append((model_needed, get_floating(14)))
+
+    result = find_chip_no_add(chips, model_needed, pins_needed_options)
+    if result is not None:
+        return result
+
+    raise "Tried to find model %s with pins %s free, then added a new chip but couldn't find it!" % (
+            model_needed, pins_needed_options)
+
+def find_chip_no_add(chips, model_needed, pins_needed_options):
+    """Find chip to use (see find_chip), but return None if not found instead of adding."""
     for i, chip in enumerate(chips):
         model, pins = chip
         if model != model_needed:
@@ -155,9 +178,7 @@ def find_chip(chips, model_needed, pins_needed_options):
             if chip_has_pins_available(option, pins):
                 #print "* Found model %s with pins %s free: chip #%s" % (model_needed, option, i)
                 return i, option_num
-
-    raise "* No chips found with model %s and with pins %s free. Maybe you need more chips." % (model_needed, 
-            pins_needed_options)
+    return None
 
 def find_pins_needed(pins):
     """From a mod.pins[x] dict, return the pins needed for each model, for find_chip()"""
@@ -319,7 +340,7 @@ def dump_chips(chips):
         for k, v in p.iteritems():
             print "* \t%s: %s" % (k, v)
 
-        print "X_IC_%s_%s" % (i, m),
+        print "IC_%s_%s" % (m, i),
         # Assumes all chips are 14-pin, arguments from 1 to 14 positional
         for k in range(1, 14+1):
             print p[k],
@@ -628,68 +649,7 @@ def main():
     print
 
     # Available chips
-    chips = [
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4007", get_floating(14) ),
-            ("CD4016", get_floating(14) ),
-            ("CD4016", get_floating(14) ),
-            ("CD4016", get_floating(14) ),
-            ("CD4016", get_floating(14) ),
-            ("CD4016", get_floating(14) ),
-            ("CD4016", get_floating(14) ),
-            ("CD4016", get_floating(14) ),
-            ("CD4016", get_floating(14) ),
-            ("CD4016", get_floating(14) ),
-            ("CD4016", get_floating(14) ),
-            ("CD4016", get_floating(14) ),
-            ("CD4016", get_floating(14) ),
-            ("CD4016", get_floating(14) ),
-            ("CD4016", get_floating(14) ),
-            ("CD4016", get_floating(14) ),
-            ]
+    chips = []
 
     extra = []
     for line in flat_toplevel:
