@@ -83,13 +83,14 @@ def int_cnvrt(value, base_frm, base_to):
             if cur > magnitude_f:
                 print "%s: invalid input", value[i]
                 raise SystemExit
+            if i != len(value) -1:
+                sum = sum + prev*neg*count
 
-            sum = sum + prev*neg*count
+                # reset variables to appropiate values
+                neg = 1
+                count = count*abs(base_frm)
 
-            # reset variables to appropiate values
             prev = cur
-            neg = 1
-            count = count*abs(base_frm)
 
         elif value[i] == '-' and i == len(value) - 1:
             # negate the whole number
@@ -105,12 +106,14 @@ def int_cnvrt(value, base_frm, base_to):
                 print "%s: invalid input", value[i]
                 raise SystemExit
 
-            sum = sum + prev*neg*count
+            if i != len(value) -1:
+                sum = sum + prev*neg*count
 
-            # reset variables to appropriate values
+                # reset variables to appropriate values
+                neg = 1
+                count = count*abs(base_frm)
+
             prev = cur
-            neg = 1
-            count = count*abs(base_frm)
 
         else:
             print "%s: invalid input", value[i]
@@ -154,4 +157,4 @@ def int_cnvrt(value, base_frm, base_to):
 '''
 
 if __name__ == "__main__":
-    print int_cnvrt("10", 2, 10)
+    print int_cnvrt("111", 2, 10)

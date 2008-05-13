@@ -128,6 +128,7 @@ if __name__ == "__main__":
     doctest.testmod()
 
     variables = {}
+    variables["i"] = "i" 
 
     while True:
         print ">> ",
