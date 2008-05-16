@@ -128,8 +128,10 @@ if __name__ == "__main__":
     doctest.testmod()
 
     variables = {}
+    variables["i"] = "i" 
 
     while True:
+        flag = True
         print ">> ",
         line = unicode(sys.stdin.readline(), "utf8")
         if len(line) == 0:
@@ -143,11 +145,14 @@ if __name__ == "__main__":
 
                 if name == "i":
                     print "i is reserved, cannot be used as a variable name" 
-                elif not value in trit_char:
-                    print "%s, not a valid value", value
                 else:
-                    print u"Assigning %s to %s" % (name, value)
-                    variables[name] = value
+                    for k in value:
+                        if not k in trit_char:
+                            print u"%s, not a valid value" % (k)
+                            flag = False 
+                    if flag:
+                        print u"Assigning %s to %s" % (name, value)
+                        variables[name] = value
 
         elif line == "":
             for k, v in variables.iteritems():
@@ -160,4 +165,4 @@ if __name__ == "__main__":
             except:
                 print "An error occured:"
                 traceback.print_exc()
-            
+
