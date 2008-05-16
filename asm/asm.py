@@ -16,6 +16,10 @@ outputs:
 """ % (sys.argv[0])
 
         raise SystemExit
+    
+    if not sys.argv[1].endswith(".t"):
+        print "Input assembly filename must end in .t"
+        raise SystemExit
 
     asmfile = file(sys.argv[1], "rt")
     tritstream_filename = sys.argv[1].replace(".t", ".3")
