@@ -5,7 +5,7 @@
 # Created PADS-PCB netlist file, for FreePCB at http://www.freepcb.com/ , 
 # or any other PCB layout program that supports the PADS-PCB format.
 
-import sys
+import sys, os
 
 PROGRAM_NAME = "pads.py"
 
@@ -28,11 +28,11 @@ UNIVERSAL_PREFIX = ""
 
 # Append/prepend to all net names
 NETNAME_SUFFIX = ""
-NETNAME_PREFIX = "ts_"
+NETNAME_PREFIX = os.environ.get("JC_NETNAME_SUFFIX", "")
 
 # If enabled, name resistors numerically R1, R2, ... instead of hierarchically.
 SERIAL_RESISTORS = True
-RESISTOR_SERIAL_START = 0
+RESISTOR_SERIAL_START = int(os.environ.get("JC_RESISTOR_SERIAL_START", 0))
 
 # If enabled, anything containing Vdd or Vss will be named Vdd or Vss--
 # effectively disabling hierarchy for these power sources. **Note that if
@@ -48,7 +48,7 @@ SHORT_DTFLOP_RP_RN = False
 # USE_SHORT_NAMES and BREAK_LONG_LINES can be turned off!
 
 # If true, reference designators and node names will be assigned
-# sequentially, instead of using their hierarchical name
+# sequentially if needed, instead of using their hierarchical name
 # from the net2 file. Some PCB programs have length limits
 # on reference designators (FreePCB).
 USE_SHORT_NAMES = True
