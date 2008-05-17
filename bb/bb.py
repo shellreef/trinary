@@ -20,6 +20,9 @@ import os
 
 PROGRAM_NAME = "bb.py"
 
+# Start chip numbering at this value.
+CHIP_NO_START = 10
+
 # Subcircuits to map that should be mapped physical ICs
 SUBCIRCUITS_TO_MAP = ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3', 'sp3t-1', 'sp3t-2', 'sp3t-3')
 SUBCIRCUITS_CAN_MAP = ('tg', 'tinv', 'tnor', 'tnand')        # subcircuits we actually can map to ICs, as of yet
@@ -155,6 +158,7 @@ def find_chip(chips, model_needed, pins_needed_options):
     if model_needed not in ("CD4016", "CD4007"):
         raise "Model %s not known, it is not CD4016 nor CD4007, not recognized!" % (model_needed,)
 
+    # Add a new chip!
     # Assume all are 14-pin chips
     chips.append((model_needed, get_floating(14)))
 
@@ -333,14 +337,14 @@ def dump_chips(chips):
         m, p = c
 
         if not any_pins_used(p):
-            print "* Chip #%s - %s no pins used, skipping" % (i, m)
+            print "* Chip #%s - %s no pins used, skipping" % (i + CHIP_NO_START, m)
             continue
 
-        print "* Chip #%s - %s pinout:" % (i, m)
+        print "* Chip #%s - %s pinout:" % (i + CHIP_NO_START, m)
         for k, v in p.iteritems():
             print "* \t%s: %s" % (k, v)
 
-        print "IC_%s_%s" % (m, i),
+        print "IC_%s_%s" % (m, i + CHIP_NO_START),
         # Assumes all chips are 14-pin, arguments from 1 to 14 positional
         for k in range(1, 14+1):
             print p[k],
