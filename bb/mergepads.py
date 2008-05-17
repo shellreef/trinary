@@ -22,7 +22,7 @@ def load_pads(f):
         raise SystemExit
 
     # Read all parts until *NET*
-    parts = []
+    parts = {}
     while True:
         part = f.readline()
         if len(part) == 0:
@@ -33,7 +33,8 @@ def load_pads(f):
         part = part.strip()
         if part == "*NET*":
             break
-        parts.append(part)
+        name, package = part.split()
+        parts[name] = package
 
     # Read signals
     signal = None
@@ -62,8 +63,8 @@ def save_pads(parts, net, name):
     out = "*PADS-PCB*\n"
     out += "*%s*\n" % (name,)
     out += "*PART*\n"
-    for p in parts:
-        out += "%s\n" % (p,)
+    for name, package in parts.iteritems():
+        out += "%s %s\n" % (name, package)
     out += "*NET*\n"
     for signal in net:
         out += "*SIGNAL* %s\n" % (signal,)
@@ -82,12 +83,25 @@ parts, nets = load_pads(f1)
 parts2, nets2 = load_pads(f2)
 
 # Merge part list
-for p in parts2:
-    name, package = p.split()
+for name, package in parts2.iteritems():
+    new_name = name
     if name in parts:
-        name += "_2"
-        assert name not in parts, "Name %s in both netlists, even after suffixing" % (name,)
-    parts.append("%s %s" % (name, package))
+        # Need to rename part to avoid collision
+        new_name += "_2"
+        assert new_name not in parts, "Name %s in both netlists, even after suffixing" % (name,)
+
+        # Go through pins and rename if needed
+        for signal, pins in nets2.iteritems():
+            new_pins = []
+            for pin in pins:
+                part_name, pin_no = pin.split(".")
+                if part_name == name:
+                    new_pins.append("%s.%s" % (new_name, pin_no))
+                else:
+                    new_pins.append("%s.%s" % (part_name, pin_no))
+            nets2[signal] = new_pins
+
+    parts[new_name] = package
 
 # Merge nets
 for signal in nets2:
