@@ -21,6 +21,13 @@ footprint_map = {
         "D": "DO-35",           # All diodes (note: should really be specific!)
         }
 
+# TODO: Add bypass capacitor? Might be better done
+# manually, on back of board, directly between 7 and 14.
+#
+# TODO: Connect not-connected pins? Probably a good idea but
+# be careful about shorting something. Could also be done 
+# manually, with copious amounts of solder.
+
 # Append/prepend this to all part and net names (note, prefix may
 # cause problems with footprint mapping, if can't be recognized.)
 UNIVERSAL_SUFFIX = ""
@@ -217,6 +224,7 @@ for line in infile.readlines():
 
     # Make parts list
     parts.append((refdesg, model))
+
 
 # Map models to footprints
 print "*PART*"
