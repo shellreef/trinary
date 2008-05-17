@@ -6,7 +6,9 @@
 
 import sys, os
 
-def read_pads(f):
+SHARED_SIGNALS = ("$G_Vdd", "$G_Vss", "0")
+
+def load_pads(f):
     l = f.readline().strip()
     if l != "*PADS-PCB*":
         print "not PADS-PCB format, first line: %s" % (l,)
@@ -22,7 +24,13 @@ def read_pads(f):
     # Read all parts until *NET*
     parts = []
     while True:
-        part = f.readline().strip()
+        part = f.readline()
+        if len(part) == 0:
+            print "Unexpected end-of-file while reading parts"
+            raise SystemExit
+            break
+
+        part = part.strip()
         if part == "*NET*":
             break
         parts.append(part)
@@ -50,7 +58,7 @@ def read_pads(f):
 
     return parts, nets
 
-def write_pads(parts, net, name):
+def save_pads(parts, net, name):
     out = "*PADS-PCB*\n"
     out += "*%s*\n" % (name,)
     out += "*PART*\n"
@@ -70,6 +78,29 @@ if len(sys.argv) != 3:
 f1 = file(sys.argv[1], "rt")
 f2 = file(sys.argv[2], "rt")
 
-parts, nets = read_pads(f1)
-print write_pads(parts, nets, "main.pads")
+parts, nets = load_pads(f1)
+parts2, nets2 = load_pads(f2)
+
+# Merge part list
+for p in parts2:
+    name, package = p.split()
+    if name in parts:
+        name += "_2"
+        assert name not in parts, "Name %s in both netlists, even after suffixing" % (name,)
+    parts.append("%s %s" % (name, package))
+
+# Merge nets
+for signal in nets2:
+    new_signal = signal
+    if signal in nets and signal not in SHARED_SIGNALS:
+        new_signal += "_2"
+        # If this happens, improve suffixing (try alternatives)
+        assert new_signal not in nets, "Signal %s in both netlists, even after suffix" % (new_signal,)
+
+    if new_signal in SHARED_SIGNALS:
+        nets[new_signal].extend(nets2[signal])
+    else:
+        nets[new_signal] = nets2[signal]
+
+print save_pads(parts, nets, "%s + %s" % (sys.argv[1], sys.argv[2]))
 
