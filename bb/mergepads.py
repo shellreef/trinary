@@ -14,12 +14,15 @@ def load_pads(f):
         print "not PADS-PCB format, first line: %s" % (l,)
         raise SystemExit
 
-    l = f.readline()
-
-    l = f.readline().strip()
-    if l != "*PART*":
-        print "expected *PARTS*, got %s" % (l,)
-        raise SystemExit
+    # Read comments until parts section
+    while True:
+        l = f.readline()
+        if len(l) == 0:
+            print "unexpected end-of-file before parts section"
+            raise SystemExit
+        if l.strip() == "*PART*":
+            # got it
+            break
 
     # Read all parts until *NET*
     parts = {}
@@ -31,6 +34,10 @@ def load_pads(f):
             break
 
         part = part.strip()
+        if len(part) == 0:  # (stripped)
+            # whitespace
+            continue 
+
         if part == "*NET*":
             break
         name, package = part.split()
