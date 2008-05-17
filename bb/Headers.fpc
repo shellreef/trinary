@@ -1,0 +1,3172 @@
+[options]
+
+version: 1.343
+file_version: 1.332
+project_name: "Headers"
+full_library_folder: "c:\documents and settings\rudy 1\mijn documenten\freepcb\lib"
+CAM_folder: ""
+ses_file_path: ""
+SMT_connect_copper: "0"
+dsn_flags: "0"
+dsn_bounds_poly: "0"
+dsn_signals_poly: "0"
+autosave_interval: 0
+netlist_import_flags: 451
+units: MIL
+
+visible_grid_spacing: 2540000.000000
+  visible_grid_item: 100MIL
+  visible_grid_item: 125MIL
+  visible_grid_item: 200MIL
+  visible_grid_item: 250MIL
+  visible_grid_item: 400MIL
+  visible_grid_item: 500MIL
+  visible_grid_item: 1000MIL
+  visible_grid_item: 1MM
+  visible_grid_item: 2MM
+  visible_grid_item: 2.5MM
+  visible_grid_item: 4MM
+  visible_grid_item: 5MM
+  visible_grid_item: 10MM
+  visible_grid_item: 20MM
+  visible_grid_item: 25MM
+  visible_grid_item: 40MM
+  visible_grid_item: 50MM
+  visible_grid_item: 100MM
+
+placement_grid_spacing: 2540000.000000
+  placement_grid_item: 10MIL
+  placement_grid_item: 20MIL
+  placement_grid_item: 25MIL
+  placement_grid_item: 40MIL
+  placement_grid_item: 50MIL
+  placement_grid_item: 100MIL
+  placement_grid_item: 200MIL
+  placement_grid_item: 250MIL
+  placement_grid_item: 400MIL
+  placement_grid_item: 500MIL
+  placement_grid_item: 1000MIL
+  placement_grid_item: 0.1MM
+  placement_grid_item: 0.2MM
+  placement_grid_item: 0.25MM
+  placement_grid_item: 0.4MM
+  placement_grid_item: 0.5MM
+  placement_grid_item: 1MM
+  placement_grid_item: 2MM
+  placement_grid_item: 2.5MM
+  placement_grid_item: 4MM
+  placement_grid_item: 5MM
+  placement_grid_item: 10MM
+
+routing_grid_spacing: 254000.000000
+  routing_grid_item: 1MIL
+  routing_grid_item: 2MIL
+  routing_grid_item: 2.5MIL
+  routing_grid_item: 3.33326772MIL
+  routing_grid_item: 4MIL
+  routing_grid_item: 5MIL
+  routing_grid_item: 6.66649606MIL
+  routing_grid_item: 10MIL
+  routing_grid_item: 12.5MIL
+  routing_grid_item: 16.66649606MIL
+  routing_grid_item: 20MIL
+  routing_grid_item: 25MIL
+  routing_grid_item: 40MIL
+  routing_grid_item: 50MIL
+  routing_grid_item: 0.01MM
+  routing_grid_item: 0.02MM
+  routing_grid_item: 0.04MM
+  routing_grid_item: 0.05MM
+  routing_grid_item: 0.1MM
+  routing_grid_item: 0.2MM
+  routing_grid_item: 0.25MM
+  routing_grid_item: 0.4MM
+  routing_grid_item: 0.5MM
+  routing_grid_item: 1MM
+  routing_grid_item: 2MM
+  routing_grid_item: 2.5MM
+  routing_grid_item: 4MM
+  routing_grid_item: 5MM
+  routing_grid_item: 10MM
+
+snap_angle: 45
+
+fp_visible_grid_spacing: 5080000.000000
+  fp_visible_grid_item: 100MIL
+  fp_visible_grid_item: 125MIL
+  fp_visible_grid_item: 200MIL
+  fp_visible_grid_item: 250MIL
+  fp_visible_grid_item: 400MIL
+  fp_visible_grid_item: 500MIL
+  fp_visible_grid_item: 1000MIL
+  fp_visible_grid_item: 1MM
+  fp_visible_grid_item: 2MM
+  fp_visible_grid_item: 2.5MM
+  fp_visible_grid_item: 4MM
+  fp_visible_grid_item: 5MM
+  fp_visible_grid_item: 10MM
+  fp_visible_grid_item: 20MM
+  fp_visible_grid_item: 25MM
+  fp_visible_grid_item: 40MM
+  fp_visible_grid_item: 50MM
+  fp_visible_grid_item: 100MM
+
+fp_placement_grid_spacing: 2540000.000000
+  fp_placement_grid_item: 10MIL
+  fp_placement_grid_item: 20MIL
+  fp_placement_grid_item: 25MIL
+  fp_placement_grid_item: 40MIL
+  fp_placement_grid_item: 50MIL
+  fp_placement_grid_item: 100MIL
+  fp_placement_grid_item: 200MIL
+  fp_placement_grid_item: 250MIL
+  fp_placement_grid_item: 400MIL
+  fp_placement_grid_item: 500MIL
+  fp_placement_grid_item: 1000MIL
+  fp_placement_grid_item: 0.1MM
+  fp_placement_grid_item: 0.2MM
+  fp_placement_grid_item: 0.25MM
+  fp_placement_grid_item: 0.4MM
+  fp_placement_grid_item: 0.5MM
+  fp_placement_grid_item: 1MM
+  fp_placement_grid_item: 2MM
+  fp_placement_grid_item: 2.5MM
+  fp_placement_grid_item: 4MM
+  fp_placement_grid_item: 5MM
+  fp_placement_grid_item: 10MM
+
+fp_snap_angle: 45
+
+fill_clearance: 254000
+mask_clearance: 203200
+thermal_width: 254000
+min_silkscreen_width: 127000
+board_outline_width: 127000
+hole_clearance: 381000
+pilot_diameter: 254000
+annular_ring_for_pins: 177800
+annular_ring_for_vias: 127000
+shrink_paste_mask: 0
+cam_flags: 1
+cam_layers: 4095
+cam_drill_file: 1
+cam_units: 2
+cam_n_x: 1
+cam_n_y: 1
+cam_space_x: 0
+cam_space_y: 0
+
+report_options: 0
+drc_check_unrouted: 0
+drc_trace_width: 254000
+drc_pad_pad: 254000
+drc_pad_trace: 254000
+drc_trace_trace: 254000
+drc_hole_copper: 381000
+drc_annular_ring_pins: 177800
+drc_annular_ring_vias: 127000
+drc_board_edge_copper: 635000
+drc_board_edge_hole: 635000
+drc_hole_hole: 635000
+drc_copper_copper: 254000
+
+default_trace_width: 254000
+default_via_pad_width: 711200
+default_via_hole_width: 355600
+n_width_menu: 7
+  width_menu_item: 1 152400 711200 355600
+  width_menu_item: 2 203200 711200 355600
+  width_menu_item: 3 254000 711200 355600
+  width_menu_item: 4 304800 711200 355600
+  width_menu_item: 5 381000 711200 355600
+  width_menu_item: 6 508000 711200 355600
+  width_menu_item: 7 635000 711200 355600
+
+n_copper_layers: 2
+  layer_info: "selection" 0 255 255 255 1
+  layer_info: "background" 1 0 0 0 1
+  layer_info: "visible grid" 2 255 255 255 1
+  layer_info: "highlight" 3 255 255 255 1
+  layer_info: "DRC error" 4 255 128 64 1
+  layer_info: "board outline" 5 0 0 255 1
+  layer_info: "rat line" 6 255 0 255 1
+  layer_info: "top silk" 7 255 255 0 1
+  layer_info: "bottom silk" 8 255 192 192 1
+  layer_info: "top sm cutout" 9 160 160 160 1
+  layer_info: "bot sm cutout" 10 95 95 95 1
+  layer_info: "thru pad" 11 0 0 255 1
+  layer_info: "top copper" 12 0 255 0 1
+  layer_info: "bottom copper" 13 255 0 0 1
+
+[footprints]
+
+name: "1X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 45 145
+  ref_text: 50 0 160 0 7
+  centroid: 0 0 50
+  n_pins: 2
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "4X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 345 145
+  ref_text: 50 150 160 0 7
+  centroid: 0 150 50
+  n_pins: 8
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "7X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 645 145
+  ref_text: 50 300 160 0 7
+  centroid: 0 300 50
+  n_pins: 14
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "17X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 1645 145
+  ref_text: 50 800 160 0 7
+  centroid: 0 800 50
+  n_pins: 34
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "19" 40 900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "20" 40 900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "21" 40 1000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "22" 40 1000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "23" 40 1100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "24" 40 1100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "25" 40 1200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "26" 40 1200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "27" 40 1300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "28" 40 1300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "29" 40 1400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "30" 40 1400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "31" 40 1500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "32" 40 1500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "33" 40 1600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "34" 40 1600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "14X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 1345 145
+  ref_text: 50 650 160 0 7
+  centroid: 0 650 50
+  n_pins: 28
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 4 70 35 35 15
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "19" 40 900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "20" 40 900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "21" 40 1000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "22" 40 1000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "23" 40 1100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "24" 40 1100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "25" 40 1200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "26" 40 1200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "27" 40 1300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "28" 40 1300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "11X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 1045 145
+  ref_text: 50 500 160 0 7
+  centroid: 0 500 50
+  n_pins: 22
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "19" 40 900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "20" 40 900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "21" 40 1000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "22" 40 1000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "21X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 2045 145
+  ref_text: 50 1000 160 0 7
+  centroid: 0 1000 50
+  n_pins: 42
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "19" 40 900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "20" 40 900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "21" 40 1000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "22" 40 1000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "23" 40 1100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "24" 40 1100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "25" 40 1200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "26" 40 1200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "27" 40 1300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "28" 40 1300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "29" 40 1400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "30" 40 1400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "31" 40 1500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "32" 40 1500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "33" 40 1600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "34" 40 1600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "35" 40 1700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "36" 40 1700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "37" 40 1800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "38" 40 1800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "39" 40 1900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "40" 40 1900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "41" 40 2000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "42" 40 2000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "24X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 2345 145
+  ref_text: 50 1150 160 0 7
+  centroid: 0 1150 50
+  n_pins: 48
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "19" 40 900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "20" 40 900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "21" 40 1000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "22" 40 1000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "23" 40 1100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "24" 40 1100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "25" 40 1200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "26" 40 1200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "27" 40 1300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "28" 40 1300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "29" 40 1400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "30" 40 1400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "31" 40 1500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "32" 40 1500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "33" 40 1600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "34" 40 1600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "35" 40 1700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "36" 40 1700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "37" 40 1800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "38" 40 1800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "39" 40 1900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "40" 40 1900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "41" 40 2000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "42" 40 2000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "43" 40 2100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "44" 40 2100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "45" 40 2200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "46" 40 2200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "47" 40 2300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "48" 40 2300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "5X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 445 145
+  ref_text: 50 200 160 0 7
+  centroid: 0 200 50
+  n_pins: 10
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "2X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 145 145
+  ref_text: 50 50 160 0 7
+  centroid: 0 50 50
+  n_pins: 4
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "8X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 745 145
+  ref_text: 50 350 160 0 7
+  centroid: 0 350 50
+  n_pins: 16
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "18X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 1745 145
+  ref_text: 50 850 160 0 7
+  centroid: 0 850 50
+  n_pins: 36
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "19" 40 900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "20" 40 900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "21" 40 1000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "22" 40 1000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "23" 40 1100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "24" 40 1100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "25" 40 1200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "26" 40 1200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "27" 40 1300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "28" 40 1300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "29" 40 1400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "30" 40 1400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "31" 40 1500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "32" 40 1500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "33" 40 1600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "34" 40 1600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "35" 40 1700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "36" 40 1700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "15X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 1445 145
+  ref_text: 50 700 160 0 7
+  centroid: 0 700 50
+  n_pins: 30
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "19" 40 900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "20" 40 900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "21" 40 1000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "22" 40 1000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "23" 40 1100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "24" 40 1100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "25" 40 1200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "26" 40 1200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "27" 40 1300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "28" 40 1300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "29" 40 1400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "30" 40 1400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "12X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 1145 145
+  ref_text: 50 550 160 0 7
+  centroid: 0 550 50
+  n_pins: 24
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "19" 40 900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "20" 40 900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "21" 40 1000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "22" 40 1000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "23" 40 1100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "24" 40 1100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "22X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 2145 145
+  ref_text: 50 1050 160 0 7
+  centroid: 0 1050 50
+  n_pins: 44
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "19" 40 900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "20" 40 900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "21" 40 1000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "22" 40 1000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "23" 40 1100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "24" 40 1100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "25" 40 1200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "26" 40 1200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "27" 40 1300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "28" 40 1300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "29" 40 1400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "30" 40 1400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "31" 40 1500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "32" 40 1500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "33" 40 1600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "34" 40 1600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "35" 40 1700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "36" 40 1700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "37" 40 1800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "38" 40 1800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "39" 40 1900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "40" 40 1900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "41" 40 2000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "42" 40 2000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "43" 40 2100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "44" 40 2100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "25X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 2445 145
+  ref_text: 50 1200 160 0 7
+  centroid: 0 1200 50
+  n_pins: 50
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "19" 40 900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "20" 40 900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "21" 40 1000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "22" 40 1000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "23" 40 1100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "24" 40 1100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "25" 40 1200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "26" 40 1200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "27" 40 1300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "28" 40 1300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "29" 40 1400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "30" 40 1400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "31" 40 1500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "32" 40 1500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "33" 40 1600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "34" 40 1600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "35" 40 1700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "36" 40 1700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "37" 40 1800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "38" 40 1800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "39" 40 1900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "40" 40 1900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "41" 40 2000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "42" 40 2000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "43" 40 2100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "44" 40 2100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "45" 40 2200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "46" 40 2200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "47" 40 2300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "48" 40 2300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "49" 40 2400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "50" 40 2400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "6X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 545 145
+  ref_text: 50 250 160 0 7
+  centroid: 0 250 50
+  n_pins: 12
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "3X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 245 145
+  ref_text: 50 100 160 0 7
+  centroid: 0 100 50
+  n_pins: 6
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "9X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 845 145
+  ref_text: 50 400 160 0 7
+  centroid: 0 400 50
+  n_pins: 18
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "16X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 1545 145
+  ref_text: 50 750 160 0 7
+  centroid: 0 750 50
+  n_pins: 32
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "19" 40 900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "20" 40 900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "21" 40 1000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "22" 40 1000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "23" 40 1100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "24" 40 1100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "25" 40 1200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "26" 40 1200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "27" 40 1300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "28" 40 1300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "29" 40 1400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "30" 40 1400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "31" 40 1500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "32" 40 1500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "10X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 945 145
+  ref_text: 50 450 160 0 7
+  centroid: 0 450 50
+  n_pins: 20
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "19" 40 900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "20" 40 900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "13X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 1245 145
+  ref_text: 50 600 160 0 7
+  centroid: 0 600 50
+  n_pins: 26
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "19" 40 900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "20" 40 900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "21" 40 1000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "22" 40 1000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "23" 40 1100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "24" 40 1100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "25" 40 1200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "26" 40 1200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "19X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 1845 145
+  ref_text: 50 900 160 0 7
+  centroid: 0 900 50
+  n_pins: 38
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "19" 40 900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "20" 40 900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "21" 40 1000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "22" 40 1000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "23" 40 1100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "24" 40 1100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "25" 40 1200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "26" 40 1200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "27" 40 1300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "28" 40 1300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "29" 40 1400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "30" 40 1400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "31" 40 1500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "32" 40 1500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "33" 40 1600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "34" 40 1600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "35" 40 1700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "36" 40 1700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "37" 40 1800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "38" 40 1800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "20X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 1945 145
+  ref_text: 50 950 160 0 7
+  centroid: 0 950 50
+  n_pins: 40
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "19" 40 900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "20" 40 900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "21" 40 1000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "22" 40 1000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "23" 40 1100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "24" 40 1100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "25" 40 1200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "26" 40 1200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "27" 40 1300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "28" 40 1300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "29" 40 1400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "30" 40 1400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "31" 40 1500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "32" 40 1500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "33" 40 1600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "34" 40 1600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "35" 40 1700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "36" 40 1700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "37" 40 1800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "38" 40 1800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "39" 40 1900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "40" 40 1900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "23X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 2245 145
+  ref_text: 50 1100 160 0 7
+  centroid: 0 1100 50
+  n_pins: 46
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "9" 40 400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "10" 40 400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "11" 40 500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "12" 40 500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "13" 40 600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "14" 40 600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "15" 40 700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "16" 40 700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "17" 40 800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "18" 40 800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "19" 40 900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "20" 40 900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "21" 40 1000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "22" 40 1000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "23" 40 1100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "24" 40 1100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "25" 40 1200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "26" 40 1200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "27" 40 1300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "28" 40 1300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "29" 40 1400 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "30" 40 1400 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "31" 40 1500 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "32" 40 1500 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "33" 40 1600 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "34" 40 1600 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "35" 40 1700 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "36" 40 1700 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "37" 40 1800 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "38" 40 1800 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "39" 40 1900 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "40" 40 1900 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "41" 40 2000 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "42" 40 2000 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "43" 40 2100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "44" 40 2100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "45" 40 2200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "46" 40 2200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+[board]
+
+outline: 4 0
+  corner: 1 0 0 0
+  corner: 2 0 73660000 0
+  corner: 3 149860000 73660000 0
+  corner: 4 149860000 0 0
+
+[solder_mask_cutouts]
+
+
+[parts]
+
+part: J1
+  ref_text: 1270000 177800 0 0 4064000
+  package: ""
+  shape: "1X2HDR-100-40"
+  pos: 5080000 5080000 0 0 0
+
+part: J2
+  ref_text: 1270000 177800 0 1270000 4064000
+  package: ""
+  shape: "2X2HDR-100-40"
+  pos: 10160000 5080000 0 0 0
+
+part: J3
+  ref_text: 1270000 177800 0 2540000 4064000
+  package: ""
+  shape: "3X2HDR-100-40"
+  pos: 17780000 5080000 0 0 0
+
+part: J4
+  ref_text: 1270000 177800 0 3810000 4064000
+  package: ""
+  shape: "4X2HDR-100-40"
+  pos: 27940000 5080000 0 0 0
+
+part: J5
+  ref_text: 1270000 177800 0 5080000 4064000
+  package: ""
+  shape: "5X2HDR-100-40"
+  pos: 40640000 5080000 0 0 0
+
+part: J6
+  ref_text: 1270000 177800 0 6350000 4064000
+  package: ""
+  shape: "6X2HDR-100-40"
+  pos: 55880000 5080000 0 0 0
+
+part: J7
+  ref_text: 1270000 177800 0 7620000 4064000
+  package: ""
+  shape: "7X2HDR-100-40"
+  pos: 73660000 5080000 0 0 0
+
+part: J8
+  ref_text: 1270000 177800 0 8890000 4064000
+  package: ""
+  shape: "8X2HDR-100-40"
+  pos: 93980000 5080000 0 0 0
+
+part: J9
+  ref_text: 1270000 177800 0 10160000 4064000
+  package: ""
+  shape: "9X2HDR-100-40"
+  pos: 116840000 5080000 0 0 0
+
+part: J10
+  ref_text: 1270000 177800 0 11430000 4064000
+  package: ""
+  shape: "10X2HDR-100-40"
+  pos: 5080000 15240000 0 0 0
+
+part: J11
+  ref_text: 1270000 177800 0 12700000 4064000
+  package: ""
+  shape: "11X2HDR-100-40"
+  pos: 33020000 15240000 0 0 0
+
+part: J12
+  ref_text: 1270000 177800 0 13970000 4064000
+  package: ""
+  shape: "12X2HDR-100-40"
+  pos: 63500000 15240000 0 0 0
+
+part: J13
+  ref_text: 1270000 177800 0 15240000 4064000
+  package: ""
+  shape: "13X2HDR-100-40"
+  pos: 96520000 15240000 0 0 0
+
+part: J14
+  ref_text: 1270000 177800 0 16510000 4064000
+  package: ""
+  shape: "14X2HDR-100-40"
+  pos: 5080000 25400000 0 0 0
+
+part: J15
+  ref_text: 1270000 177800 0 17780000 4064000
+  package: ""
+  shape: "15X2HDR-100-40"
+  pos: 43180000 25400000 0 0 0
+
+part: J16
+  ref_text: 1270000 177800 0 19050000 4064000
+  package: ""
+  shape: "16X2HDR-100-40"
+  pos: 83820000 25400000 0 0 0
+
+part: J17
+  ref_text: 1270000 177800 0 20320000 4064000
+  package: ""
+  shape: "17X2HDR-100-40"
+  pos: 5080000 35560000 0 0 0
+
+part: J18
+  ref_text: 1270000 177800 0 21590000 4064000
+  package: ""
+  shape: "18X2HDR-100-40"
+  pos: 50800000 35560000 0 0 0
+
+part: J19
+  ref_text: 1270000 177800 0 22860000 4064000
+  package: ""
+  shape: "19X2HDR-100-40"
+  pos: 99060000 35560000 0 0 0
+
+part: J20
+  ref_text: 1270000 177800 0 24130000 4064000
+  package: ""
+  shape: "20X2HDR-100-40"
+  pos: 5080000 45720000 0 0 0
+
+part: J21
+  ref_text: 1270000 177800 0 25400000 4064000
+  package: ""
+  shape: "21X2HDR-100-40"
+  pos: 58420000 45720000 0 0 0
+
+part: J22
+  ref_text: 1270000 177800 0 26670000 4064000
+  package: ""
+  shape: "22X2HDR-100-40"
+  pos: 5080000 55880000 0 0 0
+
+part: J23
+  ref_text: 1270000 177800 0 27940000 4064000
+  package: ""
+  shape: "23X2HDR-100-40"
+  pos: 63500000 55880000 0 0 0
+
+part: J24
+  ref_text: 1270000 177800 0 29210000 4064000
+  package: ""
+  shape: "24X2HDR-100-40"
+  pos: 5080000 66040000 0 0 0
+
+part: J25
+  ref_text: 1270000 177800 0 30480000 4064000
+  package: ""
+  shape: "25X2HDR-100-40"
+  pos: 68580000 66040000 0 0 0
+
+[nets]
+
+[texts]
+
+text: "Headers with 40 mil holes, from http://www.freepcb.com/cgi-bin/gforum.cgi?post=3287;search_string=header%2040%20mil;#3287" 5080000 30480000 7 0 0 1270000 254000 0
+
+[end]
