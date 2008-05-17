@@ -24,6 +24,11 @@ footprint_map = {
 # If enabled, name resistors numerically R1, R2, ... instead of hierarchically.
 SERIAL_RESISTORS = True
 
+# If enabled, anything containing Vdd or Vss will be named Vdd or Vss--
+# effectively disabling hierarchy for these power sources. **Note that if
+# there are multiple Vdd and Vss, this will cause duplicate parts!**
+SHORT_VDD_VSS = True
+
 # If enabled, RX$Xflipflop$XX<n>$Xinv$R{P,N} will be mapped to ${P,N}<n>.
 # Useful for laying out a single dtflop-ms_test, but may cause serious
 # errors otherwise!
@@ -83,6 +88,12 @@ resistor_serial = 0
 
 def shorten(long, is_netname):
     global resistor_serial
+
+    if SHORT_VDD_VSS:
+        if "Vdd" in long:
+            return "Vdd"
+        if "Vss" in long:
+            return "Vss"
 
     if long.startswith("R") and SERIAL_RESISTORS:
         resistor_serial += 1
