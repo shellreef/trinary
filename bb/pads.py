@@ -27,8 +27,8 @@ UNIVERSAL_SUFFIX = ""
 UNIVERSAL_PREFIX = ""
 
 # Append/prepend to all net names
-NETNAME_SUFFIX = ""
-NETNAME_PREFIX = os.environ.get("JC_NETNAME_SUFFIX", "")
+NETNAME_SUFFIX = os.environ.get("JC_NETNAME_SUFFIX", "")
+NETNAME_PREFIX = ""
 
 # If enabled, name resistors numerically R1, R2, ... instead of hierarchically.
 SERIAL_RESISTORS = True
