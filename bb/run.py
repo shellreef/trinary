@@ -6,7 +6,7 @@
 #
 import os, sys
 
-if len(sys.argv) != 2:
+if len(sys.argv) < 2:
     print "usage: %s circuit-name" % (sys.argv[0])
     print 
     print "Where circuit-name is an LTspice circuit name, which reads"
@@ -37,23 +37,30 @@ if os.access("../circuit/%s.asy" % (name,), os.R_OK):
 
 print "Found netlist: %s" % (netfile,)
 
-# Get parameters on the circuit so they can be merged. 
-try:
-    os.environ["JC_CHIP_START"] = str(int(raw_input("Start chip numbering at: ")))
-except ValueError:
-    print "(Using default)"
+if "-q" not in sys.argv:
+    # Get parameters on the circuit, to help with unique identifiers,
+    # so multiple circuits can easily be merged.
+    print "\nConfiguration Questions (to skip, pass -q next time)\n"
+    try:
+        os.environ["JC_CHIP_START"] = str(int(raw_input("Start chip numbering at: ")))
+    except ValueError:
+        print "(Using default)"
 
-try:
-    os.environ["JC_NETNAME_SUFFIX"] = raw_input("Netname suffix: ")
-except ValueError:
-    print "(Using default)"
+    try:
+        os.environ["JC_NETNAME_SUFFIX"] = raw_input("Netname suffix: ")
+    except ValueError:
+        print "(Using default)"
 
-try:
-    os.environ["JC_RESISTOR_SERIAL_START"] = str(int(raw_input("Start resistor numbering at: ")))
-except ValueError:
-    print "(Using default)"
+    try:
+        os.environ["JC_RESISTOR_SERIAL_START"] = str(int(raw_input("Start resistor numbering at: ")))
+    except ValueError:
+        print "(Using default)"
 
 # Copy here so files are saved locally, in 'bb' instead of 'circuits'
 os.system("cp -v %s ." % (netfile,))
 os.system("python bb.py %s.net -p" % (name,))
 
+if os.access("%s.pads" % (name,), os.R_OK):
+    print "Your PADS-PCB netlist file is now available at %s.pads for importing into FreePCB." % (name,)
+else:
+    print "Seems there was a problem generating %s.pads." % (name,)

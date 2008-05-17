@@ -272,9 +272,9 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
                 assert refdesg[0:2] == 'X$', "Assumed refdesg %s began with X$, but it didn't" % (refdesg,)
                 refdesg_without_letter = refdesg[2:]
                 new_node = rewrite_node("", refdesg_without_letter, node)
-                sys.stderr.write("Rewriting to node = %s\n" % (new_node,))
+                #sys.stderr.write("Rewriting to node = %s\n" % (new_node,))
 
-            sys.stderr.write("Adding to chips: %s\n" % (new_node,))
+            #sys.stderr.write("Adding to chips: %s\n" % (new_node,))
             chips[chip_num][1][pin] = new_node
 
     internal_only_nodes = {}
@@ -406,7 +406,7 @@ def expand(subckt_defns, subckt_nodes, line, prefix, outer_nodes, outer_prefixes
     outer_model = words[-1]
     outer_args = words[1:-1]
 
-    sys.stderr.write("expand(%s,%s,%s,%s)\n" % (line, prefix, outer_nodes, outer_prefixes))
+    #sys.stderr.write("expand(%s,%s,%s,%s)\n" % (line, prefix, outer_nodes, outer_prefixes))
     if is_expandable_subcircuit(outer_refdesg, outer_model):
         nodes = make_node_mapping(subckt_nodes[outer_model], outer_args)
         new_lines = []
@@ -439,9 +439,8 @@ def expand(subckt_defns, subckt_nodes, line, prefix, outer_nodes, outer_prefixes
                         # Chop '$' if begins with it
                         if len(prefixes_to_pass[nodes_to_pass[n]]) >= 1 and prefixes_to_pass[nodes_to_pass[n]][0] == '$':
                             prefixes_to_pass[nodes_to_pass[n]] = prefixes_to_pass[nodes_to_pass[n]][1:]
-                # TODO: get the prefixes right!
-                sys.stderr.write("PASSING NODES: %s (outer=%s, inner=%s), outer_refdesg=%s, prefix=%s\n" % (nodes_to_pass, outer_nodes, nodes, outer_refdesg, prefix))
-                sys.stderr.write("\tPASSING PREFIXES: %s (outer=%s)\n" % (prefixes_to_pass, outer_prefixes))
+                #sys.stderr.write("PASSING NODES: %s (outer=%s, inner=%s), outer_refdesg=%s, prefix=%s\n" % (nodes_to_pass, outer_nodes, nodes, outer_refdesg, prefix))
+                #sys.stderr.write("\tPASSING PREFIXES: %s (outer=%s)\n" % (prefixes_to_pass, outer_prefixes))
                 new_lines.extend(expand(subckt_defns, subckt_nodes, sline, prefix +
                     "$" + outer_refdesg, nodes_to_pass, prefixes_to_pass))
             else:
@@ -453,7 +452,7 @@ def expand(subckt_defns, subckt_nodes, line, prefix, outer_nodes, outer_prefixes
                 for w in inner_args:
                     #print "****", word
                     if w in nodes.keys():
-                        # XXX TODO: Need to follow up hierarchy! This leads to
+                        # Follow up the hierarchy. Without doing this, leads to:
                         # incomplete nets. For example, dtflop-ms_test.net maps:
                         #
                         # In nodes {'Q': 'Q', 'C': 'CLK', 'D': 'D'}, rewrite C -> CLK, prefix  [correct]
@@ -469,11 +468,10 @@ def expand(subckt_defns, subckt_nodes, line, prefix, outer_nodes, outer_prefixes
                         if nodes[w] in outer_nodes:
                             # This is a port of this subcircuit, ascends hierarchy
                             new_words.append(outer_prefixes[outer_nodes[nodes[w]]] + outer_nodes[nodes[w]])
-                            # TODO XXX: get the prefixes right! what if it isn't top-level?
                             #new_words.append(outer_nodes[nodes[w]])
-                            sys.stderr.write("Node %s -> %s -> %s (outer nodes=%s, prefixes=%s) (prefix=%s, refdesgs=%s,%s)\n" % 
-                                    (w, nodes[w], outer_nodes[nodes[w]], outer_nodes, outer_prefixes, prefix, 
-                                        outer_refdesg, inner_refdesg))
+                            #sys.stderr.write("Node %s -> %s -> %s (outer nodes=%s, prefixes=%s) (prefix=%s, refdesgs=%s,%s)\n" % 
+                            #        (w, nodes[w], outer_nodes[nodes[w]], outer_nodes, outer_prefixes, prefix, 
+                            #            outer_refdesg, inner_refdesg))
                         else:
                             new_words.append(rewrite_node(prefix, "", nodes[w]))
 
