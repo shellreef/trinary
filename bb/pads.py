@@ -21,8 +21,18 @@ footprint_map = {
         "D": "DO-35",           # All diodes (note: should really be specific!)
         }
 
+# Append/prepend this to all part and net names (note, prefix may
+# cause problems with footprint mapping, if can't be recognized.)
+UNIVERSAL_SUFFIX = ""
+UNIVERSAL_PREFIX = ""
+
+# Append/prepend to all net names
+NETNAME_SUFFIX = ""
+NETNAME_PREFIX = "ts_"
+
 # If enabled, name resistors numerically R1, R2, ... instead of hierarchically.
 SERIAL_RESISTORS = True
+RESISTOR_SERIAL_START = 0
 
 # If enabled, anything containing Vdd or Vss will be named Vdd or Vss--
 # effectively disabling hierarchy for these power sources. **Note that if
@@ -84,9 +94,16 @@ next_serial = {
         "X": 1,
         }
 
-resistor_serial = 0
+resistor_serial = RESISTOR_SERIAL_START
 
 def shorten(long, is_netname):
+    short = UNIVERSAL_PREFIX + shorten_2(long, is_netname) + UNIVERSAL_SUFFIX
+    if is_netname:
+        short = NETNAME_PREFIX + short + NETNAME_SUFFIX
+
+    return short
+
+def shorten_2(long, is_netname):
     global resistor_serial
 
     if SHORT_VDD_VSS:
