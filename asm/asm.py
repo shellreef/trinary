@@ -16,6 +16,10 @@ outputs:
 """ % (sys.argv[0])
 
         raise SystemExit
+    
+    if not sys.argv[1].endswith(".t"):
+        print "Input assembly filename must end in .t"
+        raise SystemExit
 
     asmfile = file(sys.argv[1], "rt")
     tritstream_filename = sys.argv[1].replace(".t", ".3")
@@ -125,11 +129,13 @@ def assemble(asmfile):
                         literal_map.get(op)))
             if x is None:
                 print "Bad register, label, or literal: %s" % (op, )
+                print "Labels: %s" % (labels,)
                 raise SystemExit
             else:
                 machine_code.extend(x)
     
-        #print machine_code
+        assert len(machine_code) == 3, \
+                "Incorrect operand count, instruction trits:: %s" % (machine_code,)
         tritstream.extend(machine_code)
         pc += 1
         if pc > 3:

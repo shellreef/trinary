@@ -5,7 +5,7 @@
 # Created PADS-PCB netlist file, for FreePCB at http://www.freepcb.com/ , 
 # or any other PCB layout program that supports the PADS-PCB format.
 
-import sys
+import sys, os
 
 PROGRAM_NAME = "pads.py"
 
@@ -21,8 +21,30 @@ footprint_map = {
         "D": "DO-35",           # All diodes (note: should really be specific!)
         }
 
+# TODO: Add bypass capacitor? Might be better done
+# manually, on back of board, directly between 7 and 14.
+#
+# TODO: Connect not-connected pins? Probably a good idea but
+# be careful about shorting something. Could also be done 
+# manually, with copious amounts of solder.
+
+# Append/prepend this to all part and net names (note, prefix may
+# cause problems with footprint mapping, if can't be recognized.)
+UNIVERSAL_SUFFIX = ""
+UNIVERSAL_PREFIX = ""
+
+# Append/prepend to all net names
+NETNAME_SUFFIX = os.environ.get("JC_NETNAME_SUFFIX", "")
+NETNAME_PREFIX = ""
+
 # If enabled, name resistors numerically R1, R2, ... instead of hierarchically.
 SERIAL_RESISTORS = True
+RESISTOR_SERIAL_START = int(os.environ.get("JC_RESISTOR_SERIAL_START", 0))
+
+# If enabled, anything containing Vdd or Vss will be named Vdd or Vss--
+# effectively disabling hierarchy for these power sources. **Note that if
+# there are multiple Vdd and Vss, this will cause duplicate parts!**
+SHORT_VDD_VSS = True
 
 # If enabled, RX$Xflipflop$XX<n>$Xinv$R{P,N} will be mapped to ${P,N}<n>.
 # Useful for laying out a single dtflop-ms_test, but may cause serious
@@ -33,7 +55,7 @@ SHORT_DTFLOP_RP_RN = False
 # USE_SHORT_NAMES and BREAK_LONG_LINES can be turned off!
 
 # If true, reference designators and node names will be assigned
-# sequentially, instead of using their hierarchical name
+# sequentially if needed, instead of using their hierarchical name
 # from the net2 file. Some PCB programs have length limits
 # on reference designators (FreePCB).
 USE_SHORT_NAMES = True
@@ -79,10 +101,23 @@ next_serial = {
         "X": 1,
         }
 
-resistor_serial = 0
+resistor_serial = RESISTOR_SERIAL_START
 
 def shorten(long, is_netname):
+    short = UNIVERSAL_PREFIX + shorten_2(long, is_netname) + UNIVERSAL_SUFFIX
+    if is_netname:
+        short = NETNAME_PREFIX + short + NETNAME_SUFFIX
+
+    return short
+
+def shorten_2(long, is_netname):
     global resistor_serial
+
+    if SHORT_VDD_VSS:
+        if "Vdd" in long:
+            return "Vdd"
+        if "Vss" in long:
+            return "Vss"
 
     if long.startswith("R") and SERIAL_RESISTORS:
         resistor_serial += 1
@@ -189,6 +224,7 @@ for line in infile.readlines():
 
     # Make parts list
     parts.append((refdesg, model))
+
 
 # Map models to footprints
 print "*PART*"

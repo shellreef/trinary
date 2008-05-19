@@ -20,7 +20,7 @@ PINATTR PinName 2
 PINATTR SpiceOrder 2
 PIN 0 16 NONE 8
 PINATTR PinName 3
-PINATTR SpiceOrder 3
+PINATTR SpiceOrder 4
 PIN -64 0 NONE 8
 PINATTR PinName COM
-PINATTR SpiceOrder 4
+PINATTR SpiceOrder 3

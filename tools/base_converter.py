@@ -11,7 +11,7 @@ import Trits
 MIN_VAL = 10
 LOW_BOUND = ord('A') + MIN_VAL
 
-int_cnvrt(value, base_frm, base_to):
+def int_cnvrt(value, base_frm, base_to):
     ''' int_cvrt: convert the number to the left of the decimal place
         value: string containing value to convert
         from: what base to convert from. Can be positive and negative.
@@ -27,7 +27,10 @@ int_cnvrt(value, base_frm, base_to):
             not balanced.  Bases must also have a magnitude greater than 1.
         For balanced bases greater than 3, a negative number is represented
             with an 'i' next to it.
-        Example: 4i21 => 4(-2)1
+            Example: 4i21 => 4(-2)1
+        Currently conversion balanced bases is not supported.  If balanced
+            base is entered, the result will be returned in base 10.
+        A negative sign before the number will negate the result.
     '''
 
     # check for magnitude greater than 1
@@ -59,7 +62,7 @@ int_cnvrt(value, base_frm, base_to):
     prev  = 1   # the value of the next digit
     cur   = 0   # current digit
 
-    if magnitude_f >= MIN_VAL
+    if magnitude_f >= MIN_VAL:
         max_val = magnitude_f - MIN_VAL
 
     for i in range(len(value) - 1, -1, -1):
@@ -80,13 +83,14 @@ int_cnvrt(value, base_frm, base_to):
             if cur > magnitude_f:
                 print "%s: invalid input", value[i]
                 raise SystemExit
+            if i != len(value) -1:
+                sum = sum + prev*neg*count
 
-            sum = sum + prev*neg*count
+                # reset variables to appropiate values
+                neg = 1
+                count = count*abs(base_frm)
 
-            # reset variables to appropiate values
             prev = cur
-            neg = 1
-            count = count*abs(base_frm)
 
         elif value[i] == '-' and i == len(value) - 1:
             # negate the whole number
@@ -102,12 +106,14 @@ int_cnvrt(value, base_frm, base_to):
                 print "%s: invalid input", value[i]
                 raise SystemExit
 
-            sum = sum + prev*neg*count
+            if i != len(value) -1:
+                sum = sum + prev*neg*count
 
-            # reset variables to appropriate values
+                # reset variables to appropriate values
+                neg = 1
+                count = count*abs(base_frm)
+
             prev = cur
-            neg = 1
-            count = count*abs(base_frm)
 
         else:
             print "%s: invalid input", value[i]
@@ -118,7 +124,7 @@ int_cnvrt(value, base_frm, base_to):
     sum = sign*sum
 
     # return base 10 if desired base is balanced
-    if base_f < 0:
+    if base_frm < 0:
         return "" + sum
 
     # compute unbalanced conversion
@@ -129,7 +135,7 @@ int_cnvrt(value, base_frm, base_to):
     while quotient != 0:
         remainder = quotient%magnitude_t
         quotient = quotient/magnitude_t
-        result = "" + remainder + result
+        result = str(remainder) + result
 
     return result
 
@@ -149,3 +155,6 @@ int_cnvrt(value, base_frm, base_to):
 
     s = ".".join(lis_digits) => combine elements in list by "."
 '''
+
+if __name__ == "__main__":
+    print int_cnvrt("111", 2, 10)
