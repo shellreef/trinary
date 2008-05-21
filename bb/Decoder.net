@@ -1,0 +1,44 @@
+* Z:\College\Senior Year\Trinary Research Project\trinary\circuits\Decoder.asc
+XX1 DEC_IN OUT_i OUT_0 OUT_1 decoder1-3
+
+* block symbol definitions
+.subckt decoder1-3 IN OUT_i OUT_0 OUT_1
+XX1pti IN IN_pti pti
+XX1sti IN_pti OUT_1 sti
+XXinti IN OUT_i nti
+XX0nor OUT_1 OUT_i OUT_0 tnor
+.ends decoder1-3
+
+.subckt pti IN OUT
+Xinv IN OUT NC_01 NC_02 tinv
+.ends pti
+
+.subckt sti IN OUT
+XXinv IN NC_01 OUT NC_02 tinv
+.ends sti
+
+.subckt nti IN OUT
+Xinv IN NC_01 NC_02 OUT tinv
+.ends nti
+
+.subckt tnor A B TNOR_Out
+RP NP TNOR_Out 12k
+RN TNOR_Out NN 12k
+MN1 NN A $G_Vss $G_Vss CD4007N
+MP2 NI A $G_Vdd $G_Vdd CD4007P
+MN2 NN B $G_Vss $G_Vss CD4007N
+MP1 NI B NP $G_Vdd CD4007P
+.ends tnor
+
+.subckt tinv Vin PTI_Out STI_Out NTI_Out
+RP PTI_Out STI_Out 12k
+RN STI_Out NTI_Out 12k
+MN NTI_Out Vin $G_Vss $G_Vss CD4007N
+MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
+.ends tinv
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\PROGRA~1\LTC\SwCADIII\lib\cmp\standard.mos
+.backanno
+.end

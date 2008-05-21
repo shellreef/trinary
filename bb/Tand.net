@@ -1,0 +1,34 @@
+* Z:\College\Senior Year\Trinary Research Project\trinary\circuits\TAND.asc
+XX1 TAND_1A TAND_1B TAND_1Y min
+
+* block symbol definitions
+.subckt min A B MIN_OUT
+XXsti_tand AtnandB MIN_OUT sti
+XXtnand A B AtnandB tnand
+.ends min
+
+.subckt sti IN OUT
+XXinv IN NC_01 OUT NC_02 tinv
+.ends sti
+
+.subckt tnand A B TNAND_Out
+RP NP TNAND_Out 12k
+RN TNAND_Out NN 12k
+MP1 NP B $G_Vdd $G_Vdd CD4007P
+MP2 NP A $G_Vdd $G_Vdd CD4007P
+MN2 NI B $G_Vss $G_Vss CD4007N
+MN1 NN A NI $G_Vss CD4007N
+.ends tnand
+
+.subckt tinv Vin PTI_Out STI_Out NTI_Out
+RP PTI_Out STI_Out 12k
+RN STI_Out NTI_Out 12k
+MN NTI_Out Vin $G_Vss $G_Vss CD4007N
+MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
+.ends tinv
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\PROGRA~1\LTC\SwCADIII\lib\cmp\standard.mos
+.backanno
+.end

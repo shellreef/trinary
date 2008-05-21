@@ -1,0 +1,45 @@
+* Z:\College\Senior Year\Trinary Research Project\trinary\circuits\Cycle_Up.asc
+XX1 CU_IN CU_OUT tcycle_up
+
+* block symbol definitions
+.subckt tcycle_up IN OUT
+XXnti _IN _IN_NTI nti
+XXpti _IN _IN_PTI pti
+XXsti IN _IN sti
+XXtnor1 _IN_NTI INI OUT tnor
+XXtnor0 _IN_PTI 0 INI tnor
+.ends tcycle_up
+
+.subckt nti IN OUT
+Xinv IN NC_01 NC_02 OUT tinv
+.ends nti
+
+.subckt pti IN OUT
+Xinv IN OUT NC_01 NC_02 tinv
+.ends pti
+
+.subckt sti IN OUT
+XXinv IN NC_01 OUT NC_02 tinv
+.ends sti
+
+.subckt tnor A B TNOR_Out
+RP NP TNOR_Out 12k
+RN TNOR_Out NN 12k
+MN1 NN A $G_Vss $G_Vss CD4007N
+MP2 NI A $G_Vdd $G_Vdd CD4007P
+MN2 NN B $G_Vss $G_Vss CD4007N
+MP1 NI B NP $G_Vdd CD4007P
+.ends tnor
+
+.subckt tinv Vin PTI_Out STI_Out NTI_Out
+RP PTI_Out STI_Out 12k
+RN STI_Out NTI_Out 12k
+MN NTI_Out Vin $G_Vss $G_Vss CD4007N
+MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
+.ends tinv
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\PROGRA~1\LTC\SwCADIII\lib\cmp\standard.mos
+.backanno
+.end

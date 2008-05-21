@@ -1,0 +1,83 @@
+* Z:\College\Senior Year\Trinary Research Project\trinary\circuits\logic_board.asc
+XX1 DEC_IN OUT_i OUT_0 OUT_1 decoder1-3
+XX2 $G_Vdd $G_Vss tpower
+XX3 CU_IN CU_OUT tcycle_up
+XX4 TAND_1A TAND_1B TAND_1Y min
+XX5 TAND_2A TAND_2B TAND_2Y min
+XX6 TAND_3A TAND_3B TAND_3Y min
+XX7 INV1_IN PTI1 STI1 NTI1 tinv
+XX8 INV2_IN PTI2 STI2 NTI2 tinv
+XX9 INV3_IN PTI3 STI3 NTI3 tinv
+XX10 INV4_IN PTI4 STI4 NTI4 tinv
+XX11 INV5_IN PTI5 STI5 NTI5 tinv
+XX12 INV6_IN PTI6 STI6 NTI6 tinv
+XX13 INV7_IN PTI7 STI7 NTI7 tinv
+
+* block symbol definitions
+.subckt decoder1-3 IN OUT_i OUT_0 OUT_1
+XX1pti IN IN_pti pti
+XX1sti IN_pti OUT_1 sti
+XXinti IN OUT_i nti
+XX0nor OUT_1 OUT_i OUT_0 tnor
+.ends decoder1-3
+
+.subckt tpower Vdd Vss
+Vdd Vdd 0 5V
+Vss 0 Vss 5V
+.ends tpower
+
+.subckt tcycle_up IN OUT
+XXnti _IN _IN_NTI nti
+XXpti _IN _IN_PTI pti
+XXsti IN _IN sti
+XXtnor1 _IN_NTI INI OUT tnor
+XXtnor0 _IN_PTI 0 INI tnor
+.ends tcycle_up
+
+.subckt min A B MIN_OUT
+XXsti_tand AtnandB MIN_OUT sti
+XXtnand A B AtnandB tnand
+.ends min
+
+.subckt tinv Vin PTI_Out STI_Out NTI_Out
+RP PTI_Out STI_Out 12k
+RN STI_Out NTI_Out 12k
+MN NTI_Out Vin $G_Vss $G_Vss CD4007N
+MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
+.ends tinv
+
+.subckt pti IN OUT
+Xinv IN OUT NC_01 NC_02 tinv
+.ends pti
+
+.subckt sti IN OUT
+XXinv IN NC_01 OUT NC_02 tinv
+.ends sti
+
+.subckt nti IN OUT
+Xinv IN NC_01 NC_02 OUT tinv
+.ends nti
+
+.subckt tnor A B TNOR_Out
+RP NP TNOR_Out 12k
+RN TNOR_Out NN 12k
+MN1 NN A $G_Vss $G_Vss CD4007N
+MP2 NI A $G_Vdd $G_Vdd CD4007P
+MN2 NN B $G_Vss $G_Vss CD4007N
+MP1 NI B NP $G_Vdd CD4007P
+.ends tnor
+
+.subckt tnand A B TNAND_Out
+RP NP TNAND_Out 12k
+RN TNAND_Out NN 12k
+MP1 NP B $G_Vdd $G_Vdd CD4007P
+MP2 NP A $G_Vdd $G_Vdd CD4007P
+MN2 NI B $G_Vss $G_Vss CD4007N
+MN1 NN A NI $G_Vss CD4007N
+.ends tnand
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\PROGRA~1\LTC\SwCADIII\lib\cmp\standard.mos
+.backanno
+.end

@@ -1,0 +1,17 @@
+* Z:\College\Senior Year\Trinary Research Project\trinary\circuits\Inverter.asc
+XX1 INV_IN1 PTI1 STI1 NTI1 tinv
+XX2 INV_IN2 PTI2 STI2 NTI2 tinv
+
+* block symbol definitions
+.subckt tinv Vin PTI_Out STI_Out NTI_Out
+RP PTI_Out STI_Out 12k
+RN STI_Out NTI_Out 12k
+MN NTI_Out Vin $G_Vss $G_Vss CD4007N
+MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
+.ends tinv
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\PROGRA~1\LTC\SwCADIII\lib\cmp\standard.mos
+.backanno
+.end

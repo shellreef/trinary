@@ -1,0 +1,110 @@
+G04 FreePCB version 1.343*
+G04 Z:\trinary\bb\CAM-Logic\top_paste_mask.grb*
+G04  layer *
+G04 Scale: 100 percent, Rotated: No, Reflected: No *
+%FSLAX24Y24*%
+%MOIN*%
+%LNTop*%
+%ADD10C,0.005000*%
+G90*
+G70D02*
+
+G04 Step and Repeat for panelization *
+
+G04 ----------------------- Draw board outline (positive)*
+%LPD*%
+G54D10*
+G01X-25000Y16000D02*
+G01X31000Y16000D01*
+G04 end of side 1*
+G01X31000Y-29000D01*
+G04 end of side 2*
+G01X-15000Y-29000D01*
+G04 end of side 3*
+G01X-25000Y-29000D01*
+G04 end of side 4*
+G01X-25000Y16000D01*
+
+G04 -------------- Draw Parts, Pads, Traces, Vias and Text (positive)*
+%LPD*%
+G04 Draw part IC_CD4007_10*
+G04 Draw part R1*
+G04 Draw part R2*
+G04 Draw part R3*
+G04 Draw part R4*
+G04 Draw part IC_CD4007_11*
+G04 Draw part R5*
+G04 Draw part R6*
+G04 Draw part R7*
+G04 Draw part R8*
+G04 Draw part IC_CD4007_12*
+G04 Draw part R9*
+G04 Draw part R10*
+G04 Draw part R11*
+G04 Draw part R12*
+G04 Draw part IC_CD4007_16*
+G04 Draw part R25*
+G04 Draw part R26*
+G04 Draw part R27*
+G04 Draw part R28*
+G04 Draw part IC_CD4007_22*
+G04 Draw part IC_CD4007_23*
+G04 Draw part IC_CD4007_24*
+G04 Draw part R45*
+G04 Draw part R46*
+G04 Draw part R47*
+G04 Draw part R48*
+G04 Draw part R49*
+G04 Draw part R50*
+G04 Draw part R51*
+G04 Draw part R52*
+G04 Draw part IC_CD4007_18*
+G04 Draw part IC_CD4007_19*
+G04 Draw part IC_CD4007_20*
+G04 Draw part IC_CD4007_21*
+G04 Draw part R34*
+G04 Draw part R35*
+G04 Draw part R36*
+G04 Draw part R37*
+G04 Draw part R38*
+G04 Draw part R39*
+G04 Draw part R40*
+G04 Draw part R41*
+G04 Draw part R42*
+G04 Draw part R43*
+G04 Draw part IC_CD4007_25*
+G04 Draw part IC_CD4007_26*
+G04 Draw part R54*
+G04 Draw part R55*
+G04 Draw part R56*
+G04 Draw part R57*
+G04 Draw part IC_CD4007_27*
+G04 Draw part IC_CD4007_28*
+G04 Draw part R58*
+G04 Draw part R59*
+G04 Draw part R60*
+G04 Draw part R61*
+G04 Draw part IC_CD4007_29*
+G04 Draw part IC_CD4007_30*
+G04 Draw part R62*
+G04 Draw part R63*
+G04 Draw part R64*
+G04 Draw part R65*
+G04 Draw part INV1*
+G04 Draw part INV2*
+G04 Draw part INV3*
+G04 Draw part INV4*
+G04 Draw part INV5*
+G04 Draw part INV6*
+G04 Draw part INV7*
+G04 Draw part INV8*
+G04 Draw part CU*
+G04 Draw part DEC*
+G04 Draw part TAND*
+G04 Draw part POWER*
+
+G04 Draw traces*
+
+G04 Draw Text*
+M00*
+M02*
