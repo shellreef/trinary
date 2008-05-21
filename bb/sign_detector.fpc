@@ -1,0 +1,1312 @@
+[options]
+
+version: 1.343
+file_version: 1.332
+project_name: "test"
+full_library_folder: "c:\program files\freepcb\lib"
+CAM_folder: ""
+ses_file_path: "Z:\trinary\code\bb\sign_detector.ses"
+SMT_connect_copper: "0"
+dsn_flags: "0"
+dsn_bounds_poly: "0"
+dsn_signals_poly: "0"
+autosave_interval: 0
+netlist_import_flags: 451
+units: MIL
+
+visible_grid_spacing: 25400000.000000
+  visible_grid_item: 100MIL
+  visible_grid_item: 125MIL
+  visible_grid_item: 200MIL
+  visible_grid_item: 250MIL
+  visible_grid_item: 400MIL
+  visible_grid_item: 500MIL
+  visible_grid_item: 1000MIL
+  visible_grid_item: 1MM
+  visible_grid_item: 2MM
+  visible_grid_item: 2.5MM
+  visible_grid_item: 4MM
+  visible_grid_item: 5MM
+  visible_grid_item: 10MM
+  visible_grid_item: 20MM
+  visible_grid_item: 25MM
+  visible_grid_item: 40MM
+  visible_grid_item: 50MM
+  visible_grid_item: 100MM
+
+placement_grid_spacing: 2540000.000000
+  placement_grid_item: 10MIL
+  placement_grid_item: 20MIL
+  placement_grid_item: 25MIL
+  placement_grid_item: 40MIL
+  placement_grid_item: 50MIL
+  placement_grid_item: 100MIL
+  placement_grid_item: 200MIL
+  placement_grid_item: 250MIL
+  placement_grid_item: 400MIL
+  placement_grid_item: 500MIL
+  placement_grid_item: 1000MIL
+  placement_grid_item: 0.1MM
+  placement_grid_item: 0.2MM
+  placement_grid_item: 0.25MM
+  placement_grid_item: 0.4MM
+  placement_grid_item: 0.5MM
+  placement_grid_item: 1MM
+  placement_grid_item: 2MM
+  placement_grid_item: 2.5MM
+  placement_grid_item: 4MM
+  placement_grid_item: 5MM
+  placement_grid_item: 10MM
+
+routing_grid_spacing: 508000.000000
+  routing_grid_item: 1MIL
+  routing_grid_item: 2MIL
+  routing_grid_item: 2.5MIL
+  routing_grid_item: 3.33330709MIL
+  routing_grid_item: 4MIL
+  routing_grid_item: 5MIL
+  routing_grid_item: 6.66665354MIL
+  routing_grid_item: 10MIL
+  routing_grid_item: 12.5MIL
+  routing_grid_item: 16.66665354MIL
+  routing_grid_item: 20MIL
+  routing_grid_item: 25MIL
+  routing_grid_item: 40MIL
+  routing_grid_item: 50MIL
+  routing_grid_item: 0.01MM
+  routing_grid_item: 0.02MM
+  routing_grid_item: 0.04MM
+  routing_grid_item: 0.05MM
+  routing_grid_item: 0.1MM
+  routing_grid_item: 0.2MM
+  routing_grid_item: 0.25MM
+  routing_grid_item: 0.4MM
+  routing_grid_item: 0.5MM
+  routing_grid_item: 1MM
+  routing_grid_item: 2MM
+  routing_grid_item: 2.5MM
+  routing_grid_item: 4MM
+  routing_grid_item: 5MM
+  routing_grid_item: 10MM
+
+snap_angle: 45
+
+fp_visible_grid_spacing: 5080000.000000
+  fp_visible_grid_item: 100MIL
+  fp_visible_grid_item: 125MIL
+  fp_visible_grid_item: 200MIL
+  fp_visible_grid_item: 250MIL
+  fp_visible_grid_item: 400MIL
+  fp_visible_grid_item: 500MIL
+  fp_visible_grid_item: 1000MIL
+  fp_visible_grid_item: 1MM
+  fp_visible_grid_item: 2MM
+  fp_visible_grid_item: 2.5MM
+  fp_visible_grid_item: 4MM
+  fp_visible_grid_item: 5MM
+  fp_visible_grid_item: 10MM
+  fp_visible_grid_item: 20MM
+  fp_visible_grid_item: 25MM
+  fp_visible_grid_item: 40MM
+  fp_visible_grid_item: 50MM
+  fp_visible_grid_item: 100MM
+
+fp_placement_grid_spacing: 2540000.000000
+  fp_placement_grid_item: 10MIL
+  fp_placement_grid_item: 20MIL
+  fp_placement_grid_item: 25MIL
+  fp_placement_grid_item: 40MIL
+  fp_placement_grid_item: 50MIL
+  fp_placement_grid_item: 100MIL
+  fp_placement_grid_item: 200MIL
+  fp_placement_grid_item: 250MIL
+  fp_placement_grid_item: 400MIL
+  fp_placement_grid_item: 500MIL
+  fp_placement_grid_item: 1000MIL
+  fp_placement_grid_item: 0.1MM
+  fp_placement_grid_item: 0.2MM
+  fp_placement_grid_item: 0.25MM
+  fp_placement_grid_item: 0.4MM
+  fp_placement_grid_item: 0.5MM
+  fp_placement_grid_item: 1MM
+  fp_placement_grid_item: 2MM
+  fp_placement_grid_item: 2.5MM
+  fp_placement_grid_item: 4MM
+  fp_placement_grid_item: 5MM
+  fp_placement_grid_item: 10MM
+
+fp_snap_angle: 45
+
+fill_clearance: 254000
+mask_clearance: 203200
+thermal_width: 254000
+min_silkscreen_width: 127000
+board_outline_width: 127000
+hole_clearance: 381000
+pilot_diameter: 254000
+annular_ring_for_pins: 177800
+annular_ring_for_vias: 127000
+shrink_paste_mask: 0
+cam_flags: 1
+cam_layers: 15732735
+cam_drill_file: 1
+cam_units: 2
+cam_n_x: 1
+cam_n_y: 1
+cam_space_x: 0
+cam_space_y: 0
+
+report_options: 0
+drc_check_unrouted: 0
+drc_trace_width: 254000
+drc_pad_pad: 254000
+drc_pad_trace: 254000
+drc_trace_trace: 254000
+drc_hole_copper: 381000
+drc_annular_ring_pins: 177800
+drc_annular_ring_vias: 127000
+drc_board_edge_copper: 635000
+drc_board_edge_hole: 635000
+drc_hole_hole: 635000
+drc_copper_copper: 254000
+
+default_trace_width: 254000
+default_via_pad_width: 711200
+default_via_hole_width: 355600
+n_width_menu: 7
+  width_menu_item: 1 152400 711200 355600
+  width_menu_item: 2 203200 711200 355600
+  width_menu_item: 3 254000 711200 355600
+  width_menu_item: 4 304800 711200 355600
+  width_menu_item: 5 381000 711200 355600
+  width_menu_item: 6 508000 711200 355600
+  width_menu_item: 7 635000 711200 355600
+
+n_copper_layers: 2
+  layer_info: "selection" 0 255 255 255 1
+  layer_info: "background" 1 0 0 0 1
+  layer_info: "visible grid" 2 255 255 255 1
+  layer_info: "highlight" 3 255 255 255 1
+  layer_info: "DRC error" 4 255 128 64 1
+  layer_info: "board outline" 5 0 0 255 1
+  layer_info: "rat line" 6 255 0 255 1
+  layer_info: "top silk" 7 255 255 0 1
+  layer_info: "bottom silk" 8 255 192 192 1
+  layer_info: "top sm cutout" 9 160 160 160 1
+  layer_info: "bot sm cutout" 10 95 95 95 1
+  layer_info: "thru pad" 11 0 0 255 1
+  layer_info: "top copper" 12 0 255 0 1
+  layer_info: "bottom copper" 13 255 0 0 1
+
+[footprints]
+
+name: "4X2HDR-100-40"
+author: "Coupillie Rudy"
+  units: MIL
+  sel_rect: -45 -45 345 145
+  ref_text: 50 150 160 0 7
+  centroid: 0 150 50
+  n_pins: 8
+    pin: "1" 40 0 0 0
+      top_pad: 4 70 35 35 15
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 4 70 35 35 15
+    pin: "2" 40 0 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "3" 40 100 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "4" 40 100 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "5" 40 200 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "6" 40 200 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "7" 40 300 0 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+    pin: "8" 40 300 100 0
+      top_pad: 1 70 25 25 0
+      inner_pad: 1 70 25 25 0
+      bottom_pad: 1 70 25 25 0
+
+name: "14DIP300"
+author: "Ivex"
+source: "DIGIKEY CATALOG NO. 941, PAGE 64"
+  units: MIL
+  sel_rect: -58 -35 658 335
+  ref_text: 50 -100 150 270 7
+  centroid: 0 300 150
+  outline_polyline: 7 -50 50
+    next_corner: 650 50 0
+    next_corner: 650 250 0
+    next_corner: -50 250 0
+    close_polyline: 0
+  outline_polyline: 7 -50 100
+    next_corner: 0 100 0
+    next_corner: 0 200 0
+    next_corner: -50 200 0
+    close_polyline: 0
+  n_pins: 14
+    pin: "1" 28 0 0 0
+      top_pad: 2 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 2 55 27 27 0
+    pin: "2" 28 100 0 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "3" 28 200 0 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "4" 28 300 0 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "5" 28 400 0 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "6" 28 500 0 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "7" 28 600 0 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "8" 28 600 300 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "9" 28 500 300 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "10" 28 400 300 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "11" 28 300 300 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "12" 28 200 300 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "13" 28 100 300 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "14" 28 0 300 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+
+name: "RC07"
+author: "Ivex"
+source: "DIGITAL PRINTED CIRCUIT DESIGN & DRAFTING, PAGE 408"
+  units: MIL
+  sel_rect: -45 -57 545 57
+  ref_text: 50 250 99 0 7
+  centroid: 0 250 0
+  outline_polyline: 7 109 49
+    next_corner: 391 49 0
+    next_corner: 391 -49 0
+    next_corner: 109 -49 0
+    close_polyline: 0
+  n_pins: 2
+    pin: "1" 35 0 0 0
+      top_pad: 1 75 37 37 0
+      inner_pad: 1 75 37 37 0
+      bottom_pad: 1 75 37 37 0
+    pin: "2" 35 500 0 0
+      top_pad: 1 75 37 37 0
+      inner_pad: 1 75 37 37 0
+      bottom_pad: 1 75 37 37 0
+
+[board]
+
+outline: 5 0
+  corner: 1 -25400000 101600000 0
+  corner: 2 101600000 101600000 0
+  corner: 3 101600000 25400000 0
+  corner: 4 -25400000 25400000 0
+  corner: 5 -25400000 76200000 0
+
+[solder_mask_cutouts]
+
+
+[parts]
+
+part: IC_CD4016_100
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 50800000 58420000 0 0 0
+
+part: IC_CD4007_101
+  ref_text: 1270000 177800 270 -2540000 3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 50800000 30480000 0 0 0
+
+part: IC_CD4007_102
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 15240000 58420000 0 0 0
+
+part: IC_CD4007_103
+  ref_text: 1270000 177800 270 -2540000 -6350000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 15240000 88900000 0 0 0
+
+part: IC_CD4016_104
+  ref_text: 1270000 177800 270 -2540000 -6350000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 50800000 88900000 0 0 0
+
+part: IC_CD4007_105
+  ref_text: 1270000 177800 270 -2540000 -6350000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 81280000 88900000 0 0 0
+
+part: IC_CD4007_106
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 81280000 58420000 0 0 0
+
+part: IC_CD4016_107
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 81280000 30480000 0 0 0
+
+part: IC_CD4007_108
+  ref_text: 1270000 177800 270 -2540000 3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: 15240000 30480000 0 0 0
+
+part: IC_CD4007_109
+  ref_text: 1270000 177800 270 -2540000 -3810000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: -20320000 58420000 0 0 0
+
+part: IC_CD4007_110
+  ref_text: 1270000 177800 270 -2540000 -6350000
+  package: "14DIP300"
+  shape: "14DIP300"
+  pos: -20320000 88900000 0 0 0
+
+part: R101
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 48260000 45745400 0 180 0
+
+part: R102
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 35560000 50825400 0 0 0
+
+part: R103
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 93980000 45720000 0 180 0
+
+part: R104
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 81280000 50800000 0 0 0
+
+part: R105
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 30480000 76200000 0 180 0
+
+part: R106
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 17780000 81280000 0 0 0
+
+part: R107
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 10033000 76377800 0 180 0
+
+part: R108
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -2667000 81457800 0 0 0
+
+part: R109
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 27940000 45745400 0 180 0
+
+part: R110
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 15240000 50825400 0 0 0
+
+part: R111
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 77343000 75107800 0 180 0
+
+part: R112
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 64643000 80187800 0 0 0
+
+part: R113
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 35941000 81203800 0 0 0
+
+part: R114
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 48768000 75946000 0 180 0
+
+part: R115
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 94361000 74853800 0 180 0
+
+part: R116
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 81661000 79933800 0 0 0
+
+part: R117
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 6223000 31927800 0 180 0
+
+part: R118
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -6477000 37007800 0 0 0
+
+part: R119
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -20320000 81280000 0 0 0
+
+part: R120
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -20320000 76200000 0 0 0
+
+part: R121
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 6223000 47193200 0 180 0
+
+part: R122
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: -6477000 52273200 0 0 0
+
+part: R123
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 69723000 45923200 0 180 0
+
+part: R124
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 57023000 51003200 0 0 0
+
+part: TSIGN4
+  ref_text: 1270000 177800 0 1270000 9144000
+  package: ""
+  shape: "4X2HDR-100-40"
+  pos: 35052000 32512000 0 0 0
+
+[nets]
+
+net: "I0_ts" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4016_107.1
+  pin: 2 TSIGN4.8
+  connect: 1 1 0 1 0
+    vtx: 1 42672000 35052000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 81280000 30480000 11 0 0 0 0
+
+net: "XX2$XXcheckI1$CTRL_B_ts" 3 2 0 0 0 0 1
+  pin: 1 IC_CD4016_107.13
+  pin: 2 R123.2
+  pin: 3 R124.1
+  connect: 1 2 1 1 0
+    vtx: 1 57023000 51003200 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 57023000 45923200 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 57023000 45923200 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 83820000 38100000 11 0 0 0 0
+
+net: "XX2$XXcheckI3$XXdecoder$XX0nor$NP_ts" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_106.1
+  pin: 2 R115.1
+  connect: 1 1 0 1 0
+    vtx: 1 94361000 74853800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 81280000 58420000 11 0 0 0 0
+
+net: "XX2$XXcheckI2$XXdecoder$XX0nor$NP_ts" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_103.1
+  pin: 2 R107.1
+  connect: 1 1 0 1 0
+    vtx: 1 10033000 76377800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 15240000 88900000 11 0 0 0 0
+
+net: "XX2$XXcheckI1$CTRL_A_ts" 4 3 0 0 0 0 1
+  pin: 1 IC_CD4016_104.6
+  pin: 2 IC_CD4007_109.8
+  pin: 3 IC_CD4007_110.3
+  pin: 4 R122.2
+  connect: 1 3 1 1 0
+    vtx: 1 6223000 52273200 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -5080000 66040000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 -15240000 88900000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -5080000 66040000 11 0 0 0 0
+  connect: 3 3 0 1 0
+    vtx: 1 6223000 52273200 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 63500000 88900000 11 0 0 0 0
+
+net: "XX2$XXcheckI1$XXdecoder$XX0nor$NP_ts" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_110.1
+  pin: 2 R123.1
+  connect: 1 1 0 1 0
+    vtx: 1 69723000 45923200 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -20320000 88900000 11 0 0 0 0
+
+net: "XX2$XXcheckI3$XXdecoder$XX0nor$NN_ts" 3 2 0 0 0 0 1
+  pin: 1 IC_CD4007_106.5
+  pin: 2 IC_CD4007_106.8
+  pin: 3 R116.2
+  connect: 1 1 0 1 0
+    vtx: 1 96520000 66040000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 91440000 58420000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 94361000 79933800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 96520000 66040000 11 0 0 0 0
+
+net: "XX2$XXcheckI1$XXdecoder$IN_pti_ts" 3 2 0 0 0 0 1
+  pin: 1 IC_CD4007_108.3
+  pin: 2 IC_CD4007_108.13
+  pin: 3 R117.1
+  connect: 1 1 0 1 0
+    vtx: 1 17780000 38100000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 20320000 30480000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 6223000 31927800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 17780000 38100000 11 0 0 0 0
+
+net: "XX2$XXcheckI2$XXdecoder$XX0nor$NN_ts" 3 2 0 0 0 0 1
+  pin: 1 IC_CD4007_103.5
+  pin: 2 IC_CD4007_103.8
+  pin: 3 R108.2
+  connect: 1 1 0 1 0
+    vtx: 1 30480000 96520000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 25400000 88900000 11 0 0 0 0
+  connect: 2 2 0 1 0
+    vtx: 1 10033000 81457800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 25400000 88900000 11 0 0 0 0
+
+net: "XX2$XXcheckI2$XXdecoder$XX1pti$STI_Out_" 2 1 0 0 0 0 1
+  pin: 1 R101.2
+  pin: 2 R102.1
+  connect: 1 1 0 1 0
+    vtx: 1 35560000 50825400 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 35560000 45745400 11 0 0 0 0
+
+net: "XX2$XXcheckI2$XXdecoder$XX1sti$NTI_Out_" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_101.5
+  pin: 2 R104.2
+  connect: 1 1 0 1 0
+    vtx: 1 93980000 50800000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 60960000 30480000 11 0 0 0 0
+
+net: "XX2$XXcheckI1$XXdecoder$XX0nor$NN_ts" 3 2 0 0 0 0 1
+  pin: 1 IC_CD4007_110.5
+  pin: 2 IC_CD4007_110.8
+  pin: 3 R124.2
+  connect: 1 1 0 1 0
+    vtx: 1 -5080000 96520000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -10160000 88900000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 69723000 51003200 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -5080000 96520000 11 0 0 0 0
+
+net: "XX2$XXcheckI2$XXdecoder$XXinti$PTI_Out_" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_102.13
+  pin: 2 R105.1
+  connect: 1 1 0 1 0
+    vtx: 1 30480000 76200000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 17780000 66040000 11 0 0 0 0
+
+net: "XX2$XXcheckI3$CTRL_C_ts" 4 3 0 0 0 0 1
+  pin: 1 IC_CD4016_104.13
+  pin: 2 IC_CD4007_106.6
+  pin: 3 R111.2
+  pin: 4 R112.1
+  connect: 1 3 2 1 0
+    vtx: 1 64643000 80187800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 64643000 75107800 11 0 0 0 0
+  connect: 2 3 0 1 0
+    vtx: 1 64643000 80187800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 53340000 96520000 11 0 0 0 0
+  connect: 3 2 1 1 0
+    vtx: 1 64643000 75107800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 93980000 58420000 11 0 0 0 0
+
+net: "XX2$XXcheckI2$XXdecoder$XXinti$STI_Out_" 2 1 0 0 0 0 1
+  pin: 1 R105.2
+  pin: 2 R106.1
+  connect: 1 1 0 1 0
+    vtx: 1 17780000 81280000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 17780000 76200000 11 0 0 0 0
+
+net: "XX2$XXcheckI3$CTRL_B_ts" 3 2 0 0 0 0 1
+  pin: 1 IC_CD4016_104.5
+  pin: 2 R115.2
+  pin: 3 R116.1
+  connect: 1 2 1 1 0
+    vtx: 1 81661000 79933800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 81661000 74853800 11 0 0 0 0
+  connect: 2 2 0 1 0
+    vtx: 1 81661000 79933800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 60960000 88900000 11 0 0 0 0
+
+net: "XX2$XXcheckI3$XXdecoder$XX1sti$PTI_Out_" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_105.13
+  pin: 2 R111.1
+  connect: 1 1 0 1 0
+    vtx: 1 77343000 75107800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 83820000 96520000 11 0 0 0 0
+
+net: "XX2$XXcheckI2$XXdecoder$XX1pti$NTI_Out_" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_101.8
+  pin: 2 R102.2
+  connect: 1 1 0 1 0
+    vtx: 1 48260000 50825400 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 66040000 38100000 11 0 0 0 0
+
+net: "XX2$XXcheckI3$XXdecoder$XX0nor$NI_ts" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_106.2
+  pin: 2 IC_CD4007_106.13
+  connect: 1 1 0 1 0
+    vtx: 1 83820000 66040000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 83820000 58420000 11 0 0 0 0
+
+net: "XX2$XXcheckI3$CTRL_A_ts" 4 3 0 0 0 0 1
+  pin: 1 IC_CD4016_100.12
+  pin: 2 IC_CD4007_105.5
+  pin: 3 IC_CD4007_106.3
+  pin: 4 R114.2
+  connect: 1 3 0 1 0
+    vtx: 1 36068000 75946000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 55880000 66040000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 86360000 58420000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 91440000 88900000 11 0 0 0 0
+  connect: 3 2 0 1 0
+    vtx: 1 86360000 58420000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 55880000 66040000 11 0 0 0 0
+
+net: "Vss_ts" 22 21 0 0 0 0 1
+  pin: 1 IC_CD4016_100.1
+  pin: 2 IC_CD4016_100.7
+  pin: 3 IC_CD4016_100.11
+  pin: 4 IC_CD4007_101.4
+  pin: 5 IC_CD4007_101.7
+  pin: 6 IC_CD4007_102.4
+  pin: 7 IC_CD4007_102.7
+  pin: 8 IC_CD4007_103.4
+  pin: 9 IC_CD4007_103.7
+  pin: 10 IC_CD4016_104.7
+  pin: 11 IC_CD4016_104.8
+  pin: 12 IC_CD4007_105.4
+  pin: 13 IC_CD4007_105.7
+  pin: 14 IC_CD4007_106.4
+  pin: 15 IC_CD4007_106.7
+  pin: 16 IC_CD4016_107.7
+  pin: 17 IC_CD4007_108.4
+  pin: 18 IC_CD4007_108.7
+  pin: 19 IC_CD4007_109.7
+  pin: 20 IC_CD4007_110.4
+  pin: 21 IC_CD4007_110.7
+  pin: 22 TSIGN4.1
+  connect: 1 21 17 1 0
+    vtx: 1 35052000 32512000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 30480000 30480000 11 0 0 0 0
+  connect: 2 6 5 1 0
+    vtx: 1 30480000 58420000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 22860000 58420000 11 0 0 0 0
+  connect: 3 4 3 1 0
+    vtx: 1 66040000 30480000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 58420000 30480000 11 0 0 0 0
+  connect: 4 8 7 1 0
+    vtx: 1 30480000 88900000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 22860000 88900000 11 0 0 0 0
+  connect: 5 20 19 1 0
+    vtx: 1 -5080000 88900000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -12700000 88900000 11 0 0 0 0
+  connect: 6 17 16 1 0
+    vtx: 1 30480000 30480000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 22860000 30480000 11 0 0 0 0
+  connect: 7 14 13 1 0
+    vtx: 1 96520000 58420000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 88900000 58420000 11 0 0 0 0
+  connect: 8 12 11 1 0
+    vtx: 1 96520000 88900000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 88900000 88900000 11 0 0 0 0
+  connect: 9 10 9 1 0
+    vtx: 1 66040000 96520000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 66040000 88900000 11 0 0 0 0
+  connect: 10 2 1 1 0
+    vtx: 1 58420000 66040000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 66040000 58420000 11 0 0 0 0
+  connect: 11 2 0 1 0
+    vtx: 1 58420000 66040000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 50800000 58420000 11 0 0 0 0
+  connect: 12 6 0 1 0
+    vtx: 1 30480000 58420000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 50800000 58420000 11 0 0 0 0
+  connect: 13 13 1 1 0
+    vtx: 1 88900000 58420000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 66040000 58420000 11 0 0 0 0
+  connect: 14 11 9 1 0
+    vtx: 1 88900000 88900000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 66040000 88900000 11 0 0 0 0
+  connect: 15 21 3 1 0
+    vtx: 1 35052000 32512000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 58420000 30480000 11 0 0 0 0
+  connect: 16 9 2 1 0
+    vtx: 1 66040000 88900000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 58420000 66040000 11 0 0 0 0
+  connect: 17 21 6 1 0
+    vtx: 1 35052000 32512000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 30480000 58420000 11 0 0 0 0
+  connect: 18 15 14 1 0
+    vtx: 1 96520000 30480000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 96520000 58420000 11 0 0 0 0
+  connect: 19 20 7 1 0
+    vtx: 1 -5080000 88900000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 22860000 88900000 11 0 0 0 0
+  connect: 20 18 5 1 0
+    vtx: 1 -5080000 58420000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 22860000 58420000 11 0 0 0 0
+  connect: 21 8 6 1 0
+    vtx: 1 30480000 88900000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 30480000 58420000 11 0 0 0 0
+
+net: "XX2$XXcheckI2$XXdecoder$XX0nor$NI_ts" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_103.2
+  pin: 2 IC_CD4007_103.13
+  connect: 1 1 0 1 0
+    vtx: 1 17780000 96520000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 17780000 88900000 11 0 0 0 0
+
+net: "Vdd_ts" 19 18 0 0 0 0 1
+  pin: 1 IC_CD4016_100.4
+  pin: 2 IC_CD4016_100.14
+  pin: 3 IC_CD4007_101.2
+  pin: 4 IC_CD4007_101.14
+  pin: 5 IC_CD4007_102.2
+  pin: 6 IC_CD4007_102.14
+  pin: 7 IC_CD4007_103.14
+  pin: 8 IC_CD4016_104.1
+  pin: 9 IC_CD4016_104.11
+  pin: 10 IC_CD4016_104.14
+  pin: 11 IC_CD4007_105.2
+  pin: 12 IC_CD4007_105.14
+  pin: 13 IC_CD4007_106.14
+  pin: 14 IC_CD4016_107.14
+  pin: 15 IC_CD4007_108.2
+  pin: 16 IC_CD4007_108.14
+  pin: 17 IC_CD4007_109.14
+  pin: 18 IC_CD4007_110.14
+  pin: 19 TSIGN4.5
+  connect: 1 9 7 1 0
+    vtx: 1 50800000 96520000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 50800000 88900000 11 0 0 0 0
+  connect: 2 9 8 1 0
+    vtx: 1 50800000 96520000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 58420000 96520000 11 0 0 0 0
+  connect: 3 11 10 1 0
+    vtx: 1 81280000 96520000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 83820000 88900000 11 0 0 0 0
+  connect: 4 15 14 1 0
+    vtx: 1 15240000 38100000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 17780000 30480000 11 0 0 0 0
+  connect: 5 5 4 1 0
+    vtx: 1 15240000 66040000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 17780000 58420000 11 0 0 0 0
+  connect: 6 3 2 1 0
+    vtx: 1 50800000 38100000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 53340000 30480000 11 0 0 0 0
+  connect: 7 1 0 1 0
+    vtx: 1 50800000 66040000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 58420000 58420000 11 0 0 0 0
+  connect: 8 18 3 1 0
+    vtx: 1 40132000 32512000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 50800000 38100000 11 0 0 0 0
+  connect: 9 15 4 1 0
+    vtx: 1 15240000 38100000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 17780000 58420000 11 0 0 0 0
+  connect: 10 3 0 1 0
+    vtx: 1 50800000 38100000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 58420000 58420000 11 0 0 0 0
+  connect: 11 18 14 1 0
+    vtx: 1 40132000 32512000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 17780000 30480000 11 0 0 0 0
+  connect: 12 7 1 1 0
+    vtx: 1 50800000 88900000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 50800000 66040000 11 0 0 0 0
+  connect: 13 11 8 1 0
+    vtx: 1 81280000 96520000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 58420000 96520000 11 0 0 0 0
+  connect: 14 12 10 1 0
+    vtx: 1 81280000 66040000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 83820000 88900000 11 0 0 0 0
+  connect: 15 13 12 1 0
+    vtx: 1 81280000 38100000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 81280000 66040000 11 0 0 0 0
+  connect: 16 6 5 1 0
+    vtx: 1 15240000 96520000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 15240000 66040000 11 0 0 0 0
+  connect: 17 17 16 1 0
+    vtx: 1 -20320000 96520000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -20320000 66040000 11 0 0 0 0
+  connect: 18 16 5 1 0
+    vtx: 1 -20320000 66040000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 15240000 66040000 11 0 0 0 0
+
+net: "XX2$XXcheckI1$XXdecoder$XX0nor$NI_ts" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_110.2
+  pin: 2 IC_CD4007_110.13
+  connect: 1 1 0 1 0
+    vtx: 1 -17780000 96520000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -17780000 88900000 11 0 0 0 0
+
+net: "SIGN4_ts" 4 3 0 0 0 0 1
+  pin: 1 IC_CD4016_100.10
+  pin: 2 IC_CD4016_104.2
+  pin: 3 IC_CD4016_104.3
+  pin: 4 TSIGN4.7
+  connect: 1 2 1 1 0
+    vtx: 1 55880000 88900000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 53340000 88900000 11 0 0 0 0
+  connect: 2 2 0 1 0
+    vtx: 1 55880000 88900000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 60960000 66040000 11 0 0 0 0
+  connect: 3 3 0 1 0
+    vtx: 1 42672000 32512000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 60960000 66040000 11 0 0 0 0
+
+net: "XX2$XXcheckI1$XXdecoder$XX1sti$PTI_Out_" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_108.1
+  pin: 2 R119.1
+  connect: 1 1 0 1 0
+    vtx: 1 -20320000 81280000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 15240000 30480000 11 0 0 0 0
+
+net: "XX2$XXcheckI3$XXdecoder$IN_pti_ts" 3 2 0 0 0 0 1
+  pin: 1 IC_CD4007_102.1
+  pin: 2 IC_CD4007_105.6
+  pin: 3 R109.1
+  connect: 1 2 0 1 0
+    vtx: 1 27940000 45745400 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 15240000 58420000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 27940000 45745400 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 93980000 88900000 11 0 0 0 0
+
+net: "XX2$XXcheckI3$XXdecoder$XX1pti$STI_Out_" 2 1 0 0 0 0 1
+  pin: 1 R109.2
+  pin: 2 R110.1
+  connect: 1 1 0 1 0
+    vtx: 1 15240000 50825400 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 15240000 45745400 11 0 0 0 0
+
+net: "XX2$XXcheckI3$XXdecoder$XXinti$PTI_Out_" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_105.1
+  pin: 2 R113.1
+  connect: 1 1 0 1 0
+    vtx: 1 35941000 81203800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 81280000 88900000 11 0 0 0 0
+
+net: "XX2$XXcheckI3$XXdecoder$XX1sti$NTI_Out_" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_105.8
+  pin: 2 R112.2
+  connect: 1 1 0 1 0
+    vtx: 1 77343000 80187800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 96520000 96520000 11 0 0 0 0
+
+net: "XX2$XXcheckI2$CTRL_C_ts" 4 3 0 0 0 0 1
+  pin: 1 IC_CD4016_100.5
+  pin: 2 IC_CD4007_103.6
+  pin: 3 R103.2
+  pin: 4 R104.1
+  connect: 1 3 2 1 0
+    vtx: 1 81280000 50800000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 81280000 45720000 11 0 0 0 0
+  connect: 2 3 0 1 0
+    vtx: 1 81280000 50800000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 60960000 58420000 11 0 0 0 0
+  connect: 3 1 0 1 0
+    vtx: 1 27940000 88900000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 60960000 58420000 11 0 0 0 0
+
+net: "0_ts" 1 0 0 0 0 0 1
+  pin: 1 TSIGN4.3
+
+net: "XX2$XXcheckI2$CTRL_B_ts" 3 2 0 0 0 0 1
+  pin: 1 IC_CD4016_100.6
+  pin: 2 R107.2
+  pin: 3 R108.1
+  connect: 1 2 1 1 0
+    vtx: 1 -2667000 81457800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -2667000 76377800 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 -2667000 76377800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 63500000 58420000 11 0 0 0 0
+
+net: "XX2$N002_ts" 4 3 0 0 0 0 1
+  pin: 1 IC_CD4016_100.2
+  pin: 2 IC_CD4016_100.3
+  pin: 3 IC_CD4016_100.9
+  pin: 4 IC_CD4016_104.4
+  connect: 1 1 0 1 0
+    vtx: 1 55880000 58420000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 53340000 58420000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 63500000 66040000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 55880000 58420000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 58420000 88900000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 63500000 66040000 11 0 0 0 0
+
+net: "XX2$XXcheckI1$XXdecoder$XX1pti$STI_Out_" 2 1 0 0 0 0 1
+  pin: 1 R117.2
+  pin: 2 R118.1
+  connect: 1 1 0 1 0
+    vtx: 1 -6477000 37007800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -6477000 31927800 11 0 0 0 0
+
+net: "XX2$XXcheckI3$XXdecoder$XX1pti$NTI_Out_" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_102.5
+  pin: 2 R110.2
+  connect: 1 1 0 1 0
+    vtx: 1 27940000 50825400 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 25400000 58420000 11 0 0 0 0
+
+net: "XX2$XXcheckI2$CTRL_A_ts" 4 3 0 0 0 0 1
+  pin: 1 IC_CD4016_100.13
+  pin: 2 IC_CD4007_102.8
+  pin: 3 IC_CD4007_103.3
+  pin: 4 R106.2
+  connect: 1 3 2 1 0
+    vtx: 1 30480000 81280000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 20320000 88900000 11 0 0 0 0
+  connect: 2 3 1 1 0
+    vtx: 1 30480000 81280000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 30480000 66040000 11 0 0 0 0
+  connect: 3 1 0 1 0
+    vtx: 1 30480000 66040000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 53340000 66040000 11 0 0 0 0
+
+net: "XX2$N001_ts" 4 3 0 0 0 0 1
+  pin: 1 IC_CD4016_100.8
+  pin: 2 IC_CD4016_104.9
+  pin: 3 IC_CD4016_104.10
+  pin: 4 IC_CD4016_107.2
+  connect: 1 2 1 1 0
+    vtx: 1 60960000 96520000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 63500000 96520000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 63500000 96520000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 66040000 66040000 11 0 0 0 0
+  connect: 3 3 0 1 0
+    vtx: 1 83820000 30480000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 66040000 66040000 11 0 0 0 0
+
+net: "XX2$XXcheckI3$XXdecoder$XXinti$STI_Out_" 2 1 0 0 0 0 1
+  pin: 1 R113.2
+  pin: 2 R114.1
+  connect: 1 1 0 1 0
+    vtx: 1 48768000 75946000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 48641000 81203800 11 0 0 0 0
+
+net: "XX2$XXcheckI1$XXdecoder$XX1sti$NTI_Out_" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_108.5
+  pin: 2 R120.2
+  connect: 1 1 0 1 0
+    vtx: 1 -7620000 76200000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 25400000 30480000 11 0 0 0 0
+
+net: "XX2$XXcheckI2$XXdecoder$IN_pti_ts" 3 2 0 0 0 0 1
+  pin: 1 IC_CD4007_101.3
+  pin: 2 IC_CD4007_101.13
+  pin: 3 R101.1
+  connect: 1 1 0 1 0
+    vtx: 1 53340000 38100000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 55880000 30480000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 48260000 45745400 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 53340000 38100000 11 0 0 0 0
+
+net: "I2_ts" 3 2 0 0 0 0 1
+  pin: 1 IC_CD4007_101.6
+  pin: 2 IC_CD4007_102.6
+  pin: 3 TSIGN4.4
+  connect: 1 2 1 1 0
+    vtx: 1 37592000 35052000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 27940000 58420000 11 0 0 0 0
+  connect: 2 2 0 1 0
+    vtx: 1 37592000 35052000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 63500000 30480000 11 0 0 0 0
+
+net: "XX2$XXcheckI1$XXdecoder$XXinti$PTI_Out_" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_109.13
+  pin: 2 R121.1
+  connect: 1 1 0 1 0
+    vtx: 1 6223000 47193200 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -17780000 66040000 11 0 0 0 0
+
+net: "N001_ts" 3 2 0 0 0 0 1
+  pin: 1 IC_CD4007_102.3
+  pin: 2 IC_CD4007_105.3
+  pin: 3 TSIGN4.2
+  connect: 1 2 0 1 0
+    vtx: 1 35052000 35052000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 20320000 58420000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 86360000 88900000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 20320000 58420000 11 0 0 0 0
+
+net: "XX2$XXcheckI2$XXdecoder$XX1sti$PTI_Out_" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_101.1
+  pin: 2 R103.1
+  connect: 1 1 0 1 0
+    vtx: 1 93980000 45720000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 50800000 30480000 11 0 0 0 0
+
+net: "XX2$XXcheckI1$XXdecoder$XXinti$STI_Out_" 2 1 0 0 0 0 1
+  pin: 1 R121.2
+  pin: 2 R122.1
+  connect: 1 1 0 1 0
+    vtx: 1 -6477000 52273200 11 0 0 0 0
+    seg: 1 6 1 0 0
+    vtx: 2 -6477000 47193200 11 0 0 0 0
+
+net: "I1_ts" 3 2 0 0 0 0 1
+  pin: 1 IC_CD4007_108.6
+  pin: 2 IC_CD4007_109.6
+  pin: 3 TSIGN4.6
+  connect: 1 2 0 1 0
+    vtx: 1 40132000 35052000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 27940000 30480000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 -7620000 58420000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 27940000 30480000 11 0 0 0 0
+
+net: "XX2$XXcheckI1$XXdecoder$XX1pti$NTI_Out_" 2 1 0 0 0 0 1
+  pin: 1 IC_CD4007_108.8
+  pin: 2 R118.2
+  connect: 1 1 0 1 0
+    vtx: 1 6223000 37007800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 30480000 38100000 11 0 0 0 0
+
+net: "XX2$XXcheckI1$CTRL_C_ts" 4 3 0 0 0 0 1
+  pin: 1 IC_CD4016_104.12
+  pin: 2 IC_CD4007_110.6
+  pin: 3 R119.2
+  pin: 4 R120.1
+  connect: 1 2 1 1 0
+    vtx: 1 -7620000 81280000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -7620000 88900000 11 0 0 0 0
+  connect: 2 3 2 1 0
+    vtx: 1 -20320000 76200000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -7620000 81280000 11 0 0 0 0
+  connect: 3 1 0 1 0
+    vtx: 1 -7620000 88900000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 55880000 96520000 11 0 0 0 0
+
+[texts]
+
+text: "I3 I2 I1 I0" 34544000 36576000 7 0 0 1270000 254000 0
+
+text: "- 0 + SIGN" 34544000 29972000 7 0 0 1270000 254000 0
+
+text: "4-TRIT" -21590000 49530000 7 0 0 1905000 190500 0
+
+text: "SIGN DETECTOR" -24130000 46990000 7 0 0 1270000 127000 0
+
+text: "J. Connelly" -22860000 40640000 7 0 0 1270000 127000 0
+
+text: "C. Patel" -22860000 38100000 7 0 0 1270000 127000 0
+
+text: "A. Chavez" -22860000 35560000 7 0 0 1270000 127000 0
+
+text: "Spring 2008" -22860000 30480000 7 0 0 1270000 127000 0
+
+[end]

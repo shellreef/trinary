@@ -1,0 +1,79 @@
+* Z:\trinary\code\circuits\tsign_test.asc
+XX1 $G_Vdd $G_Vss tpower
+V1 I1 0 PWL(0 -5 50E-9 -5 60E-9 -5 110E-9 -5 120E-9 -5 170E-9 -5 180E-9 0 230E-9 0 240E-9 0 290E-9 0 300E-9 0 350E-9 0 360E-9 5 410E-9 5 420E-9 5 470E-9 5 480E-9 5 530E-9 5 550E-9 -5 600E-9 -5 610E-9 -5 660E-9 -5 670E-9 -5 720E-9 -5 730E-9 0 780E-9 0 790E-9 0 840E-9 0 850E-9 0 900E-9 0 910E-9 5 960E-9 5 970E-9 5 1020E-9 5 1030E-9 5 1080E-9 5 1100E-9 -5 1150E-9 -5 1160E-9 -5 1210E-9 -5 1220E-9 -5 1270E-9 -5 1280E-9 0 1330E-9 0 1340E-9 0 1390E-9 0 1400E-9 0 1450E-9 0 1460E-9 5 1510E-9 5 1520E-9 5 1570E-9 5 1580E-9 5 1630E-9 5)
+V0 I0 0 PWL(0 -5 50E-9 -5 60E-9 0 110E-9 0 120E-9 5 170E-9 5 180E-9 -5 230E-9 -5 240E-9 0 290E-9 0 300E-9 5 350E-9 5 360E-9 -5 410E-9 -5 420E-9 0 470E-9 0 480E-9 5 530E-9 5 550E-9 -5 600E-9 -5 610E-9 0 660E-9 0 670E-9 5 720E-9 5 730E-9 -5 780E-9 -5 790E-9 0 840E-9 0 850E-9 5 900E-9 5 910E-9 -5 960E-9 -5 970E-9 0 1020E-9 0 1030E-9 5 1080E-9 5 1100E-9 -5 1150E-9 -5 1160E-9 0 1210E-9 0 1220E-9 5 1270E-9 5 1280E-9 -5 1330E-9 -5 1340E-9 0 1390E-9 0 1400E-9 5 1450E-9 5 1460E-9 -5 1510E-9 -5 1520E-9 0 1570E-9 0 1580E-9 5 1630E-9 5)
+V2 I2 0 PWL(0 -5 549n -5 550n 0 1099n 0 1100n 5)
+XX2 I0 I1 I2 SIGN4 N001 tsign4
+V3 N001 0 0V
+
+* block symbol definitions
+.subckt tpower Vdd Vss
+Vdd Vdd 0 5V
+Vss 0 Vss 5V
+.ends tpower
+
+.subckt tsign4 I0 I1 I2 SIGN I3
+XXcheckI2 $G_Vss N001 $G_Vdd I2 N002 mux3-1
+XXcheckI3 $G_Vss N002 $G_Vdd I3 SIGN mux3-1
+XXcheckI1 $G_Vss I0 $G_Vdd I1 N001 mux3-1
+.ends tsign4
+
+.subckt mux3-1 A B C S Q
+XXtgA A Q CTRL_A tg
+XXtgC C Q CTRL_C tg
+XXtgB B Q CTRL_B tg
+XXdecoder S CTRL_A CTRL_B CTRL_C decoder1-3
+.ends mux3-1
+
+.subckt tg IN_OUT OUT_IN CONTROL
+M1 OUT_IN _C IN_OUT $G_Vdd CD4007P
+M2 IN_OUT C OUT_IN $G_Vss CD4007N
+M3 $G_Vdd CONTROL _C $G_Vdd CD4007P
+M4 _C CONTROL $G_Vss $G_Vss CD4007N
+M5 $G_Vdd _C C $G_Vdd CD4007P
+M6 C _C $G_Vss $G_Vss CD4007N
+.ends tg
+
+.subckt decoder1-3 IN OUT_i OUT_0 OUT_1
+XX1pti IN IN_pti pti
+XX1sti IN_pti OUT_1 sti
+XXinti IN OUT_i nti
+XX0nor OUT_1 OUT_i OUT_0 tnor
+.ends decoder1-3
+
+.subckt pti IN OUT
+Xinv IN OUT NC_01 NC_02 tinv
+.ends pti
+
+.subckt sti IN OUT
+XXinv IN NC_01 OUT NC_02 tinv
+.ends sti
+
+.subckt nti IN OUT
+Xinv IN NC_01 NC_02 OUT tinv
+.ends nti
+
+.subckt tnor A B TNOR_Out
+RP NP TNOR_Out 12k
+RN TNOR_Out NN 12k
+MN1 NN A $G_Vss $G_Vss CD4007N
+MP2 NI A $G_Vdd $G_Vdd CD4007P
+MN2 NN B $G_Vss $G_Vss CD4007N
+MP1 NI B NP $G_Vdd CD4007P
+.ends tnor
+
+.subckt tinv Vin PTI_Out STI_Out NTI_Out
+RP PTI_Out STI_Out 12k
+RN STI_Out NTI_Out 12k
+MN NTI_Out Vin $G_Vss $G_Vss CD4007N
+MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
+.ends tinv
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\PROGRA~1\LTC\SwCADIII\lib\cmp\standard.mos
+.tran 1650n
+* Note: VA and VB are PWL's that cycle through i,0,1;\nat different frequencies. Not on schematic due to length.
+* ^ 4-trit sign circuit isn't tested for I3 other than 0\nManually change input to $G_Vss or $G_Vdd,\nexpecting SIGN4 = -5 V and +5 V, to test it.
+.backanno
+.end

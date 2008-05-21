@@ -27,7 +27,7 @@ if not os.access(netfile, os.R_OK):
     if os.access("../circuits/%s.asc" % (name,), os.R_OK):
         print "But the corresponding .asc file exists."
         print "To generate .net, in LTspice go to: View -> SPICE Netlist."
-        raise SystemExit
+    raise SystemExit
 if os.access("../circuit/%s.asy" % (name,), os.R_OK):
     print "Warning! A corresponding symbol exists for this circuit!"
     print "Are you sure it is the right circuit? Generally, PCBs should be"
