@@ -28,6 +28,16 @@ SUBCIRCUITS_TO_MAP = ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3', 'sp3t-1'
 SUBCIRCUITS_CAN_MAP = ('tg', 'tinv', 'tnor', 'tnand')        # subcircuits we actually can map to ICs, as of yet
 SUBCIRCUITS_PASS = ('sp3t-1', 'sp3t-2', 'sp3t-3')                 # pass unchanged to pads.py
 
+KNOWN_CHIPS = (
+        "CD4007",   # dual complementary MOSFETs + binary inverter
+        "CD4016",   # quad transmission gates
+        "MDP1401"   # isolated 7-resistor network
+        )
+
+# If False, use discrete resistors
+# If True, use the MDP1401 resistor network
+USE_RESISTOR_CHIP = os.environ.get("JC_USE_RESISTOR_CHIP", False)
+
 def combine_dicts(dict1, dict2):
     """Combine two dictionaries; dict2 takes priority over dict1."""
     ret = copy.deepcopy(dict1)
@@ -155,8 +165,8 @@ def find_chip(chips, model_needed, pins_needed_options):
         return result
 
     # No chips found with model model_needed and with pins free. Need more chips.
-    if model_needed not in ("CD4016", "CD4007"):
-        raise "Model %s not known, it is not CD4016 nor CD4007, not recognized!" % (model_needed,)
+    if model_needed not in KNOWN_CHIPS:
+        raise "Model %s not known, it is not in %s, not recognized!" % (model_needed, KNOWN_CHIPS)
 
     # Add a new chip!
     # Assume all are 14-pin chips
@@ -292,6 +302,8 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
                     "double-check the model definition for '%s', specifically, " +
                     "parts_consumed and parts_kept.\nAlso, check if the model was rewritten!") % (line, model_name, PROGRAM_NAME, model_name)
 
+        # TODO XXX: Allocate resistors to resistor network
+        
         #name = "%s_%s_%s_%s" % (words[0], model_name, chip_num, refdesg)
         name = "%s%s$%s" % (words[0][0], refdesg, words[0])
 
