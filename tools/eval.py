@@ -120,8 +120,30 @@ def trinary_eval(expression, variables):
 >>> print trinary_eval("A⊽(/B∧C)",{"A":"0","B":"0","C":"1"})
 0
     '''
-    result, lo = expr_recurse(expression, variables)
-    return trit_string[result]
+
+    max_len = 0
+    for i in expression:
+        if i in variables:
+            if len(variables[i]) > max_len:
+                max_len = len(variables[i])
+
+    if max_len == 1:
+        result, lo = expr_recurse(expression, variables)
+        return trit_string[result]
+
+    func_vars = {}
+    func_vars["i"] = "i"
+    result = {}
+
+    for i in range(max_len):
+        for j in expression:
+            if j in variables:
+                if len(variables[j]) > 1:
+                    func_vars[j] = variables[j][i]
+                else:
+                    func_vars[j] = variables[j]
+        result[i], lo = expr_recurse(expression, func_vars)
+
 
 if __name__ == "__main__":
     # self-test
