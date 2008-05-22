@@ -30,7 +30,7 @@ SUBCIRCUITS_PASS = ('sp3t-1', 'sp3t-2', 'sp3t-3')                 # pass unchang
 
 # If False, use discrete resistors
 # If True, use the MDP140 resistor network
-USE_RESISTOR_CHIP = os.environ.get("JC_USE_RESISTOR_CHIP", True)
+USE_RESISTOR_CHIP = bool(int(os.environ.get("JC_USE_RESISTOR_CHIP", False)))
 RESISTOR_CHIP = "MDP1403"   # Vishay isolated 7-resistor network
 
 KNOWN_CHIPS = (

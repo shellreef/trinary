@@ -47,12 +47,17 @@ if "-q" not in sys.argv:
         print "(Using default)"
 
     try:
+        os.environ["JC_RESISTOR_SERIAL_START"] = str(int(raw_input("Start resistor numbering at: ")))
+    except ValueError:
+        print "(Using default)"
+
+    try:
         os.environ["JC_NETNAME_SUFFIX"] = raw_input("Netname suffix: ")
     except ValueError:
         print "(Using default)"
 
     try:
-        os.environ["JC_RESISTOR_SERIAL_START"] = str(int(raw_input("Start resistor numbering at: ")))
+        os.environ["JC_USE_RESISTOR_CHIP"] = raw_input("Use resistor network or discrete resistors? (1=network, 0=discrete) ")
     except ValueError:
         print "(Using default)"
 
