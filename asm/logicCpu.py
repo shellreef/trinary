@@ -10,9 +10,19 @@
 #    the user may interactively change the "IN" register at any time.
 #    Execution begins with instruction at program counter 0.
 
-import sys, os, threading, time
+import sys, os, threading, time, signal
 
-TRACE = True
+# for safe termination
+CONTINUE = 0
+TERMINATE = 1
+global cont_exec
+cont_exec = CONTINUE
+
+# for concurency
+global locked
+locked = False
+
+TRACE = False
 DELAY = 1                   # second(s)
 USER_INPUT_THREAD = True    # ask for user input?
 USER_INPUT_INIT = 8         # initialize input to this
@@ -39,7 +49,21 @@ class CPUInput (threading.Thread):
     def run (self):
         while True:
             print "Register Status: %s :" % registers,
-            user_input = raw_input('Input value for IN:')
+
+            try:
+                user_input = raw_input('Input value for IN:')
+            except EOFError, e:
+                get_lock()
+                global cont_exec
+                cont_exec = TERMINATE
+                release_lock()
+                sys.exit()
+
+            get_lock()
+            global cont_exec
+            if cont_exec == TERMINATE:
+                sys.exit()
+            release_lock()
 
             try:
                 digit = int(user_input)
@@ -52,7 +76,26 @@ class CPUInput (threading.Thread):
             else:
                 print """invalid input: %s""" % user_input
 
+def get_lock():
+    ''' Busy wait lock to avoid race conditions.
+        This function retrieves the lock.
+    '''
+
+    global locked
+    while locked:
+        a = 1
+    locked = True
+
+def release_lock():
+    ''' This function releases the lock.
+    '''
+    global locked
+    locked = False
+
+
 def main():
+    global cont_exec
+
     # check arguments
     if len(sys.argv) < 2 or len(sys.argv) > 2:
         print """usage: %s program.3
@@ -84,7 +127,10 @@ input file: program.3 - machine code
 
     # memory, registers, and program counter
     memory = {}
+
+    get_lock()
     registers["PC"] = 0
+    release_lock()
 
     # decode instructions from file
     for i in range(-1, 2):
@@ -95,15 +141,28 @@ input file: program.3 - machine code
     # start user input thread
     if USER_INPUT_THREAD:
         CPUInput().start()
+
+    get_lock()
     registers["IN"] = USER_INPUT_INIT
+    release_lock()
 
     # execute instructions
     while True:
+
+        get_lock()
         registers["PC"] = Execute(memory)
+        release_lock()
+
+        get_lock()
+        if cont_exec == TERMINATE:
+            sys.exit()
+        release_lock()
 
         if TRACE:
+            get_lock()
             print registers
-                
+            release_lock()
+
         time.sleep(DELAY)
 
 def Decoder(tritstream):
