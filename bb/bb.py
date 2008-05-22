@@ -21,12 +21,26 @@ import os
 PROGRAM_NAME = "bb.py"
 
 # Start chip numbering at this value.
-CHIP_NO_START = int(os.environ.get("JC_CHIP_START", 10))
+CHIP_NO_START = int(os.environ.get("JC_CHIP_START", 1))
 
 # Subcircuits to map that should be mapped physical ICs
 SUBCIRCUITS_TO_MAP = ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3', 'sp3t-1', 'sp3t-2', 'sp3t-3')
 SUBCIRCUITS_CAN_MAP = ('tg', 'tinv', 'tnor', 'tnand')        # subcircuits we actually can map to ICs, as of yet
 SUBCIRCUITS_PASS = ('sp3t-1', 'sp3t-2', 'sp3t-3')                 # pass unchanged to pads.py
+
+# If False, use discrete resistors
+# If True, use the MDP140 resistor network
+USE_RESISTOR_CHIP = bool(int(os.environ.get("JC_USE_RESISTOR_CHIP", False)))
+RESISTOR_CHIP = "MDP1403"   # Vishay isolated 7-resistor network
+
+KNOWN_CHIPS = (
+        "CD4007",   # dual complementary MOSFETs + binary inverter
+        "CD4016",   # quad transmission gates
+        #RESISTOR_CHIP  # handled above
+        )
+
+# Pairs of pins 
+RESISTOR_NETWORK_PINS = ((1, 14), (2, 13), (3, 12), (4, 11), (5, 10), (6, 9), (7,8))
 
 def combine_dicts(dict1, dict2):
     """Combine two dictionaries; dict2 takes priority over dict1."""
@@ -155,8 +169,8 @@ def find_chip(chips, model_needed, pins_needed_options):
         return result
 
     # No chips found with model model_needed and with pins free. Need more chips.
-    if model_needed not in ("CD4016", "CD4007"):
-        raise "Model %s not known, it is not CD4016 nor CD4007, not recognized!" % (model_needed,)
+    if model_needed not in KNOWN_CHIPS and not model_needed.startswith(RESISTOR_CHIP):
+        raise "Model %s not known, it is not in %s, not recognized!" % (model_needed, KNOWN_CHIPS)
 
     # Add a new chip!
     # Assume all are 14-pin chips
@@ -185,7 +199,7 @@ def find_chip_no_add(chips, model_needed, pins_needed_options):
     return None
 
 def find_pins_needed(pins):
-    """From a mod.pins[x] dict, return the pins needed for each model, for find_chip()"""
+    """From a mod.pins[x] dict, return the pins needed for each SPICE model, for find_chip()"""
     need = {}
     for x in pins.values():
         if type(x) == types.TupleType:
@@ -292,6 +306,7 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
                     "double-check the model definition for '%s', specifically, " +
                     "parts_consumed and parts_kept.\nAlso, check if the model was rewritten!") % (line, model_name, PROGRAM_NAME, model_name)
 
+       
         #name = "%s_%s_%s_%s" % (words[0], model_name, chip_num, refdesg)
         name = "%s%s$%s" % (words[0][0], refdesg, words[0])
 
@@ -320,7 +335,26 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
 
         new_words.append(model_name)
 
-        extra.append(" ".join(new_words))
+        if words[0][0] == "R" and USE_RESISTOR_CHIP:
+            resistor_value = words[3]
+            # Find resistor chip, named after resistor value.
+            chip_num, option_num = find_chip(chips, RESISTOR_CHIP + "-" + resistor_value.upper(), RESISTOR_NETWORK_PINS)
+            pins = RESISTOR_NETWORK_PINS[option_num]
+
+            # Assign pins on resistor network to nodes
+            # Order doesn't matter for electrical purposes, but
+            # for RN, swap pins since often RP and RN are back-to-back.
+            # Doesn't affect electrical connections, though better
+            # for routing purposes.
+            if words[0].endswith("RN"):
+                chips[chip_num][1][pins[0]] = new_words[2]
+                chips[chip_num][1][pins[1]] = new_words[1]
+            else:
+                chips[chip_num][1][pins[0]] = new_words[1]
+                chips[chip_num][1][pins[1]] = new_words[2]
+
+        else: 
+            extra.append(" ".join(new_words))
 
     return chips, extra
 
@@ -688,7 +722,7 @@ def main():
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "-t":
+        #test_assignment()
         test_flatten()
         raise SystemExit
-    #test_assignment()
     main()
