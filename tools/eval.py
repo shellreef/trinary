@@ -104,7 +104,7 @@ def trinary_eval(expression, variables):
        returns: The result of evaluating the expression.
 
 >>> print trinary_eval("//A+B", {"A" : "i01", "B" : "1"})
-1
+111
 >>> print trinary_eval("//A+B", {"A" : "1", "B" : "0"})
 1
 >>> print trinary_eval("//A+B", {"A" : "i", "B" : "0"})
@@ -133,7 +133,7 @@ def trinary_eval(expression, variables):
 
     func_vars = {}
     func_vars["i"] = "i"
-    result = {}
+    result = "" 
 
     for i in range(max_len):
         for j in expression:
@@ -142,7 +142,8 @@ def trinary_eval(expression, variables):
                     func_vars[j] = variables[j][i]
                 else:
                     func_vars[j] = variables[j]
-        result[i], lo = expr_recurse(expression, func_vars)
+        tmp, lo = expr_recurse(expression, func_vars)
+        result += trit_string[tmp]
 
     return result
 
