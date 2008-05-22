@@ -1,0 +1,16 @@
+* Based on Z:\trinary\code\circuits\tinv_test.asc
+V1 N001 0 -5V
+Xsti N001 STI_Out1 sti
+
+* block symbol definitions
+.subckt tinv Vin PTI_Out STI_Out NTI_Out
+RP PTI_Out STI_Out 12k
+RN STI_Out NTI_Out 12k
+MN NTI_Out Vin $G_Vss $G_Vss CD4007N
+MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
+.ends tinv
+
+.subckt sti IN OUT
+XX1 IN NC_01 OUT NC_02 tinv
+.ends sti
+
