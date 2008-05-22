@@ -21,7 +21,7 @@ import os
 PROGRAM_NAME = "bb.py"
 
 # Start chip numbering at this value.
-CHIP_NO_START = int(os.environ.get("JC_CHIP_START", 10))
+CHIP_NO_START = int(os.environ.get("JC_CHIP_START", 1))
 
 # Subcircuits to map that should be mapped physical ICs
 SUBCIRCUITS_TO_MAP = ('tg', 'tinv', 'tnor', 'tnor3', 'tnand', 'tnand3', 'sp3t-1', 'sp3t-2', 'sp3t-3')
