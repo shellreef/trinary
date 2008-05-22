@@ -36,7 +36,7 @@ RESISTOR_CHIP = "MDP1403"   # Vishay isolated 7-resistor network
 KNOWN_CHIPS = (
         "CD4007",   # dual complementary MOSFETs + binary inverter
         "CD4016",   # quad transmission gates
-        RESISTOR_CHIP
+        #RESISTOR_CHIP  # handled above
         )
 
 # Pairs of pins 
@@ -169,7 +169,7 @@ def find_chip(chips, model_needed, pins_needed_options):
         return result
 
     # No chips found with model model_needed and with pins free. Need more chips.
-    if model_needed not in KNOWN_CHIPS:
+    if model_needed not in KNOWN_CHIPS and not model_needed.startswith(RESISTOR_CHIP):
         raise "Model %s not known, it is not in %s, not recognized!" % (model_needed, KNOWN_CHIPS)
 
     # Add a new chip!
@@ -336,10 +336,23 @@ def assign_part(chips, subckt_defns, extra, model_name, external_nodes, refdesg)
         new_words.append(model_name)
 
         if words[0][0] == "R" and USE_RESISTOR_CHIP:
-            chip_num, option_num = find_chip(chips, RESISTOR_CHIP, RESISTOR_NETWORK_PINS)
+            resistor_value = words[3]
+            # Find resistor chip, named after resistor value.
+            chip_num, option_num = find_chip(chips, RESISTOR_CHIP + "-" + resistor_value.upper(), RESISTOR_NETWORK_PINS)
             pins = RESISTOR_NETWORK_PINS[option_num]
-            chips[chip_num][1][pins[0]] = new_words[1]
-            chips[chip_num][1][pins[1]] = new_words[2]
+
+            # Assign pins on resistor network to nodes
+            # Order doesn't matter for electrical purposes, but
+            # for RN, swap pins since often RP and RN are back-to-back.
+            # Doesn't affect electrical connections, though better
+            # for routing purposes.
+            if words[0].endswith("RN"):
+                chips[chip_num][1][pins[0]] = new_words[2]
+                chips[chip_num][1][pins[1]] = new_words[1]
+            else:
+                chips[chip_num][1][pins[0]] = new_words[1]
+                chips[chip_num][1][pins[1]] = new_words[2]
+
         else: 
             extra.append(" ".join(new_words))
 

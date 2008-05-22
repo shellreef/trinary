@@ -12,7 +12,8 @@ PROGRAM_NAME = "pads.py"
 footprint_map = {
         "CD4007": "14DIP300",
         "CD4016": "14DIP300",
-        "R": "RC07",             # 1/4 resistor
+        "R": "RC07",                # 1/4 W resistor
+        "MDP1403-12K": "14DIP300",  # 7 x resistor network, all 12k
         "V": "1X2HDR-100-40",   # header, **with 40 mil holes**
         "sp3t-1": "SS14MDP2",      # NKK switch, in position 1
         "sp3t-2": "SS14MDP2",      # NKK switch, in position 2
