@@ -103,7 +103,7 @@ def trinary_eval(expression, variables):
        variables: dictionary of variables and their values 
        returns: The result of evaluating the expression.
 
->>> print trinary_eval("//A+B", {"A" : "1", "B" : "1"})
+>>> print trinary_eval("//A+B", {"A" : "i01", "B" : "1"})
 1
 >>> print trinary_eval("//A+B", {"A" : "1", "B" : "0"})
 1
@@ -143,6 +143,8 @@ def trinary_eval(expression, variables):
                 else:
                     func_vars[j] = variables[j]
         result[i], lo = expr_recurse(expression, func_vars)
+
+    return result
 
 
 if __name__ == "__main__":
