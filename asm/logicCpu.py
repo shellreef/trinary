@@ -163,6 +163,7 @@ input file: program.3 - machine code
             print registers
             release_lock()
 
+        time.sleep(DELAY)
 
 def Decoder(tritstream):
     """ Decode a single instruction.
