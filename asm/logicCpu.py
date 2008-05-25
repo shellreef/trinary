@@ -15,11 +15,9 @@ import sys, os, threading, time, signal
 # for safe termination
 CONTINUE = 0
 TERMINATE = 1
-global cont_exec
 cont_exec = CONTINUE
 
 # for concurency
-global locked
 locked = False
 
 TRACE = False
@@ -47,6 +45,8 @@ registers = {
 # Thread that gets input from user
 class CPUInput (threading.Thread):
     def run (self):
+        global cont_exec
+
         while True:
             print "Register Status: %s :" % registers,
 
@@ -54,13 +54,11 @@ class CPUInput (threading.Thread):
                 user_input = raw_input('Input value for IN:')
             except EOFError, e:
                 get_lock()
-                global cont_exec
                 cont_exec = TERMINATE
                 release_lock()
                 sys.exit()
 
             get_lock()
-            global cont_exec
             if cont_exec == TERMINATE:
                 sys.exit()
             release_lock()
@@ -80,8 +78,8 @@ def get_lock():
     ''' Busy wait lock to avoid race conditions.
         This function retrieves the lock.
     '''
-
     global locked
+
     while locked:
         a = 1
     locked = True
@@ -90,6 +88,7 @@ def release_lock():
     ''' This function releases the lock.
     '''
     global locked
+
     locked = False
 
 
