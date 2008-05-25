@@ -4,7 +4,7 @@ version: 1.343
 file_version: 1.332
 project_name: "test"
 full_library_folder: "c:\program files\freepcb\lib"
-CAM_folder: ""
+CAM_folder: "Z:\trinary\code\bb\CAM-sign"
 ses_file_path: "Z:\trinary\code\bb\sign_detector.ses"
 SMT_connect_copper: "0"
 dsn_flags: "0"
@@ -147,8 +147,8 @@ pilot_diameter: 254000
 annular_ring_for_pins: 177800
 annular_ring_for_vias: 127000
 shrink_paste_mask: 0
-cam_flags: 1
-cam_layers: 15732735
+cam_flags: 257
+cam_layers: 7340093
 cam_drill_file: 1
 cam_units: 2
 cam_n_x: 1
