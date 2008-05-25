@@ -5,7 +5,7 @@ file_version: 1.332
 project_name: "test"
 full_library_folder: "c:\program files\freepcb\lib"
 CAM_folder: ""
-ses_file_path: ""
+ses_file_path: "Z:\trinary\code\bb\sign_detector.ses"
 SMT_connect_copper: "0"
 dsn_flags: "0"
 dsn_bounds_poly: "0"
@@ -494,7 +494,7 @@ net: "XX2$XXcheckI2$XXdecoder$XX1sti$PTI_Out" 2 1 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 79629000 26466800 11 0 0 0 0
 
-net: "Vdd" 19 18 1 0 0 0 1
+net: "Vdd" 19 18 1 508000 711200 355600 1
   pin: 1 IC_CD4016_1.4
   pin: 2 IC_CD4016_1.14
   pin: 3 IC_CD4007_2.2
@@ -613,7 +613,7 @@ net: "XX2$XXcheckI3$XXdecoder$XX0nor$NN" 3 2 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 3429000 16306800 11 0 0 0 0
 
-net: "Vss" 22 21 1 0 0 0 1
+net: "Vss" 22 21 1 508000 711200 355600 1
   pin: 1 IC_CD4016_1.1
   pin: 2 IC_CD4016_1.7
   pin: 3 IC_CD4016_1.11
