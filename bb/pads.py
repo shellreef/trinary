@@ -104,10 +104,17 @@ next_serial = {
 
 resistor_serial = RESISTOR_SERIAL_START
 
+short2long_map = {}
+
 def shorten(long, is_netname):
+    global short2long_map
+
     short = UNIVERSAL_PREFIX + shorten_2(long, is_netname) + UNIVERSAL_SUFFIX
     if is_netname:
         short = NETNAME_PREFIX + short + NETNAME_SUFFIX
+
+    # Save short -> long for future reference
+    short2long_map[short] = long
 
     return short
 
@@ -267,3 +274,16 @@ for signal, pins in nets.iteritems():
 
 # Print a newline at the end for picky layout programs (ExpressPCB)
 print
+
+
+# Save short->long map so that abbreviated part names
+# (such as R1 or NX1) can be mapped to the full, hierarchical
+# name for debugging purposes.
+mapfilename = filename.replace(".net2", ".map")
+if mapfilename == filename:
+    mapfilename = filename + ".map"
+mapfile = file(mapfilename, "wt")
+for short, long in short2long_map.items():
+    mapfile.write("%s,%s\n" % (short, long))
+mapfile.close()
+
