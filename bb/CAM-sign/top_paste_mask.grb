@@ -1,0 +1,51 @@
+G04 FreePCB version 1.343*
+G04 Z:\trinary\code\bb\CAM-sign\top_paste_mask.grb*
+G04  layer *
+G04 Scale: 100 percent, Rotated: No, Reflected: No *
+%FSLAX24Y24*%
+%MOIN*%
+%LNTop*%
+%ADD10C,0.005000*%
+G90*
+G70D02*
+
+G04 Step and Repeat for panelization *
+
+G04 ----------------------- Draw board outline (positive)*
+%LPD*%
+G54D10*
+G01X0Y0D02*
+G01X0Y37000D01*
+G04 end of side 1*
+G01X45500Y37000D01*
+G04 end of side 2*
+G01X45500Y0D01*
+G04 end of side 3*
+G01X0Y0D01*
+
+G04 -------------- Draw Parts, Pads, Traces, Vias and Text (positive)*
+%LPD*%
+G04 Draw part IC_CD4016_1*
+G04 Draw part IC_CD4007_2*
+G04 Draw part R_12K_3*
+G04 Draw part IC_CD4007_4*
+G04 Draw part IC_CD4007_5*
+G04 Draw part R_12K_6*
+G04 Draw part IC_CD4016_7*
+G04 Draw part IC_CD4007_8*
+G04 Draw part IC_CD4007_9*
+G04 Draw part R_12K_10*
+G04 Draw part IC_CD4016_11*
+G04 Draw part IC_CD4007_12*
+G04 Draw part IC_CD4007_13*
+G04 Draw part IC_CD4007_15*
+G04 Draw part SD*
+G04 Draw part R1*
+G04 Draw part R2*
+G04 Draw part R3*
+
+G04 Draw traces*
+
+G04 Draw Text*
+M00*
+M02*
