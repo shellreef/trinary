@@ -1,22 +1,22 @@
 * Z:\trinary\code\circuits\main.asc
 XX2 $G_Vdd $G_Vss tpower
 XCYCLE_PC PC PC_PLUS_1 tcycle_up
-XMUX_PC PC_PLUS_1 0 0 CTRL_PC NEXT_ADDR mux3-1
-V1 CTRL_PC 0 PWL(0 0 5u 0 5.1u -5)
+XMUX_PC PC_PLUS_1 0 JUMP_ADDR IS_BE NEXT_PC mux3-1
 XX3 I0_opcode IS_CMP IS_LWI IS_BE decoder1-3
 XREGISTER_A I2 CLK_A A2 I1 A1 A0 0 trit_reg3
 XDO_LWI IS_LWI EXECUTE CLK_A min
-XMUX_ALU_A $G_Vdd 0 $G_Vss 0 0 0 A0_BUF A1_BUF A2_BUF I1 ALU_IN_A2 ALU_IN_A1 ALU_IN_A0 mux9-3
-XMUX_ALU_B $G_Vdd 0 $G_Vss 0 0 0 A0_BUF A1_BUF A2_BUF I2 ALU_IN_B2 ALU_IN_B1 ALU_IN_B0 mux9-3
+XMUX_ALU_A 0 $G_Vss 0 0 0 0 A0_BUF A1_BUF A2_BUF I1 ALU_IN_A0 ALU_IN_A1 ALU_IN_A2 mux9-3
+XMUX_ALU_B 0 $G_Vss 0 0 0 0 A0_BUF A1_BUF A2_BUF I2 ALU_IN_B0 ALU_IN_B1 ALU_IN_B2 mux9-3
 XDO_CMP IS_CMP EXECUTE CLK_STATUS min
-XXalu ALU_IN_A0 ALU_IN_A1 ALU_IN_A2 ALU_IN_B0 ALU_IN_B1 ALU_IN_B2 S_IN alu
+XXalu ALU_IN_A2 ALU_IN_A1 ALU_IN_A0 ALU_IN_B2 ALU_IN_B1 ALU_IN_B0 S_IN alu
 Xcg FETCH EXECUTE clock_gen
-XX1 PC I0_opcode I1 I2 swrom-cmptest
-XPROGRAM_COUNTER NEXT_ADDR FETCH PC NC_01 dtflop-ms2
+XPROGRAM_COUNTER NEXT_PC FETCH PC NC_01 dtflop-ms2
 XSTATUS_REG S_IN CLK_STATUS S NC_02 dtflop-ms2
 XBUF_A1 A1 A1_BUF tbuf
 XBUF_A0 A0 A0_BUF tbuf
 XBUF_A2 A2 A2_BUF tbuf
+XJUMP_MUX I2 I1 I2 S JUMP_ADDR mux3-1
+XX1 PC I0_opcode I1 I2 swrom-guess
 
 * block symbol definitions
 .subckt tpower Vdd Vss
@@ -63,25 +63,20 @@ XXmux2 IiB I0B I1B S QB mux3-1
 XXmux3 IiC I0C I1C S QC mux3-1
 .ends mux9-3
 
-.subckt alu A0 A1 A2 B0 B1 B2 S
-XXfa0 A0 C1 S0 N001 0 full_adder
-XXfa1 A1 C2 S1 N002 C1 full_adder
-XXfa2 A2 S2 C3 N003 C2 full_adder
-XX1 S0 S1 S2 S B3 tsign4
-XXnegB0 B0 N001 sti
-XXnegB1 B1 N002 sti
-XXnegB2 B2 N003 sti
-XXnegCarry C3 B3 sti
+.subckt alu A2 A1 A0 B2 B1 B0 S
+XXfa0 A0 C1 S0 _B0 0 full_adder
+XXfa1 A1 C2 S1 _B1 C1 full_adder
+XXfa2 A2 C3 S2 _B2 C2 full_adder
+XX1 S0 S1 S2 S C3 tsign4
+XXnegB0 B0 _B0 sti
+XXnegB1 B1 _B1 sti
+XXnegB2 B2 _B2 sti
 .ends alu
 
 .subckt clock_gen FETCH EXECUTE
-V§CLK_F1 FETCH 0 PULSE(-5 5 3u 1n 1n 30u 60u)
-V§CLK_X1 EXECUTE 0 PULSE(-5 5 10u 1n 1n 30u 60u)
+VCLK EXECUTE 0 PULSE(-5 5 30u 1n 1n 30u 60u)
+Xinvert_clk EXECUTE FETCH sti
 .ends clock_gen
-
-.subckt swrom-cmptest ADDRESS D0 D1 D2
-XX1 $G_Vss $G_Vdd $G_Vss 0 $G_Vss 0 $G_Vss $G_Vss $G_Vdd ADDRESS D2 D1 D0 mux9-3
-.ends swrom-cmptest
 
 .subckt dtflop-ms2 D CLK Q _Q
 XMaster D _CLK between NC_01 dtflop
@@ -93,6 +88,10 @@ XXstiCLK CLK _CLK sti
 XXinv1 IN _IN sti
 XXinv2 _IN OUT sti
 .ends tbuf
+
+.subckt swrom-guess ADDRESS D0 D1 D2
+XX1 $G_Vdd 0 $G_Vdd 0 $G_Vss 0 $G_Vss $G_Vss $G_Vdd ADDRESS D2 D1 D0 mux9-3
+.ends swrom-guess
 
 .subckt nti IN OUT
 Xinv IN NC_01 NC_02 OUT tinv
@@ -204,15 +203,21 @@ MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
 
 .model NMOS NMOS
 .model PMOS PMOS
-.lib C:\PROGRA~1\LTC\SwCADIII\lib\cmp\standard.mos
+.lib C:\Program Files\LTC\SwCADIII\lib\cmp\standard.mos
 .tran 320u
-* Reset address
-* Should result in S = _1, _1, 1
 * IN "Register"\n(User input)
 * OUT "Register"\n(Cannot read from)
 * A Register
 * IN "Register"\n(User input)
 * OUT "Register"\n(Cannot read from)
 * A Register
+* =
+* <
+* >
+* guess.t
+* LWI Instruction
+* CMP Instruction
+* BE Instruction
+* 3-TRIT TRINARY COMPUTER ARCHITECTURE
 .backanno
 .end
