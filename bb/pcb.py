@@ -57,13 +57,19 @@ if "-q" not in sys.argv:
         print "(Using default)"
 
     try:
-        os.environ["JC_USE_RESISTOR_CHIP"] = raw_input("Use resistor network or discrete resistors? (1=network, 0=discrete) ")
+        os.environ["JC_USE_RESISTOR_CHIP"] = str(int(raw_input("Use resistor network or discrete resistors? (1=network, 0=discrete) ")))
     except ValueError:
         print "(Using default)"
 
 # Copy here so files are saved locally, in 'bb' instead of 'circuits'
-os.system("cp -v %s ." % (netfile,))
-os.system("python bb.py %s.net -p" % (name,))
+code = os.system("cp -v %s ." % (netfile,))
+if code != 0:
+    print "Failed to copy netlist to current directory! Something is wrong."
+    raise SystemExit
+code = os.system("python bb.py %s.net -p" % (name,))
+if code != 0:
+    print "Failed!, see errors above. Exit code: %d" % (code,)
+    raise SystemExit
 
 if os.access("%s.pads" % (name,), os.R_OK):
     print "Your PADS-PCB netlist file is now available at %s.pads for importing into FreePCB." % (name,)

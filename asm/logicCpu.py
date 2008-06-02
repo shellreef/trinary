@@ -15,11 +15,9 @@ import sys, os, threading, time, signal
 # for safe termination
 CONTINUE = 0
 TERMINATE = 1
-global cont_exec
 cont_exec = CONTINUE
 
 # for concurency
-global locked
 locked = False
 
 TRACE = False
@@ -80,8 +78,8 @@ def get_lock():
     ''' Busy wait lock to avoid race conditions.
         This function retrieves the lock.
     '''
-
     global locked
+
     while locked:
         a = 1
     locked = True
@@ -90,6 +88,7 @@ def release_lock():
     ''' This function releases the lock.
     '''
     global locked
+
     locked = False
 
 

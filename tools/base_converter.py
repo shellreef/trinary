@@ -157,4 +157,4 @@ def int_cnvrt(value, base_frm, base_to):
 '''
 
 if __name__ == "__main__":
-    print int_cnvrt("111", 2, 10)
+    print int_cnvrt("10i", -3, 10)
