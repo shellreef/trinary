@@ -47,6 +47,8 @@ registers = {
 # Thread that gets input from user
 class CPUInput (threading.Thread):
     def run (self):
+        global cont_exec
+
         while True:
             print "Register Status: %s :" % registers,
 
@@ -54,13 +56,11 @@ class CPUInput (threading.Thread):
                 user_input = raw_input('Input value for IN:')
             except EOFError, e:
                 get_lock()
-                global cont_exec
                 cont_exec = TERMINATE
                 release_lock()
                 sys.exit()
 
             get_lock()
-            global cont_exec
             if cont_exec == TERMINATE:
                 sys.exit()
             release_lock()
