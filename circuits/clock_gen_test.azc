@@ -10,4 +10,4 @@ SYMBOL clock_gen-555 176 112 R0
 SYMATTR InstName cg
 SYMBOL tpower -64 144 R0
 SYMATTR InstName X1
-TEXT 168 304 Left 0 !.tran 5s
+TEXT 168 304 Left 0 !.tran 100u
