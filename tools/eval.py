@@ -1,4 +1,4 @@
-#!/usr/bin/python
+﻿#!/usr/bin/python
 # vim: set fileencoding=utf8
 # Created: April 5, 2008
 # By: Antonio Chavez
@@ -15,19 +15,19 @@ import doctest
 import traceback
 
 dyadic_functions = {
-    u"?" : {False:"i01", None:"001", True:"111"},    # TOR
-    u"?" : {False:"iii", None:"i00", True:"i01"},    # TAND
-    u"?" : {False:"111", None:"100", True:"10i"},    # TNAND
-    u"?" : {False:"10i", None:"00i", True:"111"},    # TNOR
+    u"" : {False:"i01", None:"001", True:"111"},    # TOR
+    u"" : {False:"iii", None:"i00", True:"i01"},    # TAND
+    u"" : {False:"111", None:"100", True:"10i"},    # TNAND
+    u"" : {False:"10i", None:"00i", True:"111"},    # TNOR
 
     # Alternate notation, sometimes easier to type
     u"+" : {False:"i01", None:"001", True:"111"},
     u"*" : {False:"iii", None:"i00", True:"i01"},
 
     # Grubb's notation
-    u"?" : {False:"i01", None:"001", True:"111"},    # max
-    u"?" : {False:"iii", None:"i00", True:"i01"},    # min
-    u"?" : {False:"i01", None:"0i1", True:"11i"},    # exclusive max
+    u"" : {False:"i01", None:"001", True:"111"},    # max
+    u"" : {False:"iii", None:"i00", True:"i01"},    # min
+    u"" : {False:"i01", None:"0i1", True:"11i"},    # exclusive max
 
 }
 
@@ -141,7 +141,7 @@ def expr_recurse(expression, variables):
 
 def trinary_eval(expression, variables):
     u'''Evaluates trinary expression.  Unary and Dyadic functions supported:
-        Unary: /, ?, ?, ¬, ?, ?, ?, ?, ?, ?
+        Unary: /, ?, ?, Â¬, ?, ?, ?, ?, ?, ?
         Dyadic: see 'dyadic_functions' module global
        expression: String containing expression to evalutate
        variables: dictionary of variables and their values

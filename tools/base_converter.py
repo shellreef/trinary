@@ -46,6 +46,7 @@ def int_cnvrt(value, base_frm, base_to):
         magnitude_f = (base_frm*-1 - 1)/2
     else:
         magnitude_f = base_frm
+    #magnitude_f = abs(base_frm)
 
     if base_to < 0 and base_to*-1%2 != 1:
         print "base_to is even: negative bases must be odd integers"
@@ -54,6 +55,7 @@ def int_cnvrt(value, base_frm, base_to):
         magnitude_t = (base_to*-1 - 1)/2
     else:
         magnitude_t = base_to
+    #magnitude_t = abs(base_to)
 
     sum   = 0   # base 10 equivalent summation
     neg   = 1   # used when 'i' is encountered, it negates the previous digit
@@ -67,10 +69,10 @@ def int_cnvrt(value, base_frm, base_to):
 
     for i in range(len(value) - 1, -1, -1):
 
-        if abs(base_frm) == 3:
+        if base_frm == -3:
             # Base 3 conversion
             if value[i] in Trits.trit_integer:
-                sum = sum + Trits.trit_integer[value[i]]*count
+                sum = sum + (Trits.trit_integer[value[i]])*count
                 count = count*abs(base_frm)
             else:
                 print "%s invalid input", value[i]
@@ -119,13 +121,16 @@ def int_cnvrt(value, base_frm, base_to):
             print "%s: invalid input", value[i]
             raise SystemExit
 
+    if base_frm == -3:
+        return "" + str(sum)
+
     # sum up remaining digit
     sum = sum + prev*neg*count
     sum = sign*sum
 
     # return base 10 if desired base is balanced
     if base_frm < 0:
-        return "" + sum
+        return "" + str(sum)
 
     # compute unbalanced conversion
     result = ""
@@ -157,4 +162,23 @@ def int_cnvrt(value, base_frm, base_to):
 '''
 
 if __name__ == "__main__":
-    print int_cnvrt("10i", -3, 10)
+    print int_cnvrt("8", 10, 2)
+
+    while True:
+        print ">> ",
+        line = unicode(sys.stdin.readline(), "utf8")
+        if len(line) == 0:
+            break
+        line = line.strip()
+        print
+
+        val, frm, to = line.split(",")
+        frm = int(frm)
+        to  = int(to)
+
+        try:
+            print int_cnvrt(val, frm, to)
+        except:
+            print "An error occured:"
+            traceback.print_exc() 
+
