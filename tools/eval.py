@@ -15,19 +15,19 @@ import doctest
 import traceback
 
 dyadic_functions = {
-    u"" : {False:"i01", None:"001", True:"111"},    # TOR
-    u"" : {False:"iii", None:"i00", True:"i01"},    # TAND
-    u"" : {False:"111", None:"100", True:"10i"},    # TNAND
-    u"" : {False:"10i", None:"00i", True:"111"},    # TNOR
+    u"!" : {False:"i01", None:"001", True:"111"},    # TOR
+    u"@" : {False:"iii", None:"i00", True:"i01"},    # TAND
+    u"#" : {False:"111", None:"100", True:"10i"},    # TNAND
+    u"$" : {False:"10i", None:"00i", True:"111"},    # TNOR
 
     # Alternate notation, sometimes easier to type
     u"+" : {False:"i01", None:"001", True:"111"},
     u"*" : {False:"iii", None:"i00", True:"i01"},
 
     # Grubb's notation
-    u"" : {False:"i01", None:"001", True:"111"},    # max
-    u"" : {False:"iii", None:"i00", True:"i01"},    # min
-    u"" : {False:"i01", None:"0i1", True:"11i"},    # exclusive max
+    u"%" : {False:"i01", None:"001", True:"111"},    # max
+    u"^" : {False:"iii", None:"i00", True:"i01"},    # min
+    u"&" : {False:"i01", None:"0i1", True:"11i"},    # exclusive max
 
 }
 
@@ -159,9 +159,9 @@ def trinary_eval(expression, variables):
 1
 >>> print trinary_eval("/(A+/B*C)",{"A":"0","B":"0","C":"1"})
 0
->>> print trinary_eval("A?(/B*C)",{"A":"0","B":"0","C":"1"})
+>>> print trinary_eval("A$(/B*C)",{"A":"0","B":"0","C":"1"})
 0
->>> print trinary_eval("A?(/B?C)",{"A":"0","B":"0","C":"1"})
+>>> print trinary_eval("A$(/B?C)",{"A":"0","B":"0","C":"1"})
 0
     '''
 
