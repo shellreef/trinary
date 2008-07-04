@@ -171,3 +171,24 @@ if __name__ == "__main__":
     if result:
         print gates1, gates2, gates3
 
+    while True:
+        valid = True
+        print ">> ",
+        line = sys.stdin.readline()
+        line = line.strip()
+        print
+
+        if len(line) == 3 or len(line) == 9:
+
+            for i in range(0, len(line)):
+                if not line[i] in valid_chars:
+                    valid = False
+
+            if valid:
+                if len(line) == 3:
+                    result, gates = get_unary(line)
+                    print gates
+                if len(line) == 9:
+                    result, gates1, gates2, gates3 = get_dyadic(line)
+                    print gates1, gates2, gates3
+
