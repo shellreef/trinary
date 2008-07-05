@@ -1,17 +1,18 @@
-* Z:\College\Senior Year\Trinary Research Project\trinary\circuits\logic_board.asc
-XX1 DEC_IN OUT_i OUT_0 OUT_1 decoder1-3
+* Z:\trinary\code\circuits\logic_board.asc
+XDECODER DEC_IN OUT_i OUT_0 OUT_1 decoder1-3
 XX2 $G_Vdd $G_Vss tpower
-XX3 CU_IN CU_OUT tcycle_up
-XX4 TAND_1A TAND_1B TAND_1Y min
-XX5 TAND_2A TAND_2B TAND_2Y min
-XX6 TAND_3A TAND_3B TAND_3Y min
+XCYCLE_UP CU_IN CU_OUT tcycle_up
+XTAND_1 TAND_1A TAND_1B TAND_1Y min
+XTAND_2 TAND_2A TAND_2B TAND_2Y min
+XTAND_3 TAND_3A TAND_3B TAND_3Y min
 XX7 INV1_IN PTI1 STI1 NTI1 tinv
 XX8 INV2_IN PTI2 STI2 NTI2 tinv
 XX9 INV3_IN PTI3 STI3 NTI3 tinv
 XX10 INV4_IN PTI4 STI4 NTI4 tinv
-XX11 INV5_IN PTI5 STI5 NTI5 tinv
-XX12 INV6_IN PTI6 STI6 NTI6 tinv
-XX13 INV7_IN PTI7 STI7 NTI7 tinv
+XBUF1 BUF1_IN BUF1_OUT tbuf
+XBUF2 BUF2_IN BUF2_OUT tbuf
+XBUF3 BUF3_IN BUF3_OUT tbuf
+XBUF4 BUF4_IN BUF4_OUT tbuf
 
 * block symbol definitions
 .subckt decoder1-3 IN OUT_i OUT_0 OUT_1
@@ -45,6 +46,11 @@ RN STI_Out NTI_Out 12k
 MN NTI_Out Vin $G_Vss $G_Vss CD4007N
 MP PTI_Out Vin $G_Vdd $G_Vdd CD4007P
 .ends tinv
+
+.subckt tbuf IN OUT
+XXinv1 IN _IN sti
+XXinv2 _IN OUT sti
+.ends tbuf
 
 .subckt pti IN OUT
 Xinv IN OUT NC_01 NC_02 tinv
