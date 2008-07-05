@@ -11,7 +11,7 @@ dsn_flags: "0"
 dsn_bounds_poly: "0"
 dsn_signals_poly: "0"
 autosave_interval: 0
-netlist_import_flags: 451
+netlist_import_flags: 487
 units: MIL
 
 visible_grid_spacing: 5080000.000000
@@ -65,10 +65,10 @@ routing_grid_spacing: 508000.000000
   routing_grid_item: 3.33330709MIL
   routing_grid_item: 4MIL
   routing_grid_item: 5MIL
-  routing_grid_item: 6.66661417MIL
+  routing_grid_item: 6.6665748MIL
   routing_grid_item: 10MIL
   routing_grid_item: 12.5MIL
-  routing_grid_item: 16.66661417MIL
+  routing_grid_item: 16.6665748MIL
   routing_grid_item: 20MIL
   routing_grid_item: 25MIL
   routing_grid_item: 40MIL
@@ -200,6 +200,50 @@ n_copper_layers: 2
 
 [footprints]
 
+name: "RC07"
+author: "Ivex"
+source: "DIGITAL PRINTED CIRCUIT DESIGN & DRAFTING, PAGE 408"
+  units: MIL
+  sel_rect: -45 -57 545 57
+  ref_text: 50 250 99 0 7
+  centroid: 0 250 0
+  outline_polyline: 7 109 49
+    next_corner: 391 49 0
+    next_corner: 391 -49 0
+    next_corner: 109 -49 0
+    close_polyline: 0
+  n_pins: 2
+    pin: "1" 35 0 0 0
+      top_pad: 1 75 37 37 0
+      inner_pad: 1 75 37 37 0
+      bottom_pad: 1 75 37 37 0
+    pin: "2" 35 500 0 0
+      top_pad: 1 75 37 37 0
+      inner_pad: 1 75 37 37 0
+      bottom_pad: 1 75 37 37 0
+
+name: "CK06"
+author: "Ivex"
+source: "PRINTED CIRCUIT DESIGN METHODS PAGE 411"
+  units: MIL
+  sel_rect: -58 -58 258 58
+  ref_text: 50 100 80 0 7
+  centroid: 0 100 0
+  outline_polyline: 7 -50 50
+    next_corner: 250 50 0
+    next_corner: 250 -50 0
+    next_corner: -50 -50 0
+    close_polyline: 0
+  n_pins: 2
+    pin: "1" 45 0 0 0
+      top_pad: 1 75 37 37 0
+      inner_pad: 1 75 37 37 0
+      bottom_pad: 1 75 37 37 0
+    pin: "2" 45 200 0 0
+      top_pad: 1 75 37 37 0
+      inner_pad: 1 75 37 37 0
+      bottom_pad: 1 75 37 37 0
+
 name: "PHOTO_D"
 author: "Ivex"
 source: "ELFA 48 CATALOG, INTERNATIONAL EDITION, PAGE 845"
@@ -227,6 +271,57 @@ source: "ELFA 48 CATALOG, INTERNATIONAL EDITION, PAGE 845"
       top_pad: 1 65 32 32 0
       inner_pad: 1 65 32 32 0
       bottom_pad: 1 65 32 32 0
+
+name: "8DIP300"
+author: "Ivex"
+source: "DIGIKEY CATALOG NO. 941, PAGE 64"
+  units: MIL
+  sel_rect: -58 -35 358 335
+  ref_text: 50 -100 150 270 7
+  centroid: 0 150 150
+  outline_polyline: 7 -50 50
+    next_corner: 350 50 0
+    next_corner: 350 250 0
+    next_corner: -50 250 0
+    close_polyline: 0
+  outline_polyline: 7 -50 100
+    next_corner: 0 100 0
+    next_corner: 0 200 0
+    next_corner: -50 200 0
+    close_polyline: 0
+  n_pins: 8
+    pin: "1" 28 0 0 0
+      top_pad: 2 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 2 55 27 27 0
+    pin: "2" 28 100 0 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "3" 28 200 0 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "4" 28 300 0 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "5" 28 300 300 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "6" 28 200 300 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "7" 28 100 300 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
+    pin: "8" 28 0 300 0
+      top_pad: 1 55 27 27 0
+      inner_pad: 1 55 27 27 0
+      bottom_pad: 1 55 27 27 0
 
 name: "SS14MDP2"
 author: "Jeff Connelly"
@@ -330,64 +425,254 @@ part: IN1
   ref_text: 2540000 254000 0 0 20320000
   package: ""
   shape: "SS14MDP2"
-  pos: 81280000 17780000 0 0 0
+  pos: 81280000 5080000 0 0 0
 
 part: IN2
   ref_text: 2540000 254000 0 0 20320000
   package: ""
   shape: "SS14MDP2"
-  pos: 91440000 17780000 0 0 0
+  pos: 91440000 5080000 0 0 0
 
 part: IN3
   ref_text: 2540000 254000 0 0 20320000
   package: ""
   shape: "SS14MDP2"
-  pos: 101600000 17780000 0 0 0
+  pos: 101600000 5080000 0 0 0
 
 part: S
   ref_text: 1270000 177800 0 1270000 3556000
   package: ""
   shape: "PHOTO_D"
-  pos: 93980000 7620000 0 0 0
+  pos: 92710000 48260000 0 0 0
 
 part: PC
   ref_text: 1270000 177800 0 1270000 3556000
   package: ""
   shape: "PHOTO_D"
-  pos: 43180000 40640000 0 0 0
+  pos: 43180000 48260000 0 0 0
 
 part: A0
   ref_text: 1270000 177800 0 1270000 3556000
   package: ""
   shape: "PHOTO_D"
-  pos: 7620000 40640000 0 0 0
+  pos: 7620000 48260000 0 0 0
 
 part: A1
   ref_text: 1270000 177800 0 1270000 3556000
   package: ""
   shape: "PHOTO_D"
-  pos: 17780000 40640000 0 0 0
+  pos: 17780000 48260000 0 0 0
 
 part: A2
   ref_text: 1270000 177800 0 1270000 3556000
   package: ""
   shape: "PHOTO_D"
-  pos: 27940000 40640000 0 0 0
+  pos: 27940000 48260000 0 0 0
+
+part: U1
+  ref_text: 1270000 177800 270 -2540000 3810000
+  package: "8DIP300"
+  shape: "8DIP300"
+  pos: 11633200 16129000 0 90 0
+
+part: C1
+  ref_text: 1270000 177800 0 2540000 2032000
+  package: "CK06"
+  shape: "CK06"
+  pos: 24333200 9093200 0 270 0
+
+part: C2
+  ref_text: 1270000 177800 0 2540000 2032000
+  package: "CK06"
+  shape: "CK06"
+  pos: 6553200 11633200 0 270 0
+
+part: R2
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 29083000 16687800 0 90 0
+
+part: R1
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 16383000 21767800 0 0 0
+
+part: U11
+  ref_text: 1270000 177800 270 -2540000 3810000
+  package: "8DIP300"
+  shape: "8DIP300"
+  pos: 44653200 16129000 0 90 0
+
+part: C11
+  ref_text: 1270000 177800 0 2540000 2032000
+  package: "CK06"
+  shape: "CK06"
+  pos: 57353200 9093200 0 270 0
+
+part: C12
+  ref_text: 1270000 177800 0 2540000 2032000
+  package: "CK06"
+  shape: "CK06"
+  pos: 39573200 11633200 0 270 0
+
+part: R12
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 62103000 16687800 0 90 0
+
+part: R11
+  ref_text: 1270000 177800 0 6350000 2514600
+  package: "RC07"
+  shape: "RC07"
+  pos: 49403000 21767800 0 0 0
 
 [nets]
 
+net: "N001_$G1" 3 2 0 0 0 0 1
+  pin: 1 U11.7
+  pin: 2 R12.1
+  pin: 3 R11.2
+  connect: 1 2 1 1 0
+    vtx: 1 62103000 21767800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 62103000 16687800 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 62103000 16687800 11 0 0 0 0
+    seg: 1 6 1 0 0
+    vtx: 2 52273200 13589000 11 0 0 0 0
+
+net: "N002_$G1" 4 3 0 0 0 0 1
+  pin: 1 U11.2
+  pin: 2 U11.6
+  pin: 3 C12.1
+  pin: 4 R12.2
+  connect: 1 2 0 1 0
+    vtx: 1 39573200 11633200 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 44653200 13589000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 52273200 11049000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 44653200 13589000 11 0 0 0 0
+  connect: 3 3 1 1 0
+    vtx: 1 62103000 3987800 11 0 0 0 0
+    seg: 1 6 1 0 0
+    vtx: 2 52273200 11049000 11 0 0 0 0
+
+net: "N003_$G1" 2 1 0 0 0 0 1
+  pin: 1 U11.5
+  pin: 2 C11.1
+  connect: 1 1 0 1 0
+    vtx: 1 57353200 9093200 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 52273200 8509000 11 0 0 0 0
+
+net: "N001" 3 2 0 0 0 0 1
+  pin: 1 U1.7
+  pin: 2 R2.1
+  pin: 3 R1.2
+  connect: 1 2 1 1 0
+    vtx: 1 29083000 21767800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 29083000 16687800 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 29083000 16687800 11 0 0 0 0
+    seg: 1 6 1 0 0
+    vtx: 2 19253200 13589000 11 0 0 0 0
+
+net: "N002" 4 3 0 0 0 0 1
+  pin: 1 U1.2
+  pin: 2 U1.6
+  pin: 3 C2.1
+  pin: 4 R2.2
+  connect: 1 2 0 1 0
+    vtx: 1 6553200 11633200 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 11633200 13589000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 19253200 11049000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 11633200 13589000 11 0 0 0 0
+  connect: 3 3 1 1 0
+    vtx: 1 29083000 3987800 11 0 0 0 0
+    seg: 1 6 1 0 0
+    vtx: 2 19253200 11049000 11 0 0 0 0
+
+net: "N003" 2 1 0 0 0 0 1
+  pin: 1 U1.5
+  pin: 2 C1.1
+  connect: 1 1 0 1 0
+    vtx: 1 24333200 9093200 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 19253200 8509000 11 0 0 0 0
+
+net: "$G_Vdd" 3 2 0 0 0 0 1
+  pin: 1 U1.4
+  pin: 2 U1.8
+  pin: 3 R1.1
+  connect: 1 2 1 1 0
+    vtx: 1 16383000 21767800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 19253200 16129000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 19253200 16129000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 11633200 8509000 11 0 0 0 0
+
+net: "$G_Vss" 3 2 0 0 0 0 1
+  pin: 1 U1.1
+  pin: 2 C1.2
+  pin: 3 C2.2
+  connect: 1 2 0 1 0
+    vtx: 1 6553200 16713200 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 11633200 16129000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 24333200 14173200 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 11633200 16129000 11 0 0 0 0
+
+net: "$G_Vdd_$G1" 3 2 0 0 0 0 1
+  pin: 1 U11.4
+  pin: 2 U11.8
+  pin: 3 R11.1
+  connect: 1 2 1 1 0
+    vtx: 1 49403000 21767800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 52273200 16129000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 52273200 16129000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 44653200 8509000 11 0 0 0 0
+
+net: "$G_Vss_$G1" 3 2 0 0 0 0 1
+  pin: 1 U11.1
+  pin: 2 C11.2
+  pin: 3 C12.2
+  connect: 1 2 0 1 0
+    vtx: 1 39573200 16713200 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 44653200 16129000 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 57353200 14173200 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 44653200 16129000 11 0 0 0 0
+
+net: "CLK" 1 0 0 0 0 0 1
+  pin: 1 U1.3
+
+net: "CLK_$G1" 1 0 0 0 0 0 1
+  pin: 1 U11.3
+
 [texts]
 
-text: "Instruction Memory" 91440000 58420000 7 180 0 5080000 254000 0
+text: "J. Connelly, C. Patel, A. Chavez" 5080000 33020000 7 0 0 1905000 254000 0
 
-text: "User Input" 86360000 45720000 7 0 0 2540000 254000 0
+text: "Winter - Summer 2008" 10160000 30480000 7 0 0 1905000 254000 0
 
-text: "Trinary Computer Architecture 2.0" 2540000 30480000 7 0 0 2794000 254000 0
-
-text: "J. Connelly, C. Patel, A. Chavez" 5080000 25400000 7 0 0 1905000 254000 0
-
-text: "Winter - Summer 2008" 10160000 22860000 7 0 0 1905000 254000 0
-
-text: "***Enter colors for high,low,equal here***" 2540000 7620000 7 0 0 2540000 254000 0
+text: "Ternary Computing Testbed" 2540000 38100000 7 0 0 2794000 254000 0
 
 [end]
