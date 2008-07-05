@@ -1,11 +1,11 @@
 *PADS2000*
 *Z:\trinary\code\circuits\clock_gen.asc Fri Jul 04 13:08:26 2008*
 *PART*
-U1	NE555
-C1	0.001µ
-C2	0.01µ
-R2	3.3k
-R1	330
+U1	8DIP300
+C1	CK06
+C2	CK06
+R2	RC07
+R1	RC07
 
 *NET*
 *SIGNAL* $G_Vss
