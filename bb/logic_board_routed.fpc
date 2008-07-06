@@ -4,7 +4,7 @@ version: 1.343
 file_version: 1.332
 project_name: "test"
 full_library_folder: "c:\program files\freepcb\lib"
-CAM_folder: ""
+CAM_folder: "Z:\trinary\code\bb\CAM-logic"
 ses_file_path: "Z:\trinary\code\bb\logic_board.ses"
 SMT_connect_copper: "0"
 dsn_flags: "0"
@@ -1321,7 +1321,7 @@ net: "TAND_3Y" 4 3 0 0 0 0 1
     seg: 1 12 254000 0 0
     vtx: 2 17780000 -36830000 11 0 0 0 0
 
-net: "Vss" 32 30 0 0 0 0 1
+net: "Vss" 32 31 0 0 0 0 1
   pin: 1 IC_CD4007_1.4
   pin: 2 IC_CD4007_1.7
   pin: 3 IC_CD4007_3.4
@@ -1672,6 +1672,10 @@ net: "Vss" 32 30 0 0 0 0 1
     vtx: 4 -38573456 27440890 0 0 0 0 0
     seg: 4 13 254000 0 0
     vtx: 5 -37033200 28981146 0 0 0 0 32114
+  connect: 31 24 12 1 0
+    vtx: 1 29006800 75311000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 3606800 75311000 11 0 0 0 0
 
 net: "CU_OUT" 3 2 0 0 0 0 1
   pin: 1 IC_MDP1403-12K_8.13
