@@ -65,10 +65,10 @@ routing_grid_spacing: 508000.000000
   routing_grid_item: 3.33330709MIL
   routing_grid_item: 4MIL
   routing_grid_item: 5MIL
-  routing_grid_item: 6.6665748MIL
+  routing_grid_item: 6.66653543MIL
   routing_grid_item: 10MIL
   routing_grid_item: 12.5MIL
-  routing_grid_item: 16.6665748MIL
+  routing_grid_item: 16.66653543MIL
   routing_grid_item: 20MIL
   routing_grid_item: 25MIL
   routing_grid_item: 40MIL
@@ -91,7 +91,7 @@ routing_grid_spacing: 508000.000000
 
 snap_angle: 45
 
-fp_visible_grid_spacing: 5080000.000000
+fp_visible_grid_spacing: 2540000.000000
   fp_visible_grid_item: 100MIL
   fp_visible_grid_item: 125MIL
   fp_visible_grid_item: 200MIL
@@ -351,28 +351,6 @@ source: "PRINTED CIRCUIT DESIGN METHODS PAGE 411"
       inner_pad: 1 50 25 25 0
       bottom_pad: 1 50 25 25 0
 
-name: "CK06"
-author: "Ivex"
-source: "PRINTED CIRCUIT DESIGN METHODS PAGE 411"
-  units: MIL
-  sel_rect: -58 -58 258 58
-  ref_text: 50 100 80 0 7
-  centroid: 0 100 0
-  outline_polyline: 7 -50 50
-    next_corner: 250 50 0
-    next_corner: 250 -50 0
-    next_corner: -50 -50 0
-    close_polyline: 0
-  n_pins: 2
-    pin: "1" 45 0 0 0
-      top_pad: 1 75 37 37 0
-      inner_pad: 1 75 37 37 0
-      bottom_pad: 1 75 37 37 0
-    pin: "2" 45 200 0 0
-      top_pad: 1 75 37 37 0
-      inner_pad: 1 75 37 37 0
-      bottom_pad: 1 75 37 37 0
-
 name: "PHOTO_D"
 author: "Ivex"
 source: "ELFA 48 CATALOG, INTERNATIONAL EDITION, PAGE 845"
@@ -400,6 +378,28 @@ source: "ELFA 48 CATALOG, INTERNATIONAL EDITION, PAGE 845"
       top_pad: 1 65 32 32 0
       inner_pad: 1 65 32 32 0
       bottom_pad: 1 65 32 32 0
+
+name: "CK06"
+author: "Ivex"
+source: "PRINTED CIRCUIT DESIGN METHODS PAGE 411"
+  units: MIL
+  sel_rect: -58 -58 258 58
+  ref_text: 50 100 80 0 7
+  centroid: 0 100 0
+  outline_polyline: 7 -50 50
+    next_corner: 250 50 0
+    next_corner: 250 -50 0
+    next_corner: -50 -50 0
+    close_polyline: 0
+  n_pins: 2
+    pin: "1" 45 0 0 0
+      top_pad: 1 75 37 37 0
+      inner_pad: 1 75 37 37 0
+      bottom_pad: 1 75 37 37 0
+    pin: "2" 45 200 0 0
+      top_pad: 1 75 37 37 0
+      inner_pad: 1 75 37 37 0
+      bottom_pad: 1 75 37 37 0
 
 name: "8DIP300"
 author: "Ivex"
@@ -732,13 +732,10 @@ part: TEST2
 
 [nets]
 
-net: "TEST2b" 2 1 0 0 0 0 1
-  pin: 1 R19.2
-  pin: 2 IO.18
-  connect: 1 1 0 1 0
-    vtx: 1 109220000 17780000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 106680000 43180000 11 0 0 0 0
+net: "CLK_$G2" 1 0 0 0 0 0 1
+  pin: 1 U11.3
+
+net: "N7_$G3" 0 0 0 0 0 0 1
 
 net: "TEST1a" 2 1 0 0 0 0 1
   pin: 1 TEST1.2
@@ -748,10 +745,13 @@ net: "TEST1a" 2 1 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 48260000 48260000 11 0 0 0 0
 
-net: "N7_$G3" 0 0 0 0 0 0 1
-
-net: "CLK_$G2" 1 0 0 0 0 0 1
-  pin: 1 U11.3
+net: "TEST2b" 2 1 0 0 0 0 1
+  pin: 1 R19.2
+  pin: 2 IO.18
+  connect: 1 1 0 1 0
+    vtx: 1 109220000 17780000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 106680000 43180000 11 0 0 0 0
 
 net: "TEST1b" 2 1 0 0 0 0 1
   pin: 1 R18.2
@@ -762,6 +762,8 @@ net: "TEST1b" 2 1 0 0 0 0 1
     vtx: 2 100330000 43180000 11 0 0 0 0
 
 net: "N001_$G1" 0 0 0 0 0 0 1
+
+net: "N002_$G1" 0 0 0 0 0 0 1
 
 net: "N001_$G2" 3 2 0 0 0 0 1
   pin: 1 U11.7
@@ -776,7 +778,28 @@ net: "N001_$G2" 3 2 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 57353200 13589000 11 0 0 0 0
 
-net: "N002_$G1" 0 0 0 0 0 0 1
+net: "N001" 3 2 0 0 0 0 1
+  pin: 1 U1.7
+  pin: 2 R2.1
+  pin: 3 R1.2
+  connect: 1 2 1 1 0
+    vtx: 1 29083000 21767800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 29083000 16687800 11 0 0 0 0
+  connect: 2 1 0 1 0
+    vtx: 1 29083000 16687800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 19253200 13589000 11 0 0 0 0
+
+net: "N003_$G1" 0 0 0 0 0 0 1
+
+net: "N1" 2 1 0 0 0 0 1
+  pin: 1 R10.1
+  pin: 2 A0.1
+  connect: 1 1 0 1 0
+    vtx: 1 5080000 48260000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 62230000 55880000 11 0 0 0 0
 
 net: "N002_$G2" 4 3 0 0 0 0 1
   pin: 1 U11.2
@@ -796,45 +819,6 @@ net: "N002_$G2" 4 3 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 57353200 11049000 11 0 0 0 0
 
-net: "N1" 2 1 0 0 0 0 1
-  pin: 1 R10.1
-  pin: 2 A0.1
-  connect: 1 1 0 1 0
-    vtx: 1 5080000 48260000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 62230000 55880000 11 0 0 0 0
-
-net: "N003_$G1" 0 0 0 0 0 0 1
-
-net: "N001" 3 2 0 0 0 0 1
-  pin: 1 U1.7
-  pin: 2 R2.1
-  pin: 3 R1.2
-  connect: 1 2 1 1 0
-    vtx: 1 29083000 21767800 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 29083000 16687800 11 0 0 0 0
-  connect: 2 1 0 1 0
-    vtx: 1 29083000 16687800 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 19253200 13589000 11 0 0 0 0
-
-net: "N003_$G2" 2 1 0 0 0 0 1
-  pin: 1 U11.5
-  pin: 2 C11.1
-  connect: 1 1 0 1 0
-    vtx: 1 62433200 9093200 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 57353200 8509000 11 0 0 0 0
-
-net: "N2" 2 1 0 0 0 0 1
-  pin: 1 R13.1
-  pin: 2 A1.1
-  connect: 1 1 0 1 0
-    vtx: 1 12700000 48260000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 68580000 55880000 11 0 0 0 0
-
 net: "N002" 4 3 0 0 0 0 1
   pin: 1 U1.2
   pin: 2 U1.6
@@ -853,13 +837,21 @@ net: "N002" 4 3 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 19253200 11049000 11 0 0 0 0
 
-net: "N3" 2 1 0 0 0 0 1
-  pin: 1 R14.1
-  pin: 2 A2.1
+net: "N2" 2 1 0 0 0 0 1
+  pin: 1 R13.1
+  pin: 2 A1.1
   connect: 1 1 0 1 0
-    vtx: 1 20320000 48260000 11 0 0 0 0
+    vtx: 1 12700000 48260000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 74930000 55880000 11 0 0 0 0
+    vtx: 2 68580000 55880000 11 0 0 0 0
+
+net: "N003_$G2" 2 1 0 0 0 0 1
+  pin: 1 U11.5
+  pin: 2 C11.1
+  connect: 1 1 0 1 0
+    vtx: 1 62433200 9093200 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 57353200 8509000 11 0 0 0 0
 
 net: "N003" 2 1 0 0 0 0 1
   pin: 1 U1.5
@@ -869,13 +861,13 @@ net: "N003" 2 1 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 19253200 8509000 11 0 0 0 0
 
-net: "PCa" 2 1 0 0 0 0 1
-  pin: 1 PC.2
-  pin: 2 IO.13
+net: "N3" 2 1 0 0 0 0 1
+  pin: 1 R14.1
+  pin: 2 A2.1
   connect: 1 1 0 1 0
-    vtx: 1 106680000 22860000 11 0 0 0 0
+    vtx: 1 20320000 48260000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 35560000 48260000 11 0 0 0 0
+    vtx: 2 74930000 55880000 11 0 0 0 0
 
 net: "N4" 2 1 0 0 0 0 1
   pin: 1 R15.1
@@ -885,59 +877,13 @@ net: "N4" 2 1 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 81280000 55880000 11 0 0 0 0
 
-net: "PCb" 2 1 0 0 0 0 1
-  pin: 1 R15.2
-  pin: 2 IO.14
+net: "PCa" 2 1 0 0 0 0 1
+  pin: 1 PC.2
+  pin: 2 IO.13
   connect: 1 1 0 1 0
-    vtx: 1 109220000 22860000 11 0 0 0 0
+    vtx: 1 106680000 22860000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 81280000 43180000 11 0 0 0 0
-
-net: "N5" 2 1 0 0 0 0 1
-  pin: 1 R16.1
-  pin: 2 S.1
-  connect: 1 1 0 1 0
-    vtx: 1 87630000 30480000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 87630000 55880000 11 0 0 0 0
-
-net: "$G_Vdd" 8 7 0 0 0 0 1
-  pin: 1 U1.4
-  pin: 2 U1.8
-  pin: 3 R1.1
-  pin: 4 IO.1
-  pin: 5 IO.2
-  pin: 6 U11.4
-  pin: 7 U11.8
-  pin: 8 R11.1
-  connect: 1 4 3 1 0
-    vtx: 1 109220000 38100000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 106680000 38100000 11 0 0 0 0
-  connect: 2 7 6 1 0
-    vtx: 1 54483000 21767800 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 57353200 16129000 11 0 0 0 0
-  connect: 3 2 1 1 0
-    vtx: 1 16383000 21767800 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 19253200 16129000 11 0 0 0 0
-  connect: 4 1 0 1 0
-    vtx: 1 19253200 16129000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 11633200 8509000 11 0 0 0 0
-  connect: 5 6 5 1 0
-    vtx: 1 57353200 16129000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 49733200 8509000 11 0 0 0 0
-  connect: 6 5 1 1 0
-    vtx: 1 49733200 8509000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 19253200 16129000 11 0 0 0 0
-  connect: 7 6 3 1 0
-    vtx: 1 57353200 16129000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 106680000 38100000 11 0 0 0 0
+    vtx: 2 35560000 48260000 11 0 0 0 0
 
 net: "$G_Vss" 8 7 0 0 0 0 1
   pin: 1 U1.1
@@ -977,21 +923,59 @@ net: "$G_Vss" 8 7 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 106680000 33020000 11 0 0 0 0
 
-net: "Nz" 2 1 0 0 0 0 1
-  pin: 1 R19.1
-  pin: 2 TEST2.1
-  connect: 1 1 0 1 0
-    vtx: 1 53340000 48260000 11 0 0 0 0
+net: "$G_Vdd" 8 7 0 0 0 0 1
+  pin: 1 U1.4
+  pin: 2 U1.8
+  pin: 3 R1.1
+  pin: 4 IO.1
+  pin: 5 IO.2
+  pin: 6 U11.4
+  pin: 7 U11.8
+  pin: 8 R11.1
+  connect: 1 4 3 1 0
+    vtx: 1 109220000 38100000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 106680000 55880000 11 0 0 0 0
+    vtx: 2 106680000 38100000 11 0 0 0 0
+  connect: 2 7 6 1 0
+    vtx: 1 54483000 21767800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 57353200 16129000 11 0 0 0 0
+  connect: 3 2 1 1 0
+    vtx: 1 16383000 21767800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 19253200 16129000 11 0 0 0 0
+  connect: 4 1 0 1 0
+    vtx: 1 19253200 16129000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 11633200 8509000 11 0 0 0 0
+  connect: 5 6 5 1 0
+    vtx: 1 57353200 16129000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 49733200 8509000 11 0 0 0 0
+  connect: 6 5 1 1 0
+    vtx: 1 49733200 8509000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 19253200 16129000 11 0 0 0 0
+  connect: 7 6 3 1 0
+    vtx: 1 57353200 16129000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 106680000 38100000 11 0 0 0 0
 
-net: "A2a" 2 1 0 0 0 0 1
-  pin: 1 A2.2
-  pin: 2 IO.11
+net: "N5" 2 1 0 0 0 0 1
+  pin: 1 R16.1
+  pin: 2 S.1
   connect: 1 1 0 1 0
-    vtx: 1 106680000 25400000 11 0 0 0 0
+    vtx: 1 87630000 30480000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 22860000 48260000 11 0 0 0 0
+    vtx: 2 87630000 55880000 11 0 0 0 0
+
+net: "PCb" 2 1 0 0 0 0 1
+  pin: 1 R15.2
+  pin: 2 IO.14
+  connect: 1 1 0 1 0
+    vtx: 1 109220000 22860000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 81280000 43180000 11 0 0 0 0
 
 net: "N6" 2 1 0 0 0 0 1
   pin: 1 R17.1
@@ -1001,21 +985,21 @@ net: "N6" 2 1 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 93980000 55880000 11 0 0 0 0
 
-net: "A2b" 2 1 0 0 0 0 1
-  pin: 1 R14.2
-  pin: 2 IO.12
+net: "A2a" 2 1 0 0 0 0 1
+  pin: 1 A2.2
+  pin: 2 IO.11
   connect: 1 1 0 1 0
-    vtx: 1 109220000 25400000 11 0 0 0 0
+    vtx: 1 106680000 25400000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 74930000 43180000 11 0 0 0 0
+    vtx: 2 22860000 48260000 11 0 0 0 0
 
-net: "A1a" 2 1 0 0 0 0 1
-  pin: 1 A1.2
-  pin: 2 IO.9
+net: "Nz" 2 1 0 0 0 0 1
+  pin: 1 R19.1
+  pin: 2 TEST2.1
   connect: 1 1 0 1 0
-    vtx: 1 106680000 27940000 11 0 0 0 0
+    vtx: 1 53340000 48260000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 15240000 48260000 11 0 0 0 0
+    vtx: 2 106680000 55880000 11 0 0 0 0
 
 net: "N7" 2 1 0 0 0 0 1
   pin: 1 R18.1
@@ -1025,13 +1009,21 @@ net: "N7" 2 1 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 100330000 55880000 11 0 0 0 0
 
-net: "A1b" 2 1 0 0 0 0 1
-  pin: 1 R13.2
-  pin: 2 IO.10
+net: "A1a" 2 1 0 0 0 0 1
+  pin: 1 A1.2
+  pin: 2 IO.9
   connect: 1 1 0 1 0
-    vtx: 1 109220000 27940000 11 0 0 0 0
+    vtx: 1 106680000 27940000 11 0 0 0 0
     seg: 1 6 0 0 0
-    vtx: 2 68580000 43180000 11 0 0 0 0
+    vtx: 2 15240000 48260000 11 0 0 0 0
+
+net: "A2b" 2 1 0 0 0 0 1
+  pin: 1 R14.2
+  pin: 2 IO.12
+  connect: 1 1 0 1 0
+    vtx: 1 109220000 25400000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 74930000 43180000 11 0 0 0 0
 
 net: "A0a" 2 1 0 0 0 0 1
   pin: 1 A0.2
@@ -1041,6 +1033,14 @@ net: "A0a" 2 1 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 7620000 48260000 11 0 0 0 0
 
+net: "A1b" 2 1 0 0 0 0 1
+  pin: 1 R13.2
+  pin: 2 IO.10
+  connect: 1 1 0 1 0
+    vtx: 1 109220000 27940000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 68580000 43180000 11 0 0 0 0
+
 net: "A0b" 2 1 0 0 0 0 1
   pin: 1 R10.2
   pin: 2 IO.8
@@ -1049,16 +1049,9 @@ net: "A0b" 2 1 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 62230000 43180000 11 0 0 0 0
 
-net: "CLKa" 1 0 0 0 0 0 1
-  pin: 1 CLK.2
+net: "$G_Vss_$G1" 0 0 0 0 0 0 1
 
-net: "Sa" 2 1 0 0 0 0 1
-  pin: 1 S.2
-  pin: 2 IO.19
-  connect: 1 1 0 1 0
-    vtx: 1 106680000 15240000 11 0 0 0 0
-    seg: 1 6 0 0 0
-    vtx: 2 90170000 30480000 11 0 0 0 0
+net: "$G_Vdd_$G1" 0 0 0 0 0 0 1
 
 net: "0" 2 1 0 0 0 0 1
   pin: 1 IO.3
@@ -1068,12 +1061,19 @@ net: "0" 2 1 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 106680000 35560000 11 0 0 0 0
 
-net: "$G_Vdd_$G1" 0 0 0 0 0 0 1
+net: "Sa" 2 1 0 0 0 0 1
+  pin: 1 S.2
+  pin: 2 IO.19
+  connect: 1 1 0 1 0
+    vtx: 1 106680000 15240000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 90170000 30480000 11 0 0 0 0
 
-net: "$G_Vss_$G1" 0 0 0 0 0 0 1
+net: "CLKa" 1 0 0 0 0 0 1
+  pin: 1 CLK.2
 
-net: "CLKb" 1 0 0 0 0 0 1
-  pin: 1 R17.2
+net: "CLK" 1 0 0 0 0 0 1
+  pin: 1 U1.3
 
 net: "Sb" 2 1 0 0 0 0 1
   pin: 1 R16.2
@@ -1083,8 +1083,10 @@ net: "Sb" 2 1 0 0 0 0 1
     seg: 1 6 0 0 0
     vtx: 2 87630000 43180000 11 0 0 0 0
 
-net: "CLK" 1 0 0 0 0 0 1
-  pin: 1 U1.3
+net: "CLKb" 1 0 0 0 0 0 1
+  pin: 1 R17.2
+
+net: "CLK_$G1" 0 0 0 0 0 0 1
 
 net: "TEST2a" 2 1 0 0 0 0 1
   pin: 1 TEST2.2
@@ -1093,8 +1095,6 @@ net: "TEST2a" 2 1 0 0 0 0 1
     vtx: 1 106680000 17780000 11 0 0 0 0
     seg: 1 6 0 0 0
     vtx: 2 55880000 48260000 11 0 0 0 0
-
-net: "CLK_$G1" 0 0 0 0 0 0 1
 
 [texts]
 
