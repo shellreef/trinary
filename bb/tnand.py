@@ -14,7 +14,7 @@ pins = [
             "A": ("CD4007", 3),
             "B": ("CD4007", 6),
             "$G_Vdd": [("CD4007", 2), ("CD4007", 14)], 
-            "TNOR_Out": "TNOR_Out",
+            "TNAND_Out": "TNAND_Out",
             "$G_Vss": ("CD4007", 7),
 
             # Internal nodes
