@@ -1,4 +1,4 @@
-# Ternary NOR, implemented with CD4007
+# Ternary NAND, implemented with CD4007
 #
 
 nodes = ("A", "B", "TNAND_Out")
