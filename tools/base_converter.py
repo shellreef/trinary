@@ -132,10 +132,11 @@ def int_cnvrt(value, base_frm, base_to):
     if base_to == 10 or sum == 0:
         return "" + str(sum)
 
-    # return base 10 if desired base is balanced
-    if base_to < 0:
+    if base_to == -3:
         rslt = balanced_conversion(sum, base_to)
         return rslt
+    # return base 10 if desired base is balanced
+    elif base_to < 0:   
         return "" + str(sum)
 
     # compute unbalanced conversion
