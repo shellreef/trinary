@@ -5,11 +5,13 @@
 #
 # Base converter
 
-import sys, os
+import sys, os, string
 import Trits
 
-MIN_VAL = 10
-LOW_BOUND = ord('A') + MIN_VAL
+MIN_VAL    = 10
+LOW_BOUND  = ord('A') + MIN_VAL
+BASE_3     = 3
+BALANCED_3 = 3
 
 def int_cnvrt(value, base_frm, base_to):
     ''' int_cvrt: convert the number to the left of the decimal place
@@ -75,7 +77,7 @@ def int_cnvrt(value, base_frm, base_to):
                 sum = sum + (Trits.trit_integer[value[i]])*count
                 count = count*abs(base_frm)
             else:
-                print "%s invalid input", value[i]
+                print "0: invalid input", value[i]
                 raise SystemExit
 
         elif value[i].isdigit():
@@ -83,7 +85,7 @@ def int_cnvrt(value, base_frm, base_to):
             cur = int(value[i])
 
             if cur > magnitude_f:
-                print "%s: invalid input", value[i]
+                print "1: invalid input", value[i]
                 raise SystemExit
             if i != len(value) -1:
                 sum = sum + prev*neg*count
@@ -94,7 +96,7 @@ def int_cnvrt(value, base_frm, base_to):
 
             prev = cur
 
-        elif value[i] == '-' and i == len(value) - 1:
+        elif value[i] == '-' and i == 0:
             # negate the whole number
             sign = -1
         elif value[i] == 'i':
@@ -105,7 +107,7 @@ def int_cnvrt(value, base_frm, base_to):
             cur = ord(value[i].upper()) - LOW_BOUND
 
             if cur > magnitude_f:
-                print "%s: invalid input", value[i]
+                print "2: invalid input", value[i]
                 raise SystemExit
 
             if i != len(value) -1:
@@ -118,31 +120,130 @@ def int_cnvrt(value, base_frm, base_to):
             prev = cur
 
         else:
-            print "%s: invalid input", value[i]
+            print "3: invalid input", value[i], "at index = ", i
             raise SystemExit
 
-    if base_frm == -3:
+    # sum up remaining digit
+    if base_frm != -3:
+        sum = sum + prev*neg*count
+        sum = sign*sum
+
+    # if requested base 10, then we are done
+    if base_to == 10 or sum == 0:
         return "" + str(sum)
 
-    # sum up remaining digit
-    sum = sum + prev*neg*count
-    sum = sign*sum
-
+    if base_to == -3:
+        rslt = balanced_conversion(sum, base_to)
+        return rslt
     # return base 10 if desired base is balanced
-    if base_frm < 0:
+    elif base_to < 0:   
         return "" + str(sum)
 
     # compute unbalanced conversion
-    result = ""
-    quotient = sum
+    result    = ""
+    quotient  = sum
     remainder = 0
 
     while quotient != 0:
         remainder = quotient%magnitude_t
-        quotient = quotient/magnitude_t
-        result = str(remainder) + result
+        quotient  = quotient/magnitude_t
+        result    = str(remainder) + result
 
     return result
+
+def balanced_conversion(sum, base_to):
+
+    #check for no need for conversion
+    if sum == 0:
+        return "0"
+
+    tmp_sum =  0
+    if sum > 0:
+        count  = 1   
+        result = [] 
+        while tmp_sum < sum:
+            tmp_sum = tmp_sum + count
+            result.insert(0, "1")
+            count   = count*BASE_3
+
+        #if max value then we are  done
+        if tmp_sum == sum:
+            tmp_str = string.join(result, '')
+            return tmp_str
+
+        found, rslt = find_balanced_3(sum, result, len(result) - 1)
+        tmp_str = string.join(result, '')
+        return tmp_str
+
+    elif sum < 0:
+        count  = -1   
+        result = [] 
+        while tmp_sum > sum:
+            tmp_sum = tmp_sum + count
+            result.insert(0, "i")
+            count   = count*BASE_3
+
+        #if max value then we are  done
+        if tmp_sum == sum:
+            tmp_str = string.join(result, '')
+            return tmp_str
+
+        found, rslt = find_balanced_3(sum, result, len(result) - 1)
+        tmp_str = string.join(result, '')
+        return tmp_str
+
+
+def find_balanced_3(value, result, iteration):
+    
+    if iteration < 0:
+        return False, ""
+
+    # set result[iteration] to "0"
+    result.pop(iteration)
+    result.insert(iteration, "0")
+    tmp_sum = balanced_3_value(result)
+    if tmp_sum == value:
+        return True, result
+    # iterate down to lower indexes
+    found, str_rslt = find_balanced_3(value, result, iteration - 1)
+    if found:
+        return True, str_rslt
+
+    # set result[iteration] to "i"
+    result.pop(iteration)
+    result.insert(iteration, "i")
+    tmp_sum = balanced_3_value(result)
+    if tmp_sum == value:
+        return True, result
+    # iterate down to lower indexes
+    found, str_rslt = find_balanced_3(value, result, iteration - 1)
+    if found:
+        return True, str_rslt
+
+    # set result[iteration] to "1"
+    result.pop(iteration)
+    result.insert(iteration, "1")
+    tmp_sum = balanced_3_value(result)
+    if tmp_sum == value:
+        return True, result
+    # iterate down to lower indexes
+    found, str_rslt = find_balanced_3(value, result, iteration - 1)
+    if found:
+        return True, str_rslt
+
+    return False, ""
+
+def balanced_3_value(value):
+
+    sum   = 0
+    count = 1
+
+    for i in range(len(value) - 1, -1, -1):
+        # Base 3 conversion
+        sum   = sum + (Trits.trit_integer[value[i]])*count
+        count = count*BASE_3
+
+    return sum
 
 ''' NOTES
     useful things to know for implementation
@@ -176,9 +277,5 @@ if __name__ == "__main__":
         frm = int(frm)
         to  = int(to)
 
-        try:
-            print int_cnvrt(val, frm, to)
-        except:
-            print "An error occured:"
-            traceback.print_exc() 
+        print int_cnvrt(val, frm, to)
 
