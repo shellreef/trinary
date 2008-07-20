@@ -16,7 +16,7 @@ class ICode(object):
             assert "ICode __init__, unable to parse:", s
 
 def decode_code(self, s):
-    " Decode:
+    """ Decode:
 
         R-Type:
         -----------------------------------------------------------
@@ -30,7 +30,7 @@ def decode_code(self, s):
         -----------------------------------------------------------
         | opcode(6) | rs(3) | label0(9) | label(9)                |
         -----------------------------------------------------------
-    "
+    """
 
     opcode = int(base_convert(s[0:6], -3, 10)) 
     # R-Type
