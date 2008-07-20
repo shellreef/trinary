@@ -13,6 +13,13 @@ LOW_BOUND  = ord('A') + MIN_VAL
 BASE_3     = 3
 BALANCED_3 = 3
 
+class BaseError(Exception):
+    def __init__(self, msg):
+        self.msg = msg
+
+    def __str__(self):
+        return "BaseError: %s" % (self.msg,)
+
 def int_cnvrt(value, base_frm, base_to):
     ''' int_cvrt: convert the number to the left of the decimal place
         value: string containing value to convert
@@ -37,13 +44,11 @@ def int_cnvrt(value, base_frm, base_to):
 
     # check for magnitude greater than 1
     if abs(base_frm) < 2 or abs(base_to) < 2:
-        print "bases must have magnitude greater than 1"
-        raise SystemExit
+        raise BaseError("bases must have magnitude greater than 1")
 
     # check for a balanced negative base and derive magnitude
     if base_frm < 0 and base_frm*-1%2 != 1:
-        print "base_from is even: negative bases must be odd integers"
-        raise SystemExit
+        raise BaseError("base_from is even: negative bases must be odd integers")
     elif base_frm < 0:
         magnitude_f = (base_frm*-1 - 1)/2
     else:
@@ -51,8 +56,7 @@ def int_cnvrt(value, base_frm, base_to):
     #magnitude_f = abs(base_frm)
 
     if base_to < 0 and base_to*-1%2 != 1:
-        print "base_to is even: negative bases must be odd integers"
-        raise SystemExit
+        raise BaseError("base_to is even: negative bases must be odd integers")
     elif base_to < 0:
         magnitude_t = (base_to*-1 - 1)/2
     else:
@@ -77,16 +81,14 @@ def int_cnvrt(value, base_frm, base_to):
                 sum = sum + (Trits.trit_integer[value[i]])*count
                 count = count*abs(base_frm)
             else:
-                print "0: invalid input", value[i]
-                raise SystemExit
+                raise BaseError("0: invalid input %s" % (value[i],))
 
         elif value[i].isdigit():
             # 0 <-> 9
             cur = int(value[i])
 
             if cur > magnitude_f:
-                print "1: invalid input", value[i]
-                raise SystemExit
+                raise BaseError("1: invalid input %s" % (value[i],))
             if i != len(value) -1:
                 sum = sum + prev*neg*count
 
@@ -107,8 +109,7 @@ def int_cnvrt(value, base_frm, base_to):
             cur = ord(value[i].upper()) - LOW_BOUND
 
             if cur > magnitude_f:
-                print "2: invalid input", value[i]
-                raise SystemExit
+                raise BaseError("2: invalid input %s" % (value[i],))
 
             if i != len(value) -1:
                 sum = sum + prev*neg*count
@@ -120,8 +121,7 @@ def int_cnvrt(value, base_frm, base_to):
             prev = cur
 
         else:
-            print "3: invalid input", value[i], "at index = ", i
-            raise SystemExit
+            raise BaseError("3: invalid input %s at index = %s" % (value[i], i))
 
     # sum up remaining digit
     if base_frm != -3:
@@ -273,9 +273,12 @@ if __name__ == "__main__":
         line = line.strip()
         print
 
-        val, frm, to = line.split(",")
-        frm = int(frm)
-        to  = int(to)
+        try:
+            val, frm, to = line.split(",")
+            frm = int(frm)
+            to  = int(to)
 
-        print int_cnvrt(val, frm, to)
+            print int_cnvrt(val, frm, to)
+        except Exception, e:
+            print "Failed: %s %s" % (type(e), e,)
 
