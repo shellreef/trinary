@@ -263,7 +263,8 @@ def balanced_3_value(value):
 '''
 
 if __name__ == "__main__":
-    print int_cnvrt("8", 10, 2)
+    assert int_cnvrt("8", 10, -3) == "10i", \
+            "8 doesn't convert to 10i in balanced trinary"
 
     while True:
         print ">> ",
@@ -274,11 +275,17 @@ if __name__ == "__main__":
         print
 
         try:
-            val, frm, to = line.split(",")
+            parts = line.split(",")
+            if len(parts) != 3:
+                print "Usage: value-to-convert,from-radix,to-radix"
+                print "Negative radixes indicate balanced."
+                print "For example: 8,10,-3 to convert 8 to balanced trinary"
+                continue
+
+            val, frm, to = parts
             frm = int(frm)
             to  = int(to)
 
             print int_cnvrt(val, frm, to)
         except Exception, e:
             print "Failed: %s %s" % (type(e), e,)
-
