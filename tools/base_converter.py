@@ -20,7 +20,7 @@ class BaseError(Exception):
     def __str__(self):
         return "BaseError: %s" % (self.msg,)
 
-def int_cnvrt(value, base_frm, base_to):
+def base_convert(value, base_frm, base_to):
     ''' int_cvrt: convert the number to the left of the decimal place
         value: string containing value to convert
         from: what base to convert from. Can be positive and negative.
@@ -263,7 +263,7 @@ def balanced_3_value(value):
 '''
 
 if __name__ == "__main__":
-    assert int_cnvrt("8", 10, -3) == "10i", \
+    assert base_convert("8", 10, -3) == "10i", \
             "8 doesn't convert to 10i in balanced trinary"
 
     while True:
@@ -286,6 +286,6 @@ if __name__ == "__main__":
             frm = int(frm)
             to  = int(to)
 
-            print int_cnvrt(val, frm, to)
+            print base_convert(val, frm, to)
         except Exception, e:
             print "Failed: %s %s" % (type(e), e,)
