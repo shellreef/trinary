@@ -4,31 +4,35 @@
 #
 # Expression creator
 #   Currently produces list of functions to apply.
+#   Use get_unary to find a unary funcion.
+#       ie. get_unary("ii0")
+#   Use get_dyadic to find a dyadic funcion.
+#       ie. get_dyadic("ii0111001")
 #   Todo: add utf support names and return string expression
 
 import sys, os
 import Trits
 
-sd_t  = Trits.Trits("ii0") # shift down	
-su_t  = Trits.Trits("011") # shift up
-s01_t = Trits.Trits("i10") # swap 0/1
-si0_t = Trits.Trits("0i1") # swap i/0
-ru_t  = Trits.Trits("01i") # rotate up
-rd_t  = Trits.Trits("1i0") # rotate down
-inv_t = Trits.Trits("10i") # inverter
+sd  = Trits.Trits("ii0") # shift down	
+su  = Trits.Trits("011") # shift up
+s01 = Trits.Trits("i10") # swap 0/1
+si0 = Trits.Trits("0i1") # swap i/0
+ru  = Trits.Trits("01i") # rotate up
+rd  = Trits.Trits("1i0") # rotate down
+inv = Trits.Trits("10i") # inverter
 
-buf_t = Trits.Trits("i01") # identity
-ci_t  = Trits.Trits("iii") # constant i
-c0_t  = Trits.Trits("000") # constant 0
-c1_t  = Trits.Trits("111") # constant 1
+buf = Trits.Trits("i01") # identity
+ci  = Trits.Trits("iii") # constant i
+c0  = Trits.Trits("000") # constant 0
+c1  = Trits.Trits("111") # constant 1
 
 valid_chars = ("i", "0", "1")
 map_t = {False:0, None:1, True:2}
 map_str = {False:"i", None:"0", True:"1"}
 
-basic_f_t = {"sd":sd_t, "su":su_t, "s01":s01_t, "si0":si0_t, "ru":ru_t,
-             "rd":rd_t, "inv":inv_t}
-easy_f_t = {"buf":buf_t, "ci":ci_t, "c0":c0_t, "c1":c1_t}
+basic = {"}":sd, "{":su, ">":s01, "<":si0, "[":ru,
+             "]":rd, "I":inv}
+easy = {"B":buf, "i":ci, "0":c0, "1":c1}
 
 
 def get_dyadic(desired):
@@ -84,8 +88,8 @@ def get_unary(desired):
     crnt = Trits.Trits("i01")
     l_gates = []
 
-    for i in easy_f_t:
-        if goal.equals(easy_f_t[i]):
+    for i in easy:
+        if goal.equals(easy[i]):
             return True, [i]
 
     count = 0
@@ -113,7 +117,7 @@ def recurse_unary(crnt, goal, l_gates, depth):
 
     else:
         # for each basic gate attempt to find the desired function
-        for i in basic_f_t:
+        for i in basic:
             cndt = eval_one(crnt, i)
             l_gates.append(i)
 
@@ -131,14 +135,14 @@ def recurse_unary(crnt, goal, l_gates, depth):
 
 def test_all(crnt, goal, l_gates):
     ''' test_all: attempt to find a basic function that fulfills the desired
-            gate
+            gate.
         crnt: the current evaluation of the function
         goal: the desired function result
         l_gates: list of gates currently applied to crnt
         returns: true and list of gates if goal is met, else false and []
     '''
 
-    for i in basic_f_t:
+    for i in basic:
         cndt = eval_one(crnt, i)
 
         # if desired function is found then return true and the list of gates
@@ -158,7 +162,7 @@ def eval_one(crnt, func):
 
     next = ""
     for i in range(0, 3):
-        next = next + map_str[basic_f_t[func][map_t[crnt[i]]]]
+        next = next + map_str[basic[func][map_t[crnt[i]]]]
 
     return Trits.Trits(next)
 
@@ -170,6 +174,8 @@ if __name__ == "__main__":
     result, gates1, gates2, gates3 = get_dyadic("i0111000i")
     if result:
         print gates1, gates2, gates3
+
+    print "At prompt '>>' type unary (010) or dyadic (1010i1ii0)"
 
     while True:
         valid = True
