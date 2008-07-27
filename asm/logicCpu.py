@@ -20,7 +20,7 @@ cont_exec = CONTINUE
 # for concurency
 locked = False
 
-TRACE = False
+TRACE = True 
 DELAY = 1                   # second(s)
 USER_INPUT_THREAD = True    # ask for user input?
 USER_INPUT_INIT = 8         # initialize input to this
