@@ -31,7 +31,7 @@ map_t = {False:0, None:1, True:2}
 map_str = {False:"i", None:"0", True:"1"}
 
 basic = {"}":sd, "{":su, ">":s01, "<":si0, "[":ru,
-             "]":rd, "I":inv}
+             "]":rd, "/":inv}
 easy = {"B":buf, "i":ci, "0":c0, "1":c1}
 
 
