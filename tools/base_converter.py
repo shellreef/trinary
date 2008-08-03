@@ -47,18 +47,18 @@ def base_convert(value, base_frm, base_to):
         raise BaseError("bases must have magnitude greater than 1")
 
     # check for a balanced negative base and derive magnitude
-    if base_frm < 0 and base_frm*-1%2 != 1:
+    if base_frm < 0 and -base_frm % 2 != 1:
         raise BaseError("base_from is even: negative bases must be odd integers")
     elif base_frm < 0:
-        magnitude_f = (base_frm*-1 - 1)/2
+        magnitude_f = (-base_frm - 1)/2
     else:
         magnitude_f = base_frm
     #magnitude_f = abs(base_frm)
 
-    if base_to < 0 and base_to*-1%2 != 1:
+    if base_to < 0 and -base_to % 2 != 1:
         raise BaseError("base_to is even: negative bases must be odd integers")
     elif base_to < 0:
-        magnitude_t = (base_to*-1 - 1)/2
+        magnitude_t = (-base_to - 1)/2
     else:
         magnitude_t = base_to
     #magnitude_t = abs(base_to)
