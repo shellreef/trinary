@@ -276,15 +276,21 @@ if __name__ == "__main__":
 
         try:
             parts = line.split(",")
-            if len(parts) != 3:
-                print "Usage: value-to-convert,from-radix,to-radix"
+            if len(parts) == 1:
+                # Assume input is base 10, output is balanced 3
+                val = parts[0]
+                frm = 10
+                to = -3
+            elif len(parts) != 3:
+                print "Usage: value-to-convert[,from-radix,to-radix]"
                 print "Negative radixes indicate balanced."
                 print "For example: 8,10,-3 to convert 8 to balanced trinary"
+                print "If ommitted, from-radix and to-radix default to 10 and -3"
                 continue
-
-            val, frm, to = parts
-            frm = int(frm)
-            to  = int(to)
+            else:
+                val, frm, to = parts
+                frm = int(frm)
+                to  = int(to)
 
             print base_convert(val, frm, to)
         except Exception, e:
