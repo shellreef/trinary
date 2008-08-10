@@ -170,7 +170,7 @@ def trinary_eval(expression, variables):
 0
 >>> print trinary_eval("A$(/B*C)",{"A":"0","B":"0","C":"1"})
 0
->>> print trinary_eval("A$(/B?C)",{"A":"0","B":"0","C":"1"})
+>>> print trinary_eval("A$(/B*C)",{"A":"0","B":"0","C":"1"})
 0
     '''
 

@@ -8,7 +8,9 @@
 #       ie. get_unary("ii0")
 #   Use get_dyadic to find a dyadic funcion.
 #       ie. get_dyadic("ii0111001")
-#   Todo: add utf support names and return string expression
+#   Returns: Returns a tuple. True or false (if function was not found)
+#            and a list of functions to apply to get the desired function.
+#            The list is read from left to right.
 
 import sys, os
 import Trits
@@ -108,7 +110,9 @@ def recurse_unary(crnt, goal, l_gates, depth):
         goal: the desired function result
         l_gates: list of gates to apply to get to crnt
         count: the number of gate levels
-        returns: true and list of gates if goal is met, else false and []
+        returns: Returns a tuple. True or false (if function was not found)
+            and a list of functions to apply to get the desired function.
+            The list is read from left to right.
     '''
 
     # check the basic gates for an answer
@@ -175,7 +179,9 @@ if __name__ == "__main__":
     if result:
         print gates1, gates2, gates3
 
-    print "At prompt '>>' type unary (010) or dyadic (1010i1ii0)"
+    print "At prompt '>>' enter unary (010) or dyadic (1010i1ii0)"
+    print "Will return list of unary funtions to sequentially apply to a"
+    print "signal starting from the left."
 
     while True:
         valid = True
