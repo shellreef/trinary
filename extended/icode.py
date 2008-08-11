@@ -87,9 +87,9 @@ def decode_code(self, s):
     else:
         raise DecodeError("invalid type code = %s" % (type, ))
 
-r_type_instructions = ('min', 'max', 'and', 'or', 'xor', 'add', 'sub', 'mul', 'div', 'cmpLT', 'cmpLE', 'cmpEQ', 'mov')
-i_type_instructions = ('addi', 'subi', 'multi', 'divi', 'sethi', 'st', 'ld')
-b_type_instructions = ('cbr', 'ret')
+r_type_instructions = ('and', 'or', 'xor', 'add', 'sub', 'mul', 'div', 'cmpLT', 'cmpLE', 'cmpEQ')
+i_type_instructions = ('addi', 'subi', 'multi', 'divi', 'st', 'ld', 'mov')
+b_type_instructions = ('cbr', 'ret', 'set')
 j_type_instructions = ('ba', 'call')
 
 register_names      = ('i0', 'i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'o0', 'o1', 'o2', 'o3', 'o4', 'o5', 'o6', 'l0', 'l1', 'l2', 'l3', 'l4', 'l5', 'l6', 'sp', 'fp', 'ra')
@@ -136,8 +136,8 @@ def decode_inst(self, s, labels, address):
         self.type   = R_TYPE
         self.alu_op = i_type_instructions.index(parts[0])
         selt.src1   = register_names.index(parts[1])
-        selt.imdt1  = parts[2]
-        selt.dest   = register_names.index(parts[3])
+        selt.dest   = register_names.index(parts[2])
+        selt.imdt1  = parts[3]
 
         self.src2   = 0
         self.imdt2  = 0
