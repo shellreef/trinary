@@ -13,11 +13,9 @@
 import sys, os, threading, time, signal
 
 # for safe termination
-CONTINUE = 0
-TERMINATE = 1
-cont_exec = CONTINUE
+terminate_now = False
 
-# for concurency
+# for concurrency
 locked = False
 
 TRACE = True 
@@ -45,7 +43,7 @@ registers = {
 # Thread that gets input from user
 class CPUInput (threading.Thread):
     def run (self):
-        global cont_exec
+        global terminate_now
 
         while True:
             print "Register Status: %s :" % registers,
@@ -54,12 +52,12 @@ class CPUInput (threading.Thread):
                 user_input = raw_input('Input value for IN:')
             except EOFError, e:
                 get_lock()
-                cont_exec = TERMINATE
+                terminate_now = True
                 release_lock()
                 sys.exit()
 
             get_lock()
-            if cont_exec == TERMINATE:
+            if terminate_now:
                 sys.exit()
             release_lock()
 
@@ -93,7 +91,7 @@ def release_lock():
 
 
 def main():
-    global cont_exec
+    global terminate_now
 
     # check arguments
     if len(sys.argv) < 2 or len(sys.argv) > 2:
@@ -145,6 +143,7 @@ input file: program.3 - machine code
     registers["IN"] = USER_INPUT_INIT
     release_lock()
 
+    print "Press Ctrl-D to terminate"
     # execute instructions
     while True:
 
@@ -153,7 +152,7 @@ input file: program.3 - machine code
         release_lock()
 
         get_lock()
-        if cont_exec == TERMINATE:
+        if terminate_now:
             sys.exit()
         release_lock()
 

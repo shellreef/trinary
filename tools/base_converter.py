@@ -47,18 +47,18 @@ def base_convert(value, base_frm, base_to):
         raise BaseError("bases must have magnitude greater than 1")
 
     # check for a balanced negative base and derive magnitude
-    if base_frm < 0 and base_frm*-1%2 != 1:
+    if base_frm < 0 and -base_frm % 2 != 1:
         raise BaseError("base_from is even: negative bases must be odd integers")
     elif base_frm < 0:
-        magnitude_f = (base_frm*-1 - 1)/2
+        magnitude_f = (-base_frm - 1)/2
     else:
         magnitude_f = base_frm
     #magnitude_f = abs(base_frm)
 
-    if base_to < 0 and base_to*-1%2 != 1:
+    if base_to < 0 and -base_to % 2 != 1:
         raise BaseError("base_to is even: negative bases must be odd integers")
     elif base_to < 0:
-        magnitude_t = (base_to*-1 - 1)/2
+        magnitude_t = (-base_to - 1)/2
     else:
         magnitude_t = base_to
     #magnitude_t = abs(base_to)
@@ -78,8 +78,8 @@ def base_convert(value, base_frm, base_to):
         if base_frm == -3:
             # Base 3 conversion
             if value[i] in Trits.trit_integer:
-                sum = sum + (Trits.trit_integer[value[i]])*count
-                count = count*abs(base_frm)
+                sum = sum + (Trits.trit_integer[value[i]]) * count
+                count = count * abs(base_frm)
             else:
                 raise BaseError("0: invalid input %s" % (value[i],))
 
@@ -89,12 +89,12 @@ def base_convert(value, base_frm, base_to):
 
             if cur > magnitude_f:
                 raise BaseError("1: invalid input %s" % (value[i],))
-            if i != len(value) -1:
-                sum = sum + prev*neg*count
+            if i != len(value) - 1:
+                sum = sum + prev * neg * count
 
                 # reset variables to appropiate values
                 neg = 1
-                count = count*abs(base_frm)
+                count = count * abs(base_frm)
 
             prev = cur
 
@@ -112,11 +112,11 @@ def base_convert(value, base_frm, base_to):
                 raise BaseError("2: invalid input %s" % (value[i],))
 
             if i != len(value) -1:
-                sum = sum + prev*neg*count
+                sum = sum + prev * neg * count
 
                 # reset variables to appropriate values
                 neg = 1
-                count = count*abs(base_frm)
+                count = count * abs(base_frm)
 
             prev = cur
 
@@ -125,8 +125,8 @@ def base_convert(value, base_frm, base_to):
 
     # sum up remaining digit
     if base_frm != -3:
-        sum = sum + prev*neg*count
-        sum = sign*sum
+        sum = sum + prev * neg * count
+        sum = sign * sum
 
     # if requested base 10, then we are done
     if base_to == 10 or sum == 0:
@@ -145,8 +145,8 @@ def base_convert(value, base_frm, base_to):
     remainder = 0
 
     while quotient != 0:
-        remainder = quotient%magnitude_t
-        quotient  = quotient/magnitude_t
+        remainder = quotient % magnitude_t
+        quotient  = quotient / magnitude_t
         result    = str(remainder) + result
 
     return result
@@ -181,7 +181,7 @@ def balanced_conversion(sum, base_to):
         while tmp_sum > sum:
             tmp_sum = tmp_sum + count
             result.insert(0, "i")
-            count   = count*BASE_3
+            count   = count * BASE_3
 
         #if max value then we are  done
         if tmp_sum == sum:
@@ -240,8 +240,8 @@ def balanced_3_value(value):
 
     for i in range(len(value) - 1, -1, -1):
         # Base 3 conversion
-        sum   = sum + (Trits.trit_integer[value[i]])*count
-        count = count*BASE_3
+        sum   = sum + (Trits.trit_integer[value[i]]) * count
+        count = count * BASE_3
 
     return sum
 
@@ -276,15 +276,21 @@ if __name__ == "__main__":
 
         try:
             parts = line.split(",")
-            if len(parts) != 3:
-                print "Usage: value-to-convert,from-radix,to-radix"
+            if len(parts) == 1:
+                # Assume input is base 10, output is balanced 3
+                val = parts[0]
+                frm = 10
+                to = -3
+            elif len(parts) != 3:
+                print "Usage: value-to-convert[,from-radix,to-radix]"
                 print "Negative radixes indicate balanced."
                 print "For example: 8,10,-3 to convert 8 to balanced trinary"
+                print "If ommitted, from-radix and to-radix default to 10 and -3"
                 continue
-
-            val, frm, to = parts
-            frm = int(frm)
-            to  = int(to)
+            else:
+                val, frm, to = parts
+                frm = int(frm)
+                to  = int(to)
 
             print base_convert(val, frm, to)
         except Exception, e:
