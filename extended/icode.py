@@ -88,11 +88,13 @@ def decode_code(self, s):
         raise DecodeError("invalid type code = %s" % (type, ))
 
 r_type_instructions = ('and', 'or', 'xor', 'add', 'sub', 'mul', 'div', 'cmpLT', 'cmpLE', 'cmpEQ')
-i_type_instructions = ('addi', 'subi', 'multi', 'divi', 'st', 'ld', 'mov')
-b_type_instructions = ('cbr', 'ret', 'set')
-j_type_instructions = ('ba', 'call')
+i_type_instructions = ('addi', 'subi', 'multi', 'divi', 'st', 'ld', 'set', 'mov')
+b_type_instructions = ('cbr')
+j_type_instructions = ('ba', 'call', 'ret')
 
 register_names      = ('i0', 'i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'o0', 'o1', 'o2', 'o3', 'o4', 'o5', 'o6', 'l0', 'l1', 'l2', 'l3', 'l4', 'l5', 'l6', 'sp', 'fp', 'ra')
+
+library_functions == ('print', 'scanf', 'malloc', 'free')
 
 def decode_inst(self, s, labels, address):
     """ Decode Assembled Code:
@@ -109,7 +111,7 @@ def decode_inst(self, s, labels, address):
     self.address = address
 
     # R-Type
-    if parts[0] in r_type_instructions and len(parts) == 4:
+    if parts[0] in r_type_instructions:
         self.type   = R_TYPE
         self.alu_op = r_type_instructions.index(parts[0])
         self.src1   = register_names.index(parts[1])
@@ -132,13 +134,21 @@ def decode_inst(self, s, labels, address):
         self.assembled = assem + base_10_to_3(self.type, 2)
 
     # I-Type
-    elif parts[0] in i_type_instructions and len(parts) == 4:
+    elif parts[0] in i_type_instructions:
         self.type   = R_TYPE
         self.alu_op = i_type_instructions.index(parts[0])
-        selt.src1   = register_names.index(parts[1])
-        selt.dest   = register_names.index(parts[2])
-        selt.imdt1  = parts[3]
+        self.src1   = register_names.index(parts[1])
 
+        if self.alu_op != i_type_instructions.index('set')
+            self.dest = register_names.index(parts[2])
+        else:
+            self.dest = 0
+
+        if self.alu_op != i_type_instructions.index('mov'):
+            self.imdt1 = parts[3]
+        else:
+            self.imdt1 = 0
+            
         self.src2   = 0
         self.imdt2  = 0
 
@@ -154,12 +164,20 @@ def decode_inst(self, s, labels, address):
         self.assembled = assem + base_10_to_3(self.type, 2)
 
     # B-Type
-    elif parts[0] in b_type_instructions and len(parts) == 4:
+    elif parts[0] in b_type_instructions:
         self.type   = R_TYPE
         self.alu_op = b_type_instructions.index(parts[0])
         self.src1   = register_names.index(parts[1])
-        self.imdt1  = parts[2]
-        self.imdt2  = parts[3]
+
+        if parts[2] in labels and not parts[2] in library_fuctions:
+            self.imdt1  = labels[parts[2]]
+        else:
+            print "%s: label undefined" % parts[2]
+
+        if parts[3] in labels and not parts[3] in library_fuctions:
+            self.imdt2  = labels[parts[3]]
+        else:
+            print "%s: label undefined" % parts[2]
 
         self.src2   = 0
         self.dest   = 0
@@ -176,10 +194,19 @@ def decode_inst(self, s, labels, address):
         self.assembled = assem + base_10_to_3(self.type, 2)
 
     # J-Type
-    elif parts[0] in j_type_instructions and len(parts) == 2:
+    elif parts[0] in j_type_instructions:
         self.type   = R_TYPE
         self.alu_op = j_type_instructions.index(parts[0])
-        self.imdt1  = parts[1]
+        if self.alu_op != j_type_instructions.index('ret'):
+            if parts[1] in library_functions and parts[0] != 'ba':
+                self.imdt1 = -library_functions.index(parts[1])
+            elif parts[1] in labels:
+                self.imdt1 = labels[parts[1]]
+            else:
+                print "%s: label undefined" % parts[1]
+                raise SystemExit
+        else:
+            self.imdt1 = 0
 
         self.src1   = 0
         self.src2   = 0

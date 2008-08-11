@@ -5,46 +5,89 @@ def run_simulation(decoded_inst, labels, regs, memory, pc)
 
     inst = decoded_inst[pc]
 
-
     if inst.type == R_TYPE:
-        if inst.alu_type == 0:
+        if inst.alu_op == i_type_instructions.index('and'):
             regs[inst.dest] = regs[inst.src1] & regs[inst.src2]
-        elif inst.alu_type == 1:
+        elif inst.alu_op == i_type_instructions.index('or'):
             regs[inst.dest] = regs[inst.src1] | regs[inst.src2]
-        elif inst.alu_type == 2:
+        elif inst.alu_op == i_type_instructions.index('xor'):
             regs[inst.dest] = regs[inst.src1] ^ regs[inst.src2]
-        elif inst.alu_type == 3:
+        elif inst.alu_op == i_type_instructions.index('add'):
             regs[inst.dest] = regs[inst.src1] + regs[inst.src2]
-        elif inst.alu_type == 4:
+        elif inst.alu_op == i_type_instructions.index('sub'):
             regs[inst.dest] = regs[inst.src1] - regs[inst.src2]
-        elif inst.alu_type == 5:
+        elif inst.alu_op == i_type_instructions.index('mul'):
             regs[inst.dest] = regs[inst.src1] * regs[inst.src2]
-        elif inst.alu_type == 6:
+        elif inst.alu_op == i_type_instructions.index('div'):
             regs[inst.dest] = regs[inst.src1] / regs[inst.src2]
-        elif inst.alu_type == 7:
+        elif inst.alu_op == i_type_instructions.index('cmpLT'):
             regs[inst.dest] = regs[inst.src1] < regs[inst.src2]
-        elif inst.alu_type == 8:
+        elif inst.alu_op == i_type_instructions.index('cmpLE'):
             regs[inst.dest] = regs[inst.src1] <= regs[inst.src2]
-        elif inst.alu_type == 9:
+        elif inst.alu_op == i_type_instructions.index('cmpEQ'):
             regs[inst.dest] = regs[inst.src1] == regs[inst.src2]
+        else:
+            print "invalid r_type"
+            raise SystemExit
+        pc = pc + 1
 
-    if inst.type == I_TYPE:
-        if inst.alu_type == 0:
+    elif inst.type == I_TYPE:
+        if inst.alu_op == i_type_instructions.index('addi'):
             regs[inst.dest] = regs[inst.src1] + inst.imdt1
-        elif inst.alu_type == 1:
+        elif inst.alu_op == i_type_instructions.index('subi'):
             regs[inst.dest] = regs[inst.src1] - inst.imdt1
-        elif inst.alu_type == 2:
+        elif inst.alu_op == i_type_instructions.index('multi'):
             regs[inst.dest] = regs[inst.src1] * inst.imdt1
-        elif inst.alu_type == 3:
+        elif inst.alu_op == i_type_instructions.index('divi'):
             regs[inst.dest] = regs[inst.src1] / inst.imdt1
-        elif inst.alu_type == 4:
-            regs[inst.dest] = regs[inst.src1] - inst.imdt1
-        elif inst.alu_type == 5:
-            regs[inst.dest] = regs[inst.src1] - inst.imdt1
-        elif inst.alu_type == 6:
-            regs[inst.dest] = regs[inst.src1] - inst.imdt1
-        elif inst.alu_type == 7:
-            regs[inst.dest] = regs[inst.src1] - inst.imdt1
+        elif inst.alu_op == i_type_instructions.index('st'):
+            memory[regs[inst.dest] + inst.imdt1] = regs[inst.src1]
+        elif inst.alu_op == i_type_instructions.index('ld'):
+            regs[inst.dest] = memory[regs[inst.src1] + inst.imdt1]
+        elif inst.alu_op == i_type_instructions.index('set'):
+            regs[inst.src1] = inst.imdt1
+        elif inst.alu_op == i_type_instructions.index('mov'):
+            regs[inst.dest] = regs[inst.src1]
+        else:
+            print "invalid i_type"
+            raise SystemExit
+        pc = pc + 1
+
+    elif inst.type == B_TYPE:
+        if inst.alu_op == b_type_instruction.index('cbr'):
+            if regs[inst.src1] != 0:
+                pc = inst.imdt1
+            else:
+                pc = inst.imdt2
+        else:
+            print "invalid i_type"
+            raise SystemExit
+
+    elif inst.type == J_TYPE:
+        if inst.alu_op == b_type_instructions.index('ba'):
+            pc = self.imdt1
+        elif inst.alu_op == b_type_instruction.index('ret'):
+            pc = regs[register_names.index('ra')]
+        elif inst.alu_op == b_type_instruction.index('call'):
+            if inst.imdt1 < 0:
+                if inst.imdt1 == -1:
+                    print regs[register_names.index('o0')]
+                if inst.imdt1 == -2:
+                    regs[register_names.index('i0')] = int(input(''))
+                # TODO malloc & free
+                if inst.imdt1 == -3:
+                    print 'malloc'
+                if inst.imdt1 == -4:
+                    print 'free'
+            pc = pc + 1
+        else:
+            print "invalid j_type"
+            raise SystemExit
+
+    else:
+        print "%d: invalid instruction type" % inst.type
+        raise SystemExit
+
 
 def main():
 
@@ -69,13 +112,20 @@ input file: program.3c - Trinary RISC
 
     stream_inst  = codefile.readlines()
     decoded_inst = []
+    memory       = []
     labels       = {}
     address      = 0
+
+    labels['print']  = -1
+    labels['scanf']  = -2
+    labels['malloc'] = -3
+    labels['free']   = -4
+
     for i in stream_inst:
         decoded_inst.append(icode.ICode(i, labels, address))
         address = address + 1
 
-    if "main" in labels:
+    if not "main" in labels:
         print """main function not found"""
         raise SystemExit
 
@@ -84,3 +134,5 @@ input file: program.3c - Trinary RISC
     while pc != -1:
         pc = run_simulation(decoded_inst, labels, pc)
 
+if __name__ == "__main__":
+    main()
