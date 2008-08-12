@@ -60,7 +60,7 @@ def run_simulation(decoded_inst, labels, regs, memory, pc)
             else:
                 pc = inst.imdt2
         else:
-            print "invalid i_type"
+            print "invalid b_type"
             raise SystemExit
 
     elif inst.type == J_TYPE:
@@ -87,6 +87,8 @@ def run_simulation(decoded_inst, labels, regs, memory, pc)
     else:
         print "%d: invalid instruction type" % inst.type
         raise SystemExit
+
+    return pc
 
 
 def main():
@@ -115,11 +117,13 @@ input file: program.3c - Trinary RISC
     memory       = []
     labels       = {}
     address      = 0
+    regs         = {}
 
     labels['print']  = -1
     labels['scanf']  = -2
     labels['malloc'] = -3
     labels['free']   = -4
+    regs['ra']       = -1
 
     for i in stream_inst:
         decoded_inst.append(icode.ICode(i, labels, address))
@@ -132,7 +136,9 @@ input file: program.3c - Trinary RISC
     pc = labels["main"]
 
     while pc != -1:
-        pc = run_simulation(decoded_inst, labels, pc)
+        pc = run_simulation(decoded_inst, labels, regs, memory, pc)
+
 
 if __name__ == "__main__":
     main()
+
