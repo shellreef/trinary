@@ -12,7 +12,7 @@ J_TYPE    = 3
 class ICode(object):
     def __init__(self, s, labels, address):
         if isinstance(s, str):
-            if s[0] in trit_char and len(s) == WORD_SIZE:
+            if s[0] in Trits.trit_char and len(s) == WORD_SIZE:
                 # decode trit instrucion code
                 decode_code(self, s)
             else:
@@ -42,41 +42,41 @@ def decode_code(self, s):
         --------------------------------------------------------
     """
 
-    type = int(base_convert(s[0:2], -3, 10))
+    type = int(base_converter.base_convert(s[0:2], -3, 10))
     # R-Type
     if type == R_TYPE:
-        self.alu_op = int(base_convert(s[2:15], -3, 10))
-        self.src1   = int(base_convert(s[15:18], -3, 10))
-        self.src2   = int(base_convert(s[18:21], -3, 10))
-        self.dest   = int(base_convert(s[21:24], -3, 10))
-        self.imdt1  = int(base_convert(s[24:27], -3, 10))
+        self.alu_op = int(base_converter.base_convert(s[2:15], -3, 10))
+        self.src1   = int(base_converter.base_convert(s[15:18], -3, 10))
+        self.src2   = int(base_converter.base_convert(s[18:21], -3, 10))
+        self.dest   = int(base_converter.base_convert(s[21:24], -3, 10))
+        self.imdt1  = int(base_converter.base_convert(s[24:27], -3, 10))
 
         self.imdt2  = 0
 
     # I-Type
     elif type == R_TYPE:
-        self.alu_op = int(base_convert(s[2:7], -3, 10))
-        self.src1   = int(base_convert(s[7:10], -3, 10))
-        self.dest   = int(base_convert(s[10:13], -3, 10))
-        self.imdt1  = int(base_convert(s[13:27], -3, 10))
+        self.alu_op = int(base_converter.base_convert(s[2:7], -3, 10))
+        self.src1   = int(base_converter.base_convert(s[7:10], -3, 10))
+        self.dest   = int(base_converter.base_convert(s[10:13], -3, 10))
+        self.imdt1  = int(base_converter.base_convert(s[13:27], -3, 10))
 
         self.src2   = 0
         self.imdt2  = 0
 
     # B-Type
     elif type == R_TYPE:
-        self.alu_op = int(base_convert(s[2:6], -3, 10))
-        self.src1   = int(base_convert(s[6:9], -3, 10))
-        self.imdt1  = int(base_convert(s[9:18], -3, 10))
-        self.imdt2  = int(base_convert(s[18:27], -3, 10))
+        self.alu_op = int(base_converter.base_convert(s[2:6], -3, 10))
+        self.src1   = int(base_converter.base_convert(s[6:9], -3, 10))
+        self.imdt1  = int(base_converter.base_convert(s[9:18], -3, 10))
+        self.imdt2  = int(base_converter.base_convert(s[18:27], -3, 10))
 
         self.src2   = 0
         self.dest   = 0
 
     # J-Type
     elif type == R_TYPE:
-        self.alu_op = int(base_convert(s[2:6], -3, 10))
-        self.imdt1  = int(base_convert(s[6:27], -3, 10))
+        self.alu_op = int(base_converter.base_convert(s[2:6], -3, 10))
+        self.imdt1  = int(base_converter.base_convert(s[6:27], -3, 10))
 
         self.src1   = 0
         self.src2   = 0
@@ -87,14 +87,14 @@ def decode_code(self, s):
     else:
         raise DecodeError("invalid type code = %s" % (type, ))
 
-r_type_instructions = ('and', 'or', 'xor', 'add', 'sub', 'mul', 'div', 'cmpLT', 'cmpLE', 'cmpEQ')
-i_type_instructions = ('addi', 'subi', 'multi', 'divi', 'st', 'ld', 'set', 'mov')
-b_type_instructions = ('cbr')
-j_type_instructions = ('ba', 'call', 'ret')
+r_type_instructions = ['and', 'or', 'xor', 'add', 'sub', 'mul', 'div', 'cmpLT', 'cmpLE', 'cmpEQ']
+i_type_instructions = ['addi', 'subi', 'multi', 'divi', 'st', 'ld', 'set', 'mov']
+b_type_instructions = ['cbr']
+j_type_instructions = ['ba', 'call', 'ret']
 
-register_names      = ('i0', 'i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'o0', 'o1', 'o2', 'o3', 'o4', 'o5', 'o6', 'l0', 'l1', 'l2', 'l3', 'l4', 'l5', 'l6', 'sp', 'fp', 'ra')
+register_names      = ['i0', 'i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'o0', 'o1', 'o2', 'o3', 'o4', 'o5', 'o6', 'l0', 'l1', 'l2', 'l3', 'l4', 'l5', 'l6', 'sp', 'fp', 'ra']
 
-library_functions == ('print', 'scanf', 'malloc', 'free')
+library_functions = ['print', 'scanf', 'malloc', 'free']
 
 def decode_inst(self, s, labels, address):
     """ Decode Assembled Code:
@@ -118,20 +118,21 @@ def decode_inst(self, s, labels, address):
         self.src2   = register_names.index(parts[2])
         self.dest   = register_names.index(parts[3])
 
+        self.imdt1  = 0
         self.imdt2  = 0
 
         # sa field
-        assem = base_10_to_b3(0, 3)
+        assem = base_10_to_b3(self.imdt1, 3)
         # destination register field
-        assem = assem + base_10_to_3(self.dest, 3)
+        assem = assem + base_10_to_b3(self.dest, 3)
         # target register field
-        assem = assem + base_10_to_3(self.src2, 3)
+        assem = assem + base_10_to_b3(self.src2, 3)
         # source register field
-        assem = assem + base_10_to_3(self.src1, 3)
+        assem = assem + base_10_to_b3(self.src1, 3)
         # opcode field
-        assem = assem + base_10_to_3(self.alu_op, 13)
+        assem = assem + base_10_to_b3(self.alu_op, 13)
         # type field
-        self.assembled = assem + base_10_to_3(self.type, 2)
+        self.assembled = assem + base_10_to_b3(self.type, 2)
 
     # I-Type
     elif parts[0] in i_type_instructions:
@@ -139,13 +140,13 @@ def decode_inst(self, s, labels, address):
         self.alu_op = i_type_instructions.index(parts[0])
         self.src1   = register_names.index(parts[1])
 
-        if self.alu_op != i_type_instructions.index('set')
+        if self.alu_op != i_type_instructions.index('set'):
             self.dest = register_names.index(parts[2])
         else:
             self.dest = 0
 
         if self.alu_op != i_type_instructions.index('mov'):
-            self.imdt1 = parts[3]
+            self.imdt1 = int(parts[3])
         else:
             self.imdt1 = 0
             
@@ -155,13 +156,13 @@ def decode_inst(self, s, labels, address):
         # immediate field
         assem = base_10_to_b3(self.imdt1, 14)
         # target register field
-        assem = assem + base_10_to_3(self.src2, 3)
+        assem = assem + base_10_to_b3(self.src2, 3)
         # source register field
-        assem = assem + base_10_to_3(self.src1, 3)
+        assem = assem + base_10_to_b3(self.src1, 3)
         # opcode field
-        assem = assem + base_10_to_3(self.alu_op, 5)
+        assem = assem + base_10_to_b3(self.alu_op, 5)
         # type field
-        self.assembled = assem + base_10_to_3(self.type, 2)
+        self.assembled = assem + base_10_to_b3(self.type, 2)
 
     # B-Type
     elif parts[0] in b_type_instructions:
@@ -173,11 +174,13 @@ def decode_inst(self, s, labels, address):
             self.imdt1  = labels[parts[2]]
         else:
             print "%s: label undefined" % parts[2]
+            raise SystemExit
 
         if parts[3] in labels and not parts[3] in library_fuctions:
             self.imdt2  = labels[parts[3]]
         else:
             print "%s: label undefined" % parts[2]
+            raise SystemExit
 
         self.src2   = 0
         self.dest   = 0
@@ -185,13 +188,13 @@ def decode_inst(self, s, labels, address):
         # false destination label field
         assem = base_10_to_b3(self.imdt1, 9)
         # true destination label field
-        assem = assem + base_10_to_3(self.imdt, 9)
+        assem = assem + base_10_to_b3(self.imdt2, 9)
         # source register field
-        assem = assem + base_10_to_3(self.src1, 3)
+        assem = assem + base_10_to_b3(self.src1, 3)
         # opcode field
-        assem = assem + base_10_to_3(self.alu_op, 4)
+        assem = assem + base_10_to_b3(self.alu_op, 4)
         # type field
-        self.assembled = assem + base_10_to_3(self.type, 2)
+        self.assembled = assem + base_10_to_b3(self.type, 2)
 
     # J-Type
     elif parts[0] in j_type_instructions:
@@ -214,21 +217,24 @@ def decode_inst(self, s, labels, address):
         self.imdt2  = 0
 
         # destination field
-        assem = base_10_to_3(self.src1, 21)
+        assem = base_10_to_b3(self.imdt1, 21)
         # opcode field
-        assem = assem + base_10_to_3(self.alu_op, 4)
+        assem = assem + base_10_to_b3(self.alu_op, 4)
         # type field
-        self.assembled = assem + base_10_to_3(self.type, 2)
+        self.assembled = assem + base_10_to_b3(self.type, 2)
 
     elif len(parts) == 1 and s.strip() != 0:
         if parts[0] in labels:
-            raise DecodeError("label redefined = %s" % (parts[0], ))
+            print "label redefined = %s" % (parts[0], )
+            raise SystemExit
+
         else:
             labels[parts[0]] = address
-            self.assembled = parts[0]
+            #self.assembled = parts[0]
 
     elif s.strip() != 0:
-        raise DecodeError("invalid instruction = %s" % (s, ))
+        print "invalid instruction = %s" % (s, )
+        raise SystemExit
 
 
 def base_10_to_b3(base_10, length):
@@ -236,13 +242,13 @@ def base_10_to_b3(base_10, length):
         base_10: integer value
         length:  desired length of resulting string
 
-        convert from base 10 to base -3 w/base_convert
+        convert from base 10 to base -3 w/base_converter.base_convert
         and fill in leading zeros
 
         return: balanced base 3 string with length of 'length'
     """
 
-    result = base_convert(str(base_10), 10, -3)
+    result = base_converter.base_convert(str(base_10), 10, -3)
     if len(result) != length:
         add = length - len(result)
         for i in range(0, add):
@@ -250,4 +256,7 @@ def base_10_to_b3(base_10, length):
 
     return result
 
+if __name__ == "__main__":
+    ICode("add i0 i1 i3", {}, 0)
+    ICode("0000000000000000010i1010000", {}, 0)
 
