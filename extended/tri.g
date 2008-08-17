@@ -299,80 +299,92 @@ types [record]
 
 type_declarations [record]
     :  #(STRUCT val:ID
+    {
+        key = val.getText()
+        structure = Entry(key)
+        record.add_to_global(key, structure)
+        record.reset_counter()
+    }
+    (decl[record, structure])+
 {
-    key = val.getText()
-    structure = Entry(key)
-    record.add_to_global(key, structure)
-    record.reset_counter()
-}
-    (decl[record, entry])+
-{
-    # table.put(key, entry);
+    # DELETE? insert into global table
+    #table.put(key, structure);
 }
     )
     ;
 
-decl [records, Records local, Counter i] { returned = null; }
-    :  #(DECL returned=type[table, local] var:ID)
-      {
-         String id = var.getText();
-         local.put(id, t);
-         local.put("" + (i.count), t);
-         i.count++;
-      }
+
+decl [records, structure=False] { value = False }
+    :  #(DECL value=type[records] var:ID)
+    {
+        key = var.getText()
+
+        if structure == False:
+            records.add_to_local(key, value)
+        else:
+            structure.add_to_members(key, value)
+
+         # DELETE? insert into local table
+         #local.put("" + (i.count), t);
+        records.increment_counter()
+    }
+    ;
+
+
+type [records] returns [result = False]
+   :  #(TYPE result=datatypes[records])
    ;
 
-type [records, Records local] returns [Entry t = null]
-   :  #(TYPE t=datatypes[table, local])
-   ;
 
-datatypes [records, Records local] returns [type = False]
+datatypes [records] returns [result = False]
    :  INT
-      {
-         t = new Entry(0);
-      }
-   |  BOOL
-      {
-         t = new Entry(true);
-      }
-   |  #(STRUCT v:ID)
-      {
-         String value = v.getText();
-         t = (Entry)table.ReturnValue(value, local);
-      }
-   ;
+    {
+        result = Entry(0)
+    }
+    |  BOOL
+    {
+        result = Entry(True)
+    }
+    |  #(STRUCT var:ID)
+    {
+        key = var.getText()
+        result = records.return_value(key)
+    }
+    ;
 
-declarations [Records table, Records local]
-   :  #(DECLS (declarations_inter[table, local])*)
-   ;
+declarations [records, local_decls=False]
+    :  #(DECLS (declarations_inter[records, local_decls])*)
+    ;
 
-declarations_inter [Records table, Records local]
-   :  #(DECLLIST declaration[table, local])
-   ;
+declarations_inter [records, local_decls]
+    :  #(DECLLIST declaration[records, local_decls])
+    ;
 
-declaration [Records table, Records local] { Entry tp = null; }
-   :  tp=type[table, local] id_list[table, local, tp]
-   ;
+declaration [records, local_decls] {entry = False}
+    :  entry=type[records] id_list[records, local_decls, entry]
+    ;
 
-id_list [Records table, Records local, Entry tp]
-   :  (val0:ID
-         {
-            String id = val0.getText();
-            if (local == null) {
-               table.put(id, tp);
-            }
-            else {
-               local.put(id, tp);
-            }
-         }
-      )+
-   ;
+id_list [records, local_decls, entry]
+    :  (val:ID
+    {
+        key = val.getText()
+        if local_decls:
+            records.add_to_locals(key, entry)
+        else:
+            records.add_to_globals(key, entry)
+    }
+    )+
+    ;
 
 functions [Records table] {boolean tmp, main = false;}
    :  #(FUNCS (tmp=function[table]
-         {  if (tmp == true) { main = true; } }
-       )*)
-         {  if (!main) {
+    {
+        if (tmp == True):
+            main = True
+    }
+    )*)
+    {
+        if (!main) {
                (new Entry()).printError("'fun main() int {}' not found"); } }
    ;
 
@@ -400,7 +412,7 @@ function [Records table] returns [boolean rtnMain = false]
             rtnMain = true;
          }
       }
-   declarations[table, fn.table] retn=statements[table, fn.table]
+   declarations[table, True] retn=statements[table, fn.table]
    {
       if (retn == null && (fn.hasReturnType) && !(fn.return_variable.isNull)) {
          fn.printError(fn.stringname + " doesn't return through all paths " +
@@ -424,7 +436,7 @@ parameters [Records table, Records local, Entry f_entry]
    ;
 
 params_decl [Records table, Records local] { Counter i = new Counter(0); }
-   :  (decl[table, local, i])+
+   :  (decl[table])+
    ;
 
 return_type [Records table, Records local] returns [Entry t = null]

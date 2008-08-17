@@ -7,7 +7,7 @@ class Records(object):
         self.local_table  = {}
         self.counter      = 0
 
-    def increment(self):
+    def increment_counter(self):
         self.counter = self.counter + 1
 
     def reset_counter(self):
