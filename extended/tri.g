@@ -280,7 +280,7 @@ arg_list
    ;
 
 /*
-   TriTreeParser
+   EvilTreeParser
  */
 class TriTreeParser extends TreeParser;
 
@@ -289,24 +289,31 @@ options
    importVocab=TriLexer;
 }
 
-program [Records table]
-   :  #(PROGRAM types[table] declarations[table, null] functions[table])
-   ;
+program [record]
+    :  #(PROGRAM types[record] declarations[record] functions[record])
+    ;
 
-types [Records table]
-   :  #(TYPES (type_declarations[table])*)
-   ;
+types [record]
+    :  #(TYPES (type_declarations[record])*)
+    ;
 
-type_declarations [Records table] {Entry struct = null;}
-   :  #(STRUCT val:ID
-         {String value = val.getText(); struct = new Entry(value);
-          table.put(value, struct);}
-      (decl[table, struct.table, new Counter(0)])+
-         {table.put(value, struct);})
-   ;
+type_declarations [record]
+    :  #(STRUCT val:ID
+{
+    key = val.getText()
+    structure = Entry(key)
+    record.add_to_global(key, structure)
+    record.reset_counter()
+}
+    (decl[record, entry])+
+{
+    # table.put(key, entry);
+}
+    )
+    ;
 
-decl [Records table, Records local, Counter i] { Entry t = null; }
-   :  #(DECL t=type[table, local] var:ID)
+decl [records, Records local, Counter i] { returned = null; }
+    :  #(DECL returned=type[table, local] var:ID)
       {
          String id = var.getText();
          local.put(id, t);
@@ -315,11 +322,11 @@ decl [Records table, Records local, Counter i] { Entry t = null; }
       }
    ;
 
-type [Records table, Records local] returns [Entry t = null]
+type [records, Records local] returns [Entry t = null]
    :  #(TYPE t=datatypes[table, local])
    ;
 
-datatypes [Records table, Records local] returns [Entry t = null]
+datatypes [records, Records local] returns [type = False]
    :  INT
       {
          t = new Entry(0);
