@@ -289,54 +289,52 @@ options
    importVocab=TriLexer;
 }
 
-program [record]
-    :  #(PROGRAM types[record] declarations[record] functions[record])
+program [records]
+    :  #(PROGRAM types[records] declarations[records] functions[records])
     ;
 
-types [record]
-    :  #(TYPES (type_declarations[record])*)
+types [records]
+    :  #(TYPES (type_declarations[records])*)
     ;
 
-type_declarations [record]
+type_declarations [records]
     :  #(STRUCT val:ID
     {
         key = val.getText()
         structure = Entry(key)
-        record.add_to_global(key, structure)
-        record.reset_counter()
+        records.add_to_global(key, structure)
+        records.reset_counter()
     }
-    (decl[record, structure])+
-{
-    # DELETE? insert into global table
-    #table.put(key, structure);
-}
+    (decl[records, structure])+
     )
     ;
 
 
-decl [records, structure=False] { value = False }
+decl [records, local]
+{
+    value = False
+}
     :  #(DECL value=type[records] var:ID)
     {
         key = var.getText()
 
-        if structure == False:
-            records.add_to_local(key, value)
-        else:
-            structure.add_to_members(key, value)
+        local.add_to_members(key, value)
+        # used only for function parameters
+        local.add_to_params(value)
 
-         # DELETE? insert into local table
-         #local.put("" + (i.count), t);
         records.increment_counter()
     }
     ;
 
 
-type [records] returns [result = False]
+type [records]
+returns [result = False]
    :  #(TYPE result=datatypes[records])
    ;
 
 
-datatypes [records] returns [result = False]
+datatypes [records]
+returns [result = False]
    :  INT
     {
         result = Entry(0)
@@ -348,7 +346,7 @@ datatypes [records] returns [result = False]
     |  #(STRUCT var:ID)
     {
         key = var.getText()
-        result = records.return_value(key)
+        result = records.get_value(key)
     }
     ;
 
@@ -360,7 +358,10 @@ declarations_inter [records, local_decls]
     :  #(DECLLIST declaration[records, local_decls])
     ;
 
-declaration [records, local_decls] {entry = False}
+declaration [records, local_decls]
+{
+    entry = False
+}
     :  entry=type[records] id_list[records, local_decls, entry]
     ;
 
@@ -369,434 +370,419 @@ id_list [records, local_decls, entry]
     {
         key = val.getText()
         if local_decls:
-            records.add_to_locals(key, entry)
+            records.add_to_local(key, entry)
         else:
             records.add_to_globals(key, entry)
     }
     )+
     ;
 
-functions [Records table] {boolean tmp, main = false;}
-   :  #(FUNCS (tmp=function[table]
+functions [records]
+{
+    tmp = False
+    main = False
+}
+   :  #(FUNCS (tmp=function[records]
     {
-        if (tmp == True):
+        if tmp == True:
             main = True
     }
     )*)
     {
-        if (!main) {
-               (new Entry()).printError("'fun main() int {}' not found"); } }
-   ;
-
-function [Records table] returns [boolean rtnMain = false]
-   { Entry fn, returnType = null, retn; String value; boolean param = false;}
-   :  #(FUN var2:ID
-      {
-         value = var2.getText();
-         fn = new Entry(value, new Entry(0));
-         table.put(value, fn);
-      }
-   param=parameters[table, fn.table, fn] returnType=return_type[table, fn.table]
-      {
-         fn.table.put(fn.table.RTN, returnType);
-
-         if (!returnType.isNull) {
-            fn.return_variable = returnType;
-            fn.hasReturnType = true;
-         }
-         else {
-            fn.hasReturnType = false;
-         }
-
-         if (value.equals("main") && !param && returnType.isInt) {
-            rtnMain = true;
-         }
-      }
-   declarations[table, True] retn=statements[table, fn.table]
-   {
-      if (retn == null && (fn.hasReturnType) && !(fn.return_variable.isNull)) {
-         fn.printError(fn.stringname + " doesn't return through all paths " +
-                       "or there is extra code after the last return statement");
-      }
-      else if (retn != null && !(fn.hasReturnType)) {
-         fn.printError(fn.stringname + " doesn't return a value");
-      }
-   }
-   )
-   ;
-
-parameters [Records table, Records local, Entry f_entry]
-   returns [boolean rtn = false;]
-   :  #(PARAMS (params_decl[table, local]
-      {
-         rtn = true;
-         f_entry.hasParams = true;
-      }
-      )?)
-   ;
-
-params_decl [Records table, Records local] { Counter i = new Counter(0); }
-   :  (decl[table])+
-   ;
-
-return_type [Records table, Records local] returns [Entry t = null]
-   :  #(RETTYPE t=ret_type[table, local])
-   ;
-
-ret_type [Records table, Records local] returns [Entry t = null]
-   :  t=datatypes[table, local]
-   |  VOID
-      {
-         t = new Entry();
-      }
-   ;
-
-statements [Records table, Records local] returns [Entry rtn = null]
-   :  #(STMTS (rtn=statement[table, local])*)
-   ;
-
-statement [Records table, Records local] returns [Entry rtn = null]
-   { Entry tmp = null;}
-   :  rtn=block[table, local]
-   |  assignment[table, local]
-   |  print[table, local]
-   |  read[table, local]
-   |  rtn=conditional[table, local]
-   |  rtn=loop[table, local]
-   |  delete[table, local]
-   |  rtn=ret[table, local]
-   |  tmp=invocation[table, local]
-   ;
-
-block [Records table, Records local] returns [Entry rtn = null]
-   :  #(BLOCK rtn=statements[table, local])
-   ;
-
-assignment [Records table, Records local]
-   {
-      Entry e;
-      Entry id;
-   }
-   :  #(ASSIGN id=lvalue[table, local] e=expression[table, local])
-      {
-         id.compareTypes(e, "=");
-      }
-   ;
-
-print [Records table, Records local]
-   {
-      Entry e;
-   }
-   :  #(PRINT e=expression[table, local] (ENDL)?)
-      {
-         if (!e.isInt) {
-            e.printError("found '" + e.stringname +
-            "', can only print integers");
-         }
-      }
-   ;
-
-read [Records table, Records local]
-   {
-      Entry id;
-   }
-   :  #(READ id=lvalue[table, local])
-      {
-         if (!id.isInt) {
-            id.printError("found '" + id.stringname +
-            "', can only read to an integer");
-         }
-      }
-   ;
-
-conditional [Records table, Records local] returns [Entry rtn = null]
-   {
-      Entry e, tmp=null;
-   }
-   :  #(IF e=expression[table, local]
-      {
-         if (!e.isBool) {
-            e.printError("found '" + e.stringname
-            +"', condifional needs a boolean guard");
-         }
-      }
-
-      rtn=block[table, local] (tmp=block[table, local]
-      {
-         if (rtn != null) {
-            rtn = tmp;
-         }
-      }
-      )?)
-   ;
-
-loop [Records table, Records local] returns [Entry rtn = null]
-   {
-      Entry e;
-   }
-   :  #(WHILE e=expression[table, local]
-      {
-         if (!e.isBool) {
-            e.printError("found '" + e.stringname
-            +"', loop needs a boolean guard");
-         }
-      }
-      rtn=block[table, local])
-   ;
-
-delete [Records table, Records local]
-   {
-      Entry e;
-   }
-   :  #(DELETE e=expression[table, local])
-      {
-         if (!e.isStruct) {
-            e.printError("cannot free '" + e.stringname + "' b/c it is not a struct");
-         }
-      }
-   ;
-
-ret [Records table, Records local] returns [Entry t = null]
-   :  #(RETURN (t=expression[table, local]
-         { t.compareTypes( (Entry)local.get(local.RTN) , "return"); }
-      )?)
-   ;
-
-invocation [Records table, Records local] returns [Entry rtn = null]
-   { Entry f_entry = null; }
-   : #(INVOKE val:ID
-      {
-         String s = (String)val.getText();
-         f_entry = (Entry)table.ReturnValue(s, local);
-         if (!(f_entry.isFunction)) {
-            f_entry.printError(" '" + s + "' is not a function. invocation failed");
-         }
-      }
-     arguments[table, local, f_entry])
-      {
-         String value = val.getText();
-         rtn = (table.ReturnValue(value, local)).return_variable;
-      }
-   ;
-
-lvalue [Records table, Records local] returns [Entry t = null]
-   {
-      Entry id;
-   }
-   :  val0:ID
-      {
-         String value = val0.getText();
-         t = table.ReturnValue(value, local);
-      }
-   |  #(DOT id=lvalue[table, local] val1:ID)
-      {
-         String value = val1.getText();
-         if (!id.isStruct) {
-            id.printError("can't apply . to '" + id.stringname + "' (not a struct)");
-         }
-
-         t = id.table.ReturnValue(value, null);
-      }
-   ;
-
-expression [Records table, Records local] returns [Entry t = null]
-   {Entry lft, rht, f_entry;}
-   :  #(AND lft=expression[table, local] rht=expression[table, local])
-      {
-         if (!lft.isBool) {
-            lft.printError("AND requires boolean types");
-         }
-         lft.compareTypes(rht, "AND");
-         t = new Entry(true);
-      }
-   |  #(OR lft=expression[table, local] rht=expression[table, local])
-      {
-         if (!lft.isBool) {
-            lft.printError("OR requires boolean types");
-         }
-         lft.compareTypes(rht, "OR");
-         t = new Entry(true);
-      }
-   |  #(DIVIDE lft=expression[table, local] rht=expression[table, local])
-      {
-         if (!lft.isInt) {
-            lft.printError("DIVIDE requires int types");
-         }
-         lft.compareTypes(rht, "DIVIDE");
-         t = new Entry(0);
-      }
-   |  #(TIMES lft=expression[table, local] rht=expression[table, local])
-      {
-         if (!lft.isInt) {
-            lft.printError("TIMES requires int types");
-         }
-         lft.compareTypes(rht, "TIMES");
-         t = new Entry(0);
-      }
-   |  #(PLUS lft=expression[table, local] rht=expression[table, local])
-      {
-         if (!lft.isInt) {
-            lft.printError("PLUS requires int types");
-         }
-         lft.compareTypes(rht, "PLUS");
-         t = new Entry(0);
-      }
-   |  #(MINUS lft=expression[table, local] rht=expression[table, local])
-      {
-         if (!lft.isInt) {
-            lft.printError("MINUS requires int types");
-         }
-         lft.compareTypes(rht, "MINUS");
-         t = new Entry(0);
-      }
-   |  #(EQ lft=expression[table, local] rht=expression[table, local])
-      {
-    if (!lft.isInt && !lft.isStruct) {
-       lft.printError("EQ requires int or struct types");
+        if not main:
+            print "main function not found"
+            raise SystemExit
     }
-         lft.compareTypes(rht, "EQ");
-         t = new Entry(true);
-      }
-   |  #(LT lft=expression[table, local] rht=expression[table, local])
-      {
-         if (!lft.isInt) {
-            lft.printError("LT requires int types");
-         }
-         lft.compareTypes(rht, "LT");
-         t = new Entry(true);
-      }
-   |  #(GT lft=expression[table, local] rht=expression[table, local])
-      {
-         if (!lft.isInt) {
-            lft.printError("GT requires int types");
-         }
-         lft.compareTypes(rht, "GT");
-         t = new Entry(true);
-      }
-   |  #(NE lft=expression[table, local] rht=expression[table, local])
-      {
-         if (!lft.isInt && !lft.isStruct) {
-            lft.printError("NE requires int or struct types");
-         }
-         lft.compareTypes(rht, "NE");
-         t = new Entry(true);
-      }
-   |  #(LE lft=expression[table, local] rht=expression[table, local])
-      {
-         if (!lft.isInt) {
-            lft.printError("LE requires int types");
-         }
-         lft.compareTypes(rht, "LE");
-         t = new Entry(true);
-      }
-   |  #(GE lft=expression[table, local] rht=expression[table, local])
-      {
-         if (!lft.isInt) {
-            lft.printError("GE requires int types");
-         }
-         lft.compareTypes(rht, "GE");
-         t = new Entry(true);
-      }
-   |  #(NOT lft=expression[table, local])
-      {
-         if (lft.isBool) {
-            t = new Entry(true);
-         }
-         else {
-            lft.printError("can't apply NOT to '" + lft.stringname + "'");
-         }
-      }
-   |  #(NEG lft=expression[table, local])
-      {
-         if (lft.isInt) {
-            t = new Entry(0);
-         }
-         else {
-            lft.printError("can't apply NEG to '" + lft.stringname + "'");
-         }
-      }
-   |  #(NEW val0:ID)
-      {
-         String value = val0.getText();
-         lft = table.ReturnValue(value, local);
+    ;
 
-         if (lft.isStruct) {
-            t = new Entry(value);
-         }
-         else {
-            lft.printError("can't apply NEW to '" + lft.stringname + "'");
-         }
-      }
-   |  #(INVOKE val4:ID
-      {
-         String s = (String)val4.getText();
-         f_entry = (Entry)table.ReturnValue(s, local);
-         if (!(f_entry.isFunction)) {
-            f_entry.printError(" '" + s + "' is not a function. invocation failed");
-         }
+function [records]
+returns [rtnMain = False]
+{
+    rtn_type = False
+    rtn = False
+    param = False
+}
+    :  #(FUN var:ID
+    {
+        key = var.getText()
+        function_entry = Entry(value, Entry(0))
+        records.add_to_global(value, fn)
+        records.set_local(function_entry)
+    }
+    param=parameters[records, function_entry] rtn_type=return_type[records]
+    {
+        records.set_func_ret(rtn_type)
+        function_entry.set_return_type(rtn_type)
 
-         t = f_entry.return_variable;
-      }
-      (arguments[table, local, f_entry])?)
-   |  #(DOT lft=expression[table, local] val5:ID)
-      {
-         String value = val5.getText();
-         if (!lft.isStruct) {
-            lft.printError("can't apply . to '" + lft.stringname + "'(not a struct)");
-         }
+        if key == "main" and not param and rtn_type.get_type() == rtn_type.INT_TYPE:
+            rtnMain = True
+    }
+    declarations[table, True] rtn=statements[records]
+    {
+        if rtn == False and rtn_type.get_type() != rtn_type.NULL_TYPE:
+            print function_entry + " doesn't return through all paths ",
+            print "or there is extra code after the last return statement"
+            raise SystemExit
+        elif rtn != False and rtn_type.get_type() == rtn_type.NULL_TYPE:
+            print function_entry + " doesn't return a value"
+            raise SystemExit
+    }
+    )
+    ;
 
-         t = table.ReturnValue(value, local, lft.table);
-      }
-   |  val1:ID
-      {
-         String value = val1.getText();
+parameters [records, function_entry]
+returns [has_params = False]
+    :  #(PARAMS (params_decl[records, function_entry]
+    {
+        has_params = True
+    }
+    )?)
+    ;
 
-         t = table.ReturnValue(value, local);
-      }
-   |  val2:INTEGER
-      {
-         int value = (int)Integer.parseInt(val2.getText());
-         t = new Entry(value);
-      }
-   |  val3:TRUE
-      {
-         boolean value = (boolean)Boolean.getBoolean(val3.getText());
-         t = new Entry(value);
-      }
-   |  FALSE
-      {
-         t = new Entry(false);
-      }
-   |  NULL
-      {
-         t = new Entry();
-      }
-   ;
+params_decl [records, function_entry]
+    :
+    {
+        records.reset_counter()
+    }
+    (decl[records, function_entry])+
+    {
+        records.set_num_params(records.get_counter())
+    }
+    ;
 
-arguments [Records table, Records local, Entry f_entry]
-   {
-      Entry e, actual; int count = 0; boolean f_params = false;
-   }
-   :  #(ARGS ((e=expression[table, local]
-         {
-         actual = (Entry)table.ReturnValue("" + count, f_entry.table);
-         actual.compareTypes(e, "argument");
-         count++;
-         }
-      )+
-         {
-         if (!(f_entry.hasParams)) {
-            f_entry.printError(f_entry.stringname + " doesn't require params");
-         }
-         f_params = true;
-         }
-      )?)
-         {
-         if ((f_entry.hasParams) && !f_params) {
-            f_entry.printError(f_entry.stringname + " requires arguments");
-         }
-         else if (f_params && f_entry.table.containsKey("" + count)) {
-            f_entry.printError(f_entry.stringname + " requires more arguments");
-         }
-         }
-   ;
+return_type [records]
+returns [rtn_val = False]
+    :  #(RETTYPE rtn_val=ret_type[records])
+    ;
+
+ret_type [records]
+returns [rtn_val = False]
+    :  rtn_val=datatypes[records]
+    |  VOID
+    {
+        rtn_val = new Entry()
+    }
+    ;
+
+statements [records]
+returns [rtn = False]
+    :  #(STMTS (rtn=statement[records])*)
+    ;
+
+statement [records]
+returns [rtn = False]
+{
+    tmp = False
+}
+    :  rtn=block[records]
+    |  assignment[records]
+    |  print[records]
+    |  read[records]
+    |  rtn=conditional[records]
+    |  rtn=loop[records]
+    |  delete[records]
+    |  rtn=ret[records]
+    |  tmp=invocation[records]
+    ;
+
+block [records]
+returns [rtn = False]
+    :  #(BLOCK rtn=statements[records])
+    ;
+
+assignment [records]
+{
+    exp = False
+    id = False
+}
+    :  #(ASSIGN id=lvalue[records] exp=expression[records])
+    {
+        id.compare_types(e, "=")
+    }
+    ;
+
+print [records]
+{
+    exp = False
+}
+    :  #(PRINT exp=expression[records] (ENDL)?)
+    {
+        if exp.get_type() != exp.INT_TYPE:
+            print "found '" + exp + "', can only print integers"
+            raise SystemExit
+    }
+    ;
+
+read [records]
+{
+    id = False
+}
+    :  #(READ id=lvalue[records])
+    {
+        if exp.get_type() != exp.INT_TYPE:
+            print "found '" + exp + "', can only read integers"
+            raise SystemExit
+    }
+    ;
+
+conditional [records]
+returns [rtn = False]
+{
+    exp = False
+    tmp = False
+}
+    :  #(IF exp=expression[records]
+    {
+        if exp.get_type() != exp.BOOL_TYPE:
+            print "found '" + exp +"', condifional needs a boolean guard"
+            raise SystemExit
+    }
+    rtn=block[records] (tmp=block[records]
+    {
+         if rtn != False:
+            rtn = tmp
+    }
+    )?)
+    ;
+
+loop [records]
+returns [rtn = False]
+{
+    exp = False
+}
+    :  #(WHILE exp=expression[records]
+    {
+        if exp.get_type() != exp.BOOL_TYPE:
+            print "found '" + exp +"', condifional needs a boolean guard"
+            raise SystemExit
+    }
+    rtn=block[records])
+    ;
+
+delete [records]
+{
+    exp = False
+}
+    :  #(DELETE exp=expression[records])
+    {
+        if exp.get_type() != exp.STRUCT_TYPE:
+            print "found '" + exp +"': cannot delete, must be a structure reference"
+            raise SystemExit
+    }
+    ;
+
+ret [records]
+returns [exp = False]
+    :  #(RETURN (exp=expression[records]
+    {
+        exp.compareTypes(records.get_func_ret , "return")
+    }
+    )?)
+    ;
+
+invocation [records]
+returns [rtn = False]
+    : #(INVOKE val:ID
+    {
+        key = val.getText()
+        function_entry = records.get_value(key)
+        if function_entry.get_type() != function_type.FUNCTION_TYPE:
+            print " '" + key + "' is not a function. invocation failed"
+            raise SystemExit
+    }
+    arguments[records, function_entry])
+    {
+        rtn = function_entry.get_return_type()
+    }
+    ;
+
+lvalue [records]
+returns [rtn = False]
+{
+    id = False
+}
+    :  val0:ID
+    {
+        key = val0.getText()
+        rtn = records.get_value(key0)
+    }
+    |  #(DOT id=lvalue[records] val1:ID)
+    {
+        key = val1.getText()
+        if id.get_type() != id.get_type.STRUCT_TYPE:
+            print "can't apply . to '" + id + "' (not a struct)"
+            raise SystemExit
+
+        rtn = id.table.ReturnValue(value, null)
+    }
+    ;
+
+expression [records]
+returns [rtn = False]
+{
+    lft = False
+    rht = False
+    f_entry = False
+}
+    :  #(AND lft=expression[records] rht=expression[records])
+    {
+        lft.expr_compare_types(rht, "AND", lft.BOOL_TYPE)
+        rtn = Entry(True)
+    }
+    |  #(OR lft=expression[records] rht=expression[records])
+    {
+        lft.expr_compare_types(rht, "OR", lft.BOOL_TYPE)
+        rtn = Entry(True)
+    }
+    |  #(DIVIDE lft=expression[records] rht=expression[records])
+    {
+        lft.expr_compare_types(rht, "DIVIDE", lft.INT_TYPE)
+        rtn = Entry(0)
+    }
+    |  #(TIMES lft=expression[records] rht=expression[records])
+    {
+        lft.expr_compare_types(rht, "TIMES", lft.INT_TYPE)
+        rtn = Entry(0)
+    }
+    |  #(PLUS lft=expression[records] rht=expression[records])
+    {
+        lft.expr_compare_types(rht, "PLUS", lft.INT_TYPE)
+        rtn = Entry(0)
+    }
+    |  #(MINUS lft=expression[records] rht=expression[records])
+    {
+        lft.expr_compare_types(rht, "MINUS", lft.INT_TYPE)
+        rtn = Entry(0)
+    }
+    |  #(EQ lft=expression[records] rht=expression[records])
+    {
+        if lft.get_type() != lft.INT_TYPE and lft.get_type() != lft.STRUCT_TYPE:
+            print "EQ requires int or struct types"
+
+        lft.compare_types(rht, "EQ")
+        rtn = Entry(True)
+    }
+    |  #(LT lft=expression[records] rht=expression[records])
+    {
+        lft.expr_compare_types(rht, "LT", lft.INT_TYPE)
+        rtn = Entry(True)
+    }
+    |  #(GT lft=expression[records] rht=expression[records])
+    {
+        lft.expr_compare_types(rht, "GT", lft.INT_TYPE)
+        rtn = Entry(True)
+    }
+    |  #(NE lft=expression[records] rht=expression[records])
+    {
+        lft.expr_compare_types(rht, "NE", lft.INT_TYPE)
+        rtn = Entry(True)
+    }
+    |  #(LE lft=expression[records] rht=expression[records])
+    {
+        lft.expr_compare_types(rht, "LE", lft.INT_TYPE)
+        rtn = Entry(True)
+    }
+    |  #(GE lft=expression[records] rht=expression[records])
+    {
+        lft.expr_compare_types(rht, "GE", lft.INT_TYPE)
+        rtn = Entry(True)
+    }
+    |  #(NOT lft=expression[records])
+    {
+        if lft.get_type() != lft.BOOL_TYPE:
+            print "can't apply NOT to '" + lft + "'"
+            raise SystemExit
+        rtn = Entry(True)
+    }
+    |  #(NEG lft=expression[records])
+    {
+        if lft.get_type() != lft.INT_TYPE:
+            print "can't apply NEG to '" + lft + "'"
+            raise SystemExit
+
+        rtn = Entry(0)
+    }
+    |  #(NEW val0:ID)
+    {
+        value = val0.getText()
+        lft = table.get_value(value)
+
+        if lft.get_type() != lft.STRUCT_TYPE:
+            print "can't apply NEW to '" + lft + "'"
+            raise SystemExit
+
+        rtn = Entry(value)
+    }
+    |  #(INVOKE val4:ID
+    {
+        value = val4.getText()
+        function_entry = records.get_value(value, local)
+        if function_entry.get_type() != function_entry.FUNCTION_TYPE:
+            print " '" + value + "' is not a function. invocation failed"
+            raise SystemExit
+
+        rtn = function_entry.get_return_type()
+    }
+      (arguments[records, f_entry])?)
+    |  #(DOT lft=expression[records] val5:ID)
+    {
+        value = val5.getText()
+        if lft.get_type() != lft.STRUCT_TYPE:
+            print "can't apply . to '" + lft + "'(not a struct)"
+            raise SystemExit
+
+        rtn = records.get_value(value, lft.get_table())
+    }
+    |  val1:ID
+    {
+        value = val1.getText()
+        rtn = records.get_value(value)
+    }
+    |  val2:INTEGER
+    {
+        value = int(val2.getText())
+        rtn = Entry(value)
+    }
+    |  TRUE
+    {
+        rtn = Entry(True)
+    }
+    |  FALSE
+    {
+        rtn = Entry(False)
+    }
+    |  NULL
+    {
+        rtn = Entry()
+    }
+    ;
+
+arguments [records, function_entry]
+{
+    exp = False
+    param_count = 0
+    found_params = False
+}
+    :  #(ARGS ((exp=expression[records]
+    {
+        exp.compare_types(function_entry.get_param_by_ndx(param_count), "argument match")
+        param_count = param_count + 1
+    }
+    )+
+    {
+        if function_entry.get_num_params() == 0:
+            print function_entry + " doesn't require params"
+            raise SystemExit
+        found_params = True
+    }
+    )?)
+    {
+        if function_entry.get_num_params() != 0 and not found_params
+            print function_entry + ": requires arguments"
+            raise SystemExit
+
+        elif function_entry.get_num_params() != param_count:
+            print function_entry + ": number of arguments missmatch"
+            raise SystemExit
+    }
+    ;

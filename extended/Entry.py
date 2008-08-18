@@ -10,8 +10,9 @@ NULL_TYPE     = 4
 class Entry(object):
     def __init__(self, value = False, rtn_type = False):
 
-        self.num_params = 0
-        self.name       = ""
+        self.num_params  = 0
+        self.name        = ""
+        self.params_list = []
 
         # NULL TYPE
         if value == False:
@@ -49,6 +50,12 @@ class Entry(object):
     def __str__(self):
         return self.string_name
 
+    def set_return_type(self, rtn):
+        self.rtn_type = rtn
+
+    def get_return_type(self):
+        return self.rtn_type
+
     def get_type(self):
         return self.type
 
@@ -61,11 +68,14 @@ class Entry(object):
         self.members[key] = value
         return True
 
-    def in_members(sefl, key):
+    def in_members(self, key):
         if key in self.members:
             return True
         else:
             return False
+
+    def get_table(self):
+        return self.members
 
     def compare_types(self, other, operation):
         if self.get_type() == other.get_type() and self.get_name() == other.get_name():
@@ -77,4 +87,25 @@ class Entry(object):
         else:
             print "cannot apply '" + operation + "' to '" self "' and '" + other + "'"
             raise SystemExit
+
+    def expr_compare_types(self, other, operation, type):
+        if self.get_type() == type:
+            self.compare_types(other, operation)
+        else:
+            print "cannot apply '" + operation + "' to '" self "' and '" + other + "'"
+            raise SystemExit
+
+    # parameter access functions
+    def set_num_params(self, num_params):
+        self.num_params = num_params
+
+    def get_num_params(self):
+        self.num_params
+
+    def add_to_params(self, value):
+        self.params_list.append(value)
+
+    def get_param_by_ndx(self, ndx):
+        return self.params_list[ndx]
+
 
