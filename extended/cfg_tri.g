@@ -14,7 +14,7 @@ options
 }
 
 program [cfg_group]
-    :  #(PROGRAM types[cfg_group] declarations[cfg_group, ILOC_CONST.GLOBALS]
+    :  #(PROGRAM types[cfg_group] declarations[cfg_group, Iloc_cnst.GLOBAL]
     functions[cfg_group])
     ;
 
@@ -27,7 +27,7 @@ type_declarations [cfg_group]
     {
         var_name = id5.getText();
     }
-      (decl[cfg_group, ILOC_CONST.STRUCT_MEMBER])+)
+      (decl[cfg_group, Iloc_cnst.STRUCT_MEMBER])+)
     ;
 
 
@@ -40,20 +40,20 @@ decl [cfg_group, decl_type]
         val_name = id.getText()
 
          # add arguments to table
-        if decl_type == ILOC_CNST.ARGUMENT:
+        if decl_type == Iloc_cnst.ARGUMENT:
 
             reg = Register(cfg_group.get_counter(), data_type)
+            reg.set_mem_set(Iloc_cnst.LOCAL)
             cfg_group.add_to_local(val_name, reg)
+            cfg_group.increment_counter()
 
             inst = Inst_Node("loadinargument", reg)
             inst.set_val_name(val_name)
-
             cfg_group.get_crnt_node().add_iloc_inst(inst)
-            cfg_group.increment_counter()
 
         # declarations inside of a struct
-        if decl_type == ILOC_CONST.STRUCT_MEMBER:
-            TODO = 0
+        if decl_type == Iloc_cnst.STRUCT_MEMBER:
+            NOT_SUPP = 0
 
     }
     ;
@@ -95,15 +95,15 @@ id_list [cfg_group, data_type, decl_type]
         var_name = id.getText()
 
         # add locals
-        if decl_type == ILOC_CONST.LOCALS:
+        if decl_type == Iloc_cnst.LOCAL:
             reg = Register(cfg_group.get_counter(), data_type)
-
+            reg.set_mem_loc(Iloc_cnst.LOCAL)
             cfg_group.add_local(var_name, reg)
             cfg_group.increment_counter()
 
         # add globals
-        if decl_type == ILOC_CONST.GLOBALS:
-            TODO = 0
+        if decl_type == Iloc_cnst.GLOBAL:
+            NOT_SUPP = 0
     }
     )+
     ;
@@ -141,10 +141,14 @@ function [cfg_group]
     data_type = False
 }
     :  #(FUN value:ID parameters[cfg_group] data_type=return_type
-    declarations[cfg_group, ILOC_CONST.LOCALS]
+    {
+        num_args = cfg_group.get_counter()
+    }
+    declarations[cfg_group, Iloc_cnst.LOCAL]
     {
         val = value.getText()
         cfg_group.get_crnt_node().add_label(val)
+        cfg_group.get_crnt_node().set_num_args(num_args)
         cfg_group.get_crnt_node().set_num_locals(cfg_group.get_counter())
 
         # function return type
@@ -163,7 +167,7 @@ parameters [cfg_group]
     ;
 
 params_decl [cfg_group]
-    :  (decl[cfg_group, ILOC_CNST.ARGUMENT])+
+    :  (decl[cfg_group, Iloc_cnst.ARGUMENT])+
     ;
 
 return_type
@@ -206,12 +210,12 @@ assignment [cfg_group]
     {
 
         # store into a global
-        if r1.get_mem_loc() == ILOC_CONST.GLOBAL:
+        if r1.get_mem_loc() == Iloc_cnst.GLOBAL:
             inst = Inst_Node("storeai", r2)
             inst.set_val_name(r1.get_val_name())
 
         # store into memory
-        if r1.get_mem_loc() == ILOC_CONST.MEMORY:
+        if r1.get_mem_loc() == Iloc_cnst.MEMORY:
             inst = Inst_Node("storeai", r2, r1)
 
         # store into a register
@@ -264,7 +268,7 @@ conditional [cfg_group]
 }
     :  #(IF r1=expression[cfg_group]
     {
-        crnt_node = cfg_group.get_crnt_node()
+        start_node = cfg_group.get_crnt_node()
 
         # FOR THEN BLOCK
         # SET LABEL & CREATE:
@@ -273,10 +277,12 @@ conditional [cfg_group]
         cfg_group.increment_label_counter()
 
         # ENTRY LIST:
-        then_node.add_entry_node(crnt_node)
+        then_node.add_entry_node(start_node)
 
         # EXIT LIST:
-        crnt_node.add_exit_node(then_node)
+        start_node.add_exit_node(then_node)
+
+        cfg_group.set_crnt_node(then_node)
     }
     block[cfg_group]
     {
@@ -291,10 +297,12 @@ conditional [cfg_group]
         cfg_group.increment_label_counter()
 
         # ENTRY LIST:
-        else_node.add_entry_node(crnt_node)
+        else_node.add_entry_node(start_node)
 
         # EXIT LIST:
-        crnt_node.add_exit_node(else_node)
+        start_node.add_exit_node(else_node)
+
+        cfg_group.set_crnt_node(else_node)
     }
     block[cfg_group]
     {
@@ -319,14 +327,16 @@ conditional [cfg_group]
 
         if else_ndx == False:
             inst.add_label(end_ndx)
-            end_node.add_entry_node(crnt_node)
-            crnt_node.add_exit_node(end_node)
+            end_node.add_entry_node(start_node)
+            start_node.add_exit_node(end_node)
         else:
             inst.add_label(else_ndx)
             end_node.add_entry_node(else_node)
             else_node.add_exit_node(end_node)
 
-        crnt_node.add_iloc_inst(inst)
+        start_node.add_iloc_inst(inst)
+
+        cfg_group.set_crnt_node(end_node)
     }
     )
     ;
@@ -349,6 +359,8 @@ loop [cfg_group]
 
         # EXIT_LIST:
         cfg_group.get_crnt_node().add_exit_node(while_node)
+
+        cfg_group.set_crnt_node(while_node)
     }
     block[cfg_group])
     {
@@ -379,6 +391,8 @@ loop [cfg_group]
         # EXIT LIST
         start_node.add_exit_node(while_node)
         rtn_node_add_exit_node(end_node)
+
+        cfg_group.set_crnt_node(end_node)
     }
     ;
 
@@ -398,7 +412,7 @@ ret [cfg_group]
 {
     r1 = False
 }
-   :  #(RETURN (r1=expression[curr_node, table, structTable, reg_count]
+   :  #(RETURN (r1=expression[cfg_group]
     {
         inst = Inst_Node("storeret", r1)
         cfg_group.get_crnt_node().add_iloc_inst(inst)
@@ -426,3 +440,238 @@ invocation [cfg_group]
     )
     ;
 
+lvalue [cfg_group]
+returns [dest_reg = False]
+{
+    r1 = False
+}
+    :  id:ID
+    {
+        var_name = id.getText()
+        dest_reg = cfg_group.get_value(var_name)
+    }
+    |  #(DOT r1=lvalue[cfg_group] id1:ID)
+    {
+        NOT_SUPP = 0
+    }
+    ;
+
+expression [cfg_group]
+returns [dest_reg = False]
+{
+    r1 = False
+    r2 = False
+    load_insts = []
+}
+    :  #(AND r1=expression[cfg_group] r2=expression[cfg_group]
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("and", r1, r2, dest_reg)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    )
+    |  #(OR r1=expression[cfg_group] r2=expression[cfg_group]
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("or", r1, r2, dest_reg)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    )
+    |  #(DIVIDE r1=expression[cfg_group] r2=expression[cfg_group])
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("div", r1, r2, dest_reg)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    |  #(TIMES r1=expression[cfg_group] r2=expression[cfg_group])
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("mult", r1, r2, dest_reg)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    |  #(PLUS r1=expression[cfg_group] r2=expression[cfg_group])
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("add", r1, r2, dest_reg)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    |  #(MINUS r1=expression[cfg_group] r2=expression[cfg_group])
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("sub", r1, r2, dest_reg)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    |  #(EQ r1=expression[cfg_group] r2=expression[cfg_group])
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("cmpEQ", r1, r2, dest_reg)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    |  #(LT r1=expression[cfg_group] r2=expression[cfg_group])
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("cmpLT", r1, r2, dest_reg)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    |  #(GT r1=expression[cfg_group] r2=expression[cfg_group])
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("cmpLE", r2, r1, dest_reg)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    |  #(NE r1=expression[cfg_group] r2=expression[cfg_group])
+    {
+        tmp_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("cmpEQ", r1, r2, tmp_reg)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("xori", r1, dest_reg, False, 1)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    |  #(LE r1=expression[cfg_group] r2=expression[cfg_group])
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("cmpLE", r1, r2, dest_reg)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    |  #(GE r1=expression[cfg_group] r2=expression[cfg_group])
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("cmpLT", r2, r1, dest_reg)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    |  #(NOT r1=expression[cfg_group])
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("xori", r1, dest_reg, False, 1)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    |  #(NEG r1=expression[cfg_group])
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("multi", r1, dest_reg, False, -1)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    |  #(NEW id:ID)
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("new")
+        inst.set_val_name(id.getText())
+        inst.set_imd(4) # size of structure (4 is a placeholder)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    |  #(INVOKE id3:ID (arguments[cfg_group, load_insts])?
+    {
+        cfg_group.get_crnt_node().extend_iloc(load_insts)
+
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("call")
+        inst.set_val_name(id3.getText())
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    )
+    {
+        dest_reg = Register(cfg_group.get_counter(), cfg_group.get_func_ret())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("loadret", dest_reg)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    |  #(DOT r1=expression[cfg_group] id2:ID)
+    {
+        NOT_SUPP = 0
+    }
+    |  id1:ID
+    {
+        var_name = id.getText()
+        dest_reg = cfg_group.get_value(var_name)
+    }
+    |  i:INTEGER
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("loadi", dest_reg)
+        inst.set_imd = int(i.getText())
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    |  TRUE
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("loadi", dest_reg)
+        inst.set_imd = 1
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+
+    }
+    |  FALSE
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("loadi", dest_reg)
+        inst.set_imd = 0
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    |  NULL
+    {
+        dest_reg = Register(cfg_group.get_counter())
+        cfg_group.increment_counter()
+
+        inst = Inst_Node("loadi", dest_reg)
+        inst.set_imd = 0
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    ;
+
+arguments [cfg_group, load_insts]
+{
+    r1 = False
+    arg_count = 0
+}
+    :  #(ARGS ((r1=expression[cfg_group]
+    {
+        inst = Inst_Node("storeoutargument", r1)
+        inst.set_arg_num(arg_count)
+        arg_count = arg_count + 1
+        load_insts.append(inst)
+    }
+    )+)?
+    )
+    ;

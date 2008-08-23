@@ -88,7 +88,7 @@ def decode_code(self, s):
         raise DecodeError("invalid type code = %s" % (type, ))
 
 r_type_instructions = ['and', 'or', 'xor', 'add', 'sub', 'mul', 'div', 'cmpLT', 'cmpLE', 'cmpEQ']
-i_type_instructions = ['addi', 'subi', 'multi', 'divi', 'st', 'ld', 'set', 'mov']
+i_type_instructions = ['andi', 'ori', 'xori', 'addi', 'subi', 'multi', 'divi', 'st', 'ld', 'set', 'mov']
 b_type_instructions = ['cbr']
 j_type_instructions = ['ba', 'call', 'ret']
 

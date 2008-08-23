@@ -33,7 +33,13 @@ def run_simulation(decoded_inst, labels, regs, memory, pc):
         pc = pc + 1
 
     elif inst.type == icode.I_TYPE:
-        if inst.alu_op == icode.i_type_instructions.index('addi'):
+        if inst.alu_op == icode.i_type_instructions.index('andi'):
+            regs[inst.dest] = regs[inst.src1] & inst.imdt1
+        elif inst.alu_op == icode.i_type_instructions.index('ori'):
+            regs[inst.dest] = regs[inst.src1] | inst.imdt1
+        elif inst.alu_op == icode.i_type_instructions.index('xori'):
+            regs[inst.dest] = regs[inst.src1] ^ inst.imdt1
+        elif inst.alu_op == icode.i_type_instructions.index('addi'):
             regs[inst.dest] = regs[inst.src1] + inst.imdt1
         elif inst.alu_op == icode.i_type_instructions.index('subi'):
             regs[inst.dest] = regs[inst.src1] - inst.imdt1

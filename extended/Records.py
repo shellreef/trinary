@@ -63,6 +63,18 @@ class Records(object):
             print "id '" + key + "' not defined"
             raise SystemExit
 
+    def in_local(self, key):
+        if key in self.local_table:
+            return True
+        else:
+            return False
+
+    def in_global(self, key):
+        if key in self.global_table:
+            return True
+        else:
+            return False
+
     # Function return value access functions
     def get_func_ret(self):
         return self.function_return_type

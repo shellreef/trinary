@@ -16,6 +16,12 @@ class Inst_Node(object):
         if imd != False:
             self.imd = imd
 
+    def set_imd(self, imd):
+        self.imd = imd
+
+    def get_imd(self):
+        return self.imd
+
     def set_arg_num(self, arg_num):
         self.arg_num = arg_num
 

@@ -12,6 +12,7 @@ class Node(object):
             self.labels.append(label)
 
         self.num_locals = 0
+        self.num_args   = 0
 
     def add_entry_node(self, node):
         self.entry_nodes.append(node)
@@ -36,3 +37,9 @@ class Node(object):
 
     def get_num_locals(self):
         return self.num_locals
+
+    def set_num_args(self, num):
+        self.num_args = num
+
+    def get_num_args(self):
+        return self.num_args
