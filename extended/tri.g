@@ -335,7 +335,7 @@ returns [result = False]
 
 datatypes [records]
 returns [result = False]
-   :  INT
+    :  INT
     {
         result = Entry(0)
     }
@@ -723,7 +723,7 @@ returns [rtn = False]
 
         rtn = function_entry.get_return_type()
     }
-      (arguments[records, f_entry])?)
+    (arguments[records, f_entry])?)
     |  #(DOT lft=expression[records] val5:ID)
     {
         value = val5.getText()

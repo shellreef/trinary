@@ -1,11 +1,17 @@
 
 import sys
+import Node
 
 class Records(object):
+
     def __init__(self):
-        self.global_table = {}
-        self.local_table  = {}
-        self.counter      = 0
+        self.global_table  = {}
+        self.local_table   = {}
+        self.counter       = 0
+        self.label_counter = 0
+        self.start_node    = Node()
+        self.end_node      = Node()
+        self.crnt_node     = self.start_node
 
     # counter access functions
     def increment_counter(self):
@@ -16,6 +22,12 @@ class Records(object):
 
     def get_counter(self):
         return self.counter
+
+    def increment_label_count(self):
+        self.label_counter = self.label_counter + 1
+
+    def get_label_counter(self):
+        return self.label_counter
 
     # add to table functions
     def add_to_global(self, key, value):
@@ -64,5 +76,19 @@ class Records(object):
 
     def get_num_params(self):
         return self.crnt_fuctions.get_num_params()
+
+    # current node access methods
+    def set_crnt_node(self, node):
+        self.crnt_node = node
+
+    def get_crnt_node(self):
+        return self.crnt_node
+
+    def get_start_node(self):
+        return self.start_node
+
+    def get_end_node(self):
+        return self.end_node
+
 
 
