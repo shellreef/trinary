@@ -25,6 +25,9 @@ class Node(object):
     def add_iloc_inst(self, inst):
         self.iloc_inst.append(inst)
 
+    def extend_iloc(self, iloc_insts):
+        self.iloc_inst.extend(iloc_insts)
+
     def add_sparc_inst(self, inst):
         self.sparc_inst.append(int)
 

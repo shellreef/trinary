@@ -10,6 +10,8 @@ class Register(object):
         if datatype != False:
             self.datatype = datatype
 
+        self.mem_loc = 0
+
     def __str__(self):
         return str(self.virtual_ndx)
 
@@ -24,3 +26,9 @@ class Register(object):
 
     def get_datatype(self):
         return self.datatype
+
+    def set_mem_loc(self, loc):
+        self.mem_loc = loc
+
+    def get_mem_loc(self):
+        return self.mem_loc

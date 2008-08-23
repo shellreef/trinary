@@ -28,3 +28,9 @@ class Inst_Node(object):
     def get_val_name(self):
         return self.val_name
 
+    def add_label(self, label):
+        self.label.append(label)
+
+    def get_label_by_ndx(self, ndx):
+        return self.label[ndx]
+

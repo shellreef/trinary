@@ -158,3 +158,271 @@ function [cfg_group]
     )
     ;
 
+parameters [cfg_group]
+    :  #(PARAMS (params_decl[cfg_group])?)
+    ;
+
+params_decl [cfg_group]
+    :  (decl[cfg_group, ILOC_CNST.ARGUMENT])+
+    ;
+
+return_type
+returns [ data_type = False ]
+    :  #(RETTYPE data_type=ret_type)
+    ;
+
+ret_type
+returns [ data_type = False ]
+    :  data_type=datatypes
+    |  VOID
+    ;
+
+statements [cfg_group]
+    :  #(STMTS (statement[cfg_group])*)
+    ;
+
+statement [cfg_group]
+    :  block[cfg_group]
+    |  assignment[cfg_group]
+    |  print[cfg_group]
+    |  read[cfg_group]
+    |  conditional[cfg_group]
+    |  loop[cfg_group]
+    |  delete[cfg_group]
+    |  ret[cfg_group]
+    |  invocation[cfg_group]
+    ;
+
+block [cfg_group]
+    :  #(BLOCK statements[cfg_group])
+    ;
+
+assignment [cfg_group]
+{
+    r1 = False
+    r2 = False
+}
+    :  #(ASSIGN r1=lvalue[cfg_group] r2=expression[cfg_group])
+    {
+
+        # store into a global
+        if r1.get_mem_loc() == ILOC_CONST.GLOBAL:
+            inst = Inst_Node("storeai", r2)
+            inst.set_val_name(r1.get_val_name())
+
+        # store into memory
+        if r1.get_mem_loc() == ILOC_CONST.MEMORY:
+            inst = Inst_Node("storeai", r2, r1)
+
+        # store into a register
+        else:
+            inst = Inst_Node("mov", r2, r1)
+
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    ;
+
+
+print [cfg_group]
+{
+    r1 = False
+    end = False
+}
+    :  #(PRINT r1=expression[cfg_group] (ENDL
+    {
+        end = True
+    }
+    )?)
+    {
+        if end:
+            inst = Inst_Node("println", r1)
+        else
+            inst = Inst_Node("print", r1)
+
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    ;
+
+
+read [cfg_group]
+{
+    r1 = False
+}
+    :  #(READ r1=lvalue[cfg_group])
+    {
+        inst = Inst_Node("read", r1)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    ;
+
+conditional [cfg_group]
+{
+    r1 = False
+    else_ndx = False
+    then_ndx = False
+    end_ndx = False
+}
+    :  #(IF r1=expression[cfg_group]
+    {
+        crnt_node = cfg_group.get_crnt_node()
+
+        # FOR THEN BLOCK
+        # SET LABEL & CREATE:
+        then_node = Node(cfg_group.get_label_counter())
+        then_ndx = cfg_group.get_label_counter()
+        cfg_group.increment_label_counter()
+
+        # ENTRY LIST:
+        then_node.add_entry_node(crnt_node)
+
+        # EXIT LIST:
+        crnt_node.add_exit_node(then_node)
+    }
+    block[cfg_group]
+    {
+        then_node = cfg_group.get_crnt_node()
+    }
+    (
+    {
+        # FOR ELSE BLOCK
+        # SET LABEL & CREATE:
+        else_node = Node(cfg_group.get_label_counter())
+        else_ndx = cfg_group.get_label_counter()
+        cfg_group.increment_label_counter()
+
+        # ENTRY LIST:
+        else_node.add_entry_node(crnt_node)
+
+        # EXIT LIST:
+        crnt_node.add_exit_node(else_node)
+    }
+    block[cfg_group]
+    {
+        else_node = cfg_group.get_crnt_node()
+    }
+    )?
+    {
+        # EXIT NODE
+        # SET LABEL & CREATE
+        end_node = Node(cfg_group.get_label_counter())
+        end_ndx = cfg_group.get_label_counter()
+        cfg_group.increment_label_counter()
+
+        # ENTRY_LIST
+        end_node.add_entry_node(then_node)
+
+        # EXIT_LIST
+        then_node.add_exit_node(end_node)
+
+        inst = Inst_Node("cbr", r1)
+        inst.add_label(then_ndx)
+
+        if else_ndx == False:
+            inst.add_label(end_ndx)
+            end_node.add_entry_node(crnt_node)
+            crnt_node.add_exit_node(end_node)
+        else:
+            inst.add_label(else_ndx)
+            end_node.add_entry_node(else_node)
+            else_node.add_exit_node(end_node)
+
+        crnt_node.add_iloc_inst(inst)
+    }
+    )
+    ;
+
+loop [cfg_group]
+{
+    r1 = False
+}
+    :  #(WHILE r1=guard:expression[cfg_group]
+    {
+        start_node = cfg_group.get_crnt_node()
+        while_ndx = cfg_group.get_label_counter()
+
+        # SET LABEL & CREATE:
+        while_node = new node(cfg_group.get_label_counter())
+        cfg_group.increment_label_counter()
+
+        # ENTRY_LIST:
+        while_node.add_entry_node(cfg_group.get_crnt_node())
+
+        # EXIT_LIST:
+        cfg_group.get_crnt_node().add_exit_node(while_node)
+    }
+    block[cfg_group])
+    {
+        # update node reference
+        rtn_node = cfg_group.get_crnt_node()
+
+        # end node, label & create
+        end_node = Node(cfg_group.get_label_counter())
+        end_ndx = cfg_group.get_label_counter()
+        cfg_group.increment_label_counter()
+
+        inst = Inst_Node("cbr", r1)
+        inst.add_label(while_ndx)
+        inst.add_label(end_ndx)
+        start_node.add_iloc_inst(inst)
+
+        # Repeat guard expression for repeated guard evaluation
+        r2 = expression(guard, cfg_group)
+        inst = Inst_Node("cbr", r2)
+        inst.add_label(while_ndx)
+        inst.add_label(end_ndx)
+        rtn_node.add_iloc_inst(inst)
+
+        # ENTRY LIST:
+        while_node.add_entry_node(start_node)
+        end_node.add_entry_node(rtn_node)
+
+        # EXIT LIST
+        start_node.add_exit_node(while_node)
+        rtn_node_add_exit_node(end_node)
+    }
+    ;
+
+delete [cfg_group]
+{
+    r1 = False
+}
+    :  #(DELETE r1=expression[cfg_group]
+    {
+        inst = Inst_Node("del", r1)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    )
+    ;
+
+ret [cfg_group]
+{
+    r1 = False
+}
+   :  #(RETURN (r1=expression[curr_node, table, structTable, reg_count]
+    {
+        inst = Inst_Node("storeret", r1)
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    )?
+    {
+        inst = Inst_Node("ret")
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    )
+    ;
+
+invocation [cfg_group]
+{
+    load_insts = []
+}
+   : #(INVOKE id:ID arguments[cfg_group, load_insts]
+    {
+        cfg_group.get_crnt_node().extend_iloc(load_insts)
+
+        inst = Inst_Node("call")
+        inst.set_val_name(id.getText())
+        cfg_group.get_crnt_node().add_iloc_inst(inst)
+    }
+    )
+    ;
+

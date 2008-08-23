@@ -23,7 +23,7 @@ class Records(object):
     def get_counter(self):
         return self.counter
 
-    def increment_label_count(self):
+    def increment_label_counter(self):
         self.label_counter = self.label_counter + 1
 
     def get_label_counter(self):
