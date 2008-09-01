@@ -3,7 +3,14 @@
 */
 header
 {
+    import os, sys
 }
+
+options
+{
+    language="Python";
+}
+
 class TriLexer extends Lexer;
 
 options
@@ -65,9 +72,9 @@ WS       :  (  ' '
             |  '\f'
                // handle newlines
             |  (  options {generateAmbigWarnings=false;}
-               :  "\r\n"   // Evil DOS
-               |  '\r'     // Macintosh
-               |  '\n'     // Unix (the right way)
+               :  "\r\n"   # Evil DOS
+               |  '\r'     # Macintosh
+               |  '\n'     # Unix (the right way)
                )
                { newline(); }
             )+

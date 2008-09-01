@@ -1,5 +1,5 @@
 
-class ILOCConstants(object):
+class Iloc_cnst(object):
 
     ADD              = "add"
     ADDI             = "addi"

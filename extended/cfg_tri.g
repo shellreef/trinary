@@ -11,6 +11,7 @@ class TriCFG extends TreeParser;
 options
 {
    importVocab=TriLexer;
+   language="Python";
 }
 
 program [cfg_group]
@@ -41,7 +42,6 @@ decl [cfg_group, decl_type]
 
          # add arguments to table
         if decl_type == Iloc_cnst.ARGUMENT:
-
             reg = Register(cfg_group.get_counter(), data_type)
             reg.set_mem_set(Iloc_cnst.LOCAL)
             cfg_group.add_to_local(val_name, reg)

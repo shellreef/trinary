@@ -79,14 +79,17 @@ def run_simulation(decoded_inst, labels, regs, memory, pc):
             if inst.imdt1 < 0:
                 if inst.imdt1 == -1:
                     print regs[register_names.index('o0')]
-                if inst.imdt1 == -2:
+                elif inst.imdt1 == -2:
                     regs[register_names.index('i0')] = int(input(''))
                 # TODO malloc & free
-                if inst.imdt1 == -3:
+                elif inst.imdt1 == -3:
                     print 'malloc'
-                if inst.imdt1 == -4:
+                elif inst.imdt1 == -4:
                     print 'free'
-            pc = pc + 1
+                pc = pc + 1
+            else:
+                regs[register_names.index('ra')] = pc + 1
+                pc = self.imdt1
         else:
             print "invalid j_type"
             raise SystemExit
