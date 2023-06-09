@@ -1,2 +1,0 @@
-# trinary
-Trinary Computer Simulator
